@@ -23,6 +23,55 @@
 | 18 | Books | 93–95 |
 | 19 | Conference and Institute Proceedings | 96 |
 
+## Macro Dispatch Sketches
+
+### `cs:citation` authority routing
+```text
+start citation
+  layout delimiter="; "
+    choose on item.type
+      legal_case → call macro legal-case
+        legal-case:
+          if position="first" → legal-case-first
+            • case-name → reporter-(print|wl) → pinpoint → court-and-date → weight-parentheticals → subsequent-history
+          else if variable references present → legal-case-cross-reference
+            • cross-reference-cue + legal-case-first core → court-and-date → weight-parentheticals → references tail
+          else → legal-case-short
+            • same base chain as first cite but omit weight/subsequent history
+      legislation → call macro statute-code when authority/collection-title/title/chapter-number present, else tex-statute
+        statute-code:
+          branch by position="first"/references/else to select statute-code-first, statute-code-cross-reference, statute-code-short
+            • first = full section + status; short = code + § + section; cross-reference prefixes cue and appends references
+        tex-statute:
+          relies on constitution-core/session-law/etc. helpers (no position branching yet)
+      bill → call tex-statute (future reuse with constitution/session-law)
+      treaty|standard → call tac-core with same position+references short-form logic (first → volume reporter § section + year/authority; cross → cue + section; short → code § section)
+      article-journal → call article-journal (no short-form split)
+      book|chapter|report|reference → call book-like (shares helpers with bibliography; uses short macros for repeated cites via internal choose blocks)
+      webpage|post → call web (includes issued date & URL; has internal short-form helpers like web-short)
+      else → generic fallback (title, issued year)
+end citation
+```
+
+### `cs:bibliography` authority routing & sort
+```text
+start bibliography
+  sort keys:
+    1. author (names rendered via shared name node definitions)
+    2. title (ensures consistent secondary ordering)
+  layout suffix="."
+    choose on item.type (mirrors citation routing but without short-form branches)
+      legal_case → group delimiter=", " → case-name + reporter + court-year
+        • case-name, reporter, court-year reuse same helper macros used inside legal-case-first/short
+      legislation|bill → tex-statute (full form only; bibliography intentionally omits § status short-form variants)
+      treaty|standard → tex-admin-code (bibliography analogue to tac-core-first)
+      article-journal → article-journal (same macro as citation)
+      book|chapter|report|reference → book-like (same macro as citation, ensures shared handling of editors/editions)
+      webpage|post → web (same macro as citation, including issued date formatting)
+      else → fallback group with title + issued.year (shared with citation fallback)
+end bibliography
+```
+
 ## Citation Requirement Matrix
 | Citation Type | Required CSL Variables | Ordering & Punctuation | Mandatory Abbreviations | Short-Form, Parenthetical & Signal Notes | Footnote vs. Bibliography | Greenbook Reference |
 | --- | --- | --- | --- | --- | --- | --- |
