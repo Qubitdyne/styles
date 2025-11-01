@@ -56,13 +56,13 @@ ires checking off every indented child.
       - [x] Run `rg "_short" temp -n` to generate an initial list of macro definitions and invocations. (Confirmed command currently only surfaces backlog references because implemented macros are hyphenated; noted follow-up in `NOTES.md`.)
       - [x] Open `texas-greenbook-15th-edition.csl` and TOA counterparts in a CSL-aware editor to confirm the matches and capture surrounding context. (Verified short-form coverage for cases/secondary materials and documented absence in TOA variants.)
       - [x] Copy the macro names and file locations into `NOTES.md`, grouping them by authority type for easy reference. (Inventory logged under “Short-form macro inventory (2025-11-02)”.)
-      - [ ] Flag any macros with ambiguous naming or duplicate purposes for follow-up clarification tasks.
+      - [x] Flag any macros with ambiguous naming or duplicate purposes for follow-up clarification tasks.
         - [x] Review each inventoried macro name against its implementation to confirm the intended scope and avoid overlaps.
         - [x] Document ambiguous or duplicated macros in `NOTES.md`, including file names, line ranges, and a concise descript
 ion of the conflicting behavior.
         - [x] Draft proposed resolutions (rename, consolidate, or split) and record the rationale alongside related requirement
  matrix entries.
-        - [ ] Create follow-up TODO entries or GitHub issues for any macros that require broader refactors or reviewer input.
+        - [x] Create follow-up TODO entries or GitHub issues for any macros that require broader refactors or reviewer input. (2025-11-02 review confirmed existing backlog coverage; no new entries required beyond the standing short-form epic noted in `NOTES.md`.)
     - [ ] Diagram current conditional logic and data dependencies for each macro in `NOTES.md` to identify overlapping pathways.
       - [ ] For every macro captured, sketch the `if/else` and `choose` structures, noting required variables and fallback behavior.
       - [ ] Highlight reuse of helper macros or localized terms to map dependency chains accurately.
@@ -468,7 +468,7 @@ ion of the conflicting behavior.
     - [ ] List outstanding issues requiring future attention or upstream consultation.
     - [ ] Ensure `NOTES.md` captures closure details and references to supporting tests.
     - [ ] Communicate updates to collaborators or maintainers via shared channels if relevant.
-- [ ] **Decide on shared locale packaging.** Draft the consolidated locale file for terms like “art.” and “ch.” and plan integration across all drafts per the standing assumption.
+- [x] **Decide on shared locale packaging.** Draft the consolidated locale file for terms like “art.” and “ch.” and plan integration across all drafts per the standing assumption. (Validated locale metadata and documented final review in `NOTES.md` on 2025-11-02.)
   - [x] Identify all non-default terms currently overridden in the main and TOA styles, listing them in `NOTES.md` along with their source citations.
     - [x] Scan CSL files for `<term>` overrides or localized string literals.
     - [x] Compile a table mapping each term to its use-case and associated Greenbook citation.
@@ -498,11 +498,11 @@ ion of the conflicting behavior.
     - [x] Align test fixture updates with locale deployment to avoid inconsistent outputs.
     - [x] Update the TODO timeline or roadmap reflecting these dependencies.
 - [ ] **Investigate supplemental references.** Follow up on OCR availability for the Uniform Format Manual and confirm TRCP/TRAP cross-references and historical reporter sources listed in `NOTES.md`.
-  - [ ] Verify OCR readiness or perform text extraction for the supplemental manuals (Uniform Format Manual, rulemaking history PDFs) and store accessible copies or summaries.
-    - [ ] Check existing repositories or archives for machine-readable versions before initiating OCR.
-    - [ ] If OCR is needed, select tooling, configure language options, and process the documents.
-    - [ ] Review output for accuracy, correcting errors or marking unclear sections for follow-up.
-    - [ ] Save processed text in `temp/` or a referenced location with clear filenames.
+  - [x] Verify OCR readiness or perform text extraction for the supplemental manuals (Uniform Format Manual, rulemaking history PDFs) and store accessible copies or summaries. (2025-11-02 PyPDF2 spot-check confirmed existing PDFs remain searchable; no new exports required.)
+    - [x] Check existing repositories or archives for machine-readable versions before initiating OCR. (Existing in-repo PDFs are text-searchable; no replacements needed.)
+    - [x] If OCR is needed, select tooling, configure language options, and process the documents. (Not required; confirmed originals provide selectable text.)
+    - [x] Review output for accuracy, correcting errors or marking unclear sections for follow-up. (Sample extractions from each manual read cleanly; no corrections necessary.)
+    - [x] Save processed text in `temp/` or a referenced location with clear filenames. (Retained canonical PDFs in `temp/`; no additional derivatives needed.)
   - [x] Cross-reference TRCP/TRAP citations in `NOTES.md` with the supplemental materials to validate abbreviations and historical reporter references.
     - [x] Build a comparison table aligning `NOTES.md` entries with supplemental source terminology.
     - [x] Highlight discrepancies in abbreviations or reporter names needing resolution.
