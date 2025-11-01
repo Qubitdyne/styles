@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ns0:style xmlns:ns0="http://purl.org/net/xbiblio/csl" version="1.0.2" class="note" default-locale="en-US">
+  <ns0:info>
+    <ns0:title>Texas Greenbook (15th ed.) — Table of Authorities (Grouped + Leaders)</ns0:title>
+    <ns0:title-short>Texas Greenbook 15th TOA (Grouped Leaders)</ns0:title-short>
+    <ns0:id>http://www.zotero.org/styles/texas-greenbook-15th-toa-grouped-leaders</ns0:id>
+    <ns0:link href="http://www.zotero.org/styles/texas-greenbook-15th-toa-grouped" rel="self" />
+    <ns0:link href="http://www.zotero.org/styles/texas-greenbook-15th-master" rel="template" />
+    <ns0:link href="https://www.txcourts.gov/rules-forms/rules-standards/" rel="documentation" />
+    <ns0:author><ns0:name>GPT-5 Pro</ns0:name></ns0:author>
+    <ns0:category citation-format="note" /><ns0:category field="law" />
+    <ns0:updated>2025-11-01T01:19:57Z</ns0:updated>
+    <ns0:summary>TOA bibliography grouped by category: Cases → Statutes/Constitution → Regulations → Session Laws → AG Opinions → Secondary → Others.</ns0:summary>
+  </ns0:info>
+
+  <ns0:locale xml:lang="en-US">
+    <ns0:terms>
+      <ns0:term name="section" form="symbol">§</ns0:term>
+      <ns0:term name="article" form="short">art.</ns0:term>
+      <ns0:term name="chapter" form="short">ch.</ns0:term>
+      <ns0:term name="rule" form="short">R.</ns0:term>
+    </ns0:terms>
+  </ns0:locale>
+
+  
+  <ns0:macro name="case-name"><ns0:text variable="title" font-style="italic" /></ns0:macro>
+  <ns0:macro name="reporter-print">
+    <ns0:group delimiter=" "><ns0:text variable="volume" /><ns0:text variable="container-title" /><ns0:text variable="page" /></ns0:group>
+  </ns0:macro>
+  <ns0:macro name="reporter-wl">
+    <ns0:group delimiter=", "><ns0:text variable="number" prefix="No. " /><ns0:text variable="collection-number" /></ns0:group>
+  </ns0:macro>
+  <ns0:macro name="pinpoint">
+    <ns0:choose>
+      <ns0:if variable="volume page container-title" match="all"><ns0:text variable="locator" prefix=", " /></ns0:if>
+      <ns0:else-if variable="collection-number locator" match="all"><ns0:text variable="locator" prefix=", at *" /></ns0:else-if>
+    </ns0:choose>
+  </ns0:macro>
+  <ns0:macro name="court-and-date">
+    <ns0:choose>
+      <ns0:if variable="volume page container-title" match="all">
+        <ns0:group prefix=" (" suffix=")">
+          <ns0:text variable="authority" />
+          <ns0:date variable="issued" prefix=" "><ns0:date-part name="year" /></ns0:date>
+          <ns0:text variable="status" prefix=", " />
+        </ns0:group>
+      </ns0:if>
+      <ns0:else>
+        <ns0:group prefix=" (" suffix=")">
+          <ns0:text variable="authority" />
+          <ns0:date variable="issued" form="text" prefix=" " />
+          <ns0:text variable="status" prefix=", " />
+        </ns0:group>
+      </ns0:else>
+    </ns0:choose>
+  </ns0:macro>
+  <ns0:macro name="weight-parentheticals">
+    <ns0:choose><ns0:if variable="genre"><ns0:text variable="genre" prefix=" (" suffix=")" /></ns0:if></ns0:choose>
+    <ns0:choose><ns0:if variable="medium"><ns0:text variable="medium" prefix=" (" suffix=")" /></ns0:if></ns0:choose>
+  </ns0:macro>
+  <ns0:macro name="legal-case">
+    <ns0:group delimiter=", ">
+      <ns0:text macro="case-name" />
+      <ns0:choose>
+        <ns0:if variable="volume page container-title" match="all"><ns0:text macro="reporter-print" /></ns0:if>
+        <ns0:else><ns0:text macro="reporter-wl" /></ns0:else>
+      </ns0:choose>
+      <ns0:text macro="pinpoint" />
+    </ns0:group>
+    <ns0:text macro="court-and-date" />
+    <ns0:text macro="weight-parentheticals" />
+  </ns0:macro>
+
+  
+  <ns0:macro name="statute-code">
+    <ns0:group delimiter=" "><ns0:text variable="container-title" /><ns0:text term="section" form="symbol" /><ns0:text variable="section" /></ns0:group>
+  </ns0:macro>
+  <ns0:macro name="constitution-core">
+    <ns0:group delimiter=", ">
+      <ns0:group delimiter=" ">
+        <ns0:text variable="container-title" />
+        <ns0:group delimiter=" "><ns0:text term="article" form="short" /><ns0:text variable="chapter-number" /></ns0:group>
+      </ns0:group>
+      <ns0:group delimiter=" "><ns0:text term="section" form="symbol" /><ns0:text variable="section" /></ns0:group>
+    </ns0:group>
+    <ns0:text variable="status" prefix=" (" suffix=")" />
+  </ns0:macro>
+  <ns0:macro name="session-law">
+    <ns0:group delimiter=", ">
+      <ns0:text variable="title" />
+      <ns0:text variable="collection-number" />
+      <ns0:text variable="number" prefix="ch. " />
+      <ns0:group delimiter=" "><ns0:text term="section" form="symbol" /><ns0:text variable="section" /></ns0:group>
+      <ns0:group delimiter=" "><ns0:text variable="volume" /><ns0:text variable="container-title" /><ns0:text variable="page" /></ns0:group>
+    </ns0:group>
+  </ns0:macro>
+  <ns0:macro name="tac-core">
+    <ns0:group delimiter=" "><ns0:text variable="volume" /><ns0:text variable="container-title" /><ns0:text term="section" form="symbol" /><ns0:text variable="section" /></ns0:group>
+    <ns0:date variable="issued" prefix=" (" suffix=")"><ns0:date-part name="year" /></ns0:date>
+    <ns0:text variable="authority" prefix=" (" suffix=")" />
+  </ns0:macro>
+  <ns0:macro name="rule-core"><ns0:group delimiter=" "><ns0:text variable="container-title" /><ns0:text variable="section" /></ns0:group></ns0:macro>
+  <ns0:macro name="municipal-code">
+    <ns0:group delimiter=", ">
+      <ns0:text variable="authority" />
+      <ns0:group delimiter=" "><ns0:text variable="container-title" /><ns0:text variable="chapter-number" /><ns0:group delimiter=" "><ns0:text term="section" form="symbol" /><ns0:text variable="section" /></ns0:group></ns0:group>
+    </ns0:group>
+    <ns0:date variable="issued" prefix=" (" suffix=")"><ns0:date-part name="year" /></ns0:date>
+  </ns0:macro>
+  <ns0:macro name="ag-opinion">
+    <ns0:group delimiter=" "><ns0:text variable="authority" /><ns0:text variable="number" prefix="No. " /></ns0:group>
+    <ns0:date variable="issued" prefix=" (" suffix=")"><ns0:date-part name="year" /></ns0:date>
+  </ns0:macro>
+
+  
+  <ns0:macro name="sort-group">
+    <ns0:choose>
+      <ns0:if type="legal_case"><ns0:text value="1" /></ns0:if>
+      <ns0:else-if type="legislation">
+        <ns0:choose>
+          <ns0:if variable="chapter-number"><ns0:text value="2" /></ns0:if> 
+          <ns0:else-if variable="title"><ns0:text value="4" /></ns0:else-if> 
+          <ns0:else><ns0:text value="2" /></ns0:else> 
+        </ns0:choose>
+      </ns0:else-if>
+      <ns0:else-if type="regulation"><ns0:text value="3" /></ns0:else-if>
+      <ns0:else-if type="report"><ns0:text value="5" /></ns0:else-if>
+      <ns0:else-if type="article-journal book chapter entry-encyclopedia entry-dictionary"><ns0:text value="6" /></ns0:else-if>
+      <ns0:else><ns0:text value="9" /></ns0:else>
+    </ns0:choose>
+  </ns0:macro>
+
+  
+  <ns0:citation et-al-min="4" et-al-use-first="3">
+    <ns0:layout suffix=".">
+      <ns0:choose>
+        <ns0:if type="legal_case"><ns0:text macro="legal-case" /></ns0:if>
+        <ns0:else-if type="regulation">
+          <ns0:choose>
+            <ns0:if variable="volume"><ns0:text macro="tac-core" /></ns0:if>
+            <ns0:else-if variable="authority chapter-number" match="all"><ns0:text macro="municipal-code" /></ns0:else-if>
+            <ns0:else><ns0:text macro="rule-core" /></ns0:else>
+          </ns0:choose>
+        </ns0:else-if>
+        <ns0:else-if type="legislation">
+          <ns0:choose>
+            <ns0:if variable="title"><ns0:text macro="session-law" /></ns0:if>
+            <ns0:else-if variable="chapter-number"><ns0:text macro="constitution-core" /></ns0:else-if>
+            <ns0:else><ns0:text macro="statute-code" /></ns0:else>
+          </ns0:choose>
+        </ns0:else-if>
+        <ns0:else-if type="report"><ns0:text macro="ag-opinion" /></ns0:else-if>
+        <ns0:else><ns0:text variable="title" /></ns0:else>
+      </ns0:choose>
+    </ns0:layout>
+  </ns0:citation>
+
+  
+  <ns0:bibliography hanging-indent="false" second-field-align="flush">
+    <ns0:sort>
+      <ns0:key macro="sort-group" />
+      <ns0:key variable="authority" />
+      <ns0:key variable="container-title" />
+      <ns0:key variable="volume" />
+      <ns0:key variable="page" />
+      <ns0:key variable="title" />
+    </ns0:sort>
+    <ns0:layout suffix=".">
+      <ns0:choose>
+        <ns0:if type="legal_case"><ns0:text macro="legal-case" /></ns0:if>
+        <ns0:else-if type="regulation">
+          <ns0:choose>
+            <ns0:if variable="volume"><ns0:text macro="tac-core" /></ns0:if>
+            <ns0:else-if variable="authority chapter-number" match="all"><ns0:text macro="municipal-code" /></ns0:else-if>
+            <ns0:else><ns0:text macro="rule-core" /></ns0:else>
+          </ns0:choose>
+        </ns0:else-if>
+        <ns0:else-if type="legislation">
+          <ns0:choose>
+            <ns0:if variable="title"><ns0:text macro="session-law" /></ns0:if>
+            <ns0:else-if variable="chapter-number"><ns0:text macro="constitution-core" /></ns0:else-if>
+            <ns0:else><ns0:text macro="statute-code" /></ns0:else>
+          </ns0:choose>
+        </ns0:else-if>
+        <ns0:else-if type="report"><ns0:text macro="ag-opinion" /></ns0:else-if>
+        <ns0:else><ns0:text variable="title" /></ns0:else>
+      </ns0:choose>
+    <ns0:text value=" ........................................" /><ns0:text value="&amp;#9;" /></ns0:layout>
+  </ns0:bibliography>
+</ns0:style>
