@@ -1,0 +1,49 @@
+01: DIFF
+  expected: William V. Dorsaneo and Brandon R. Orr, 1 Texas Litigation Guide § 5.2 (5th ed.; Matthew Bender & Co., New York; 2024) (surveying evidentiary burdens). // Greenbook 15th ed. 2
+  actual:   Jupiter Oil Co. v. Snow, 819 S.W.2d 466, 467 (Tex. 1991).
+
+02: DIFF
+  expected: Robert W. Calvert, The Application for Writ of Error § 469 (1st ed.; West, St. Paul; 1985) (commentary on procedural requirements). // Greenbook 15th ed. 62
+  actual:   IPCO-G. & C. Joint Venture v. A.B. Chance Co., 65 S.W.3d 252, 254 (Tex. App.—Houston [14th Dist.] 2001, pet. denied) (demonstrating comparative fault allocation), prior proceeding sub nom. In re A.B. Chance Co., 56 S.W.3d 730 (Tex. 2001).
+
+03: DIFF
+  expected: Alex W. Albright, “The Texas Discovery Privileges: A Fool’s Game?”, 70 Tex. L. Rev. 781 (1992). // Greenbook 15th ed. 4
+  actual:   Cantu v. State, 939 S.W.2d 627, 631 (Tex. Crim. App. 1997) (addressing double-jeopardy arguments), op. on reh'g, 971 S.W.2d 255 (Tex. Crim. App. 1998).
+
+04: DIFF
+  expected: See also Marisa Chen, “Reconsidering Texas Water Rights”, 55 Tex. Envtl. L.J. 201, at 215 (forthcoming), available at https://example.com/chen-water-rights (Accessed Jan. 12, 2025). // Greenbook 15th ed. 4
+  actual:   Richardson v. Kays, No. 02-03-241-CV, 2003 WL 22457054, at *1 (Tex. App.—Fort Worth Oct. 30, 2003, no pet.) (per curiam) (mem. op.) (memorializing summary-judgment disposition).
+
+05: DIFF
+  expected: Texas Courts Technology Standards Update, Office of Court Administration, 2023, available at https://www.txcourts.gov/technology-standards-update (Accessed Feb. 10, 2025). // Greenbook 15th ed. 76
+  actual:   State v. Auguillard, No. 139002101010, Trial Ct. No. 2013-CR-4567 (338th Dist. Ct., Harris County, Tex. Oct. 21, 2013, prelim. injunction order).
+
+06: DIFF
+  expected: Supreme Court of Texas Issues Annual Report, Texas Judiciary, 2024, available at https://www.txcourts.gov/media/releases/annual-report (Accessed Mar. 15, 2025). // Greenbook 15th ed. 76
+  actual:   In re Academy, Ltd., No. 21-0993, 2024 WL 1234567, at *5 (Tex. Mar. 8, 2024, orig. proceeding, mand. conditionally granted) (per curiam) (slip op.).
+
+07: DIFF
+  expected: Adriana Lopez, “Bench Memorandum on Emergency Injunction Standards”, at 3, unpublished memorandum (draft) (on file with the Tex. Supreme Court). // Greenbook 15th ed. 34
+  actual:   Johnson v. Davis, 512 S.W.3d 398, 402 (Tex. App.—Dallas 2017, on reh'g, op. withdrawn) (mem. op.).
+
+08: DIFF
+  expected: Isabel Ramirez, “Letter to Court Regarding Mediation Update”, at 2, correspondence (letter) (on file with the 191st District Court) (July 8, 2024). // Greenbook 15th ed. 34
+  actual:   Jackson v. Maddox, 53 Tex. Civ. App. 478, 479 (Fort Worth 1909, no writ), prior proceeding sub nom. Maddox v. Jackson, 48 Tex. Civ. App. 101, 106 S.W. 15 (1907), writ ref'd, 102 Tex. 123, 113 S.W. 3 (1908).
+
+09: DIFF
+  expected: Lena R. Hawkins, 2 Texas Injunction Practice § 8.3 (6th ed.; Texas Legal Press, Dallas) (analyzing injunction practice). // Greenbook 15th ed. 94
+  actual:   Tex. Gov’t Code Ann. § 2001.003(6).
+
+10: DIFF
+  expected: Id. § 8.5. // Greenbook 15th ed. 94
+  actual:   Tex. Penal Code § 29.02.
+
+11: DIFF
+  expected: Avery M. Nguyen, “Ethics Update for Trial Lawyers”, at 12, CLE paper (State Bar of Tex. CLE) (Advanced Trial Strategies Institute, Dallas, Tex.). // Greenbook 15th ed. 96
+  actual:   Tex. Rev. Civ. Stat. Ann. art. 5415e-4, § 2(a).
+
+12: DIFF
+  expected: Id. at 15. // Greenbook 15th ed. 96
+  actual:   Tex. Const. art. V, § 6.
+
+Warning: expected 12 lines but rendered 36 citations.
