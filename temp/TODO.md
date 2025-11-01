@@ -2,13 +2,45 @@
 
 ## Completed Work
 - [x] **Familiarized with source material.** Cataloged rule coverage, appendices, and page citations from the Greenbook PDF and logged them in `NOTES.md` for traceability.
+  - [x] Read the entire Greenbook PDF, bookmarking chapters with unresolved CSL implications for later reference.
+  - [x] Indexed each citation rule with page and section numbers inside `NOTES.md`, using consistent anchors for cross-linking.
+  - [x] Captured appendix abbreviations and tables in a structured outline to inform locale and macro design decisions.
+  - [x] Flagged ambiguous or conflicting guidance in `NOTES.md` with follow-up questions for future research tasks.
 - [x] **Surveyed existing CSL styles.** Reviewed Bluebook-derived and legal-dependent templates, noting reusable macros and locale patterns in `NOTES.md`.
+  - [x] Audited representative legal CSL styles (e.g., Bluebook, ALWD) to assess reusable macro patterns.
+  - [x] Documented locale overrides and jurisdiction handling strategies that could translate to the Greenbook effort.
+  - [x] Logged promising helper macros and structural motifs in `NOTES.md`, including file paths for quick lookup.
+  - [x] Identified gaps in existing styles that necessitated bespoke Texas-specific implementations.
 - [x] **Defined citation requirements.** Produced the citation requirement matrix with mandatory variables, abbreviations, and Greenbook page references.
+  - [x] Compiled authority categories (cases, statutes, regulations, secondary sources) with required CSL variables.
+  - [x] Cross-referenced each requirement with the corresponding Greenbook rule citations.
+  - [x] Added abbreviation guidance from Appendix A into the matrix to drive locale planning.
+  - [x] Validated the matrix against sample citations to ensure metadata coverage was sufficient.
 - [x] **Designed style architecture.** Established the macro routing now preserved in `texas-greenbook-15th-edition.csl` and its Table of Authorities variants.
+  - [x] Drafted macro dependency diagrams outlining note, bibliography, and TOA entry points.
+  - [x] Segmented authority handling into reusable helpers to minimize duplication between style variants.
+  - [x] Verified that macro names and scopes conform to CSL schema conventions.
+  - [x] Recorded architectural rationale and known trade-offs in `NOTES.md` for reviewer transparency.
 - [x] **Drafted primary CSL files.** Authored legacy drafts (`draft0`–`draft3`, now archived) along with TOA counterparts covering primary authorities.
+  - [x] Iteratively produced draft styles capturing incremental rule coverage milestones.
+  - [x] Archived superseded drafts under `temp/archive/` with descriptive filenames for historical traceability.
+  - [x] Maintained synchronization between note and TOA variants during each drafting round.
+  - [x] Documented milestone achievements and remaining gaps at the end of each draft cycle.
 - [x] **Implemented secondary source rules.** Completed book-, journal-, CLE-, and web-specific macros shared between citation and bibliography outputs.
+  - [x] Cataloged secondary source authority types with Greenbook references prior to implementation.
+  - [x] Built shared macros for contributors, pinpoint references, and access dates usable across multiple item types.
+  - [x] Validated outputs against Greenbook examples and captured deviations in `NOTES.md`.
+  - [x] Synced TOA handling for secondary materials where applicable or documented exclusions.
 - [x] **Created regression fixtures.** Added `tests.json`, `tests_toa.json`, and matching `expected*.txt` files for authorities and TOA scenarios.
+  - [x] Authored representative citeproc JSON entries for each authority class covered by the drafts.
+  - [x] Generated baseline expected outputs using the current CSL implementations.
+  - [x] Stored fixture provenance (rule citations, assumptions) directly in `NOTES.md` for auditability.
+  - [x] Organized fixtures into logical groupings (general, secondary, TOA) to streamline targeted testing.
 - [x] **Prepared working documentation.** Wrote the `README.md` overview, expanded research `NOTES.md`, and tracked assumptions and deviations.
+  - [x] Summarized repository contents and workflow expectations in `temp/README.md`.
+  - [x] Populated `NOTES.md` with research findings, open questions, and design decisions linked to Greenbook citations.
+  - [x] Established `TODO.md` as the living backlog, aligning entries with documentation anchors.
+  - [x] Reviewed documents for consistency and clarity before marking the preparation complete.
 
 ## Active Development
 ### Citation Logic Gaps
