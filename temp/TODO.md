@@ -462,17 +462,17 @@
     - [x] Compile a table mapping each term to its use-case and associated Greenbook citation.
     - [x] Verify whether terms require pluralization or gender variants for locale coverage.
     - [x] Note duplicate or conflicting overrides needing consolidation.
-  - [ ] Confirm whether the standalone `and` override needs a dedicated Greenbook citation or can defer to the default locale; record the decision path in `NOTES.md`.
-  - [ ] Determine whether existing CSL locales cover these terms or if a custom `locales-en-US-texas-greenbook.xml` (or similar) file is required.
-    - [ ] Review stock CSL locale files to identify overlapping term definitions.
-    - [ ] Assess compatibility of existing locales with Greenbook-specific abbreviations.
-    - [ ] Decide on the necessity of a custom locale and document justification in `NOTES.md`.
-    - [ ] Outline integration implications (e.g., repository structure, packaging requirements).
-  - [ ] Draft the shared locale file structure, including `<term>` entries for abbreviations and any required pluralization forms.
-    - [ ] Sketch the XML schema layout, ensuring compliance with CSL locale standards.
-    - [ ] Populate placeholder entries for each required term with notes on capitalization and punctuation.
-    - [ ] Validate XML syntax using available tooling (e.g., `xmllint`).
-    - [ ] Record mapping between locale entries and style macros for traceability.
+  - [x] Confirm whether the standalone `and` override needs a dedicated Greenbook citation or can defer to the default locale; record the decision path in `NOTES.md`.
+  - [x] Determine whether existing CSL locales cover these terms or if a custom `locales-en-US-texas-greenbook.xml` (or similar) file is required.
+    - [x] Review stock CSL locale files to identify overlapping term definitions.
+    - [x] Assess compatibility of existing locales with Greenbook-specific abbreviations.
+    - [x] Decide on the necessity of a custom locale and document justification in `NOTES.md`.
+    - [x] Outline integration implications (e.g., repository structure, packaging requirements).
+  - [x] Draft the shared locale file structure, including `<term>` entries for abbreviations and any required pluralization forms.
+    - [x] Sketch the XML schema layout, ensuring compliance with CSL locale standards.
+    - [x] Populate placeholder entries for each required term with notes on capitalization and punctuation.
+    - [x] Validate XML syntax using available tooling (e.g., `xmllint`).
+    - [x] Record mapping between locale entries and style macros for traceability.
   - [ ] Plan how the locale file will be distributed (e.g., bundled in this repository vs. submitted upstream) and document integration steps for each style.
     - [ ] Review CSL upstream contribution policies regarding locale files.
     - [ ] Determine versioning strategy and update pathways for consumers of the styles.

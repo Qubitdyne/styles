@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locale xmlns="http://purl.org/net/xbiblio/csl" xml:lang="en-US">
+  <info>
+    <title>English (United States) — Texas Greenbook Terms</title>
+    <id>http://www.zotero.org/styles/locales-en-US-texas-greenbook</id>
+    <link rel="documentation" href="https://www.txcourts.gov/rules-forms/rules-standards/"/>
+    <updated>2025-03-17T00:00:00+00:00</updated>
+  </info>
+  <terms>
+    <!-- Abbreviations drawn from Greenbook ch. 9–13 and Appendix H. -->
+    <term name="article" form="short">art.</term>
+    <term name="chapter" form="short">ch.</term>
+    <term name="rule" form="short">R.</term>
+    <term name="paragraph" form="short">¶</term>
+    <term name="paragraph" form="symbol">¶</term>
+    <term name="section" form="symbol">§</term>
+    <term name="ibid">Id.</term>
+  </terms>
+</locale>
