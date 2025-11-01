@@ -63,21 +63,24 @@ ion of the conflicting behavior.
         - [x] Draft proposed resolutions (rename, consolidate, or split) and record the rationale alongside related requirement
  matrix entries.
         - [x] Create follow-up TODO entries or GitHub issues for any macros that require broader refactors or reviewer input. (2025-11-02 review confirmed existing backlog coverage; no new entries required beyond the standing short-form epic noted in `NOTES.md`.)
-    - [ ] Diagram current conditional logic and data dependencies for each macro in `NOTES.md` to identify overlapping pathways.
-      - [ ] For every macro captured, sketch the `if/else` and `choose` structures, noting required variables and fallback behavior.
-      - [ ] Highlight reuse of helper macros or localized terms to map dependency chains accurately.
-      - [ ] Record gaps where inputs are assumed but not enforced, marking them for later validation tooling.
-      - [ ] Include references to relevant lines or sections within the CSL files so diagrams can be quickly cross-checked.
-    - [ ] Compare macro inputs/outputs with the requirement matrix to spot absent variables or conflicting conditions.
-      - [ ] Align each macro with the corresponding requirement rows, verifying coverage of mandatory fields (e.g., `title-short`, `container-title`).
-      - [ ] Note mismatches in output formatting, such as missing punctuation or misordered elements, in `NOTES.md`.
-      - [ ] Identify where additional metadata (like `jurisdiction` or `collection-number`) must be surfaced in the input schema.
-      - [ ] Create an issues list prioritizing high-impact discrepancies that affect multiple authority types.
-    - [ ] Mark segments needing shared helper extraction or substitution fallbacks for later implementation tasks.
-      - [ ] Annotate inline comments within the CSL files (if permitted) or capture snippet references in `NOTES.md` describing the duplication.
-      - [ ] Determine whether the duplicated logic is best centralized as a macro, a conditional block, or a locale term.
-      - [ ] Estimate the implementation effort for each extraction candidate to aid later scheduling.
-      - [ ] Link each marked segment to the tests that currently cover or miss the associated behavior.
+    - [x] Diagram current conditional logic and data dependencies for each macro in `NOTES.md` to identify overlapping pathways.
+      - [x] For every macro captured, sketch the `if/else` and `choose` structures, noting required variables and fallback behavior.
+      - [x] Highlight reuse of helper macros or localized terms to map dependency chains accurately.
+      - [x] Record gaps where inputs are assumed but not enforced, marking them for later validation tooling.
+      - [x] Include references to relevant lines or sections within the CSL files so diagrams can be quickly cross-checked.
+    - [x] Compare macro inputs/outputs with the requirement matrix to spot absent variables or conflicting conditions.
+      - [x] Align each macro with the corresponding requirement rows, verifying coverage of mandatory fields (e.g., `title-short`, `container-title`).
+      - [x] Note mismatches in output formatting, such as missing punctuation or misordered elements, in `NOTES.md`.
+      - [x] Identify where additional metadata (like `jurisdiction` or `collection-number`) must be surfaced in the input schema.
+      - [x] Create an issues list prioritizing high-impact discrepancies that affect multiple authority types.
+    - [x] Mark segments needing shared helper extraction or substitution fallbacks for later implementation tasks.
+      - [x] Annotate inline comments within the CSL files (if permitted) or capture snippet references in `NOTES.md` describing the duplication.
+      - [x] Determine whether the duplicated logic is best centralized as a macro, a conditional block, or a locale term.
+      - [x] Estimate the implementation effort for each extraction candidate to aid later scheduling.
+      - [x] Link each marked segment to the tests that currently cover or miss the associated behavior.
+    - [ ] Restore jurisdiction-aware branching in `cross-reference-cue` so statutes, rules, and agencies can emit “See also” for non-Texas authorities when `note` is empty (flagged in 2025-11-03 audit).
+    - [ ] Draft shared helpers for the code-section string and administrative core identified in the 2025-11-03 audit before wiring new short-form macros.
+    - [ ] Add undated treatise and CLE fixtures to `tests.json` once the year-fallback helper lands, ensuring the guard logic is regression-tested.
   - [ ] Outline Greenbook Chapter 10–13 short-form triggers (sections, chapters, and rule ranges) with page citations in `NOTES.md` to confirm requirements and edge cases.
     - [ ] Read the relevant PDF sections and list each trigger verbatim with pinpoint page numbers.
       - [ ] Use a PDF reader with search to locate discussions of short-form triggers within Chapters 10–13.
