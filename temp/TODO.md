@@ -601,12 +601,12 @@ ion of the conflicting behavior.
     - [x] Draft a change plan noting which macros (`web`, `web-short`, access-date helpers) need updates and the expected output transformations.
       - [x] Inventory the specific punctuation issues identified during analysis and map them to the macros responsible.
       - [x] Outline proposed modifications (e.g., new `if` conditions, locale term updates) in a short design note stored in `NOTES.md`.
-      - [ ] Circulate or self-review the plan to ensure it covers both note and bibliography contexts before editing XML.
+      - [x] Circulate or self-review the plan to ensure it covers both note and bibliography contexts before editing XML.
       - [x] Capture potential risks (such as interactions with print periodical macros) and plan mitigation steps.
     - [ ] Update CSL conditional logic to handle quoted titles, trailing punctuation, and URL formatting per the documented requirements.
       - [ ] Implement the planned changes incrementally, committing after each macro update to keep diffs focused.
-      - [ ] Introduce guard clauses for missing metadata (e.g., absent access date) to avoid dangling punctuation.
-      - [ ] Ensure locale terms supply repeated strings (such as “available at”) instead of hard-coding text.
+      - [x] Introduce guard clauses for missing metadata (e.g., absent access date) to avoid dangling punctuation.
+      - [x] Ensure locale terms supply repeated strings (such as “available at”) instead of hard-coding text.
       - [ ] Run targeted citeproc commands after each modification to confirm output evolution aligns with expectations.
     - [ ] Verify that modifications apply consistently across note, bibliography, and TOA contexts, adjusting shared helpers if necessary.
       - [ ] Execute regression tests for all web-related fixtures in both note and bibliography modes.

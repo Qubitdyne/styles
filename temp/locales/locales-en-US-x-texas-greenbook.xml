@@ -26,6 +26,8 @@
     <term name="paragraph" form="short">¶</term>
     <term name="paragraph" form="symbol">¶</term>
     <term name="section" form="symbol">§</term>
+    <term name="available at">available at</term>
+    <term name="accessed">accessed</term>
     <term name="ibid">Id.</term>
   </terms>
 </locale>
