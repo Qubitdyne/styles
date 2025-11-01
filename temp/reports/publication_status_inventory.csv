@@ -1,0 +1,6 @@
+string,macro,file,style_context,sample_output,locale_or_inline
+"ch.",session-law,texas-greenbook-15th-edition.csl,Note/Bibliography,"Act of May 27, 2005, 79th Leg., R.S., ch. 484, § 2, sec. 153.433, 2005 Tex. Gen. Laws 1345.","Inline prefix; section symbol via locale term"
+"ch.",session-law,texas-greenbook-15th-toa.csl,TOA (ungrouped),"Act of May 30, 2005, 79th Leg., R.S., ch. 268, § 1.06, 2005 Tex. Gen. Laws 621.","Inline prefix; section symbol via locale term"
+"ch.",session-law,texas-greenbook-15th-toa-grouped.csl,TOA (grouped headings),"Act of May 30, 2005, 79th Leg., R.S., ch. 268, § 1.06, 2005 Tex. Gen. Laws 621.","Inline prefix; section symbol via locale term"
+"ch.",session-law,texas-greenbook-15th-toa-grouped-leaders.csl,TOA (grouped leaders),"Act of May 30, 2005, 79th Leg., R.S., ch. 268, § 1.06, 2005 Tex. Gen. Laws 621.","Inline prefix; section symbol via locale term"
+"ch.",session-law,texas-greenbook-15th-toa-leaders.csl,TOA (leaders),"Act of May 30, 2005, 79th Leg., R.S., ch. 268, § 1.06, 2005 Tex. Gen. Laws 621.","Inline prefix; section symbol via locale term"

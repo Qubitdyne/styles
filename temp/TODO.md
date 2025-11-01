@@ -437,9 +437,9 @@ ion of the conflicting behavior.
 - [ ] **Build shared publication/status helpers.** Create reusable macros for statutory publication parentheticals, session-law metadata, and administrative status notes to reduce duplication across code, rule, and agency citations.
     - [ ] Inventory where publication/status text is currently hard-coded across statute, session law, and administrative macros (main and TOA styles).
       - [ ] Search CSL files for publication-related strings using `rg "Supp\.|session|effective" temp` to locate occurrences.
-      - [ ] Create a spreadsheet noting file names, macro contexts, and sample outputs for each string found.
-      - [ ] Differentiate between main style and TOA usages to understand contextual differences.
-      - [ ] Record whether each string is governed by locale terms or inline text.
+      - [x] Create a spreadsheet noting file names, macro contexts, and sample outputs for each string found.
+      - [x] Differentiate between main style and TOA usages to understand contextual differences.
+      - [x] Record whether each string is governed by locale terms or inline text.
     - [x] Use `rg` to list instances of publication-related strings (e.g., “Supp.”, “session”) within the CSL files.
       - [x] Capture command outputs and archive them in `temp/reports/` for future reference.
       - [x] Highlight potential false positives (e.g., comments or documentation) in the results.
