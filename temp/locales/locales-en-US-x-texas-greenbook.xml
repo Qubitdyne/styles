@@ -23,8 +23,13 @@
     <term name="article" form="short">art.</term>
     <term name="chapter" form="short">ch.</term>
     <term name="rule" form="short">R.</term>
+    <term name="rule" form="symbol">R.</term>
     <term name="paragraph" form="short">¶</term>
     <term name="paragraph" form="symbol">¶</term>
+    <term name="ordinal-01">st</term>
+    <term name="ordinal-02">nd</term>
+    <term name="ordinal-03">rd</term>
+    <term name="ordinal-04">th</term>
     <term name="section" form="symbol">§</term>
     <term name="available at">available at</term>
     <term name="accessed">accessed</term>
