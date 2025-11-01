@@ -1,0 +1,46 @@
+[
+  {
+    "id": "statute_short_smoke",
+    "type": "legislation",
+    "container-title": "Tex. Tax Code Ann.",
+    "section": "26.06(a)",
+    "note": "Supp. 2024"
+  },
+  {
+    "_cite": "statute_short_smoke",
+    "label": "section",
+    "locator": "26.06(b)"
+  },
+  {
+    "id": "admin_short_smoke",
+    "type": "regulation",
+    "volume": "16",
+    "container-title": "Tex. Admin. Code",
+    "section": "25.101",
+    "issued": {
+      "date-parts": [
+        [
+          2022
+        ]
+      ]
+    },
+    "authority": "Tex. Comm’n on Env’t Quality, Emission Standards Division"
+  },
+  {
+    "_cite": "admin_short_smoke",
+    "label": "section",
+    "locator": "25.102"
+  },
+  {
+    "id": "statute_note_signal_smoke",
+    "type": "legislation",
+    "container-title": "Tex. Gov’t Code Ann.",
+    "section": "82.064",
+    "note": "Cf."
+  },
+  {
+    "_cite": "statute_note_signal_smoke",
+    "label": "section",
+    "locator": "82.065"
+  }
+]
