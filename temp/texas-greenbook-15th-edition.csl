@@ -764,6 +764,32 @@
     </choose>
   </macro>
 
+  <macro name="web-title">
+    <choose>
+      <if variable="title">
+        <text variable="title" quotes="true"/>
+      </if>
+      <else-if variable="container-title">
+        <text variable="container-title"/>
+      </else-if>
+    </choose>
+  </macro>
+
+  <macro name="web-issued-or-status">
+    <choose>
+      <if variable="issued">
+        <date variable="issued" delimiter=" ">
+          <date-part name="month" form="short"/>
+          <date-part name="day" form="numeric" suffix=","/>
+          <date-part name="year"/>
+        </date>
+      </if>
+      <else-if variable="status">
+        <text variable="status"/>
+      </else-if>
+    </choose>
+  </macro>
+
   <macro name="web-availability">
     <choose>
       <if variable="URL DOI" match="any">
@@ -813,54 +839,63 @@
 
   <macro name="web-first">
     <group delimiter=", ">
-      <text variable="title"/>
+      <text macro="web-title"/>
       <text variable="container-title"/>
-      <choose>
-        <if variable="issued">
-          <date variable="issued">
-            <date-part name="year"/>
-          </date>
-        </if>
-        <else-if variable="status">
-          <text variable="status"/>
-        </else-if>
-      </choose>
-      <text macro="web-availability"/>
+      <text macro="web-issued-or-status"/>
     </group>
-    <text macro="web-access-date" prefix=" "/>
+    <choose>
+      <if variable="URL DOI accessed" match="any">
+        <group prefix=", " delimiter=" ">
+          <text macro="web-availability"/>
+          <text macro="web-access-date"/>
+        </group>
+      </if>
+    </choose>
   </macro>
 
   <macro name="web-short">
-    <group delimiter=", ">
-      <text variable="title"/>
-      <text variable="URL"/>
-    </group>
+    <choose>
+      <if variable="URL DOI" match="any">
+        <group delimiter=", ">
+          <text macro="web-title"/>
+          <choose>
+            <if variable="URL">
+              <text variable="URL"/>
+            </if>
+            <else-if variable="DOI">
+              <text variable="DOI" prefix="https://doi.org/"/>
+            </else-if>
+          </choose>
+        </group>
+      </if>
+      <else>
+        <text macro="web-title"/>
+      </else>
+    </choose>
   </macro>
 
   <macro name="web-cross-reference">
     <group delimiter=" ">
       <text macro="cross-reference-cue"/>
-      <text variable="title"/>
+      <text macro="web-title"/>
     </group>
-    <text variable="URL" prefix=", "/>
+    <choose>
+      <if variable="URL DOI" match="any">
+        <text macro="web-availability" prefix=", "/>
+      </if>
+    </choose>
+    <text macro="web-access-date" prefix=" "/>
     <text variable="references" prefix=", "/>
   </macro>
 
   <macro name="web-bibliography">
     <group delimiter=". ">
-      <text variable="title"/>
-      <text variable="container-title"/>
       <group delimiter=", ">
-        <choose>
-          <if variable="issued">
-            <date variable="issued">
-              <date-part name="year"/>
-            </date>
-          </if>
-          <else-if variable="status">
-            <text variable="status"/>
-          </else-if>
-        </choose>
+        <text macro="web-title"/>
+        <text variable="container-title"/>
+        <text macro="web-issued-or-status"/>
+      </group>
+      <group delimiter=" ">
         <text macro="web-availability"/>
         <text macro="web-access-date"/>
       </group>
