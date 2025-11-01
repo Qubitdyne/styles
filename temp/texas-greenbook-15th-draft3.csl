@@ -77,6 +77,20 @@
 
   
   <ns0:macro name="tex-statute">
+    <ns0:choose>
+      <ns0:if position="first">
+        <ns0:text macro="tex-statute-first" />
+      </ns0:if>
+      <ns0:else-if variable="references">
+        <ns0:text macro="tex-statute-cross-reference" />
+      </ns0:else-if>
+      <ns0:else>
+        <ns0:text macro="tex-statute-short" />
+      </ns0:else>
+    </ns0:choose>
+  </ns0:macro>
+
+  <ns0:macro name="tex-statute-first">
     <ns0:group delimiter=" ">
       <ns0:text variable="container-title" form="short" />
       <ns0:group delimiter=" ">
@@ -84,12 +98,49 @@
         <ns0:text variable="section" />
       </ns0:group>
     </ns0:group>
-    
     <ns0:text variable="note" prefix=" (" suffix=")" />
+  </ns0:macro>
+
+  <ns0:macro name="tex-statute-short">
+    <ns0:group delimiter=" ">
+      <ns0:text variable="container-title" form="short" />
+      <ns0:group delimiter=" ">
+        <ns0:label variable="section" form="symbol" />
+        <ns0:text variable="section" />
+      </ns0:group>
+    </ns0:group>
+  </ns0:macro>
+
+  <ns0:macro name="tex-statute-cross-reference">
+    <ns0:group delimiter=" ">
+      <ns0:text macro="cross-reference-cue" />
+      <ns0:group delimiter=" ">
+        <ns0:text variable="container-title" form="short" />
+        <ns0:group delimiter=" ">
+          <ns0:label variable="section" form="symbol" />
+          <ns0:text variable="section" />
+        </ns0:group>
+      </ns0:group>
+    </ns0:group>
+    <ns0:text variable="note" prefix=", " />
   </ns0:macro>
 
   
   <ns0:macro name="tex-admin-code">
+    <ns0:choose>
+      <ns0:if position="first">
+        <ns0:text macro="tex-admin-code-first" />
+      </ns0:if>
+      <ns0:else-if variable="references">
+        <ns0:text macro="tex-admin-code-cross-reference" />
+      </ns0:else-if>
+      <ns0:else>
+        <ns0:text macro="tex-admin-code-short" />
+      </ns0:else>
+    </ns0:choose>
+  </ns0:macro>
+
+  <ns0:macro name="tex-admin-code-first">
     <ns0:group delimiter=" ">
       <ns0:text variable="volume" />
       <ns0:text variable="container-title" form="short" />
@@ -106,8 +157,48 @@
     <ns0:text variable="title" prefix=" (" suffix=")" />
   </ns0:macro>
 
+  <ns0:macro name="tex-admin-code-short">
+    <ns0:group delimiter=" ">
+      <ns0:text variable="container-title" form="short" />
+      <ns0:group delimiter=" ">
+        <ns0:label variable="section" form="symbol" />
+        <ns0:text variable="section" />
+      </ns0:group>
+    </ns0:group>
+    <ns0:text variable="title" prefix=", " />
+  </ns0:macro>
+
+  <ns0:macro name="tex-admin-code-cross-reference">
+    <ns0:group delimiter=" ">
+      <ns0:text macro="cross-reference-cue" />
+      <ns0:group delimiter=" ">
+        <ns0:text variable="container-title" form="short" />
+        <ns0:group delimiter=" ">
+          <ns0:label variable="section" form="symbol" />
+          <ns0:text variable="section" />
+        </ns0:group>
+      </ns0:group>
+    </ns0:group>
+    <ns0:text variable="title" prefix=", " />
+    <ns0:text variable="references" prefix=", " />
+  </ns0:macro>
+
   
   <ns0:macro name="tex-register">
+    <ns0:choose>
+      <ns0:if position="first">
+        <ns0:text macro="tex-register-first" />
+      </ns0:if>
+      <ns0:else-if variable="references">
+        <ns0:text macro="tex-register-cross-reference" />
+      </ns0:else-if>
+      <ns0:else>
+        <ns0:text macro="tex-register-short" />
+      </ns0:else>
+    </ns0:choose>
+  </ns0:macro>
+
+  <ns0:macro name="tex-register-first">
     <ns0:group delimiter=" ">
       <ns0:text variable="volume" />
       <ns0:text variable="container-title" form="short" />
@@ -122,8 +213,42 @@
     <ns0:text variable="note" prefix=" (" suffix=")" />
   </ns0:macro>
 
+  <ns0:macro name="tex-register-short">
+    <ns0:group delimiter=" ">
+      <ns0:text variable="container-title" form="short" />
+      <ns0:text variable="page" />
+    </ns0:group>
+    <ns0:text variable="note" prefix=", " />
+  </ns0:macro>
+
+  <ns0:macro name="tex-register-cross-reference">
+    <ns0:group delimiter=" ">
+      <ns0:text macro="cross-reference-cue" />
+      <ns0:group delimiter=" ">
+        <ns0:text variable="container-title" form="short" />
+        <ns0:text variable="page" />
+      </ns0:group>
+    </ns0:group>
+    <ns0:text variable="note" prefix=", " />
+    <ns0:text variable="references" prefix=", " />
+  </ns0:macro>
+
   
   <ns0:macro name="book-like">
+    <ns0:choose>
+      <ns0:if position="first">
+        <ns0:text macro="book-like-first" />
+      </ns0:if>
+      <ns0:else-if variable="references">
+        <ns0:text macro="book-like-cross-reference" />
+      </ns0:else-if>
+      <ns0:else>
+        <ns0:text macro="book-like-short" />
+      </ns0:else>
+    </ns0:choose>
+  </ns0:macro>
+
+  <ns0:macro name="book-like-first">
     <ns0:group delimiter=", ">
       <ns0:names variable="author">
         <ns0:name and="text" initialize-with=". " />
@@ -147,8 +272,43 @@
     </ns0:group>
   </ns0:macro>
 
+  <ns0:macro name="book-like-short">
+    <ns0:group delimiter=", ">
+      <ns0:text variable="title" font-style="italic" />
+      <ns0:text variable="section" />
+      <ns0:date variable="issued">
+        <ns0:date-part name="year" />
+      </ns0:date>
+    </ns0:group>
+  </ns0:macro>
+
+  <ns0:macro name="book-like-cross-reference">
+    <ns0:group delimiter=" ">
+      <ns0:text macro="cross-reference-cue" />
+      <ns0:group delimiter=", ">
+        <ns0:text variable="title" font-style="italic" />
+        <ns0:text variable="section" />
+      </ns0:group>
+    </ns0:group>
+    <ns0:text variable="references" prefix=", " />
+  </ns0:macro>
+
   
   <ns0:macro name="article-journal">
+    <ns0:choose>
+      <ns0:if position="first">
+        <ns0:text macro="article-journal-first" />
+      </ns0:if>
+      <ns0:else-if variable="references">
+        <ns0:text macro="article-journal-cross-reference" />
+      </ns0:else-if>
+      <ns0:else>
+        <ns0:text macro="article-journal-short" />
+      </ns0:else>
+    </ns0:choose>
+  </ns0:macro>
+
+  <ns0:macro name="article-journal-first">
     <ns0:group delimiter=", ">
       <ns0:names variable="author">
         <ns0:name and="text" initialize-with=". " />
@@ -165,8 +325,43 @@
     </ns0:group>
   </ns0:macro>
 
+  <ns0:macro name="article-journal-short">
+    <ns0:group delimiter=", ">
+      <ns0:names variable="author">
+        <ns0:name and="text" initialize-with=". " />
+      </ns0:names>
+      <ns0:text variable="title" quotes="true" />
+      <ns0:text variable="page" />
+    </ns0:group>
+  </ns0:macro>
+
+  <ns0:macro name="article-journal-cross-reference">
+    <ns0:group delimiter=" ">
+      <ns0:text macro="cross-reference-cue" />
+      <ns0:group delimiter=", ">
+        <ns0:text variable="title" quotes="true" />
+        <ns0:text variable="page" />
+      </ns0:group>
+    </ns0:group>
+    <ns0:text variable="references" prefix=", " />
+  </ns0:macro>
+
   
   <ns0:macro name="web">
+    <ns0:choose>
+      <ns0:if position="first">
+        <ns0:text macro="web-first" />
+      </ns0:if>
+      <ns0:else-if variable="references">
+        <ns0:text macro="web-cross-reference" />
+      </ns0:else-if>
+      <ns0:else>
+        <ns0:text macro="web-short" />
+      </ns0:else>
+    </ns0:choose>
+  </ns0:macro>
+
+  <ns0:macro name="web-first">
     <ns0:group delimiter=", ">
       <ns0:text variable="title" />
       <ns0:text variable="container-title" />
@@ -186,6 +381,22 @@
         </ns0:date>
       </ns0:group>
     </ns0:group>
+  </ns0:macro>
+
+  <ns0:macro name="web-short">
+    <ns0:group delimiter=", ">
+      <ns0:text variable="title" />
+      <ns0:text variable="URL" />
+    </ns0:group>
+  </ns0:macro>
+
+  <ns0:macro name="web-cross-reference">
+    <ns0:group delimiter=" ">
+      <ns0:text macro="cross-reference-cue" />
+      <ns0:text variable="title" />
+    </ns0:group>
+    <ns0:text variable="URL" prefix=", " />
+    <ns0:text variable="references" prefix=", " />
   </ns0:macro>
 
   
@@ -306,6 +517,18 @@
       </ns0:if>
     </ns0:choose>
   </ns0:macro><ns0:macro name="legal-case">
+    <ns0:choose>
+      <ns0:if position="first">
+        <ns0:text macro="legal-case-first" />
+      </ns0:if>
+      <ns0:else-if variable="references">
+        <ns0:text macro="legal-case-cross-reference" />
+      </ns0:else-if>
+      <ns0:else>
+        <ns0:text macro="legal-case-short" />
+      </ns0:else>
+    </ns0:choose>
+  </ns0:macro><ns0:macro name="legal-case-first">
     <ns0:group delimiter=", ">
       <ns0:text macro="case-name" />
       <ns0:choose>
@@ -320,12 +543,87 @@
     </ns0:group>
     <ns0:text macro="court-and-date" />
     <ns0:text macro="weight-parentheticals" />
+    <ns0:text macro="subsequent-history" />
+  </ns0:macro><ns0:macro name="legal-case-short">
+    <ns0:group delimiter=", ">
+      <ns0:text macro="case-name" />
+      <ns0:choose>
+        <ns0:if variable="volume page container-title" match="all">
+          <ns0:text macro="reporter-print" />
+        </ns0:if>
+        <ns0:else>
+          <ns0:text macro="reporter-wl" />
+        </ns0:else>
+      </ns0:choose>
+      <ns0:text macro="pinpoint" />
+    </ns0:group>
+    <ns0:text macro="court-and-date" />
+  </ns0:macro><ns0:macro name="legal-case-cross-reference">
+    <ns0:group delimiter=" ">
+      <ns0:text macro="cross-reference-cue" />
+      <ns0:group delimiter=", ">
+        <ns0:text macro="case-name" />
+        <ns0:choose>
+          <ns0:if variable="volume page container-title" match="all">
+            <ns0:text macro="reporter-print" />
+          </ns0:if>
+          <ns0:else>
+            <ns0:text macro="reporter-wl" />
+          </ns0:else>
+        </ns0:choose>
+        <ns0:text macro="pinpoint" />
+      </ns0:group>
+    </ns0:group>
+    <ns0:text macro="court-and-date" prefix=", " />
+    <ns0:text macro="weight-parentheticals" />
+    <ns0:text variable="references" prefix=", " />
+  </ns0:macro><ns0:macro name="cross-reference-cue">
+    <ns0:choose>
+      <ns0:if variable="note">
+        <ns0:text variable="note" text-case="capitalize-first" />
+      </ns0:if>
+      <ns0:else-if jurisdiction="us:tx" match="any">
+        <ns0:text value="See" />
+      </ns0:else-if>
+      <ns0:else>
+        <ns0:text value="See also" />
+      </ns0:else>
+    </ns0:choose>
   </ns0:macro><ns0:macro name="statute-code">
+    <ns0:choose>
+      <ns0:if position="first">
+        <ns0:text macro="statute-code-first" />
+      </ns0:if>
+      <ns0:else-if variable="references">
+        <ns0:text macro="statute-code-cross-reference" />
+      </ns0:else-if>
+      <ns0:else>
+        <ns0:text macro="statute-code-short" />
+      </ns0:else>
+    </ns0:choose>
+  </ns0:macro><ns0:macro name="statute-code-first">
     <ns0:group delimiter=" ">
       <ns0:text variable="container-title" />
       <ns0:text term="section" form="symbol" />
       <ns0:text variable="section" />
     </ns0:group>
+    <ns0:text variable="status" prefix=" (" suffix=")" />
+  </ns0:macro><ns0:macro name="statute-code-short">
+    <ns0:group delimiter=" ">
+      <ns0:text variable="container-title" />
+      <ns0:text term="section" form="symbol" />
+      <ns0:text variable="section" />
+    </ns0:group>
+  </ns0:macro><ns0:macro name="statute-code-cross-reference">
+    <ns0:group delimiter=" ">
+      <ns0:text macro="cross-reference-cue" />
+      <ns0:group delimiter=" ">
+        <ns0:text variable="container-title" />
+        <ns0:text term="section" form="symbol" />
+        <ns0:text variable="section" />
+      </ns0:group>
+    </ns0:group>
+    <ns0:text variable="references" prefix=", " />
   </ns0:macro><ns0:macro name="constitution-core">
     <ns0:group delimiter=", ">
       <ns0:group delimiter=" ">
@@ -357,6 +655,18 @@
       </ns0:group>
     </ns0:group>
   </ns0:macro><ns0:macro name="tac-core">
+    <ns0:choose>
+      <ns0:if position="first">
+        <ns0:text macro="tac-core-first" />
+      </ns0:if>
+      <ns0:else-if variable="references">
+        <ns0:text macro="tac-core-cross-reference" />
+      </ns0:else-if>
+      <ns0:else>
+        <ns0:text macro="tac-core-short" />
+      </ns0:else>
+    </ns0:choose>
+  </ns0:macro><ns0:macro name="tac-core-first">
     <ns0:group delimiter=" ">
       <ns0:text variable="volume" />
       <ns0:text variable="container-title" />
@@ -367,12 +677,66 @@
       <ns0:date-part name="year" />
     </ns0:date>
     <ns0:text variable="authority" prefix=" (" suffix=")" />
+  </ns0:macro><ns0:macro name="tac-core-short">
+    <ns0:group delimiter=" ">
+      <ns0:text variable="container-title" />
+      <ns0:text term="section" form="symbol" />
+      <ns0:text variable="section" />
+    </ns0:group>
+  </ns0:macro><ns0:macro name="tac-core-cross-reference">
+    <ns0:group delimiter=" ">
+      <ns0:text macro="cross-reference-cue" />
+      <ns0:group delimiter=" ">
+        <ns0:text variable="container-title" />
+        <ns0:text term="section" form="symbol" />
+        <ns0:text variable="section" />
+      </ns0:group>
+    </ns0:group>
+    <ns0:text variable="references" prefix=", " />
   </ns0:macro><ns0:macro name="rule-core">
+    <ns0:choose>
+      <ns0:if position="first">
+        <ns0:text macro="rule-core-first" />
+      </ns0:if>
+      <ns0:else-if variable="references">
+        <ns0:text macro="rule-core-cross-reference" />
+      </ns0:else-if>
+      <ns0:else>
+        <ns0:text macro="rule-core-short" />
+      </ns0:else>
+    </ns0:choose>
+  </ns0:macro><ns0:macro name="rule-core-first">
     <ns0:group delimiter=" ">
       <ns0:text variable="container-title" />
       <ns0:text variable="section" />
     </ns0:group>
+  </ns0:macro><ns0:macro name="rule-core-short">
+    <ns0:group delimiter=" ">
+      <ns0:text variable="container-title" />
+      <ns0:text variable="section" />
+    </ns0:group>
+  </ns0:macro><ns0:macro name="rule-core-cross-reference">
+    <ns0:group delimiter=" ">
+      <ns0:text macro="cross-reference-cue" />
+      <ns0:group delimiter=" ">
+        <ns0:text variable="container-title" />
+        <ns0:text variable="section" />
+      </ns0:group>
+    </ns0:group>
+    <ns0:text variable="references" prefix=", " />
   </ns0:macro><ns0:macro name="municipal-code">
+    <ns0:choose>
+      <ns0:if position="first">
+        <ns0:text macro="municipal-code-first" />
+      </ns0:if>
+      <ns0:else-if variable="references">
+        <ns0:text macro="municipal-code-cross-reference" />
+      </ns0:else-if>
+      <ns0:else>
+        <ns0:text macro="municipal-code-short" />
+      </ns0:else>
+    </ns0:choose>
+  </ns0:macro><ns0:macro name="municipal-code-first">
     <ns0:group delimiter=", ">
       <ns0:text variable="authority" />
       <ns0:group delimiter=" ">
@@ -387,7 +751,45 @@
     <ns0:date variable="issued" prefix=" (" suffix=")">
       <ns0:date-part name="year" />
     </ns0:date>
+  </ns0:macro><ns0:macro name="municipal-code-short">
+    <ns0:group delimiter=", ">
+      <ns0:text variable="authority" />
+      <ns0:group delimiter=" ">
+        <ns0:text variable="container-title" />
+        <ns0:group delimiter=" ">
+          <ns0:text term="section" form="symbol" />
+          <ns0:text variable="section" />
+        </ns0:group>
+      </ns0:group>
+    </ns0:group>
+  </ns0:macro><ns0:macro name="municipal-code-cross-reference">
+    <ns0:group delimiter=" ">
+      <ns0:text macro="cross-reference-cue" />
+      <ns0:group delimiter=", ">
+        <ns0:text variable="authority" />
+        <ns0:group delimiter=" ">
+          <ns0:text variable="container-title" />
+          <ns0:group delimiter=" ">
+            <ns0:text term="section" form="symbol" />
+            <ns0:text variable="section" />
+          </ns0:group>
+        </ns0:group>
+      </ns0:group>
+    </ns0:group>
+    <ns0:text variable="references" prefix=", " />
   </ns0:macro><ns0:macro name="ag-opinion">
+    <ns0:choose>
+      <ns0:if position="first">
+        <ns0:text macro="ag-opinion-first" />
+      </ns0:if>
+      <ns0:else-if variable="references">
+        <ns0:text macro="ag-opinion-cross-reference" />
+      </ns0:else-if>
+      <ns0:else>
+        <ns0:text macro="ag-opinion-short" />
+      </ns0:else>
+    </ns0:choose>
+  </ns0:macro><ns0:macro name="ag-opinion-first">
     <ns0:group delimiter=" ">
       <ns0:text variable="authority" />
       <ns0:text variable="number" prefix="No. " />
@@ -395,6 +797,20 @@
     <ns0:date variable="issued" prefix=" (" suffix=")">
       <ns0:date-part name="year" />
     </ns0:date>
+  </ns0:macro><ns0:macro name="ag-opinion-short">
+    <ns0:group delimiter=" ">
+      <ns0:text variable="authority" />
+      <ns0:text variable="number" prefix="No. " />
+    </ns0:group>
+  </ns0:macro><ns0:macro name="ag-opinion-cross-reference">
+    <ns0:group delimiter=" ">
+      <ns0:text macro="cross-reference-cue" />
+      <ns0:group delimiter=" ">
+        <ns0:text variable="authority" />
+        <ns0:text variable="number" prefix="No. " />
+      </ns0:group>
+    </ns0:group>
+    <ns0:text variable="references" prefix=", " />
   </ns0:macro><ns0:macro name="journal-article">
     <ns0:group delimiter=", ">
       <ns0:names variable="author">
