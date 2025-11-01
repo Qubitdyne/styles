@@ -51,8 +51,8 @@ ires checking off every indented child.
 ## Active Development
 ### Citation Logic Gaps
 - [ ] **Complete statute and rule short-form logic.** Implement cross-reference and `Id.` handling for statutes, rules, and administrative materials, then update `expected.txt` fixtures. (See `README.md` Known Limitations and `NOTES.md` helper sketches.)
-  - [ ] Audit the existing statute, rule, and administrative `*_short` macros in `texas-greenbook-15th-edition.csl` to catalog current branching and pinpoint missing reuse hooks documented in `NOTES.md`.
-    - [ ] Locate all `*_short` macros in both the primary style and TOA variants using the CSL editor or `rg` searches.
+  - [x] Audit the existing statute, rule, and administrative `*_short` macros in `texas-greenbook-15th-edition.csl` to catalog current branching and pinpoint missing reuse hooks documented in `NOTES.md`.
+    - [x] Locate all `*_short` macros in both the primary style and TOA variants using the CSL editor or `rg` searches.
       - [x] Run `rg "_short" temp -n` to generate an initial list of macro definitions and invocations. (Confirmed command currently only surfaces backlog references because implemented macros are hyphenated; noted follow-up in `NOTES.md`.)
       - [x] Open `texas-greenbook-15th-edition.csl` and TOA counterparts in a CSL-aware editor to confirm the matches and capture surrounding context. (Verified short-form coverage for cases/secondary materials and documented absence in TOA variants.)
       - [x] Copy the macro names and file locations into `NOTES.md`, grouping them by authority type for easy reference. (Inventory logged under “Short-form macro inventory (2025-11-02)”.)
@@ -82,7 +82,32 @@ ion of the conflicting behavior.
     - [x] Draft shared helpers for the code-section string and administrative core identified in the 2025-11-03 audit before wiring new short-form macros.
     - [x] Add undated treatise and CLE fixtures to `tests.json` once the year-fallback helper lands, ensuring the guard logic is regression-tested.
       - [x] Implement the `short-pinpoint-year` helper for short-form macros so missing years no longer leave trailing delimiters.
-  - [ ] Outline Greenbook Chapter 10–13 short-form triggers (sections, chapters, and rule ranges) with page citations in `NOTES.md` to confirm requirements and edge cases.
+  - [ ] Implement short-form macros for statutes, rules, and administrative materials in the main style.
+    - [ ] Create dedicated macros (e.g., `tex-statute-short`, `tex-rule-short`, `tex-administrative-short`) that mirror the long-form structure while applying the short-form requirements documented in `NOTES.md`.
+    - [ ] Add `choose` blocks to differentiate between first-reference short cites, cross-references, and `Id.` scenarios, ensuring jurisdictional fallbacks work for both Texas and non-Texas authorities.
+    - [ ] Integrate the new macros into existing routing (e.g., `legal-reference-note`, `statute-reference`) without regressing current case or secondary short-form behavior.
+    - [ ] Capture interim outputs and logic decisions in `NOTES.md`, citing relevant Greenbook pages for each branch.
+  - [ ] Mirror the short-form implementation into TOA variants and shared helpers.
+    - [ ] Add corresponding macros or conditional blocks to each `texas-greenbook-15th-toa*.csl` file, maintaining consistent terminology with the main style.
+    - [ ] Verify that TOA grouping and dotted leader alignment remain intact after introducing short-form routing.
+    - [ ] Update any shared helper macros so TOA and note styles reuse the same short-form formatting strings.
+    - [ ] Document TOA-specific adjustments (e.g., leader punctuation) in `NOTES.md` with citations to Appendix B requirements.
+  - [ ] Extend cross-reference cue logic for statutes, rules, and agencies.
+    - [ ] Update the `cross-reference-cue` macro so that blank `note` fields trigger “See also” outputs for non-Texas authorities while preserving existing case handling.
+    - [ ] Ensure statute/rule short forms properly interpret `ibid`-style references, respecting Greenbook triggers for when `Id.` is permitted.
+    - [ ] Add regression tests covering cross-jurisdiction references and `Id.` fallbacks.
+    - [ ] Record any limitations or open questions in `NOTES.md` for follow-up review.
+  - [ ] Update fixtures and expectations to exercise the new short-form logic.
+    - [ ] Add representative statute, rule, and administrative authorities to `tests.json` and `tests_toa.json`, including scenarios with and without available years.
+    - [ ] Regenerate `expected.txt`, `expected_secondary.txt`, and TOA counterparts using `run_tests.py --write-expected`, reviewing diffs for alignment with the Greenbook examples.
+    - [ ] Store citeproc command outputs in `temp/test-logs/` to document verification.
+    - [ ] Note fixture provenance and rule citations in `NOTES.md` to keep the regression inventory auditable.
+  - [ ] Refresh documentation after implementation completes.
+    - [ ] Update `README.md` Known Limitations to reflect the closure of statute/rule short-form gaps.
+    - [ ] Summarize macro additions and test coverage changes in `NOTES.md` with Greenbook citations.
+    - [ ] Revise `TODO.md` to mark completed subtasks and capture any deferred edge cases for future work.
+    - [ ] Ensure `temp/PR_DRAFT.md` references the new short-form support for eventual submission notes.
+  - [x] Outline Greenbook Chapter 10–13 short-form triggers (sections, chapters, and rule ranges) with page citations in `NOTES.md` to confirm requirements and edge cases.
     - [x] Read the relevant PDF sections and list each trigger verbatim with pinpoint page numbers.
       - [x] Use a PDF reader with search to locate discussions of short-form triggers within Chapters 10–13.
       - [x] Transcribe the trigger wording faithfully into `NOTES.md`, ensuring page numbers include subsection identifiers where available.
@@ -197,15 +222,47 @@ ion of the conflicting behavior.
 ### Test Harness & Infrastructure
 - [ ] **Package the citeproc dependency.** Add a lightweight requirements file or update `run_tests.py` with a dependency check so new environments surface an actionable install message instead of raising `ModuleNotFoundError` (see 2025-11-18 QA audit).【bfbf00†L1-L6】【temp/run_tests.py†L1-L60】
   - [ ] Decide between shipping a dedicated `requirements.txt` in `temp/` or adding a guard clause at the top of `run_tests.py` that prints an install hint when `citeproc` is missing.
+    - [ ] Inventory current development environments (local, CI, contributor setups) to understand where dependency hints are most valuable.
+    - [ ] Prototype the guard-clause approach by adding a temporary try/except in a branch and capture the resulting user message.
+    - [ ] Evaluate the requirements-file approach by drafting `temp/requirements.txt` and confirming installation succeeds in a clean virtual environment.
+    - [ ] Compare maintenance overhead (file updates vs. code changes) and record pros/cons in `NOTES.md` before selecting an option.
   - [ ] Document the chosen approach in `temp/README.md` and ensure CI instructions reflect the dependency footprint.
+    - [ ] Update the README testing section with explicit install commands or explain the automated guard behavior.
+    - [ ] If a requirements file is used, reference it in developer onboarding notes and any automation scripts.
+    - [ ] If a guard clause is preferred, include example output so contributors know what to expect.
+    - [ ] Verify external documentation (e.g., PR template, NOTES) stays consistent with the new guidance.
 - [ ] **Auto-select bibliography mode for TOA runs.** Extend `run_tests.py` (or provide a thin wrapper) that inspects the style filename and defaults to `--mode bibliography` for TOA variants to prevent false diffs like the ones captured on 2025-11-18.【eab112†L1-L41】【temp/tests_toa.json†L1-L200】
   - [ ] Prototype detection logic (e.g., filename contains `toa`) and ensure it remains overridable via CLI flags.
+    - [ ] Draft a helper function that inspects the `--style` argument and returns an inferred mode while honoring explicit user overrides.
+    - [ ] Write quick smoke tests (manual or scripted) to verify the helper selects bibliography mode only for TOA styles.
+    - [ ] Capture edge cases (e.g., mixed-case filenames, alternative naming conventions) and adjust the heuristic accordingly.
+    - [ ] Record the detection strategy in `NOTES.md` with examples to aid future maintenance.
   - [ ] Backfill unit coverage in `test-logs/` demonstrating the guard: one run without `--mode` should still match TOA expectations, while non-TOA styles should retain the current note default.
+    - [ ] Run `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl` without `--mode` and archive the output before and after the change.
+    - [ ] Repeat the run with a non-TOA style to confirm the default remains `note` and document the output.
+    - [ ] Store both command outputs in `temp/test-logs/` with descriptive filenames and timestamps.
+    - [ ] Summarize the verification steps in `NOTES.md`, linking to the saved logs for traceability.
   - [ ] Update the README examples after the automation lands to reflect the streamlined invocation.
+    - [ ] Replace manual `--mode bibliography` flags in `README.md` with text describing the auto-detection behavior.
+    - [ ] Highlight any scenarios where contributors should still pass `--mode` explicitly (e.g., experimenting with alternate contexts).
+    - [ ] Ensure README code snippets remain copy/paste friendly after edits.
+    - [ ] Note the documentation update in `TODO.md` and `NOTES.md` once published.
 - [ ] **Silence benign citeproc warnings.** Evaluate whether fixture metadata (e.g., `label`, `reviewed_title`) should be pruned or whether the harness should filter the warnings so audit logs stay clean during routine runs.【955aca†L1-L24】
   - [ ] Audit `tests.json`/`tests_toa.json` for unused metadata fields that trigger the warnings and document any intentional shims before removal.
+    - [ ] List the warning messages produced during a baseline `run_tests.py` execution and map them to specific fixture entries.
+    - [ ] Inspect each implicated fixture to determine whether the triggering fields are required for future scenarios.
+    - [ ] Remove or annotate unnecessary metadata fields in a scratch branch to gauge impact on citeproc output.
+    - [ ] Capture findings in `NOTES.md`, including justification for keeping or pruning each field.
   - [ ] If the metadata must remain, capture an explicit warning suppression strategy (context manager or CLI flag) so log diffs focus on substantive regressions.
+    - [ ] Research citeproc-py options for suppressing or filtering warnings without hiding genuine errors.
+    - [ ] Prototype the suppression approach in `run_tests.py`, ensuring the solution is limited in scope and clearly documented.
+    - [ ] Validate that suppressed warnings continue to appear when running the script in a verbose/debug mode if needed.
+    - [ ] Document the suppression behavior and usage instructions in `README.md` or inline comments for transparency.
   - [ ] Note the final decision in `NOTES.md` for future audits.
+    - [ ] Summarize the chosen remediation path (data cleanup vs. suppression) with supporting rationale.
+    - [ ] Record any follow-up tasks or monitoring requirements tied to the decision.
+    - [ ] Link to relevant commits, fixture diffs, or script changes so auditors can trace the implementation.
+    - [ ] Update `TODO.md` statuses accordingly once the warnings are addressed.
   - [ ] Review existing macros handling parentheticals to identify duplicated logic between case notes and TOA outputs.
     - [x] Trace all macro invocations that append parenthetical content using CSL search tools.
       - [x] Search for keywords like “parenthetical” or specific strings (e.g., “slip op.”) within the CSL files using `rg`.
@@ -433,6 +490,11 @@ ion of the conflicting behavior.
     - [ ] Note remaining deficiencies and create new TODO entries or GitHub issues as appropriate.
     - [ ] Share insights on testing gaps to inform future fixture expansions.
     - [ ] Update the task checklist status reflecting completed and pending actions.
+    - [ ] Coordinate with the statute/rule short-form rollout so fixture expectations remain stable during parallel work.
+      - [ ] Compare planned short-form fixture updates with TOA additions to avoid conflicting diffs.
+      - [ ] Sequence commits or feature branches to keep regression baselines reviewable.
+      - [ ] Capture coordination notes and scheduling decisions in `NOTES.md` for future contributors.
+      - [ ] Revisit this TODO item if the short-form work introduces new TOA requirements.
 - [ ] **Broaden web citation verification.** Confirm punctuation and quotation usage for Chapter 16 web examples after OCR cleanup and add targeted fixture cases.
   - [x] Complete OCR cleanup for the Chapter 16 examples in the Greenbook PDF and extract verbatim sample citations into `NOTES.md` with page references.
     - [x] Run OCR tools (e.g., `ocrmypdf`) on the relevant PDF pages if not already processed.
@@ -444,6 +506,11 @@ ion of the conflicting behavior.
     - [x] Perform side-by-side comparisons between citeproc output and extracted examples for each scenario.
     - [x] Catalog discrepancies by type (quotation marks, italics, commas) for targeted fixes.
     - [x] Prioritize discrepancies affecting authoritative compliance before cosmetic issues.
+  - [ ] Implement web citation punctuation adjustments in CSL macros and locale terms.
+    - [ ] Draft a change plan noting which macros (`web`, `web-short`, access-date helpers) need updates and the expected output transformations.
+    - [ ] Update CSL conditional logic to handle quoted titles, trailing punctuation, and URL formatting per the documented requirements.
+    - [ ] Verify that modifications apply consistently across note, bibliography, and TOA contexts, adjusting shared helpers if necessary.
+    - [ ] Record implementation notes in `NOTES.md`, including any compromises or open questions for reviewer feedback.
   - [ ] Create new fixture entries in `tests.json` that capture the nuanced web citation formats (e.g., with publication dates, access dates, and quoted titles).
     - [x] Enumerate required metadata fields for each format variant (e.g., missing author, corporate author).
     - [ ] Encode fixtures ensuring JSON validity and alignment with citeproc expectations.
@@ -454,6 +521,11 @@ ion of the conflicting behavior.
     - [ ] Inspect punctuation and capitalization carefully, referencing Greenbook examples for each case.
     - [ ] Address any regressions introduced elsewhere in the fixtures before committing updates.
     - [ ] Document verification steps and outcomes in `NOTES.md` for reviewer transparency.
+  - [ ] Refresh documentation to close out the web citation limitation.
+    - [ ] Update `README.md` Known Limitations once validation confirms the punctuation issues are resolved.
+    - [ ] Summarize fixture additions and macro edits in `NOTES.md` with precise Greenbook page citations.
+    - [ ] Revise this `TODO.md` entry to reflect completion status and note any residual follow-up work.
+    - [ ] Add a bullet to `temp/PR_DRAFT.md` describing the web citation improvements for future PR narratives.
   - [ ] Document any remaining ambiguities or interpretive decisions in `NOTES.md` for future reviewers.
     - [ ] Summarize unresolved questions with proposed follow-up actions or references for escalation.
     - [ ] Highlight any dependencies on pending research tasks to maintain traceability.
@@ -516,7 +588,7 @@ ion of the conflicting behavior.
     - [x] Sequence tasks to minimize merge conflicts with ongoing macro work.
     - [x] Align test fixture updates with locale deployment to avoid inconsistent outputs.
     - [x] Update the TODO timeline or roadmap reflecting these dependencies.
-- [ ] **Investigate supplemental references.** Follow up on OCR availability for the Uniform Format Manual and confirm TRCP/TRAP cross-references and historical reporter sources listed in `NOTES.md`.
+- [x] **Investigate supplemental references.** Follow up on OCR availability for the Uniform Format Manual and confirm TRCP/TRAP cross-references and historical reporter sources listed in `NOTES.md`.
   - [x] Verify OCR readiness or perform text extraction for the supplemental manuals (Uniform Format Manual, rulemaking history PDFs) and store accessible copies or summaries. (2025-11-02 PyPDF2 spot-check confirmed existing PDFs remain searchable; no new exports required.)
     - [x] Check existing repositories or archives for machine-readable versions before initiating OCR. (Existing in-repo PDFs are text-searchable; no replacements needed.)
     - [x] If OCR is needed, select tooling, configure language options, and process the documents. (Not required; confirmed originals provide selectable text.)
