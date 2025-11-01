@@ -193,6 +193,19 @@ ion of the conflicting behavior.
       - [ ] Tag each ambiguity with its potential impact on implementation timelines.
       - [ ] Reference related external resources (e.g., Uniform Format Manual) that might clarify the ambiguity.
       - [ ] Schedule review meetings or consultation sessions if external expertise is needed.
+
+### Test Harness & Infrastructure
+- [ ] **Package the citeproc dependency.** Add a lightweight requirements file or update `run_tests.py` with a dependency check so new environments surface an actionable install message instead of raising `ModuleNotFoundError` (see 2025-11-18 QA audit).【bfbf00†L1-L6】【temp/run_tests.py†L1-L60】
+  - [ ] Decide between shipping a dedicated `requirements.txt` in `temp/` or adding a guard clause at the top of `run_tests.py` that prints an install hint when `citeproc` is missing.
+  - [ ] Document the chosen approach in `temp/README.md` and ensure CI instructions reflect the dependency footprint.
+- [ ] **Auto-select bibliography mode for TOA runs.** Extend `run_tests.py` (or provide a thin wrapper) that inspects the style filename and defaults to `--mode bibliography` for TOA variants to prevent false diffs like the ones captured on 2025-11-18.【eab112†L1-L41】【temp/tests_toa.json†L1-L200】
+  - [ ] Prototype detection logic (e.g., filename contains `toa`) and ensure it remains overridable via CLI flags.
+  - [ ] Backfill unit coverage in `test-logs/` demonstrating the guard: one run without `--mode` should still match TOA expectations, while non-TOA styles should retain the current note default.
+  - [ ] Update the README examples after the automation lands to reflect the streamlined invocation.
+- [ ] **Silence benign citeproc warnings.** Evaluate whether fixture metadata (e.g., `label`, `reviewed_title`) should be pruned or whether the harness should filter the warnings so audit logs stay clean during routine runs.【955aca†L1-L24】
+  - [ ] Audit `tests.json`/`tests_toa.json` for unused metadata fields that trigger the warnings and document any intentional shims before removal.
+  - [ ] If the metadata must remain, capture an explicit warning suppression strategy (context manager or CLI flag) so log diffs focus on substantive regressions.
+  - [ ] Note the final decision in `NOTES.md` for future audits.
   - [ ] Review existing macros handling parentheticals to identify duplicated logic between case notes and TOA outputs.
     - [x] Trace all macro invocations that append parenthetical content using CSL search tools.
       - [x] Search for keywords like “parenthetical” or specific strings (e.g., “slip op.”) within the CSL files using `rg`.

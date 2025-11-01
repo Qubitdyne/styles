@@ -59,6 +59,12 @@
   - Aligning the book/secondary bibliography macros with the explanatory helper will require optional parameters so bibliographies can suppress parentheticals without losing access to the wording. Draft plan: introduce a `explanatory-parenthetical` boolean flag passed into the helper and gate the appended group accordingly, leaving bibliography layout otherwise unchanged.
   - Prioritize consolidating the TOA helper duplication after the pending parenthetical refactor lands (P1), while the bibliography flag work can trail once short-form statute tasks unblock (P2). Fixture updates will need to cover TOA slip opinions and bibliography treatises when the refactor occurs, so note those dependencies when scheduling the helper extraction.
 
+## Comprehensive QA audit (2025-11-18)
+- **Dependency verification.** Attempting to execute `run_tests.py` without installing `citeproc-py` still triggers `ModuleNotFoundError`; installed the package via `pip install citeproc-py` before rerunning the harness.【bfbf00†L1-L6】【2f6cb0†L1-L9】 Capture this prerequisite in the README so new environments do not fail at the first test command.
+- **Regression suite status.** Re-ran the full note regression suite with `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt`; all 60 fixtures returned `OK`, confirming no drift from the stored expectations.【955aca†L1-L120】 The citeproc warnings about unsupported `label`/`reviewed_title` metadata persist but remain informational.
+- **TOA harness behavior.** Running the TOA fixtures without specifying `--mode bibliography` produces false diffs because the harness defaults to note rendering. Explicitly adding `--mode bibliography` restores dotted leader output and aligns with `expected_toa_grouped_leaders.txt`; document this nuance alongside the command example.【eab112†L1-L41】【2a9a0c†L1-L40】 Future tooling updates could auto-select bibliography mode when a TOA style is detected.
+- **Log review.** Spot-checked historical outputs under `temp/test-logs/` (e.g., `20250309-run_tests-regenerated.txt`) to confirm the new runs match prior baselines for parenthetical and bibliography coverage; no unexpected churn observed.【74260d†L1-L40】
+
 ## Macro Dispatch Sketches
 
 ### `cs:citation` authority routing
