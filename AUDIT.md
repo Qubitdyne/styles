@@ -21,3 +21,25 @@
 
 ## Next Steps
 - Prioritize the new test-harness backlog so future audits encounter fewer setup issues and noisier logs, referencing the detailed tasks in `temp/TODO.md`.【F:temp/TODO.md†L403-L432】
+
+# Texas Greenbook CSL Audit — 2025-12-05
+
+## Scope & Materials Reviewed
+- Re-ran the canonical note regression suite with `texas-greenbook-15th-edition.csl` and the latest `expected.txt` snapshot to confirm baseline coverage and highlight any lingering diffs.【8360ab†L1-L208】
+- Executed the grouped-leaders Table of Authorities harness using `texas-greenbook-15th-toa-grouped-leaders.csl` against `expected_toa_grouped_leaders.txt`, then compared the mismatched output with both the fixture file and the 2025-05-06 reference log to understand ordering regressions.【e29318†L1-L37】【F:temp/expected_toa_grouped_leaders.txt†L1-L17】【F:temp/test-logs/20250506_toa_grouped_leaders.txt†L1-L40】
+- Inspected `tests_toa.json` counts to verify that the current dataset only exercises 13 authorities, explaining why the grouped expectations still enumerate 17 entries.【4bd8bb†L1-L1】
+
+## QA Activities
+- Confirmed that the note suite continues to render all case, legislation, and secondary fixtures except for the known cross-jurisdiction cue gap that leaves test 74 emitting “See” instead of the expected “See also,” matching the outstanding follow-up in the short-form epic.【34ab82†L181-L209】【F:temp/TODO.md†L240-L292】
+- Captured the TOA grouped-leaders run showing only 13 rendered entries and dotted leader alignment for the surviving fixtures, providing a fresh log to pair with the historical 17-line baseline during remediation.【e29318†L1-L37】
+
+## Findings & Root Causes
+1. **TOA fixture regression:** The grouped-leaders suite now renders 13 authorities while the expectations still cover 17, producing cascading diffs once the comparator advances past statutes. The root cause is a truncated `tests_toa.json` inventory that no longer includes entries such as `Tex. Gov’t Code Ann. § 311.021(1)` and `Tex. R. Civ. P. 21`, leaving the old expectations misaligned.【4bd8bb†L1-L1】【F:temp/expected_toa_grouped_leaders.txt†L1-L17】【e29318†L18-L36】
+2. **Jurisdictional cue guard still pending:** Regression run 74 continues to output the baseline “See” signal for non-Texas authorities, reaffirming that the planned citeproc jurisdiction filtering follow-up remains outstanding before the short-form release can close the gap.【34ab82†L181-L209】【F:temp/TODO.md†L240-L292】
+
+## Housekeeping & Documentation Updates
+- Logged the TOA fixture regression and cross-reference cue status in `NOTES.md` under a new 2025-12-05 QA spot-check so future reviewers have immediate context for the failing expectations.【F:temp/NOTES.md†L1-L40】
+- Added a dedicated `TODO.md` entry detailing the restoration steps for the missing TOA fixtures, including regeneration and documentation tasks to prevent the mismatch from resurfacing.【F:temp/TODO.md†L359-L375】
+
+## Next Steps
+- Restore the four missing TOA fixtures, regenerate all `expected_toa*.txt` baselines, and archive fresh grouped-leader logs before rerunning this audit checklist.【F:temp/TODO.md†L359-L375】
