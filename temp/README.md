@@ -44,15 +44,15 @@ This document summarizes the scope, capabilities, and maintenance guidance for t
 
 ## Running the Test Suites
 
-1. **Install citeproc test dependencies** (once per environment): refer to `temp/run_tests.py` for required Python packages (primarily `citeproc-py`).
+1. **Install citeproc test dependencies** (once per environment): `pip install citeproc-py` ensures the harness can import `citeproc` before rendering fixtures. The script will otherwise raise `ModuleNotFoundError` when attempting to load the library.【F:temp/run_tests.py†L1-L60】
 2. **Run the core note/bibliography suite:**
    ```bash
    python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt
    ```
    The script compares generated citations with `expected.txt` (general authorities) and `expected_secondary.txt` (secondary sources) for regression checking.【F:temp/run_tests.py†L1-L186】【F:temp/tests.json†L1-L166】
-3. **Run the Table of Authorities suite:**
+3. **Run the Table of Authorities suite:** add `--mode bibliography` so the harness renders bibliography rows (where dotted leaders and tab stops live) instead of defaulting to note citations.
    ```bash
-   python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt
+   python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt --mode bibliography
    ```
    Alternate TOA styles can be tested by swapping the `--style` and `--expected` paths (see `expected_toa.txt`, `expected_toa_grouped.txt`, `expected_toa_leaders.txt`).【F:temp/tests_toa.json†L1-L200】
 4. **Update fixtures:** Use the `--write-expected` flag to regenerate expected outputs after intentional changes; review diffs to ensure alignment with Greenbook requirements before committing.【F:temp/run_tests.py†L75-L114】
