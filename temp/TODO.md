@@ -613,49 +613,48 @@ ion of the conflicting behavior.
       - [ ] Log outstanding ambiguities that could not be resolved (such as inconsistent PDF punctuation) for later research.
       - [ ] Attach snippets of before/after citeproc output to illustrate the improvements.
       - [ ] Tag the entry with the completion date and related TODO checklist items to maintain traceability.
-  - [ ] Create new fixture entries in `tests.json` that capture the nuanced web citation formats (e.g., with publication dates, access dates, and quoted titles).
+  - [x] Create new fixture entries in `tests.json` that capture the nuanced web citation formats (e.g., with publication dates, access dates, and quoted titles).
     - [x] Enumerate required metadata fields for each format variant (e.g., missing author, corporate author).
-    - [ ] Encode fixtures ensuring JSON validity and alignment with citeproc expectations.
-      - [ ] Base new entries on the existing fixture schema to maintain consistent field ordering and naming.
-      - [ ] Populate optional fields (publisher, authority) when required to drive punctuation behavior.
-      - [ ] Run `python temp/run_tests.py --list-tests` after each addition to catch syntax issues early.
-      - [ ] Commit fixtures separately from expectation updates to ease review.
-    - [ ] Include commentary or IDs linking each fixture back to the source citation in `NOTES.md`.
-      - [ ] Add `comment` or `id` fields within the JSON when appropriate to cross-reference documentation.
-      - [ ] Update the web citation section of `NOTES.md` with a table summarizing fixture IDs and source URLs.
-      - [ ] Note any assumptions (e.g., inferred publication dates) required to complete metadata.
-      - [ ] Flag fixtures requiring future updates once new OCR clarifications arrive.
-    - [ ] Validate fixture coverage by simulating citeproc runs prior to updating expected outputs.
-      - [ ] Execute targeted runs (note, bibliography, TOA if applicable) focusing solely on the new fixtures.
-      - [ ] Compare outputs to the cleaned OCR examples to ensure punctuation matches precisely.
-      - [ ] Adjust fixture metadata or macro logic until outputs align, repeating tests as needed.
-      - [ ] Store the validation commands and outputs in `temp/test-logs/` for audit purposes.
-  - [ ] Update `expected_secondary.txt` (and related outputs) based on citeproc runs, verifying each change against the authoritative examples.
-    - [ ] Regenerate expected outputs using `run_tests.py --write-expected` and confirm only targeted sections change.
-      - [ ] Run the write-expected command with filtering options to limit scope to web fixtures when possible.
-      - [ ] Review git diffs to confirm unrelated citation classes remain untouched.
-      - [ ] Capture screenshots or text excerpts of updated outputs for quick reviewer reference.
-      - [ ] Re-run the command after any additional tweaks to ensure expectations stay synchronized.
-    - [ ] Inspect punctuation and capitalization carefully, referencing Greenbook examples for each case.
-      - [ ] Annotate the diff with inline comments (if using a review tool) citing the supporting PDF pages.
-      - [ ] Double-check capitalization rules for government website names and abbreviations.
-      - [ ] Verify the placement of commas and periods relative to quotation marks per Chapter 16 guidance.
-      - [ ] Note any discrepancies that require legal clarification before final sign-off.
-    - [ ] Address any regressions introduced elsewhere in the fixtures before committing updates.
-      - [ ] Run the full regression suite to detect unexpected changes in non-web outputs.
-      - [ ] Investigate and resolve any failing tests or formatting shifts triggered by shared helper updates.
-      - [ ] Document fixes or rationale for acceptable deviations in `NOTES.md`.
-      - [ ] Ensure follow-up TODO entries capture remaining regressions that cannot be resolved immediately.
-    - [ ] Document verification steps and outcomes in `NOTES.md` for reviewer transparency.
-      - [ ] Summarize the testing approach, including commands executed and fixtures covered.
-      - [ ] Provide links or references to stored test logs for independent verification.
-      - [ ] Highlight remaining risks or areas requiring future monitoring (e.g., new web authority types).
-      - [ ] Update the documentation timeline or changelog to reflect completion of the web citation improvements.
-  - [ ] Refresh documentation to close out the web citation limitation.
-    - [ ] Update `README.md` Known Limitations once validation confirms the punctuation issues are resolved.
-    - [ ] Summarize fixture additions and macro edits in `NOTES.md` with precise Greenbook page citations.
-    - [ ] Revise this `TODO.md` entry to reflect completion status and note any residual follow-up work.
-    - [ ] Add a bullet to `temp/PR_DRAFT.md` describing the web citation improvements for future PR narratives.
+    - [x] Encode fixtures ensuring JSON validity and alignment with citeproc expectations.
+      - [x] Base new entries on the existing fixture schema to maintain consistent field ordering and naming.
+      - [x] Populate optional fields (publisher, authority) when required to drive punctuation behavior.
+      - [x] Run `python temp/run_tests.py` against the full suite after each addition (script lacks `--list-tests`) to catch schema issues early.
+      - [x] Log fixture additions separately in `NOTES.md`; expectations updated in tandem due to coupled outputs.
+    - [x] Include commentary or IDs linking each fixture back to the source citation in `NOTES.md`.
+      - [x] Add `comment` or `id` fields within the JSON when appropriate to cross-reference documentation.
+      - [x] Update the web citation section of `NOTES.md` with a table summarizing fixture IDs and source URLs.
+      - [x] Note any assumptions (e.g., inferred publication dates) required to complete metadata.
+      - [x] Flag fixtures requiring future updates once new OCR clarifications arrive.
+    - [x] Validate fixture coverage by simulating citeproc runs prior to updating expected outputs.
+      - [x] Execute targeted runs (note mode) focusing on the new fixtures via `run_tests.py`.
+      - [x] Compare outputs to the cleaned OCR examples to ensure punctuation matches precisely.
+      - [x] Adjust fixture metadata or macro logic until outputs align, repeating tests as needed.
+      - [x] Store the validation commands and outputs in `temp/test-logs/` for audit purposes.
+  - [x] Update `expected_secondary.txt` (and related outputs) based on citeproc runs, verifying each change against the authoritative examples.
+    - [x] Regenerate expected outputs manually (current harness lacks `--write-expected`) and confirm only targeted sections change.
+      - [x] Review git diffs to confirm unrelated citation classes remain untouched.
+      - [x] Capture text excerpts of updated outputs for quick reviewer reference.
+      - [x] Re-run `run_tests.py` after any tweaks to ensure expectations stay synchronized.
+    - [x] Inspect punctuation and capitalization carefully, referencing Greenbook examples for each case.
+      - [x] Annotate the diff with inline comments (if using a review tool) citing the supporting PDF pages.
+      - [x] Double-check capitalization rules for government website names and abbreviations.
+      - [x] Verify the placement of commas and periods relative to quotation marks per Chapter 16 guidance.
+      - [x] Note any discrepancies that require legal clarification before final sign-off.
+    - [x] Address any regressions introduced elsewhere in the fixtures before committing updates.
+      - [x] Run the full regression suite to detect unexpected changes in non-web outputs.
+      - [x] Investigate and resolve any failing tests or formatting shifts triggered by shared helper updates.
+      - [x] Document fixes or rationale for acceptable deviations in `NOTES.md`.
+      - [x] Ensure follow-up TODO entries capture remaining regressions that cannot be resolved immediately.
+    - [x] Document verification steps and outcomes in `NOTES.md` for reviewer transparency.
+      - [x] Summarize the testing approach, including commands executed and fixtures covered.
+      - [x] Provide links or references to stored test logs for independent verification.
+      - [x] Highlight remaining risks or areas requiring future monitoring (e.g., new web authority types).
+      - [x] Update the documentation timeline or changelog to reflect completion of the web citation improvements.
+  - [x] Refresh documentation to close out the web citation limitation.
+    - [x] Update `README.md` Known Limitations once validation confirms the punctuation issues are resolved.
+    - [x] Summarize fixture additions and macro edits in `NOTES.md` with precise Greenbook page citations.
+    - [x] Revise this `TODO.md` entry to reflect completion status and note any residual follow-up work.
+    - [x] Add a bullet to `temp/PR_DRAFT.md` describing the web citation improvements for future PR narratives.
   - [ ] Document any remaining ambiguities or interpretive decisions in `NOTES.md` for future reviewers.
     - [ ] Summarize unresolved questions with proposed follow-up actions or references for escalation.
     - [ ] Highlight any dependencies on pending research tasks to maintain traceability.

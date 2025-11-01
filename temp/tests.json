@@ -615,6 +615,74 @@
     "status": "press release"
   },
   {
+    "id": "web_press_release_undated",
+    "type": "webpage",
+    "title": "Remote Hearings Expand Across Texas Courts",
+    "container-title": "Texas Judiciary",
+    "status": "press release",
+    "URL": "https://www.txcourts.gov/media/releases/remote-hearings-expand",
+    "accessed": {
+      "date-parts": [
+        [
+          2025,
+          3,
+          22
+        ]
+      ]
+    },
+    "comment": "Ch. 16 web example – status fallback when issued year is absent (p. 76)"
+  },
+  {
+    "id": "web_blog_quoted_title",
+    "type": "webpage",
+    "title": "\"Designing Accessible Virtual Hearings\"",
+    "container-title": "Texas Courts Blog",
+    "issued": {
+      "date-parts": [
+        [
+          2022,
+          9,
+          8
+        ]
+      ]
+    },
+    "URL": "https://blog.txcourts.gov/designing-accessible-virtual-hearings",
+    "accessed": {
+      "date-parts": [
+        [
+          2025,
+          2,
+          18
+        ]
+      ]
+    },
+    "comment": "Ch. 16 web example – quoted article title punctuation (p. 77)"
+  },
+  {
+    "id": "web_standalone_pdf",
+    "type": "webpage",
+    "title": "Texas Judicial Council, 2024 Weighted Caseload Study",
+    "issued": {
+      "date-parts": [
+        [
+          2024
+        ]
+      ]
+    },
+    "URL": "https://www.txcourts.gov/media/weighted-caseload-study.pdf",
+    "accessed": {
+      "date-parts": [
+        [
+          2025,
+          1,
+          20
+        ]
+      ]
+    },
+    "status": "report",
+    "comment": "Ch. 16 narrative – no container title on agency PDF download (pp. 76–77)"
+  },
+  {
     "id": "unpublished_memo",
     "type": "manuscript",
     "author": [

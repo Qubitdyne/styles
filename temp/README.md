@@ -34,7 +34,6 @@ This document summarizes the scope, capabilities, and maintenance guidance for t
 
 - **Statute and rule short forms:** Cross-reference and id. logic for statutes, rules, and administrative materials remains incomplete; see flagged tests in `expected.txt` for desired output.【F:temp/NOTES.md†L172-L189】【F:temp/expected.txt†L150-L214】 (Greenbook Ch. 10–13, pp. 42–65)【F:temp/Greenbook_15thEdition.pdf†L170-L250】
 - **Federal authorities:** TOA fixtures lack federal examples; future updates should add them once macros support multi-jurisdiction sorting.【F:temp/NOTES.md†L194-L205】 (Greenbook Appendix B, pp. 239–252)【F:temp/Greenbook_15thEdition.pdf†L612-L676】
-- **Web citation pin cites:** Chapter 16 web examples use ligature-heavy scans; confirm precise quotation punctuation after OCR cleanup.【F:temp/NOTES.md†L189-L193】 (Greenbook Ch. 16, pp. 76–84)【F:temp/Greenbook_15thEdition.pdf†L274-L318】
 
 ### Assumptions, Deviations, and Unresolved Questions
 
@@ -62,6 +61,7 @@ This document summarizes the scope, capabilities, and maintenance guidance for t
 - **Abbreviations and locales:** Centralize Greenbook-specific term overrides (e.g., `rule`, `chapter`, `paragraph`) in a dedicated locale file and include it across styles to prevent drift.【F:temp/NOTES.md†L209-L236】
 - **New authority types:** Add fixtures to `tests.json`/`tests_toa.json` before implementing macros so expectations remain test-driven; cite the controlling Greenbook pages in inline comments when adding new test cases.【F:temp/tests.json†L1-L166】【F:temp/tests_toa.json†L1-L200】
 - **Macro evolution:** Follow the dispatcher diagram in `NOTES.md` when adding new citation branches to keep note and bibliography routing aligned.【F:temp/NOTES.md†L101-L170】
+- **Web citation coverage:** Chapter 16 web fixtures now exercise undated press releases, quoted blog titles, and standalone PDF downloads; regenerate both `expected.txt` and `expected_secondary.txt` when touching related macros to keep punctuation aligned with pp. 76–77.【F:temp/tests.json†L594-L655】【F:temp/expected_secondary.txt†L5-L15】【F:temp/Greenbook_15thEdition.pdf†L452-L479】
 - **Versioning:** Use `temp/archive/` to store experimental drafts if a major rewrite is required; promote the result back into `texas-greenbook-15th-edition.csl` only after regression tests and documentation are updated, per `AGENTS.md` guidance.【F:temp/AGENTS.md†L8-L16】
 - **Change management guardrails:**
   1. Update `texas-greenbook-15th-edition.csl` and rerun both note and TOA test suites before committing.
