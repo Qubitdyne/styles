@@ -153,6 +153,84 @@
 - **Draft 3** retains the Draft 2 macro library while layering in additional fallbacks (`book-like`, `web`) and a revised citation switch that defers to master templates for cases, statutes, and regulations. It also embeds `weight-parentheticals` and `pinpoint` logic for Westlaw citations, illustrating how to mix print and electronic reporters within the same macro stack.【F:temp/texas-greenbook-15th-draft3.csl†L1-L428】
 - **Table-of-Authorities variants** (e.g., `texas-greenbook-15th-toa.csl`, `texas-greenbook-15th-toa-grouped-leaders.csl`) reuse the master macros but customize bibliography sorting, grouping, and dotted-leader output, showing how TOA requirements can be met with selective macro reuse and layout tweaks.【F:temp/texas-greenbook-15th-toa.csl†L1-L166】【F:temp/texas-greenbook-15th-toa-grouped-leaders.csl†L1-L190】
 
+## Draft 3 Macro Inventory and Dependencies
+
+### Macro Catalog
+| Macro | Purpose | Classification |
+| --- | --- | --- |
+| `author` | Formats author names with short-form labels for secondary sources. | Shared helper |
+| `case-name` | Emits italicized case titles. | Authority-specific (Texas cases) |
+| `reporter` | Bundles volume, reporter abbreviation, and first page for generalized case citations. | Shared helper |
+| `court-year` | Wraps court and year parenthetical for generalized case entries. | Shared helper |
+| `subsequent-history` | Emits appended history stored in `references`. | Authority-specific (case follow-on) |
+| `tex-constitution` | Full citation assembly for Texas Constitution provisions. | Authority-specific (constitution) |
+| `tex-statute` | Formats Texas statutory code citations using container-title and section. | Authority-specific (statutes) |
+| `tex-admin-code` | Outputs Texas Administrative Code references with year and title parentheticals. | Authority-specific (administrative code) |
+| `tex-register` | Handles Texas Register notices including pinpoint and note parentheticals. | Authority-specific (register notices) |
+| `book-like` | Shared layout for books, chapters, and reports. | Shared helper |
+| `article-journal` | Shared layout for journal articles. | Shared helper |
+| `web` | Shared layout for web resources with access dates. | Shared helper |
+| `reporter-print` | Specialized print-reporter block for case citations. | Shared helper |
+| `reporter-wl` | Formats Westlaw-equivalent citations when print reporter is missing. | Shared helper |
+| `court-and-date` | Chooses between print- and slip-opinion parentheticals for cases. | Shared helper |
+| `weight-parentheticals` | Emits weight-of-authority explanatory parentheticals from `genre`/`medium`. | Shared helper |
+| `legal-case` | Top-level case citation assembler combining reporter, pinpoint, and parentheticals. | Authority-specific (cases) |
+| `statute-code` | Simplified code citation used when metadata is incomplete. | Authority-specific (fallback statutes) |
+| `constitution-core` | Constitution citation core used by alternative layouts. | Authority-specific (constitution helper) |
+| `session-law` | Assembles session-law (Texas General Laws) citations. | Authority-specific (session laws) |
+| `tac-core` | Core layout for Texas Administrative Code entries. | Authority-specific (administrative code) |
+| `rule-core` | Outputs rule citations (procedural/evidentiary). | Authority-specific (rules) |
+| `municipal-code` | Handles municipal ordinance citations. | Authority-specific (municipal) |
+| `ag-opinion` | Formats Attorney General opinion references. | Authority-specific (advisory opinions) |
+| `journal-article` | Alternative journal layout with italicized container titles. | Shared helper |
+| `pinpoint` | Applies pinpoint logic for both print and Westlaw cites. | Shared helper |
+
+### Layout Hierarchy Diagram
+```
+Citation Layout
+├─ legal_case → legal-case
+│   ├─ case-name
+│   ├─ reporter-print / reporter-wl
+│   ├─ pinpoint
+│   └─ court-and-date → weight-parentheticals
+├─ legislation/bill → tex-statute │ statute-code (fallback)
+├─ treaty/standard → tac-core
+├─ article-journal → author
+├─ book/chapter/report → book-like → author
+├─ web/post → web
+└─ default → title + issued
+
+Bibliography Layout
+├─ legal_case → case-name + reporter + court-year
+├─ legislation/bill → tex-statute
+├─ treaty/standard → tex-admin-code
+├─ article-journal → article-journal
+├─ book/chapter/report → book-like → author
+├─ web/post → web
+└─ default → title + issued
+
+Authority-Specific Supporting Macros
+├─ Constitution pipeline → {tex-constitution, constitution-core}
+├─ Administrative code pipeline → {tex-admin-code, tac-core}
+├─ Session laws → session-law
+├─ Municipal code → municipal-code
+└─ Advisory opinions → ag-opinion
+```
+
+### Missing Shared Helpers and Required Additions
+- **Case law pipeline**
+  - *Pinpoints*: Current `pinpoint` macro distinguishes print versus Westlaw but cannot emit multiple pincites or textual locators (e.g., `at *4`, `slip op. at`). Add a shared helper that normalizes slip-opinion locators (e.g., `pinpoint-slip`) and allows comma-delimited pincite arrays for both note and bibliography contexts.
+  - *Parentheticals*: `weight-parentheticals` only reads `genre`/`medium`; introduce a generalized `explanatory-parenthetical` helper that can handle procedural phrases (`per curiam`, `mem. op.`, `orig. proceeding`) by inspecting `status`, `genre`, and custom fields.
+  - *Docket metadata*: Add a shared `docket-block` helper to capture `collection-number` and `number` for slip opinions and mandamus proceedings so that `legal-case` and mandamus-specific macros can reuse the logic.
+- **Statutory/constitution pipeline**
+  - *Pinpoints*: No macro supports subsection pinpoints beyond single `section`. Implement a `section-pinpoint` helper that accepts `section`, `subdivision`, and paragraph indicators to support statutory notes and constitutional subsections.
+  - *Parentheticals*: `tex-statute` inlines supplemental notes but lacks shared logic for publisher/year parentheticals. Create a `publication-parenthetical` helper to compute `(West 2025)` style phrases shared between statutes, constitutions, and rules.
+  - *Docket metadata*: For session laws and legislative history, add a `legislative-history-metadata` helper to unify bill number, session, and disposition fields for use across `session-law` and future committee-report macros.
+- **Administrative/rule pipeline**
+  - *Pinpoints*: `tex-admin-code` and `tac-core` emit only single sections. Extend with a `rule-pinpoint` helper that accommodates `note`, `appendix`, or comment locators (e.g., `cmt. to 1997 change`).
+  - *Parentheticals*: Introduce a shared `status-parenthetical` helper that formats `adopted`, `emergency rule`, or `effective` notes for both TAC and Register citations using `status`/`note` variables.
+  - *Docket metadata*: Agency orders and ethics opinions use numbers (`No.`, `Op.`) but rely on bespoke text. Build a `agency-docket` helper to standardize authority + opinion number handling for `ag-opinion`, `municipal-code`, and forthcoming agency-material macros.
+
 ### Patterns Requiring Greenbook-Specific Adaptation
 - Bluebook macros heavily rely on `ibid`, `supra`, and symbol-based author formatting; Greenbook short-form rules will need alternative position handling (e.g., "Id." versus "supra" suppression) and customized italics behavior for case names within short cites.【F:bluebook-law-review.csl†L320-L384】
 - The Draft 2/3 macros expect structured variables (`authority`, `status`, `collection-number`) that may not be present in raw Zotero data; translators or plugins will need to map Greenbook fields (petition histories, docket numbers) into these slots or extend macros to compute fallbacks.【F:temp/texas-greenbook-15th-draft2.csl†L52-L112】【F:temp/texas-greenbook-15th-draft3.csl†L267-L323】
