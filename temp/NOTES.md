@@ -450,6 +450,17 @@ Authority-Specific Supporting Macros
 | style > style > macro:pinpoint > choose > if > text | prefix=', ', variable='locator' |
 | style > style > macro:pinpoint > choose > else-if > text | prefix=', at *', variable='locator' |
 
+## Test Coverage Update (October 2025)
+
+- `tests.json` now includes first-form and follow-on examples for every authority class routed through the citation macros, including Texas trial court orders, uncodified session laws, municipal codes, Attorney General letter opinions, and secondary sources such as internet materials and unpublished correspondence. This aligns one or more fixtures with each row of the authority matrix above.
+- Inline comments on every line of `expected.txt` and `expected_secondary.txt` record the controlling Greenbook page so future edits can audit expectations back to the source text quickly.
+- `tests_toa.json` has been expanded to mirror Table of Authorities groupings: Supreme Court, intermediate courts (published and memorandum opinions), criminal cases, trial orders, constitution provisions, statutes, court rules, administrative materials (code and register), session laws, Attorney General opinions, municipal ordinances, and secondary authorities. Each entry carries a sample locator to exercise dotted-leader rendering.
+
+### Outstanding Gaps
+
+- The CSL drafts do not yet differentiate short-form vs. cross-reference output for Texas statutes, constitutions, court rules, or register notices. The new fixtures flag the desired strings, but current style logic will need to adopt `references`-aware branches similar to the case macros.
+- Web citations in Chapter 16 rely on “available at” plus “Accessed” parentheticals. The PDF text uses ligatures that complicate automated extraction, so the inline comments cite the chapter generally (`Greenbook 15th ed. 76`). A follow-up task should confirm the precise pin cites once optical text cleanup is available.
+- Table of Authorities tests cover the major groups but still lack examples for federal authorities and multi-level leaders (e.g., nested subentries). Future iterations should add those once the TOA CSL variants support secondary sorting keys.
 ### Stock Locale Comparison (locales-en-US.xml)
 | Term | Draft 3 Value | Stock en-US Value | Override Needed? |
 | --- | --- | --- | --- |

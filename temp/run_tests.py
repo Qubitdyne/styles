@@ -64,11 +64,24 @@ for index, citation in enumerate(notes, start=1):
     rendered.append(str(citation_result))
 
 with open(EXPECTED_PATH, "r", encoding="utf-8") as f:
-    expected_lines = [line.rstrip("\n") for line in f]
+    raw_expected_lines = [line.rstrip("\n") for line in f]
+
+expected_lines = []
+expected_comments = []
+for line in raw_expected_lines:
+    if " // " in line:
+        text, comment = line.split(" // ", 1)
+        expected_lines.append(text.rstrip())
+        expected_comments.append(comment)
+    else:
+        expected_lines.append(line)
+        expected_comments.append("")
 
 for index, (expected, actual) in enumerate(zip(expected_lines, rendered), start=1):
     status = "OK" if expected == actual else "DIFF"
-    print(f"{index:02d}: {status}\n  expected: {expected}\n  actual:   {actual}\n")
+    comment = expected_comments[index - 1]
+    comment_suffix = f" // {comment}" if comment else ""
+    print(f"{index:02d}: {status}\n  expected: {expected}{comment_suffix}\n  actual:   {actual}\n")
 
 if len(expected_lines) != len(rendered):
     print(f"Warning: expected {len(expected_lines)} lines but rendered {len(rendered)} citations.")
