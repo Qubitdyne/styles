@@ -447,7 +447,7 @@ ion of the conflicting behavior.
     - [ ] Share context on decision-making rationale to aid future maintainers.
 
 ## Research & Backlog
-- [ ] **Resolve memo opinion styling.** Verify italicization requirements for unpublished memorandum opinions (Greenbook Ch. 4, pp. 24–25) before locking typography rules.
+- [x] **Resolve memo opinion styling.** Verify italicization requirements for unpublished memorandum opinions (Greenbook Ch. 4, pp. 24–25) before locking typography rules.
   - [x] Extract the memo opinion examples from the PDF and note the typography treatment (italics, capitalization, spacing) with precise citations in `NOTES.md`. (Documented representative examples from pp. 16–18 in the memo opinion typography check dated 2025-11-01.)
     - [x] Capture screenshots or text snippets of each example for visual comparison. (Added verbatim text snippets for Richardson v. Kays, In re Int’l Profit Assocs., Green v. State, and Jaxson v. Morgan to `NOTES.md`.)
     - [x] Annotate typography rules (e.g., italicized case names vs. roman text) per example. (Recorded roman treatment for `(per curiam)` and `(mem. op.)` parentheticals alongside italicized case names.)
@@ -458,21 +458,21 @@ ion of the conflicting behavior.
     - [x] Compare note vs. TOA outputs to ensure consistent typography handling.
     - [x] Evaluate interactions with parenthetical helpers to anticipate cascading changes.
     - [x] Document current implementation limitations in `NOTES.md`.
-  - [ ] If adjustments are required, design the preferred formatting approach (e.g., new terms vs. styling attributes) and outline the implementation steps.
-    - [ ] Draft alternative formatting strategies and assess compatibility with CSL capabilities.
-    - [ ] Select the approach aligning best with Greenbook directives and repository conventions.
-    - [ ] Produce a mini design doc in `NOTES.md` enumerating required macro updates.
-    - [ ] Solicit feedback from collaborators (if applicable) before coding.
-  - [ ] Prototype the change in a feature branch or local draft, run targeted tests, and evaluate against the Greenbook examples.
-    - [ ] Implement experimental modifications in a sandbox version of the style.
-    - [ ] Execute citeproc runs focusing on memo opinion cases to gather output samples.
-    - [ ] Compare outputs with PDF examples and iterate until alignment is achieved.
-    - [ ] Record lessons learned and final decisions in `NOTES.md`.
-  - [ ] Update this TODO item with the chosen solution and file any residual questions in `NOTES.md`.
-    - [ ] Check off completed subtasks and adjust the main TODO entry to reflect status.
-    - [ ] List outstanding issues requiring future attention or upstream consultation.
-    - [ ] Ensure `NOTES.md` captures closure details and references to supporting tests.
-    - [ ] Communicate updates to collaborators or maintainers via shared channels if relevant.
+  - [x] If adjustments are required, design the preferred formatting approach (e.g., new terms vs. styling attributes) and outline the implementation steps.
+    - [x] Draft alternative formatting strategies and assess compatibility with CSL capabilities. (Chose explicit `font-style="normal"` guards rather than introducing locale terms.)
+    - [x] Select the approach aligning best with Greenbook directives and repository conventions.
+    - [x] Produce a mini design doc in `NOTES.md` enumerating required macro updates.
+    - [x] Solicit feedback from collaborators (if applicable) before coding. (N/A during solo run.)
+  - [x] Prototype the change in a feature branch or local draft, run targeted tests, and evaluate against the Greenbook examples.
+    - [x] Implement experimental modifications in a sandbox version of the style.
+    - [x] Execute citeproc runs focusing on memo opinion cases to gather output samples.
+    - [x] Compare outputs with PDF examples and iterate until alignment is achieved.
+    - [x] Record lessons learned and final decisions in `NOTES.md`.
+  - [x] Update this TODO item with the chosen solution and file any residual questions in `NOTES.md`.
+    - [x] Check off completed subtasks and adjust the main TODO entry to reflect status.
+    - [x] List outstanding issues requiring future attention or upstream consultation. (Memo styling now closed; no follow-ups required.)
+    - [x] Ensure `NOTES.md` captures closure details and references to supporting tests.
+    - [x] Communicate updates to collaborators or maintainers via shared channels if relevant. (Not needed for solo run; documented in repo.)
 - [x] **Decide on shared locale packaging.** Draft the consolidated locale file for terms like “art.” and “ch.” and plan integration across all drafts per the standing assumption. (Validated locale metadata and documented final review in `NOTES.md` on 2025-11-02.)
   - [x] Identify all non-default terms currently overridden in the main and TOA styles, listing them in `NOTES.md` along with their source citations.
     - [x] Scan CSL files for `<term>` overrides or localized string literals.

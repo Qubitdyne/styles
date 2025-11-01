@@ -52,8 +52,8 @@
     </ns0:choose>
   </ns0:macro>
   <ns0:macro name="weight-parentheticals">
-    <ns0:choose><ns0:if variable="genre"><ns0:text variable="genre" prefix=" (" suffix=")" /></ns0:if></ns0:choose>
-    <ns0:choose><ns0:if variable="medium"><ns0:text variable="medium" prefix=" (" suffix=")" /></ns0:if></ns0:choose>
+    <ns0:choose><ns0:if variable="genre"><ns0:text variable="genre" font-style="normal" prefix=" (" suffix=")" /></ns0:if></ns0:choose>
+    <ns0:choose><ns0:if variable="medium"><ns0:text variable="medium" font-style="normal" prefix=" (" suffix=")" /></ns0:if></ns0:choose>
   </ns0:macro>
   <ns0:macro name="legal-case">
     <ns0:group delimiter=", ">

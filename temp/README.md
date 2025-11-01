@@ -40,7 +40,7 @@ This document summarizes the scope, capabilities, and maintenance guidance for t
 
 1. **Locale overrides consolidated via shared custom locale (assumption):** The drafts assume a future shared locale file to house abbreviations like “art.” and “ch.” to avoid duplication.【F:temp/NOTES.md†L209-L236】 (Greenbook Appendix A abbreviations, pp. 215–238)【F:temp/Greenbook_15thEdition.pdf†L560-L611】
 2. **Petition history punctuation (deviation):** The edition style renders petition history separated by commas instead of semicolons to match Greenbook examples (e.g., `pet. denied`).【F:temp/texas-greenbook-15th-edition.csl†L236-L296】 (Greenbook Ch. 4, pp. 14–27)【F:temp/Greenbook_15thEdition.pdf†L40-L92】
-3. **Unpublished memorandum opinions (question):** The Greenbook allows `mem. op.` parentheticals but the PDF is unclear about italicization in slip opinions; confirm formatting from pp. 24–25 before finalizing the macro styling.【F:temp/texas-greenbook-15th-edition.csl†L208-L259】 (Greenbook Ch. 4, pp. 24–25)【F:temp/Greenbook_15thEdition.pdf†L70-L78】
+3. **Unpublished memorandum opinions (resolved):** Chapter 4 examples confirm that `(mem. op.)` parentheticals remain in roman type; the `weight-parentheticals` macro now enforces `font-style="normal"` so slip-opinion parentheticals do not inherit italics from surrounding context.【F:temp/NOTES.md†L410-L430】【F:temp/texas-greenbook-15th-edition.csl†L143-L155】 (Greenbook Ch. 4, pp. 14–15 / PDF p. 32)【F:temp/test-logs/2025-03-17_memo-opinion.txt†L20-L39】
 
 ## Running the Test Suites
 
