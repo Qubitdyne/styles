@@ -1,6 +1,25 @@
 import argparse
+import importlib.util
 import json
+import sys
 from copy import deepcopy
+
+
+def _ensure_citeproc_available() -> None:
+    """Exit early with an actionable hint when citeproc is missing."""
+
+    if importlib.util.find_spec("citeproc") is None:
+        message = (
+            "Missing required dependency 'citeproc'. Install it with "
+            "'pip install -r temp/requirements.txt' or "
+            "'pip install citeproc-py'."
+        )
+        sys.stderr.write(message + "\n")
+        sys.exit(1)
+
+
+_ensure_citeproc_available()
+
 from citeproc import Citation, CitationItem, Locator
 from citeproc import CitationStylesBibliography, CitationStylesStyle
 from citeproc import formatter
@@ -17,10 +36,26 @@ parser.add_argument("--expected", default=DEFAULT_EXPECTED_PATH, help="Text file
 parser.add_argument(
     "--mode",
     choices=["notes", "bibliography"],
-    default="notes",
-    help="Render either note citations (default) or the final bibliography entries.",
+    default=None,
+    help=(
+        "Render note citations or bibliography entries. Defaults to bibliography "
+        "when testing a Table of Authorities style and notes otherwise."
+    ),
 )
 args = parser.parse_args()
+
+
+def _infer_mode(style_path: str, requested_mode: str | None) -> str:
+    if requested_mode:
+        return requested_mode
+
+    if "toa" in style_path.lower():
+        return "bibliography"
+
+    return "notes"
+
+
+mode = _infer_mode(args.style, args.mode)
 
 with open(args.tests, "r", encoding="utf-8") as f:
     test_items = json.load(f)
@@ -74,10 +109,10 @@ for index, citation in enumerate(notes, start=1):
     citation.note_index = index
     bibliography.register(citation)
     citation_result = bibliography.cite(citation, lambda _: None)
-    if args.mode == "notes":
+    if mode == "notes":
         rendered.append(str(citation_result))
 
-if args.mode == "bibliography":
+if mode == "bibliography":
     rendered = [str(entry) for entry in bibliography.bibliography()]
 
 with open(args.expected, "r", encoding="utf-8") as f:

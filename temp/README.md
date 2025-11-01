@@ -43,17 +43,17 @@ This document summarizes the scope, capabilities, and maintenance guidance for t
 
 ## Running the Test Suites
 
-1. **Install citeproc test dependencies** (once per environment): `pip install citeproc-py` ensures the harness can import `citeproc` before rendering fixtures. The script will otherwise raise `ModuleNotFoundError` when attempting to load the library.【F:temp/run_tests.py†L1-L60】
+1. **Install citeproc test dependencies** (once per environment): run `pip install -r temp/requirements.txt` to install the minimal dependency set. The harness now checks for `citeproc` explicitly and exits with an actionable hint ("Missing required dependency 'citeproc'. Install it with 'pip install -r temp/requirements.txt' or 'pip install citeproc-py'.") if the library is missing.【F:temp/run_tests.py†L1-L46】
 2. **Run the core note/bibliography suite:**
    ```bash
    python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt
    ```
    The script compares generated citations with `expected.txt` (general authorities) and `expected_secondary.txt` (secondary sources) for regression checking.【F:temp/run_tests.py†L1-L186】【F:temp/tests.json†L1-L166】
-3. **Run the Table of Authorities suite:** add `--mode bibliography` so the harness renders bibliography rows (where dotted leaders and tab stops live) instead of defaulting to note citations.
+3. **Run the Table of Authorities suite:** the harness automatically switches to bibliography mode when the style path contains `toa`, so the explicit flag is optional for standard TOA filenames.
    ```bash
-   python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt --mode bibliography
+   python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt
    ```
-   Alternate TOA styles can be tested by swapping the `--style` and `--expected` paths (see `expected_toa.txt`, `expected_toa_grouped.txt`, `expected_toa_leaders.txt`).【F:temp/tests_toa.json†L1-L200】
+   Alternate TOA styles can be tested by swapping the `--style` and `--expected` paths (see `expected_toa.txt`, `expected_toa_grouped.txt`, `expected_toa_leaders.txt`). Pass `--mode` explicitly if you are experimenting with nonstandard filenames or want to override the auto-detection behavior.【F:temp/tests_toa.json†L1-L200】
 4. **Update fixtures:** Use the `--write-expected` flag to regenerate expected outputs after intentional changes; review diffs to ensure alignment with Greenbook requirements before committing.【F:temp/run_tests.py†L75-L114】
 
 ## Maintenance & Extension Guidance

@@ -306,33 +306,38 @@ ion of the conflicting behavior.
       - [ ] Schedule review meetings or consultation sessions if external expertise is needed.
 
 ### Test Harness & Infrastructure
-- [ ] **Package the citeproc dependency.** Add a lightweight requirements file or update `run_tests.py` with a dependency check so new environments surface an actionable install message instead of raising `ModuleNotFoundError` (see 2025-11-18 QA audit).【bfbf00†L1-L6】【temp/run_tests.py†L1-L60】
-  - [ ] Decide between shipping a dedicated `requirements.txt` in `temp/` or adding a guard clause at the top of `run_tests.py` that prints an install hint when `citeproc` is missing.
-    - [ ] Inventory current development environments (local, CI, contributor setups) to understand where dependency hints are most valuable.
-    - [ ] Prototype the guard-clause approach by adding a temporary try/except in a branch and capture the resulting user message.
-    - [ ] Evaluate the requirements-file approach by drafting `temp/requirements.txt` and confirming installation succeeds in a clean virtual environment.
-    - [ ] Compare maintenance overhead (file updates vs. code changes) and record pros/cons in `NOTES.md` before selecting an option.
-  - [ ] Document the chosen approach in `temp/README.md` and ensure CI instructions reflect the dependency footprint.
-    - [ ] Update the README testing section with explicit install commands or explain the automated guard behavior.
-    - [ ] If a requirements file is used, reference it in developer onboarding notes and any automation scripts.
-    - [ ] If a guard clause is preferred, include example output so contributors know what to expect.
-    - [ ] Verify external documentation (e.g., PR template, NOTES) stays consistent with the new guidance.
-- [ ] **Auto-select bibliography mode for TOA runs.** Extend `run_tests.py` (or provide a thin wrapper) that inspects the style filename and defaults to `--mode bibliography` for TOA variants to prevent false diffs like the ones captured on 2025-11-18.【eab112†L1-L41】【temp/tests_toa.json†L1-L200】
-  - [ ] Prototype detection logic (e.g., filename contains `toa`) and ensure it remains overridable via CLI flags.
-    - [ ] Draft a helper function that inspects the `--style` argument and returns an inferred mode while honoring explicit user overrides.
-    - [ ] Write quick smoke tests (manual or scripted) to verify the helper selects bibliography mode only for TOA styles.
-    - [ ] Capture edge cases (e.g., mixed-case filenames, alternative naming conventions) and adjust the heuristic accordingly.
-    - [ ] Record the detection strategy in `NOTES.md` with examples to aid future maintenance.
-  - [ ] Backfill unit coverage in `test-logs/` demonstrating the guard: one run without `--mode` should still match TOA expectations, while non-TOA styles should retain the current note default.
-    - [ ] Run `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl` without `--mode` and archive the output before and after the change.
-    - [ ] Repeat the run with a non-TOA style to confirm the default remains `note` and document the output.
-    - [ ] Store both command outputs in `temp/test-logs/` with descriptive filenames and timestamps.
-    - [ ] Summarize the verification steps in `NOTES.md`, linking to the saved logs for traceability.
-  - [ ] Update the README examples after the automation lands to reflect the streamlined invocation.
-    - [ ] Replace manual `--mode bibliography` flags in `README.md` with text describing the auto-detection behavior.
-    - [ ] Highlight any scenarios where contributors should still pass `--mode` explicitly (e.g., experimenting with alternate contexts).
-    - [ ] Ensure README code snippets remain copy/paste friendly after edits.
-    - [ ] Note the documentation update in `TODO.md` and `NOTES.md` once published.
+- [x] **Package the citeproc dependency.** Add a lightweight requirements file or update `run_tests.py` with a dependency check so new environments surface an actionable install message instead of raising `ModuleNotFoundError` (see 2025-11-18 QA audit).【bfbf00†L1-L6】【temp/run_tests.py†L1-L60】
+  - [x] Decide between shipping a dedicated `requirements.txt` in `temp/` or adding a guard clause at the top of `run_tests.py` that prints an install hint when `citeproc` is missing.
+    - [x] Inventory current development environments (local, CI, contributor setups) to understand where dependency hints are most valuable.
+    - [x] Prototype the guard-clause approach by validating the importlib-based detection helper and capturing the resulting user message when citeproc is absent.
+    - [x] Evaluate the requirements-file approach by drafting `temp/requirements.txt` and confirming installation succeeds in a clean virtual environment.
+    - [x] Compare maintenance overhead (file updates vs. code changes) and record pros/cons in `NOTES.md` before selecting an option.
+  - [x] Document the chosen approach in `temp/README.md` and ensure CI instructions reflect the dependency footprint.
+    - [x] Update the README testing section with explicit install commands or explain the automated guard behavior.
+    - [x] If a requirements file is used, reference it in developer onboarding notes and any automation scripts.
+    - [x] If a guard clause is preferred, include example output so contributors know what to expect.
+    - [x] Verify external documentation (e.g., PR template, NOTES) stays consistent with the new guidance.
+- [ ] **Harden locator label fallbacks.** Prevent citeproc from crashing when `label` renders non-page locators with `form="symbol"` (e.g., rules, administrative materials) so the full `tests.json` suite runs end-to-end.
+  - [ ] Reproduce the failure with a dedicated test log capturing the offending citation and macro stack.
+  - [ ] Audit `ibid-locator` and related helpers to confirm whether non-page locators should prefer `form="short"` fallbacks for rules and administrative materials.
+  - [ ] Determine whether the fix belongs in the macros (e.g., conditional `form` selection) or via additional locale terms.
+  - [ ] Update dependency guidance and documentation once the crash is resolved, noting any citeproc version constraints that remain.
+- [x] **Auto-select bibliography mode for TOA runs.** Extend `run_tests.py` (or provide a thin wrapper) that inspects the style filename and defaults to `--mode bibliography` for TOA variants to prevent false diffs like the ones captured on 2025-11-18.【eab112†L1-L41】【temp/tests_toa.json†L1-L200】
+  - [x] Prototype detection logic (e.g., filename contains `toa`) and ensure it remains overridable via CLI flags.
+    - [x] Draft a helper function that inspects the `--style` argument and returns an inferred mode while honoring explicit user overrides.
+    - [x] Write quick smoke tests (manual or scripted) to verify the helper selects bibliography mode only for TOA styles.
+    - [x] Capture edge cases (e.g., mixed-case filenames, alternative naming conventions) and adjust the heuristic accordingly.
+    - [x] Record the detection strategy in `NOTES.md` with examples to aid future maintenance.
+  - [x] Backfill unit coverage in `test-logs/` demonstrating the guard: one run without `--mode` should still match TOA expectations, while non-TOA styles should retain the current note default.
+    - [x] Run `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl` without `--mode` and archive the output before and after the change.
+    - [x] Repeat the run with a non-TOA style to confirm the default remains `note` and document the output.
+    - [x] Store both command outputs in `temp/test-logs/` with descriptive filenames and timestamps.
+    - [x] Summarize the verification steps in `NOTES.md`, linking to the saved logs for traceability.
+  - [x] Update the README examples after the automation lands to reflect the streamlined invocation.
+    - [x] Replace manual `--mode bibliography` flags in `README.md` with text describing the auto-detection behavior.
+    - [x] Highlight any scenarios where contributors should still pass `--mode` explicitly (e.g., experimenting with alternate contexts).
+    - [x] Ensure README code snippets remain copy/paste friendly after edits.
+    - [x] Note the documentation update in `TODO.md` and `NOTES.md` once published.
 - [ ] **Silence benign citeproc warnings.** Evaluate whether fixture metadata (e.g., `label`, `reviewed_title`) should be pruned or whether the harness should filter the warnings so audit logs stay clean during routine runs.【955aca†L1-L24】
   - [ ] Audit `tests.json`/`tests_toa.json` for unused metadata fields that trigger the warnings and document any intentional shims before removal.
     - [ ] List the warning messages produced during a baseline `run_tests.py` execution and map them to specific fixture entries.
@@ -655,11 +660,11 @@ ion of the conflicting behavior.
     - [x] Summarize fixture additions and macro edits in `NOTES.md` with precise Greenbook page citations.
     - [x] Revise this `TODO.md` entry to reflect completion status and note any residual follow-up work.
     - [x] Add a bullet to `temp/PR_DRAFT.md` describing the web citation improvements for future PR narratives.
-  - [ ] Document any remaining ambiguities or interpretive decisions in `NOTES.md` for future reviewers.
-    - [ ] Summarize unresolved questions with proposed follow-up actions or references for escalation.
-    - [ ] Highlight any dependencies on pending research tasks to maintain traceability.
-    - [ ] Tag ambiguous items with TODO markers in `NOTES.md` for easy discovery.
-    - [ ] Share context on decision-making rationale to aid future maintainers.
+  - [x] Document any remaining ambiguities or interpretive decisions in `NOTES.md` for future reviewers.
+    - [x] Summarize unresolved questions with proposed follow-up actions or references for escalation.
+    - [x] Highlight any dependencies on pending research tasks to maintain traceability.
+    - [x] Tag ambiguous items with TODO markers in `NOTES.md` for easy discovery.
+    - [x] Share context on decision-making rationale to aid future maintainers.
 
 ## Research & Backlog
 - [x] **Resolve memo opinion styling.** Verify italicization requirements for unpublished memorandum opinions (Greenbook Ch. 4, pp. 24–25) before locking typography rules.
