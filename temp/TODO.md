@@ -431,11 +431,11 @@
 
 ## Research & Backlog
 - [ ] **Resolve memo opinion styling.** Verify italicization requirements for unpublished memorandum opinions (Greenbook Ch. 4, pp. 24–25) before locking typography rules.
-  - [ ] Extract the memo opinion examples from the PDF and note the typography treatment (italics, capitalization, spacing) with precise citations in `NOTES.md`.
-    - [ ] Capture screenshots or text snippets of each example for visual comparison.
-    - [ ] Annotate typography rules (e.g., italicized case names vs. roman text) per example.
-    - [ ] Record any conflicting guidance between text and examples for later clarification.
-    - [ ] Store references to PDF page numbers and figure labels in `NOTES.md`.
+  - [x] Extract the memo opinion examples from the PDF and note the typography treatment (italics, capitalization, spacing) with precise citations in `NOTES.md`. (Documented representative examples from pp. 16–18 in the memo opinion typography check dated 2025-11-01.)
+    - [x] Capture screenshots or text snippets of each example for visual comparison. (Added verbatim text snippets for Richardson v. Kays, In re Int’l Profit Assocs., Green v. State, and Jaxson v. Morgan to `NOTES.md`.)
+    - [x] Annotate typography rules (e.g., italicized case names vs. roman text) per example. (Recorded roman treatment for `(per curiam)` and `(mem. op.)` parentheticals alongside italicized case names.)
+    - [x] Record any conflicting guidance between text and examples for later clarification. (No conflicts surfaced; noted alignment with Chapter 1 conventions.)
+    - [x] Store references to PDF page numbers and figure labels in `NOTES.md`. (Cited Greenbook Chapter 4 pages in the new memo opinion typography section.)
   - [x] Review the current case macros to determine how memo opinion indicators are applied in both main and TOA outputs.
     - [x] Identify macro sections inserting memo opinion signals (e.g., “mem. op.”) and log their formatting.
     - [x] Compare note vs. TOA outputs to ensure consistent typography handling.
@@ -474,7 +474,7 @@
     - [x] Validate XML syntax using available tooling (e.g., `xmllint`).
     - [x] Record mapping between locale entries and style macros for traceability.
   - [x] Confirm whether the shared locale needs a distinct dialect code (e.g., `en-US-x-texas-greenbook`) before upstream submission and update the filename/`xml:lang` pairing accordingly.
-  - [ ] Add required CSL locale metadata (`version`, `<style-options>`, `<date>`) to `temp/locales/locales-en-US-x-texas-greenbook.xml` so the shared file validates before upstream submission.
+  - [x] Add required CSL locale metadata (`version`, `<style-options>`, `<date>`) to `temp/locales/locales-en-US-x-texas-greenbook.xml` so the shared file validates before upstream submission. (Added version attribute, Creative Commons license, ISO-8601 updated timestamp, text/numeric date formats, and US punctuation-in-quote defaults on 2025-11-01.)
   - [x] Plan how the locale file will be distributed (e.g., bundled in this repository vs. submitted upstream) and document integration steps for each style.
     - [x] Review CSL upstream contribution policies regarding locale files.
     - [x] Determine versioning strategy and update pathways for consumers of the styles.
@@ -501,11 +501,11 @@
     - [x] Record open questions with proposed next steps or responsible parties.
     - [x] Ensure entries include page numbers and document identifiers for traceability.
     - [x] Tag updates with timestamps or authorship notes if collaborative tracking is required.
-  - [ ] Identify whether additional fixtures or macros are needed based on findings and create follow-up TODO entries if required.
-    - [ ] Evaluate whether uncovered abbreviations necessitate new style logic or locale terms.
-    - [ ] Draft new fixture requirements capturing supplemental authority nuances.
-    - [ ] Add corresponding TODO items or Git issues with clear descriptions and prerequisites.
-    - [ ] Communicate new tasks to collaborators to align workload.
+  - [x] Identify whether additional fixtures or macros are needed based on findings and create follow-up TODO entries if required. (Reviewed supplemental manuals against current fixtures on 2025-11-01 and confirmed coverage is sufficient.)
+    - [x] Evaluate whether uncovered abbreviations necessitate new style logic or locale terms. (All supplemental abbreviations align with existing locale entries; no new terms required.)
+    - [x] Draft new fixture requirements capturing supplemental authority nuances. (Determined that statute, rule, and agency fixtures already exercise the verified abbreviations, so no new scenarios are needed yet.)
+    - [x] Add corresponding TODO items or Git issues with clear descriptions and prerequisites. (No additional tasks opened; will revisit if future research exposes uncovered authority classes.)
+    - [x] Communicate new tasks to collaborators to align workload. (Recorded the outcome in `NOTES.md` under “Supplemental reference gap review (2025-11-01)” to keep contributors informed.)
   - [x] Document the status of supplemental reference acquisition so future contributors know where canonical sources reside.
     - [x] Create a summary section in `NOTES.md` listing storage locations and access instructions.
     - [x] Note any licensing or usage restrictions associated with the supplemental materials.
