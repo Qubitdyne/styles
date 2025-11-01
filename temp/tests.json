@@ -1,0 +1,122 @@
+[
+  {
+    "id": "case_supreme",
+    "type": "legal_case",
+    "title": "Jupiter Oil Co. v. Snow",
+    "container-title": "S.W.2d",
+    "volume": "819",
+    "page": "466",
+    "authority": "Tex.",
+    "issued": {"date-parts": [[1991]]},
+    "locator": "467"
+  },
+  {
+    "id": "case_app_hou14",
+    "type": "legal_case",
+    "title": "IPCO-G. & C. Joint Venture v. A.B. Chance Co.",
+    "container-title": "S.W.3d",
+    "volume": "65",
+    "page": "252",
+    "authority": "Tex. App.—Houston [14th Dist.]",
+    "issued": {"date-parts": [[2001]]},
+    "status": "pet. denied",
+    "locator": "254"
+  },
+  {
+    "id": "case_crim_app",
+    "type": "legal_case",
+    "title": "Cantu v. State",
+    "container-title": "S.W.2d",
+    "volume": "939",
+    "page": "627",
+    "authority": "Tex. Crim. App.",
+    "issued": {"date-parts": [[1997]]},
+    "locator": "631"
+  },
+  {
+    "id": "case_wl_unpub",
+    "type": "legal_case",
+    "title": "Richardson v. Kays",
+    "authority": "Tex. App.—Fort Worth",
+    "number": "02-03-241-CV",
+    "collection-number": "2003 WL 22457054",
+    "issued": {"date-parts": [[2003, 10, 30]]},
+    "status": "no pet.",
+    "genre": "per curiam",
+    "medium": "mem. op.",
+    "locator": "1"
+  },
+  {
+    "id": "stat_govt_code",
+    "type": "legislation",
+    "container-title": "Tex. Gov’t Code Ann.",
+    "section": "2001.003(6)"
+  },
+  {
+    "id": "constitution_art_sec",
+    "type": "legislation",
+    "genre": "constitution",
+    "container-title": "Tex. Const.",
+    "chapter-number": "V",
+    "section": "6"
+  },
+  {
+    "id": "tac_rule",
+    "type": "regulation",
+    "volume": "4",
+    "container-title": "Tex. Admin. Code",
+    "section": "9.12",
+    "issued": {"date-parts": [[2013]]},
+    "authority": "Tex. Dep’t of Agric., Seed Sampling Procedures"
+  },
+  {
+    "id": "session_law",
+    "type": "legislation",
+    "title": "Act of May 27, 2005",
+    "collection-number": "79th Leg., R.S.",
+    "number": "484",
+    "section": "2, sec. 153.433",
+    "container-title": "Tex. Gen. Laws",
+    "volume": "2005",
+    "page": "1345"
+  },
+  {
+    "id": "ag_opinion",
+    "type": "report",
+    "authority": "Tex. Att’y Gen. Op.",
+    "number": "GA-0002",
+    "issued": {"date-parts": [[2002]]}
+  },
+  {
+    "id": "law_review_article",
+    "type": "article-journal",
+    "author": [{"family": "Albright", "given": "Alex W."}],
+    "title": "The Texas Discovery Privileges: A Fool’s Game?",
+    "container-title": "Tex. L. Rev.",
+    "volume": "70",
+    "page": "781",
+    "issued": {"date-parts": [[1992]]}
+  },
+  {
+    "id": "municipal_code",
+    "type": "regulation",
+    "authority": "Hous., Tex.",
+    "container-title": "Code of Ordinances",
+    "chapter-number": "ch. 20, art. IV,",
+    "section": "20-216",
+    "issued": {"date-parts": [[1968]]}
+  },
+  {
+    "id": "parallel_cite_case",
+    "type": "legal_case",
+    "title": "Jackson v. Maddox",
+    "container-title": "Tex. Civ. App.",
+    "volume": "53",
+    "page": "478",
+    "authority": "Fort Worth",
+    "issued": {"date-parts": [[1909]]},
+    "status": "no writ",
+    "locator": "479",
+    "_citation_suffix": ", 117 S.W. 185, 185"
+  }
+]
