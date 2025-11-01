@@ -107,6 +107,54 @@ end bibliography
 - **Ambiguity check.** The review found no duplicate or overlapping macro names; each `*-short` helper ties directly to a single authority grouping in the requirement matrix. Documented absence of conflicts satisfies TODO item follow-up while providing a baseline for future comparisons once statute/rule short forms are drafted.
 - **Recommended naming guardrails.** When the pending statute, rule, and administrative short forms are implemented, reuse the authority-specific prefixes already sketched in the TODO list (e.g., `tex-statute-short`, `tex-admin-code-short`). This keeps namespaces disambiguated and signals the matrix rows they correspond to, avoiding the need for later renames.
 
+### Short-form macro decision trees (2025-11-03)
+- **`legal-case-short` — `texas-greenbook-15th-edition.csl` ll. 260–283.**
+  - Flow: choose `title-short` for the italicized case name, otherwise fall back to `case-name`; branch on `volume`/`page`/`container-title` to select `reporter-print` vs. `reporter-wl`; append `pinpoint`, `court-and-date`, `case-parenthetical-stack`, and `related-proceedings`.
+  - Helper reuse: leans on `case-name`, `reporter-*`, `pinpoint`, and `court-and-date`, mirroring the first-position macro so downstream short-form work can tap the same helpers without reimplementing reporter logic.
+  - Assumed inputs: expects either the reporter trio (`volume`, `container-title`, `page`) or a Westlaw combination; no guard prevents empty output if neither set is present, and the `pinpoint` macro presumes a locator without enforcing type-specific prefixes.
+  - Cross-check references: logic verified against `tests.json` entries `case_supreme`/`case_app_hou14`, which exercise both reporter branches and `title-short` fallbacks (Greenbook chs. 2–4, pp. 7–27).
+- **`book-like-short` — `texas-greenbook-15th-edition.csl` ll. 473–484.**
+  - Flow: prints the italicized `title`, then groups `secondary-pinpoint` with the issued year before appending `explanatory-parenthetical`.
+  - Helper reuse: depends on `secondary-pinpoint` and `explanatory-parenthetical`, tying repeat cites to the same pinpoint/parenthetical stack as the long form.
+  - Assumed inputs: requires an `issued` year to avoid an orphaned delimiter; there is no fallback when dates are missing even though Greenbook ch. 18 (pp. 93–95) allows undated treatises.
+  - Cross-check references: covered by `tests.json` fixture `treatise_oconnors`, which supplies both pinpoint and year for regression coverage.
+- **`article-journal-short` — `texas-greenbook-15th-edition.csl` ll. 551–558.**
+  - Flow: emits author names, the quoted `title`, and the shared `secondary-pinpoint` stack; no container fields appear in repeat cites as required by ch. 17 (pp. 86–91).
+  - Helper reuse: reuses the same name node definition as the first-position macro, keeping delimiter rules identical.
+  - Assumed inputs: presumes at least one author; when metadata omits authors (per ch. 17 sample newsletters) the macro would output an empty author slot, so a safeguard is needed once short forms expand to unattributed sources.
+  - Cross-check references: validated by `tests.json` entries `journal_texlawrev` and `journal_textech`, which provide contrasting author counts.
+- **`web-short` — `texas-greenbook-15th-edition.csl` ll. 709–713.**
+  - Flow: groups the `title` and `URL` with a comma delimiter, omitting all date metadata for subsequent cites as allowed by ch. 16 (pp. 76–84).
+  - Helper reuse: minimal—only the base `web` macro routes here, so future helpers will need to account for shared URL rendering if additional fallback strings are required.
+  - Assumed inputs: the macro does not defend against missing `URL` values, yielding a trailing comma in the regression output whenever Zotero items lack the field.
+  - Cross-check references: exercised via `tests.json` item `web_tx_agency`, which already highlights the need for URL presence in short forms.
+- **`unpublished-short` — `texas-greenbook-15th-edition.csl` ll. 781–786.**
+  - Flow: prints the quoted `title`, then appends `secondary-pinpoint` and `unpublished-descriptor`, echoing the first-position descriptor stack mandated for CLE materials in ch. 19 (p. 96).
+  - Helper reuse: shares the `unpublished-descriptor` helper so genre/medium/status phrases remain synchronized across note positions.
+  - Assumed inputs: relies on translators to preload `genre`, `medium`, and `status`; absent values collapse whitespace but still emit the commas, so guards will be necessary before expanding fixture coverage.
+  - Cross-check references: regression coverage comes from `tests.json` fixture `cle_paper`, which includes medium and status metadata.
+- **Statute and rule placeholders.** `tex-statute` (ll. 318–338), `tex-admin-code` (ll. 349–382), and `municipal-code` (ll. 421–435) lack the `choose` scaffolding used above, so subsequent notes currently rerun the full form instead of a Greenbook-compliant short string. This confirms the outstanding TODO to add dedicated short-form macros for chapters 10–13 (pp. 42–65).
+
+### Requirement matrix alignment audit (2025-11-03)
+- **Cases.** Existing `legal-case-*` macros satisfy the matrix expectations for first, short, and cross-reference outputs, but `cross-reference-cue` presently ignores the jurisdiction test promised in the matrix narrative. To honor the “See” vs. “See also” split, the helper must ingest `jurisdiction` alongside the optional `note` override.
+- **Texas statutes and codes.** The matrix calls for `tex-statute-first`/`short`/`cross-reference` variants keyed to Greenbook chs. 10–12 (pp. 42–60), yet only the base `tex-statute` macro exists today. Mandatory variables (`container-title`, `section`, `note` for publisher/date) cannot map to the short-form column, leaving fixtures `stat_govt_code`, `stat_penal_code`, and `stat_rev_civ` unable to express the condensed form.
+- **Administrative materials.** `tex-admin-code` (ll. 349–382) always prints the issued year and optional `note`, contradicting the matrix requirement that short forms drop the year (ch. 16 at 76–84). No `tex-admin-code-short` exists to separate the behaviors, and fixture `tac_rule` therefore repeats the full cite on subsequent notes.
+- **Court rules.** There is no `rule-core` helper in the edition file, so procedural (`rule_civp`, `rule_appellate`) and evidentiary (`rule_evidence`) fixtures also rerun the long form contrary to ch. 13 (pp. 61–65).
+- **Municipal codes and AG opinions.** Single macros (`municipal-code`, `ag-opinion`) serve every note position. This conflicts with matrix guidance that short forms should collapse to the authority plus section/number while cross-references append `references` strings.
+- **Non-Texas statutes/treaties.** Supporting helpers such as `statute-code` and `tac-core-short` are likewise absent, so the shared short-form infrastructure is incomplete beyond case/secondary/web categories.
+- **High-impact discrepancy list.**
+  1. **P0:** Implement Texas statute/rule short macros and connect them to `position`/`references` logic so fixtures `stat_*` and `rule_*` stop emitting redundant full cites.
+  2. **P0:** Split `tex-admin-code` into first/short/cross variants to honor the year-suppression rule and enable Chapter 16 compliance for `tac_rule`.
+  3. **P1:** Restore or rebuild `cross-reference-cue`’s jurisdiction awareness to deliver “See also” for out-of-state authorities when `note` is empty.
+  4. **P1:** Add municipality/AG opinion short-form helpers so the matrix rows cease diverging from Greenbook chs. 14–15 expectations.
+  5. **P2:** Create non-Texas statute/treaty short-form macros (e.g., `statute-code-short`) to match the matrix for federal authorities, enabling future fixture additions.
+
+### Helper extraction candidates (2025-11-03)
+- **Shared code-section renderer.** `tex-statute` (ll. 318–338) and `municipal-code` (ll. 421–435) duplicate the pattern `container-title` + optional `chapter-number` + `§` + `section`. A dedicated helper (e.g., `tex-code-section`) would prevent drift once short-form branches appear. Effort: medium—requires extracting the group node and swapping macro calls in both styles and TOA variants. Coverage: `tests.json` fixtures `stat_govt_code`, `stat_penal_code`, `stat_rev_civ`, and `municipal_code_dallas` exercise the sequence today.
+- **Administrative code core.** `tex-admin-code` in the edition and `tac-core` in the TOA file share 90% of their logic (volume/title, `§` section, issued year, optional `note`/`authority`). Centralizing that block into a helper will simplify adding `tex-admin-code-short`. Effort: medium—helper must accept a flag for year suppression. Coverage: `tests.json` fixture `tac_rule` plus TOA fixture `toa_tac_rule` validate the branches.
+- **Cross-reference cue routing.** Once jurisdiction-aware cues are restored, statutes, rules, and admin materials should reuse the same helper call chain rather than embedding ad-hoc strings. Documenting this now ensures any future `tex-*-cross-reference` macros source their cue from one place. Effort: low—requires updating the helper and ensuring pending macros reference it. Coverage: future statute/rule fixtures will need explicit cross-reference cases; add new JSON entries alongside the existing `stat_*` and `rule_*` items when implementation work begins.
+- **Year fallback guard.** `book-like-short` and `unpublished-short` both assume an issued year or descriptor, so extracting a mini helper that omits empty years would avoid dangling commas when metadata is incomplete. Effort: low—wrap year/descriptors in `choose` blocks and share via a helper. Coverage: extend `tests.json` with an undated treatise and CLE entry to confirm behavior post-refactor.
+
 ## Citation Requirement Matrix
 | Citation Type | Required CSL Variables | Ordering & Punctuation | Mandatory Abbreviations | Short-Form, Parenthetical & Signal Notes | Footnote vs. Bibliography | Greenbook Reference |
 | --- | --- | --- | --- | --- | --- | --- |
