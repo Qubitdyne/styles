@@ -1,0 +1,20 @@
+01: DIFF
+  expected: 
+  actual:   “Texas Courts Technology Standards Update”, Office of Court Administration, 2023, available at https://www.txcourts.gov/technology-standards-update (Accessed Feb. 10, 2025).
+
+02: DIFF
+  expected: 
+  actual:   “Supreme Court of Texas Issues Annual Report”, Texas Judiciary, 2024, available at https://www.txcourts.gov/media/releases/annual-report (Accessed Mar. 15, 2025).
+
+03: DIFF
+  expected: 
+  actual:   “Remote Hearings Expand Across Texas Courts”, Texas Judiciary, press release, available at https://www.txcourts.gov/media/releases/remote-hearings-expand (Accessed Mar. 22, 2025).
+
+04: DIFF
+  expected: 
+  actual:   “Designing Accessible Virtual Hearings”, Texas Courts Blog, Sep. 8, 2022, available at https://blog.txcourts.gov/designing-accessible-virtual-hearings (Accessed Feb. 18, 2025).
+
+05: DIFF
+  expected: 
+  actual:   “Texas Judicial Council, 2024 Weighted Caseload Study”, 2024, available at https://www.txcourts.gov/media/weighted-caseload-study.pdf (Accessed Jan. 20, 2025).
+

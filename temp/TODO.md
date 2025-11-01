@@ -585,7 +585,11 @@ ion of the conflicting behavior.
       - [ ] Compare planned short-form fixture updates with TOA additions to avoid conflicting diffs.
       - [ ] Sequence commits or feature branches to keep regression baselines reviewable.
       - [ ] Capture coordination notes and scheduling decisions in `NOTES.md` for future contributors.
-      - [ ] Revisit this TODO item if the short-form work introduces new TOA requirements.
+    - [ ] Revisit this TODO item if the short-form work introduces new TOA requirements.
+- [ ] **Resolve rule locator locale gap.** Diagnose the `python temp/run_tests.py --mode notes` failure at citation #31 (`rule_civp`) so the full suite can execute without manual filtering.
+  - [ ] Confirm which locale term (`rule` long vs. short form) citeproc expects when rendering rule locators and document the finding in `NOTES.md` with reproduction steps.
+  - [ ] Implement the required locale/style adjustment (e.g., add the missing term or adjust locator handling) and add targeted fixtures to prevent regression.
+  - [ ] Re-run the full note suite and archive the updated log under `temp/test-logs/` alongside a TODO/README update referencing the fix.
 - [ ] **Broaden web citation verification.** Confirm punctuation and quotation usage for Chapter 16 web examples after OCR cleanup and add targeted fixture cases.
   - [x] Complete OCR cleanup for the Chapter 16 examples in the Greenbook PDF and extract verbatim sample citations into `NOTES.md` with page references.
     - [x] Run OCR tools (e.g., `ocrmypdf`) on the relevant PDF pages if not already processed.
@@ -603,21 +607,21 @@ ion of the conflicting behavior.
       - [x] Outline proposed modifications (e.g., new `if` conditions, locale term updates) in a short design note stored in `NOTES.md`.
       - [x] Circulate or self-review the plan to ensure it covers both note and bibliography contexts before editing XML.
       - [x] Capture potential risks (such as interactions with print periodical macros) and plan mitigation steps.
-    - [ ] Update CSL conditional logic to handle quoted titles, trailing punctuation, and URL formatting per the documented requirements.
-      - [ ] Implement the planned changes incrementally, committing after each macro update to keep diffs focused.
+    - [x] Update CSL conditional logic to handle quoted titles, trailing punctuation, and URL formatting per the documented requirements.
+      - [x] Implement the planned changes incrementally, committing after each macro update to keep diffs focused.
       - [x] Introduce guard clauses for missing metadata (e.g., absent access date) to avoid dangling punctuation.
       - [x] Ensure locale terms supply repeated strings (such as “available at”) instead of hard-coding text.
-      - [ ] Run targeted citeproc commands after each modification to confirm output evolution aligns with expectations.
-    - [ ] Verify that modifications apply consistently across note, bibliography, and TOA contexts, adjusting shared helpers if necessary.
-      - [ ] Execute regression tests for all web-related fixtures in both note and bibliography modes.
-      - [ ] Inspect TOA outputs to confirm leader alignment is unaffected by punctuation changes.
-      - [ ] Update or create shared helpers if duplicate logic is observed across contexts.
-      - [ ] Document any intentional contextual differences (e.g., omission of accessed dates in TOA) for reviewer awareness.
-    - [ ] Record implementation notes in `NOTES.md`, including any compromises or open questions for reviewer feedback.
-      - [ ] Summarize the final macro adjustments with file paths and line references.
-      - [ ] Log outstanding ambiguities that could not be resolved (such as inconsistent PDF punctuation) for later research.
-      - [ ] Attach snippets of before/after citeproc output to illustrate the improvements.
-      - [ ] Tag the entry with the completion date and related TODO checklist items to maintain traceability.
+      - [x] Run targeted citeproc commands after each modification to confirm output evolution aligns with expectations.
+    - [x] Verify that modifications apply consistently across note, bibliography, and TOA contexts, adjusting shared helpers if necessary.
+      - [x] Execute regression tests for all web-related fixtures in both note and bibliography modes.
+      - [x] Inspect TOA outputs to confirm leader alignment is unaffected by punctuation changes.
+      - [x] Update or create shared helpers if duplicate logic is observed across contexts.
+      - [x] Document any intentional contextual differences (e.g., omission of accessed dates in TOA) for reviewer awareness.
+    - [x] Record implementation notes in `NOTES.md`, including any compromises or open questions for reviewer feedback.
+      - [x] Summarize the final macro adjustments with file paths and line references.
+      - [x] Log outstanding ambiguities that could not be resolved (such as inconsistent PDF punctuation) for later research.
+      - [x] Attach snippets of before/after citeproc output to illustrate the improvements.
+      - [x] Tag the entry with the completion date and related TODO checklist items to maintain traceability.
   - [x] Create new fixture entries in `tests.json` that capture the nuanced web citation formats (e.g., with publication dates, access dates, and quoted titles).
     - [x] Enumerate required metadata fields for each format variant (e.g., missing author, corporate author).
     - [x] Encode fixtures ensuring JSON validity and alignment with citeproc expectations.
