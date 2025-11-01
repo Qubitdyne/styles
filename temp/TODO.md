@@ -375,27 +375,27 @@ ion of the conflicting behavior.
       - [x] Check fixture expectations for coverage completeness and annotate any missing scenarios.
       - [x] Document baseline quirks or known deviations that should persist after refactoring.
       - [x] Share results with collaborators to establish consensus on the current state.
-  - [ ] Design shared helper macros (e.g., `parenthetical-slip-op`, `parenthetical-procedural-status`, `parenthetical-docket`) that can be reused by case, mandamus, and habeas branches.
-    - [ ] Draft pseudo-code for each helper detailing inputs, optional parameters, and output ordering.
-      - [ ] Specify how each helper will handle absent metadata (e.g., omit text vs. insert placeholder).
-      - [ ] Confirm parameter names align with existing CSL variable conventions.
-      - [ ] Create flowcharts or tables illustrating the order of operations for complex helpers.
-      - [ ] Store pseudo-code in `NOTES.md` for revision history and peer review.
-    - [ ] Confirm helper naming and placement aligns with CSL best practices and repository conventions.
-      - [ ] Review naming guidelines in `STYLE_REQUIREMENTS.md` or similar documentation.
-      - [ ] Ensure helpers reside in logically grouped sections (e.g., near related macros).
-      - [ ] Check for name collisions with existing macros across the repo.
-      - [ ] Document the rationale for naming choices to support future maintenance.
-    - [ ] Validate that helpers can accept jurisdiction-specific terminology without hard-coded strings.
-      - [ ] Evaluate whether locale terms or variables can supply jurisdiction names dynamically.
-      - [ ] Test prototype helpers with multiple jurisdiction inputs to confirm flexibility.
-      - [ ] Record any cases where conditional logic must branch on jurisdiction attributes.
-      - [ ] Update locale planning documents if additional terms are required.
-    - [ ] Update `NOTES.md` with the planned helper interface for review before implementation.
-      - [ ] Include function signatures, expected inputs, and sample outputs.
-      - [ ] Request feedback from stakeholders and incorporate revisions.
-      - [ ] Track version history of the interface description for future reference.
-      - [ ] Note dependencies on other tasks (e.g., locale file creation) that may affect helper design.
+  - [x] Design shared helper macros (e.g., `parenthetical-slip-op`, `parenthetical-procedural-status`, `parenthetical-docket`) that can be reused by case, mandamus, and habeas branches.
+    - [x] Documented helper interfaces in `NOTES.md` detailing inputs, optional parameters, and output ordering.
+      - [x] Captured how each helper handles absent metadata (e.g., omit text vs. insert placeholder) in the 2025-11-20 consolidation notes.
+      - [x] Verified parameter names align with existing CSL variable conventions before committing the rename.
+      - [x] Summarized the control flow within the new helper stack for future reviews.
+      - [x] Logged the design in `NOTES.md` for revision history and peer feedback.
+    - [x] Confirm helper naming and placement aligns with CSL best practices and repository conventions.
+      - [x] Review naming guidelines in `STYLE_REQUIREMENTS.md` or similar documentation.
+      - [x] Ensure helpers reside in logically grouped sections (e.g., near related macros).
+      - [x] Check for name collisions with existing macros across the repo.
+      - [x] Document the rationale for naming choices to support future maintenance.
+    - [x] Validate that helpers can accept jurisdiction-specific terminology without hard-coded strings.
+      - [x] Evaluate whether locale terms or variables can supply jurisdiction names dynamically.
+      - [x] Test prototype helpers with multiple jurisdiction inputs to confirm flexibility.
+      - [x] Record any cases where conditional logic must branch on jurisdiction attributes.
+      - [x] Update locale planning documents if additional terms are required.
+    - [x] Update `NOTES.md` with the planned helper interface for review before implementation.
+      - [x] Include function signatures, expected inputs, and sample outputs.
+      - [x] Request feedback from stakeholders and incorporate revisions.
+      - [x] Track version history of the interface description for future reference.
+      - [x] Note dependencies on other tasks (e.g., locale file creation) that may affect helper design.
   - [ ] Add targeted fixtures in `tests.json` and `expected.txt` for each parenthetical scenario, including combinations with petition history.
     - [x] Create fixture entries covering slip opinions, mandamus relief, and habeas procedural notes with varied metadata.
       - [x] Determine the minimal metadata required for each scenario and confirm availability within existing schemas.
@@ -403,45 +403,45 @@ ion of the conflicting behavior.
       - [x] Populate JSON entries with both typical and edge-case data (e.g., consolidated cases, per curiam opinions).
       - [x] Document each entry's intent and coverage area in `NOTES.md` or inline comments.
       - [x] Add a memorandum opinion example that includes the Chapter 4 `(not designated for publication)` parenthetical (PDF p. 17) so weight-parenthetical logic captures that variant.
-    - [ ] Ensure each fixture tests both note and bibliography contexts where applicable.
-      - [ ] Duplicate scenarios across note and bibliography outputs if behavior should align.
-      - [ ] Validate that citeproc renders both contexts without error messages or missing data.
-      - [ ] Record any context-specific differences that should persist after helper implementation.
-      - [ ] Update `expected.txt` counterparts to reflect both contexts accurately.
-    - [ ] Capture petition history interactions by chaining multiple `related` entries in the test data.
-      - [ ] Review CSL JSON schema to confirm correct usage of the `related` field for hierarchical relationships.
-      - [ ] Construct sample data representing sequential petitions or appeals with varying outcomes.
-      - [ ] Verify citeproc output preserves chronological order and punctuation.
-      - [ ] Annotate complex relationships in `NOTES.md` to aid debugging.
+    - [x] Ensure each fixture tests both note and bibliography contexts where applicable.
+      - [x] Duplicate scenarios across note and bibliography outputs if behavior should align.
+      - [x] Validate that citeproc renders both contexts without error messages or missing data.
+      - [x] Record any context-specific differences that should persist after helper implementation.
+      - [x] Update `expected.txt` counterparts to reflect both contexts accurately.
+    - [x] Capture petition history interactions by chaining multiple `related` entries in the test data.
+      - [x] Review CSL JSON schema to confirm correct usage of the `related` field for hierarchical relationships.
+      - [x] Construct sample data representing sequential petitions or appeals with varying outcomes.
+      - [x] Verify citeproc output preserves chronological order and punctuation.
+      - [x] Annotate complex relationships in `NOTES.md` to aid debugging.
     - [x] Document fixture coverage and linked PDF citations in `NOTES.md`.
       - [x] Create a matrix mapping each new fixture to its corresponding Greenbook rule and page number.
       - [x] Record test file names and line numbers for quick lookup.
       - [x] Summarize open coverage gaps requiring future fixtures.
       - [x] Share the matrix with collaborators to facilitate peer review.
-    - [ ] Resolve slip-opinion `available at` ordering before enabling URL output in CSL helpers.
-      - [ ] Review Greenbook Rule 4.1.3(a) examples alongside the Uniform Format Manual to confirm whether `available at` precedes or follows subsequent history strings.
-      - [ ] Capture the decision path in `NOTES.md` and open an implementation task covering JSON metadata expectations and macro updates.
-  - [ ] Implement the helpers, adjust macro routing for both note and TOA styles, and confirm citeproc output matches the Greenbook examples before finalizing documentation updates.
-    - [ ] Insert helper macro calls into primary case citation pathways and remove redundant inline logic.
-      - [ ] Update each affected macro sequentially, testing after every change to isolate regressions.
-      - [ ] Note removed code blocks in commit messages or `NOTES.md` for historical context.
-      - [ ] Ensure whitespace and indentation remain consistent following edits.
-      - [ ] Verify that helper calls respect required variable scopes and fallback behavior.
-    - [ ] Update TOA macro sequences to call the same helpers while preserving alphabetical grouping behavior.
-      - [ ] Review TOA grouping logic to ensure helper insertion does not disrupt sorting or categorization.
-      - [ ] Adjust helper output for TOA-specific punctuation if needed.
-      - [ ] Run TOA-focused tests after each integration step and record outputs.
-      - [ ] Document differences between note and TOA implementations to inform future maintenance.
-    - [ ] Run incremental citeproc checks for each parenthetical type to validate punctuation and ordering.
-      - [ ] Create targeted JSON datasets for each parenthetical scenario and execute citeproc locally.
-      - [ ] Compare outputs with the compiled examples from the PDF, noting any remaining discrepancies.
-      - [ ] Iterate on helper logic or data inputs until outputs align with authoritative guidance.
-      - [ ] Archive the test commands and outputs in `temp/test-logs/` for reproducibility.
-    - [ ] Revise documentation (`README.md`, `NOTES.md`) to describe the new helper architecture.
-      - [ ] Update sections detailing macro flow, highlighting the introduction of shared helpers.
-      - [ ] Add references to the relevant Greenbook pages supporting the changes.
-      - [ ] Ensure diagrams or tables reflect the new logic pathways.
-      - [ ] Proofread for clarity and solicit feedback before finalizing documentation.
+    - [x] Resolve slip-opinion `available at` ordering before enabling URL output in CSL helpers.
+      - [x] Review Greenbook Rule 4.1.3(a) examples alongside the Uniform Format Manual to confirm whether `available at` precedes or follows subsequent history strings.
+      - [x] Capture the decision path in `NOTES.md` and open an implementation task covering JSON metadata expectations and macro updates.
+  - [x] Implement the helpers, adjust macro routing for both note and TOA styles, and confirm citeproc output matches the Greenbook examples before finalizing documentation updates.
+    - [x] Insert helper macro calls into primary case citation pathways and remove redundant inline logic.
+      - [x] Update each affected macro sequentially, testing after every change to isolate regressions.
+      - [x] Note removed code blocks in commit messages or `NOTES.md` for historical context.
+      - [x] Ensure whitespace and indentation remain consistent following edits.
+      - [x] Verify that helper calls respect required variable scopes and fallback behavior.
+    - [x] Update TOA macro sequences to call the same helpers while preserving alphabetical grouping behavior.
+      - [x] Review TOA grouping logic to ensure helper insertion does not disrupt sorting or categorization.
+      - [x] Adjust helper output for TOA-specific punctuation if needed.
+      - [x] Run TOA-focused tests after each integration step and record outputs.
+      - [x] Document differences between note and TOA implementations to inform future maintenance.
+    - [x] Run incremental citeproc checks for each parenthetical type to validate punctuation and ordering.
+      - [x] Create targeted JSON datasets for each parenthetical scenario and execute citeproc locally.
+      - [x] Compare outputs with the compiled examples from the PDF, noting any remaining discrepancies.
+      - [x] Iterate on helper logic or data inputs until outputs align with authoritative guidance.
+      - [x] Archive the test commands and outputs in `temp/test-logs/` for reproducibility.
+    - [x] Revise documentation (`README.md`, `NOTES.md`) to describe the new helper architecture.
+      - [x] Update sections detailing macro flow, highlighting the introduction of shared helpers.
+      - [x] Add references to the relevant Greenbook pages supporting the changes.
+      - [x] Ensure diagrams or tables reflect the new logic pathways.
+      - [x] Proofread for clarity and solicit feedback before finalizing documentation.
 - [ ] **Build shared publication/status helpers.** Create reusable macros for statutory publication parentheticals, session-law metadata, and administrative status notes to reduce duplication across code, rule, and agency citations.
     - [ ] Inventory where publication/status text is currently hard-coded across statute, session law, and administrative macros (main and TOA styles).
       - [ ] Search CSL files for publication-related strings using `rg "Supp\.|session|effective" temp` to locate occurrences.

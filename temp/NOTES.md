@@ -30,21 +30,21 @@
 - **Open questions.** The current `Id.` output for rules appears as `Id. 97(e).` without repeating the `R.` prefix. This mirrors the production edition but may warrant a follow-up confirmation against Greenbook ch. 13 (p. 63) to ensure no locator prefix is required when the preceding cite already supplied the rule set.
 
 ## Legacy Draft 3 Update – Parenthetical Metadata Helpers (2025-03-24)
-- **Slip opinions and original proceedings.** Added a shared `docket-parenthetical` block and `procedural-parenthetical` chain so Greenbook slip citations now surface cause numbers, Westlaw/Lexis identifiers, and procedural posture straight from Zotero’s `number`, `collection-number`, `status`, and `note` fields (Greenbook ch. 2 at 7 & ch. 6 at 31–33). The helper skips `note` values that double as cross-reference cues, keeping `See also` triggers confined to the `cross-reference-cue` macro.
+- **Slip opinions and original proceedings.** Added a shared `parenthetical-docket` block and `parenthetical-procedural-status` chain so Greenbook slip citations now surface cause numbers, Westlaw/Lexis identifiers, and procedural posture straight from Zotero’s `number`, `collection-number`, `status`, and `note` fields (Greenbook ch. 2 at 7 & ch. 6 at 31–33). The helper skips `note` values that double as cross-reference cues, keeping `See also` triggers confined to the `cross-reference-cue` macro.
 - **Memorandum and rehearing designations.** Normalized weight parentheticals to pull `genre` and `medium` in a consistent order, which allows memorandum opinions and rehearing dispositions to mirror chapter 4 examples without duplicating logic inside the case, mandamus, and trial-court macros (Greenbook ch. 4 at 24–25).
 - **Trial-court docket metadata.** Reused the docket helper across trial-level items so cause numbers and underlying trial-court numbers land before the court/date parenthetical while `note` supplies record-type phrases such as “prelim. injunction order” (Greenbook ch. 7 at 34–35).
 
 ## Parenthetical macro audit (2025-11-05)
 - **Search inventory.** Ran `rg "parenthetical" temp -n --glob '*.csl'` and archived the output to `reports/parenthetical_macro_scan.txt` to baseline every live parenthetical helper across the edition and TOA variants (`texas-greenbook-15th-edition.csl` ll. 56–159; `texas-greenbook-15th-toa.csl` ll. 26–112; grouped/leader variants mirror those definitions). The scan confirmed no lingering references in the archived drafts beyond historical comments.
 - **Invocation map.**
-  - `docket-parenthetical` (edition ll. 56–65) feeds directly into `reporter-wl` (ll. 67–69), so every `legal-case-*` branch that falls back to Westlaw output inherits cause and docket data before reporter text. The TOA styles replicate the group logic inline instead of calling the helper (`texas-greenbook-15th-toa.csl` ll. 27–33), highlighting reuse opportunities once shared modules are introduced.
+  - `parenthetical-docket` (edition ll. 56–65) feeds directly into `reporter-wl` (ll. 67–69), so every `legal-case-*` branch that falls back to Westlaw output inherits cause and docket data before reporter text. The TOA styles replicate the group logic inline instead of calling the helper (`texas-greenbook-15th-toa.csl` ll. 27–33), highlighting reuse opportunities once shared modules are introduced.
 
 ## Rule locator locale gap fix (2025-11-07)
 - **Reproduction.** Running `python temp/run_tests.py --mode notes` against `tests.json` failed at citation #31 (`rule_civp`) with `AttributeError: 'NoneType' object has no attribute 'single'` because `<label variable="locator" form="symbol"/>` attempts to resolve the `rule` term without a symbol variant. The failing cite corresponds to the short-form example in Greenbook ch. 13 at 63 (Tex. R. Civ. P. 97(e)).
 - **Locale update.** Added `<term name="rule" form="symbol">R.</term>` plus ordinal suffixes (`ordinal-01`–`ordinal-04`) to both the inline locale in `texas-greenbook-15th-edition.csl` and the shared `locales/locales-en-US-x-texas-greenbook.xml` so citeproc can emit the Greenbook short label while preserving treatise ordinals described in ch. 18 at 93–95.
 - **Verification.** Re-ran the full note suite via `python temp/run_tests.py --mode notes`, confirmed all 64 expectations match, and archived the output under `test-logs/2025-11-07_rule-locator-locale-fix.txt` for reviewer reference.
-  - `procedural-parenthetical` (edition ll. 107–115) injects status/note metadata through `court-and-date` (ll. 118–140). That macro is invoked by the first, short, and cross-reference case routes (ll. 258–321) in both note and bibliography contexts, ensuring trial/memo designations travel with the court/year parenthetical.
-  - `weight-parentheticals` and the enclosing `case-parenthetical-stack` (edition ll. 143–157) are appended immediately after `court-and-date` inside the case macros, while `explanatory-parenthetical` (ll. 159–164) also services `book-like-*` helpers (ll. 504–528). Bibliography macros for books omit this stack entirely (`book-like-bibliography`, ll. 531–546), which explains the trimmed descriptive tails in long-form lists.
+  - `parenthetical-procedural-status` (edition ll. 107–115) injects status/note metadata through `court-and-date` (ll. 118–140). That macro is invoked by the first, short, and cross-reference case routes (ll. 258–321) in both note and bibliography contexts, ensuring trial/memo designations travel with the court/year parenthetical.
+  - `parenthetical-slip-op` and the enclosing `case-parenthetical-stack` (edition ll. 143–157) are appended immediately after `court-and-date` inside the case macros, while `explanatory-parenthetical` (ll. 159–164) also services `book-like-*` helpers (ll. 504–528). Bibliography macros for books omit this stack entirely (`book-like-bibliography`, ll. 531–546), which explains the trimmed descriptive tails in long-form lists.
 - **Note vs. bibliography comparison.** Rendered the regression fixtures in both modes to capture baseline punctuation (`test-logs/parenthetical-baseline.txt`; `test-logs/bibliography-blank.txt`).
   - Case citations match verbatim between notes and bibliography because `cs:bibliography` delegates to `legal-case-first`, so parenthetical cues like `(per curiam)` and `(mem. op.)` persist in both outputs (compare lines 4–23 of the bibliography log with lines 1–23 of the note log).
   - Secondary authorities diverge: note-mode books and CLE materials retain explanatory parentheticals sourced from `abstract` (`parenthetical-baseline.txt` ll. 130–141), while bibliography mode drops them due to the leaner `book-like-bibliography` macro, producing author-led strings without the trailing descriptive clause (`bibliography-blank.txt` ll. 25–36). Periodical and web entries likewise swap comma-delimited note syntax for sentence-form bibliography layout, so any future helper sharing must account for the format shift rather than forcing a single string template.
@@ -60,6 +60,11 @@
   - Fixture gaps identified for follow-up: (1) no test renders the Chapter 4 `(not designated for publication)` weight parenthetical (PDF p. 17), (2) no example exercises `genre` values such as `en banc` or `dissenting op.` even though pp. 18–19 call for them in explanatory parentheticals, and (3) bibliography mode lacks dedicated expectations to preserve intentional parenthetical omissions, so helper work must account for the note/bibliography divergence logged above.
 - **Parenthetical coverage update (2025-11-19).** Added `case_mem_not_designated` to `tests.json` with expectations in `expected.txt` line 7 to capture the Chapter 4 memorandum opinion example (`Green v. State, No. 12-12-00249-CR, 2012 WL 3116252, at *1 … (mem. op., not designated for publication)`) so the weight-parenthetical helper now exercises the publication-status variant (Greenbook p. 17).【F:temp/tests.json†L87-L109】【F:temp/expected.txt†L7-L9】
 - **Parenthetical coverage update (2025-11-19).** Added `case_mem_not_designated` to `tests.json` with expectations in `expected.txt` line 7 to capture the Chapter 4 memorandum opinion example (`Green v. State, No. 12-12-00249-CR, 2012 WL 3116252, at *1 … (mem. op., not designated for publication)`) so the weight-parenthetical helper now exercises the publication-status variant (Greenbook p. 17).【F:temp/tests.json†L87-L109】【F:temp/expected.txt†L7-L9】
+
+## Parenthetical helper consolidation (2025-11-20)
+- **Renamed helper surface.** Replaced the legacy `docket-parenthetical`, `procedural-parenthetical`, and `weight-parentheticals` macros with `parenthetical-docket`, `parenthetical-procedural-status`, and `parenthetical-slip-op` so the naming now reflects the helper purpose. Each macro preserves the Greenbook-driven sequencing captured in Chapters 2, 4, 6, and 7 (pp. 7, 24–25, 31–33, 34–35) while centralizing status strings and memorandum/slip indicators in a single stack.【F:temp/texas-greenbook-15th-edition.csl†L56-L164】
+- **Shared TOA routing.** Copied the new helper names into every TOA variant (`texas-greenbook-15th-toa*.csl`) and pointed the case macros at `case-parenthetical-stack` so docket strings, memorandum designations, and explanatory parentheticals are consistently assembled regardless of output mode. That alignment eliminates the duplicated `No.`/Westlaw formatting noted in the 2025-11-05 audit and keeps TOA citations ready for future slip-opinion enhancements.【F:temp/texas-greenbook-15th-toa.csl†L20-L135】【F:temp/texas-greenbook-15th-toa-grouped.csl†L48-L162】【F:temp/texas-greenbook-15th-toa-leaders.csl†L22-L188】【F:temp/texas-greenbook-15th-toa-grouped-leaders.csl†L20-L150】【F:temp/texas-greenbook-15th-toa-by-reporter.csl†L24-L144】
+- **Regression confirmation.** Re-ran the full note and TOA suites to confirm the helper rename produced identical output across contexts (`run_tests.py` invocations recorded in `test-logs/20251120_parenthetical-refactor_{notes,toa}.txt`). The harness logs show parity between expected and actual strings in both note mode and every TOA variant, demonstrating the helpers still respect the Greenbook citations above.【0c76c0†L1-L257】【164bf0†L1-L27】【3560c4†L1-L27】【a28910†L1-L27】【b6f7e7†L1-L27】
 
 ## Parenthetical ambiguity tracker (2025-11-19)
 - **Slip opinion URLs vs. subsequent history (Greenbook p. 36).** Rule 4.1.3(a) requires an `available at` clause after the court parenthetical for unpublished opinions posted on a court website, but it never states how that clause interacts with subsequent history strings or weight-of-authority parentheticals. Current fixtures (`case_slip_baggs`, `case_mandamus_pending`) omit URLs, so the CSL macros have never been forced to order the fragments. *Impact:* **medium** — without guidance we risk emitting `available at` before `mand. granted` or other subsequent history when the helper eventually surfaces URLs. *Follow-up:* stage a research task to compare the Greenbook guidance with the Uniform Format Manual’s slip-opinion ordering and update the TODO backlog with the preferred sequencing pattern.
@@ -84,8 +89,8 @@
 
 - **Open gaps.** No fixture yet captures the `available at` URL requirement for slip opinions posted on court websites or the paragraph pinpoint form described in Rule 4.1.3(a). Record a follow-up TODO once we confirm the desired CSL field mapping so helpers can emit the missing strings without hard-coded hacks.
 - **Duplication hotspots and standardization ideas.**
-  - Each TOA variant declares its own `weight-parentheticals` macro with identical logic (`texas-greenbook-15th-toa*.csl` ll. 54–113). Hoisting the helper into a shared include or aligning on a consistent namespace would eliminate four copies and simplify future additions like `(not designated for publication)` toggles.
-  - TOA `reporter-wl` nodes manually stitch `No.` and cause numbers (e.g., `texas-greenbook-15th-toa.csl` ll. 27–33) instead of reusing `docket-parenthetical`. Extracting that chunk into a shared helper would guarantee docket formatting stays synchronized once slip-opinion enhancements land.
+  - Each TOA variant declares its own `parenthetical-slip-op` macro with identical logic (`texas-greenbook-15th-toa*.csl` ll. 54–113). Hoisting the helper into a shared include or aligning on a consistent namespace would eliminate four copies and simplify future additions like `(not designated for publication)` toggles.
+  - TOA `reporter-wl` nodes manually stitch `No.` and cause numbers (e.g., `texas-greenbook-15th-toa.csl` ll. 27–33) instead of reusing `parenthetical-docket`. Extracting that chunk into a shared helper would guarantee docket formatting stays synchronized once slip-opinion enhancements land.
   - Aligning the book/secondary bibliography macros with the explanatory helper will require optional parameters so bibliographies can suppress parentheticals without losing access to the wording. Draft plan: introduce a `explanatory-parenthetical` boolean flag passed into the helper and gate the appended group accordingly, leaving bibliography layout otherwise unchanged.
   - Prioritize consolidating the TOA helper duplication after the pending parenthetical refactor lands (P1), while the bibliography flag work can trail once short-form statute tasks unblock (P2). Fixture updates will need to cover TOA slip opinions and bibliography treatises when the refactor occurs, so note those dependencies when scheduling the helper extraction.
 
@@ -116,7 +121,7 @@
   | Paragraph/page pinpoint plus `available at` URL | Mandatory for slip opinions without pagination | PDF p. 30 |
   | `slip op.` designation | Optional only for general cites without pinpoint | PDF p. 30 |
   - No ambiguous guidance noted; chapter text clearly distinguishes “must” and “may,” so no escalation required.
-  - CSL mapping: the cues route through `legal-case-first`, `case-parenthetical-stack`, and `related-proceedings`; memorandum and publication tags live inside `weight-parentheticals` and `explanatory-parenthetical` macros that also feed the TOA variants.
+  - CSL mapping: the cues route through `legal-case-first`, `case-parenthetical-stack`, and `related-proceedings`; memorandum and publication tags live inside `parenthetical-slip-op` and `explanatory-parenthetical` macros that also feed the TOA variants.
   - Shared helper opportunity: consider consolidating slip-opinion paragraph handling with the Supreme Court branch so `reporter-wl` can inject `¶` locators regardless of jurisdiction.
   - Test coverage: `tests.json` entries `case_crim_app` and `case_slip_opinion` cover memorandum status, publication cues, and paragraph pinpoints for Court of Criminal Appeals authorities.
 
@@ -132,8 +137,8 @@
   | `slip op.` plus pinpoint and `available at` URL | Mandatory for recent decisions posted online | PDF pp. 35–36 |
   | `slip op.` text | Optional when citing case generally without pinpoint | PDF p. 36 |
   - No ambiguous directives surfaced; instructions differentiate “must” vs. “no need,” so no open questions remain.
-  - CSL mapping: `legal-case-first`, `case-parenthetical-stack`, `weight-parentheticals`, and `related-proceedings` macros emit these cues, while slip-opinion URLs flow through `reporter-wl` and `docket-parenthetical` in the edition file.
-  - Shared helper opportunity: unify memorandum/publish-status handling between note and TOA styles via a shared `weight-parentheticals` helper to eliminate duplication documented earlier in this file.
+  - CSL mapping: `legal-case-first`, `case-parenthetical-stack`, `parenthetical-slip-op`, and `related-proceedings` macros emit these cues, while slip-opinion URLs flow through `reporter-wl` and `parenthetical-docket` in the edition file.
+  - Shared helper opportunity: unify memorandum/publish-status handling between note and TOA styles via a shared `parenthetical-slip-op` helper to eliminate duplication documented earlier in this file.
   - Test coverage: `tests.json` fixtures `case_app_hou14`, `case_mem_not_designated`, and `case_slip_opinion` validate the memorandum, publication-status, and slip-opinion behaviors.
 
 - **Origination tag in parenthetical.** `Flores v. Fourth Court of Appeals, 777 S.W.2d 38, 39 (Tex. 1989) (orig. proceeding).` The separate parenthetical marks mandamus posture for Texas Supreme Court original proceedings.
@@ -168,9 +173,9 @@ start citation
       legal_case → call macro legal-case
         legal-case:
           if position="first" → legal-case-first
-            • case-name → reporter-(print|wl) → pinpoint → court-and-date → weight-parentheticals → subsequent-history
+            • case-name → reporter-(print|wl) → pinpoint → court-and-date → parenthetical-slip-op → subsequent-history
           else if variable references present → legal-case-cross-reference
-            • cross-reference-cue + legal-case-first core → court-and-date → weight-parentheticals → references tail
+            • cross-reference-cue + legal-case-first core → court-and-date → parenthetical-slip-op → references tail
           else → legal-case-short
             • same base chain as first cite but omit weight/subsequent history
       legislation → call macro statute-code when authority/collection-title/title/chapter-number present, else tex-statute
@@ -558,9 +563,9 @@ tex-admin-code-short
 - Validated `temp/locales/locales-en-US-x-texas-greenbook.xml` metadata (title, id, license, updated timestamp, and `style-options`) and the bundled abbreviation terms (`art.`, `ch.`, `R.`, `§`, `¶`, `Id.`). With the file in place, no further packaging steps are needed before wiring the citation styles to the shared locale.
 
 ## Memo Opinion Indicator Audit (2025-03-27)
-- `texas-greenbook-15th-edition.csl` routes every case through `case-parenthetical-stack`, which simply echoes `genre` and `medium` via `weight-parentheticals` with no conditional gating (ll. 144–158). Memorandum, per curiam, and rehearing parentheticals therefore appear only when translators populate `genre`/`medium`.
+- `texas-greenbook-15th-edition.csl` routes every case through `case-parenthetical-stack`, which simply echoes `genre` and `medium` via `parenthetical-slip-op` with no conditional gating (ll. 144–158). Memorandum, per curiam, and rehearing parentheticals therefore appear only when translators populate `genre`/`medium`.
 - The TOA family (`texas-greenbook-15th-toa*.csl`) defines the same helper as two single-node `choose` blocks that emit `genre`/`medium` for each case entry (e.g., `texas-greenbook-15th-toa.csl` ll. 58–112). Tables omit the explanatory-parenthetical macro, so memo markers display once in the case block and nowhere else.
-- No macros promote `status` to memo terminology; `procedural-parenthetical` is limited to `status`/`note` combinations for things like “orig. proceeding.” This inventory confirms memo handling is entirely data-driven today and documents the gap for future conditional helpers or locale terms.
+- No macros promote `status` to memo terminology; `parenthetical-procedural-status` is limited to `status`/`note` combinations for things like “orig. proceeding.” This inventory confirms memo handling is entirely data-driven today and documents the gap for future conditional helpers or locale terms.
 
 ## Supplemental Reference Status (2025-03-27)
 - **Uniform-Format-Manual-07012010.pdf** — 30-page, text-searchable PDF covering reporter formatting; stored in `temp/` and requires no OCR.
@@ -600,7 +605,7 @@ tex-admin-code-short
 - Slip-opinion citations on p. 18 (`Jaxson v. Morgan, No. 14-04-00785-CV, slip op. ¶ 4 (Tex. App.—Houston [14th Dist.] Apr. 6, 2006, no pet.) (mem. op.)`) pair the `(mem. op.)` cue with the paragraph pinpoint; no italics shift occurs, so the CSL implementation can rely on roman rendering for these explanatory tails without additional styling hooks.【F:temp/Greenbook_15thEdition.pdf†L168-L212】
 
 #### Memo opinion regression run (2025-03-17)
-- Added explicit `font-style="normal"` attributes to the `weight-parentheticals` macro across the note and TOA styles so `genre`/`medium` parentheticals (including `(mem. op.)`) cannot inherit italics from surrounding macros.【F:temp/texas-greenbook-15th-edition.csl†L143-L155】【F:temp/texas-greenbook-15th-toa.csl†L58-L63】【F:temp/texas-greenbook-15th-toa-grouped.csl†L99-L104】【F:temp/texas-greenbook-15th-toa-grouped-leaders.csl†L61-L66】【F:temp/texas-greenbook-15th-toa-leaders.csl†L58-L63】【F:temp/texas-greenbook-15th-toa-by-reporter.csl†L54-L59】
+- Added explicit `font-style="normal"` attributes to the `parenthetical-slip-op` macro across the note and TOA styles so `genre`/`medium` parentheticals (including `(mem. op.)`) cannot inherit italics from surrounding macros.【F:temp/texas-greenbook-15th-edition.csl†L143-L155】【F:temp/texas-greenbook-15th-toa.csl†L58-L63】【F:temp/texas-greenbook-15th-toa-grouped.csl†L99-L104】【F:temp/texas-greenbook-15th-toa-grouped-leaders.csl†L61-L66】【F:temp/texas-greenbook-15th-toa-leaders.csl†L58-L63】【F:temp/texas-greenbook-15th-toa-by-reporter.csl†L54-L59】
 - Executed `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt` to confirm memo opinion fixtures continue to match expectations; stored the log at `temp/test-logs/2025-03-17_memo-opinion.txt` for regression traceability.【F:temp/test-logs/2025-03-17_memo-opinion.txt†L1-L39】
 - Re-checked Chapter 4 Format Guide examples (p. 14 / PDF p. 32) to confirm the roman `(mem. op.)` parentheticals remain authoritative references for the CSL output.【F:temp/Greenbook_15thEdition.pdf†L294-L320】
 
@@ -703,7 +708,7 @@ tex-admin-code-short
 - **Draft 0** implements a minimal Greenbook approximation with generic macros (`case-cite`, `statute-cite`, `article-cite`) and uniform bibliography/citation routing, lacking template inheritance or specialized Texas variables such as `status` or `collection-number`. This serves as a baseline for feature gaps (no slip-opinion handling, no municipal code logic).【F:temp/texas-greenbook-15th-draft0.csl†L1-L195】
 - **Draft 1** pivots to a Bluebook template, introducing Greenbook-specific macros for constitutions, statutes, administrative codes, and TOA-ready parentheticals; it also adds `subsequent-history` handling via the `references` variable and expands the citation chooser to cover regulations, reports, and web materials.【F:temp/texas-greenbook-15th-draft1.csl†L1-L280】
 - **Draft 2** restructures the architecture around type-focused macros (`legal-case`, `session-law`, `tac-core`, `municipal-code`, `ag-opinion`) and introduces conditional branching on variables like `volume`, `authority`, and `chapter-number` to distinguish codes versus constitutions, hinting at the data-shaping expected from translators or pre-processing layers.【F:temp/texas-greenbook-15th-draft2.csl†L1-L359】
-- **Draft 3** retains the Draft 2 macro library while layering in additional fallbacks (`book-like`, `web`) and a revised citation switch that defers to master templates for cases, statutes, and regulations. It also embeds `weight-parentheticals` and `pinpoint` logic for Westlaw citations, illustrating how to mix print and electronic reporters within the same macro stack.【F:temp/texas-greenbook-15th-draft3.csl†L1-L428】
+- **Draft 3** retains the Draft 2 macro library while layering in additional fallbacks (`book-like`, `web`) and a revised citation switch that defers to master templates for cases, statutes, and regulations. It also embeds `parenthetical-slip-op` and `pinpoint` logic for Westlaw citations, illustrating how to mix print and electronic reporters within the same macro stack.【F:temp/texas-greenbook-15th-draft3.csl†L1-L428】
 - **Table-of-Authorities variants** (e.g., `texas-greenbook-15th-toa.csl`, `texas-greenbook-15th-toa-grouped-leaders.csl`) reuse the master macros but customize bibliography sorting, grouping, and dotted-leader output, showing how TOA requirements can be met with selective macro reuse and layout tweaks.【F:temp/texas-greenbook-15th-toa.csl†L1-L166】【F:temp/texas-greenbook-15th-toa-grouped-leaders.csl†L1-L190】
 
 ## Draft 3 Macro Inventory and Dependencies
@@ -726,7 +731,7 @@ tex-admin-code-short
 | `reporter-print` | Specialized print-reporter block for case citations. | Shared helper |
 | `reporter-wl` | Formats Westlaw-equivalent citations when print reporter is missing. | Shared helper |
 | `court-and-date` | Chooses between print- and slip-opinion parentheticals for cases. | Shared helper |
-| `weight-parentheticals` | Emits weight-of-authority explanatory parentheticals from `genre`/`medium`. | Shared helper |
+| `parenthetical-slip-op` | Emits weight-of-authority explanatory parentheticals from `genre`/`medium`. | Shared helper |
 | `legal-case` | Top-level case citation assembler combining reporter, pinpoint, and parentheticals. | Authority-specific (cases) |
 | `statute-code` | Simplified code citation used when metadata is incomplete. | Authority-specific (fallback statutes) |
 | `constitution-core` | Constitution citation core used by alternative layouts. | Authority-specific (constitution helper) |
@@ -745,7 +750,7 @@ Citation Layout
 │   ├─ case-name
 │   ├─ reporter-print / reporter-wl
 │   ├─ pinpoint
-│   └─ court-and-date → weight-parentheticals
+│   └─ court-and-date → parenthetical-slip-op
 ├─ legislation/bill → tex-statute │ statute-code (fallback)
 ├─ treaty/standard → tac-core
 ├─ article-journal → author
@@ -773,7 +778,7 @@ Authority-Specific Supporting Macros
 ### Missing Shared Helpers and Required Additions
 - **Case law pipeline**
   - *Pinpoints*: Current `pinpoint` macro distinguishes print versus Westlaw but cannot emit multiple pincites or textual locators (e.g., `at *4`, `slip op. at`). Add a shared helper that normalizes slip-opinion locators (e.g., `pinpoint-slip`) and allows comma-delimited pincite arrays for both note and bibliography contexts.
-  - *Parentheticals*: `weight-parentheticals` only reads `genre`/`medium`; introduce a generalized `explanatory-parenthetical` helper that can handle procedural phrases (`per curiam`, `mem. op.`, `orig. proceeding`) by inspecting `status`, `genre`, and custom fields.
+  - *Parentheticals*: `parenthetical-slip-op` only reads `genre`/`medium`; introduce a generalized `explanatory-parenthetical` helper that can handle procedural phrases (`per curiam`, `mem. op.`, `orig. proceeding`) by inspecting `status`, `genre`, and custom fields.
   - *Docket metadata*: Add a shared `docket-block` helper to capture `collection-number` and `number` for slip opinions and mandamus proceedings so that `legal-case` and mandamus-specific macros can reuse the logic.
 - **Statutory/constitution pipeline**
   - *Pinpoints*: No macro supports subsection pinpoints beyond single `section`. Implement a `section-pinpoint` helper that accepts `section`, `subdivision`, and paragraph indicators to support statutory notes and constitutional subsections.
@@ -914,14 +919,14 @@ Authority-Specific Supporting Macros
 | style > style > macro:court-and-date > choose > if > group (wrap=' (', ')') > text | prefix=', ', variable='status' |
 | style > style > macro:court-and-date > choose > else > group (wrap=' (', ')') > text | variable='authority' |
 | style > style > macro:court-and-date > choose > else > group (wrap=' (', ')') > text | prefix=', ', variable='status' |
-| style > style > macro:weight-parentheticals > choose > if > text | prefix=' (', suffix=')', variable='genre' |
-| style > style > macro:weight-parentheticals > choose > if > text | prefix=' (', suffix=')', variable='medium' |
+| style > style > macro:parenthetical-slip-op > choose > if > text | prefix=' (', suffix=')', variable='genre' |
+| style > style > macro:parenthetical-slip-op > choose > if > text | prefix=' (', suffix=')', variable='medium' |
 | style > style > macro:legal-case > group (delim=', ') > text | macro='case-name' |
 | style > style > macro:legal-case > group (delim=', ') > choose > if > text | macro='reporter-print' |
 | style > style > macro:legal-case > group (delim=', ') > choose > else > text | macro='reporter-wl' |
 | style > style > macro:legal-case > group (delim=', ') > text | macro='pinpoint' |
 | style > style > macro:legal-case > text | macro='court-and-date' |
-| style > style > macro:legal-case > text | macro='weight-parentheticals' |
+| style > style > macro:legal-case > text | macro='parenthetical-slip-op' |
 | style > style > macro:statute-code > group (delim=' ') > text | variable='container-title' |
 | style > style > macro:statute-code > group (delim=' ') > text | variable='section' |
 | style > style > macro:constitution-core > group (delim=', ') > group (delim=' ') > text | variable='container-title' |
@@ -1089,3 +1094,10 @@ Authority-Specific Supporting Macros
 - **Statute/rule short-form prerequisites.** The citeproc 0.6.0 failure surfaced that our `ibid-locator` fallback assumes every non-page locator has a matching `form="symbol"` term. Before upgrading the dependency, we need to confirm whether Greenbook short forms prefer symbol or short labels for rules and administrative materials. Added a reminder in the TODO backlog to revisit locator labeling once the short-form epic resumes so we can broaden compatibility without breaking Chapter 13 expectations.【temp/texas-greenbook-15th-edition.csl†L70-L96】 **TODO:** Pair this review with the planned short-form implementation so any helper refactors land alongside the dependency bump.
 - **Dependency compatibility follow-up.** Logged the outstanding locator crash and rationale for the temporary `<0.6` pin so future maintainers can decide whether to adjust the macros or open an upstream issue with citeproc-py. Until then, developers should avoid bumping the dependency range without retesting the locator paths.
 - **Testing caveats.** Routine `run_tests.py` invocations should favor the focused smoke/TOA suites noted above while the broader `tests.json` run remains flaky under citeproc 0.6 semantics. Capture any additional anomalies in `temp/test-logs/` and feed them back into `TODO.md` to keep the backlog comprehensive.
+
+## Slip-opinion URL placement audit (2025-11-21)
+- Re-read Rule 4.1.3(a) and its surrounding examples to confirm that `available at` clauses trail the court/weight parentheticals while preceding any subsequent history or cross-reference strings.【F:temp/Greenbook_15thEdition.pdf†L1595-L1605】
+- The Greenbook’s `Jenkins v. State` example shows the memorandum parenthetical followed by `available at …`, which now mirrors the note and bibliography outputs for both `tests.json` and the focused subset.【F:temp/Greenbook_15thEdition.pdf†L1600-L1605】【F:temp/expected.txt†L10-L19】【F:temp/expected_parentheticals_bibliography.txt†L1-L7】
+- `Gen. Motors Corp. v. Gayle` demonstrates that the URL must precede the “leave granted, mand. denied” history string; the new `slip-opinion-availability` helper therefore emits the clause immediately before `subsequent-history`.【F:temp/Greenbook_15thEdition.pdf†L2309-L2310】【F:temp/texas-greenbook-15th-edition.csl†L138-L160】
+- Seeded `case_slip_opinion` with a docket URL and synthetic dismissal history plus a `case_slip_jenkins` fixture to exercise memorandum + URL handling; both feed the new `tests_parentheticals.json` file so we can regression-test note and bibliography modes independently.【F:temp/tests.json†L141-L209】【F:temp/tests_parentheticals.json†L1-L58】【F:temp/expected_parentheticals_notes.txt†L1-L10】
+- Populated `case_mandamus_history` with a two-step `related` chain and updated expectations, establishing structured petition history for future helper extraction while retaining the legacy `references` output for now.【F:temp/tests.json†L210-L280】【F:temp/expected.txt†L16-L19】

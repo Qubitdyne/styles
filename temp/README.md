@@ -16,6 +16,7 @@ This document summarizes the scope, capabilities, and maintenance guidance for t
 | `texas-greenbook-15th-toa*.csl` | Table of Authorities variants aligned with the edition macros. |
 | `archive/` | Legacy drafts (`draft0`–`draft3`) retained only for historical reference. |
 | `tests*.json`, `expected*.txt` | Citeproc regression fixtures for notes, secondary materials, and TOA outputs. |
+| `tests_parentheticals.json`, `expected_parentheticals_notes.txt`, `expected_parentheticals_bibliography.txt` | Focused fixtures validating slip-opinion URLs and mandamus history ordering in both note and bibliography contexts. |
 | `NOTES.md`, `TODO.md` | Research trail, design decisions, and prioritized implementation backlog. |
 
 ## Supported Citation Types
@@ -55,6 +56,12 @@ This document summarizes the scope, capabilities, and maintenance guidance for t
    python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt
    ```
    Alternate TOA styles can be tested by swapping the `--style` and `--expected` paths (see `expected_toa.txt`, `expected_toa_grouped.txt`, `expected_toa_leaders.txt`). Pass `--mode` explicitly if you are experimenting with nonstandard filenames or want to override the auto-detection behavior.【F:temp/tests_toa.json†L1-L200】
+4. **Exercise the parenthetical subset in both contexts:** the dedicated fixtures mirror the slip-opinion and mandamus examples from `tests.json` while running quickly for focused regression checks.
+   ```bash
+   python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_notes.txt
+   python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_bibliography.txt --mode bibliography
+   ```
+   Use these runs to confirm `available at` ordering and petition-history chains stay synchronized across note and bibliography outputs after citation logic changes.
 4. **Update fixtures:** Use the `--write-expected` flag to regenerate expected outputs after intentional changes; review diffs to ensure alignment with Greenbook requirements before committing.【F:temp/run_tests.py†L75-L114】
 5. **Reproduce historical locator issues (optional):** The diagnostic pair `tests_locator_symbol.json` / `expected_locator_symbol.txt` exercises the non-page locator pathways that previously crashed when citeproc lacked a symbol-form term. Run them to confirm fallback behavior before altering locator macros.【F:temp/tests_locator_symbol.json†L1-L16】【F:temp/expected_locator_symbol.txt†L1-L1】
 
