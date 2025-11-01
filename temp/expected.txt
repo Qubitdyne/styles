@@ -25,6 +25,7 @@ Tex. Gov’t Code Ann. § 2001.003(6). // Greenbook 15th ed. 2
 Id. § 2001.003(7). // Greenbook 15th ed. 4
 Tex. Penal Code § 29.02. // Greenbook 15th ed. 46
 Tex. Rev. Civ. Stat. Ann. art. 5415e-4, § 2(a). // Greenbook 15th ed. 47
+Tex. Rev. Civ. Stat. Ann. art. 5415e-4, § 2(a). // Greenbook 15th ed. 47 (short-form Id. guard)
 Tex. Tax Code Ann. § 26.06(a). // Greenbook 15th ed. 44
 Tex. Tax Code Ann. § 26.06(a). // Greenbook 15th ed. 44
 Tex. Tax Code Ann.. // Greenbook 15th ed. 44
@@ -41,7 +42,7 @@ Id. § 9.13. // Greenbook 15th ed. 4
 Id. § 25.102. // Greenbook 15th ed. 77
 16 Tex. Admin. Code (2022) (Tex. Comm’n on Env’t Quality). // Greenbook 15th ed. 77
 Tex. R. Civ. P. 97(d). // Greenbook 15th ed. 2
-Id. 97(e). // Greenbook 15th ed. 4
+Id. R. 97(e). // Greenbook 15th ed. 4
 Tex. R. App. P. 2. // Greenbook 15th ed. 2
 Tex. R. Evid. 405(b). // Greenbook 15th ed. 2
 Tex. R. Jud. Admin. 5. // Greenbook 15th ed. 63

@@ -33,7 +33,7 @@ This document summarizes the scope, capabilities, and maintenance guidance for t
 
 ## Known Limitations & Open Items
 
-- **Statute and rule short forms:** Cross-reference and id. logic for statutes, rules, and administrative materials remains incomplete; see flagged tests in `expected.txt` for desired output.【F:temp/NOTES.md†L172-L189】【F:temp/expected.txt†L150-L214】 (Greenbook Ch. 10–13, pp. 42–65)【F:temp/Greenbook_15thEdition.pdf†L170-L250】
+- **Statute and rule short forms:** Dedicated short-form macros are still pending, but the citation layout now guards `Id.` so code titles with `collection-title` or `chapter-number` metadata repeat the full cite instead of emitting `Id.`; remaining gaps are tracked in `TODO.md` and illustrated in `expected.txt`.【F:temp/texas-greenbook-15th-edition.csl†L1108-L1136】【F:temp/tests.json†L386-L409】【F:temp/expected.txt†L27-L35】【F:temp/TODO.md†L140-L158】【F:temp/Greenbook_15thEdition.pdf†L170-L250】
 - **Federal authorities:** TOA fixtures lack federal examples; future updates should add them once macros support multi-jurisdiction sorting.【F:temp/NOTES.md†L194-L205】 (Greenbook Appendix B, pp. 239–252)【F:temp/Greenbook_15thEdition.pdf†L612-L676】
 
 ### Assumptions, Deviations, and Unresolved Questions

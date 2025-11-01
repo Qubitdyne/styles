@@ -390,6 +390,11 @@
     "section": "§ 2(a)"
   },
   {
+    "_cite": "stat_rev_civ",
+    "label": "section",
+    "locator": "§ 2(b)"
+  },
+  {
     "id": "stat_tax_code_repeat",
     "type": "legislation",
     "container-title": "Tex. Tax Code Ann.",

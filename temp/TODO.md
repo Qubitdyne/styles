@@ -135,12 +135,12 @@ ion of the conflicting behavior.
       - [x] Verify that the macro still returns empty output when `note` contains substantive text, avoiding redundant cues.
       - [x] Run citeproc scenarios with mixed Texas and non-Texas authorities to confirm the cue renders only in the expected cases.
       - [x] Update inline comments or `NOTES.md` to document the new logic with Greenbook references.
-    - [ ] Ensure statute/rule short forms properly interpret `ibid`-style references, respecting Greenbook triggers for when `Id.` is permitted.
+  - [x] Ensure statute/rule short forms properly interpret `ibid`-style references, respecting Greenbook triggers for when `Id.` is permitted.
       - [x] Review the CSL `ibid` handling configuration to understand current processor behavior for statutes and rules.
-      - [ ] Add conditional guards within the short-form macros that suppress `Id.` when the Greenbook disallows it (e.g., cross-title citations).
-      - [ ] Test with sequential citations that should and should not produce `Id.` to validate the guard logic.
-      - [ ] Document exceptions (such as session law sequences) that require future enhancements beyond the initial implementation.
-      - [ ] Capture example outputs demonstrating compliant `Id.` usage and archive them with test logs.
+      - [x] Add conditional guards within the short-form macros that suppress `Id.` when the Greenbook disallows it (e.g., cross-title citations).
+      - [x] Test with sequential citations that should and should not produce `Id.` to validate the guard logic.
+      - [x] Document exceptions (such as session law sequences) that require future enhancements beyond the initial implementation.
+      - [x] Capture example outputs demonstrating compliant `Id.` usage and archive them with test logs.
     - [x] Add regression tests covering cross-jurisdiction references and `Id.` fallbacks.
       - [x] Expand `tests.json` with pairs of citations representing Texas vs. non-Texas authorities to trigger the new cue behavior.
       - [x] Include note sequences that alternate between eligible and ineligible `Id.` contexts to exercise the guards.
@@ -151,7 +151,8 @@ ion of the conflicting behavior.
       - [x] Tag questions with the responsible owner or review milestone if collaboration is anticipated.
       - [x] Reference the specific CSL line numbers where ambiguity remains to expedite future debugging.
       - [x] Update the TODO backlog with newly identified follow-up tasks to keep planning aligned.
-      - [ ] **Follow-up:** Investigate citeproc jurisdiction filtering. Confirm whether upgrading citeproc-py or introducing a pre-processing hook can restore `jurisdiction` condition support for `cross-reference-cue`, then re-run the Texas vs. non-Texas fixtures to verify “See also” output.
+      - [x] **Follow-up:** Investigate citeproc jurisdiction filtering. Confirm whether upgrading citeproc-py or introducing a pre-processing hook can restore `jurisdiction` condition support for `cross-reference-cue`, then re-run the Texas vs. non-Texas fixtures to verify “See also” output.
+      - [ ] **Follow-up:** Route citeproc locators through the forthcoming statute short-form helper so guarded repeats (e.g., `stat_rev_civ` § 2(b)) no longer echo the original section when a locator is supplied (see `NOTES.md` 2025-12-01 update).
   - [x] Update fixtures and expectations to exercise the new short-form logic.
     - [x] Add representative statute, rule, and administrative authorities to `tests.json` and `tests_toa.json`, including scenarios with and without available years.
       - [x] Gather example citations from the Greenbook and supplemental manuals to ensure realistic metadata coverage.
@@ -173,26 +174,26 @@ ion of the conflicting behavior.
       - [x] Highlight any fixtures that rely on assumptions or inferred data, noting the justification.
       - [x] Document reviewer sign-offs or pending approvals for fixtures derived from ambiguous guidance.
       - [x] Link to any external resources (e.g., PDFs, spreadsheets) that house additional context for the test data.
-  - [ ] Refresh documentation after implementation completes.
-    - [ ] Update `README.md` Known Limitations to reflect the closure of statute/rule short-form gaps.
-      - [ ] Draft revised language removing the limitation and briefly describing the implemented solution.
-      - [ ] Insert citations to the relevant Greenbook sections supporting the implemented behavior.
-      - [ ] Proofread the updated section for tone and clarity, ensuring it matches the rest of the README.
-      - [ ] Capture before/after snippets in `NOTES.md` to document the documentation change.
-    - [ ] Summarize macro additions and test coverage changes in `NOTES.md` with Greenbook citations.
-      - [ ] Create a changelog entry listing new macros, helpers, and associated file paths.
-      - [ ] Reference specific Greenbook rules for each addition to maintain traceability.
-      - [ ] Highlight new or updated fixtures and include links to their test log evidence.
-      - [ ] Note any follow-up actions or pending questions related to the short-form work.
-    - [ ] Revise `TODO.md` to mark completed subtasks and capture any deferred edge cases for future work.
-      - [ ] Check off completed checkboxes and adjust task descriptions to reflect the latest status.
-      - [ ] Add new unchecked bullets for edge cases deferred during implementation, referencing `NOTES.md` anchors.
-      - [ ] Reorder items if necessary to keep chronological or priority flow intuitive.
+  - [x] Refresh documentation after implementation completes.
+    - [x] Update `README.md` Known Limitations to reflect the closure of statute/rule short-form gaps.
+      - [x] Draft revised language removing the limitation and briefly describing the implemented solution.
+      - [x] Insert citations to the relevant Greenbook sections supporting the implemented behavior.
+      - [x] Proofread the updated section for tone and clarity, ensuring it matches the rest of the README.
+      - [x] Capture before/after snippets in `NOTES.md` to document the documentation change.
+    - [x] Summarize macro additions and test coverage changes in `NOTES.md` with Greenbook citations.
+      - [x] Create a changelog entry listing new macros, helpers, and associated file paths.
+      - [x] Reference specific Greenbook rules for each addition to maintain traceability.
+      - [x] Highlight new or updated fixtures and include links to their test log evidence.
+      - [x] Note any follow-up actions or pending questions related to the short-form work.
+    - [x] Revise `TODO.md` to mark completed subtasks and capture any deferred edge cases for future work.
+      - [x] Check off completed checkboxes and adjust task descriptions to reflect the latest status.
+      - [x] Add new unchecked bullets for edge cases deferred during implementation, referencing `NOTES.md` anchors.
+      - [x] Reorder items if necessary to keep chronological or priority flow intuitive.
       - [ ] Commit the updated TODO with a descriptive message summarizing the changes.
-    - [ ] Ensure `temp/PR_DRAFT.md` references the new short-form support for eventual submission notes.
-      - [ ] Insert a summary paragraph in the PR draft highlighting the short-form implementation and test coverage.
-      - [ ] Add bullet points linking to relevant documentation or test logs for reviewers.
-      - [ ] Review the draft against CSL submission guidelines to confirm tone and required metadata.
+    - [x] Ensure `temp/PR_DRAFT.md` references the new short-form support for eventual submission notes.
+      - [x] Insert a summary paragraph in the PR draft highlighting the short-form implementation and test coverage.
+      - [x] Add bullet points linking to relevant documentation or test logs for reviewers.
+      - [x] Review the draft against CSL submission guidelines to confirm tone and required metadata.
       - [ ] Schedule a final proofread during Release Preparation to capture any late-breaking updates.
   - [x] Outline Greenbook Chapter 10–13 short-form triggers (sections, chapters, and rule ranges) with page citations in `NOTES.md` to confirm requirements and edge cases.
     - [x] Read the relevant PDF sections and list each trigger verbatim with pinpoint page numbers.

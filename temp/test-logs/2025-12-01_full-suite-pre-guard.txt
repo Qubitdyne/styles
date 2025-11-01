@@ -1,0 +1,324 @@
+01: OK
+  expected: Jupiter Oil Co. v. Snow, 819 S.W.2d 466, 467 (Tex. 1991). // Greenbook 15th ed. 2
+  actual:   Jupiter Oil Co. v. Snow, 819 S.W.2d 466, 467 (Tex. 1991).
+
+02: OK
+  expected: Id. at 467. // Greenbook 15th ed. 4
+  actual:   Id. at 467.
+
+03: OK
+  expected: Id. at 468. // Greenbook 15th ed. 4
+  actual:   Id. at 468.
+
+04: OK
+  expected: See, e.g., IPCO-G. & C. Joint Venture v. A.B. Chance Co., 65 S.W.3d 252, 254 (Tex. App.—Houston [14th Dist.] 2001, pet. denied) (demonstrating comparative fault allocation), prior proceeding sub nom. In re A.B. Chance Co., 56 S.W.3d 730 (Tex. 2001). // Greenbook 15th ed. 2
+  actual:   See, e.g., IPCO-G. & C. Joint Venture v. A.B. Chance Co., 65 S.W.3d 252, 254 (Tex. App.—Houston [14th Dist.] 2001, pet. denied) (demonstrating comparative fault allocation), prior proceeding sub nom. In re A.B. Chance Co., 56 S.W.3d 730 (Tex. 2001).
+
+05: OK
+  expected: Cantu v. State, 939 S.W.2d 627, 631 (Tex. Crim. App. 1997) (addressing double-jeopardy arguments), op. on reh'g, 971 S.W.2d 255 (Tex. Crim. App. 1998). // Greenbook 15th ed. 2
+  actual:   Cantu v. State, 939 S.W.2d 627, 631 (Tex. Crim. App. 1997) (addressing double-jeopardy arguments), op. on reh'g, 971 S.W.2d 255 (Tex. Crim. App. 1998).
+
+06: OK
+  expected: Richardson v. Kays, No. 02-03-241-CV, 2003 WL 22457054, at *1 (Tex. App.—Fort Worth Oct. 30, 2003, no pet.) (per curiam) (mem. op.) (memorializing summary-judgment disposition). // Greenbook 15th ed. 2
+  actual:   Richardson v. Kays, No. 02-03-241-CV, 2003 WL 22457054, at *1 (Tex. App.—Fort Worth Oct. 30, 2003, no pet.) (per curiam) (mem. op.) (memorializing summary-judgment disposition).
+
+07: OK
+  expected: Green v. State, No. 12-12-00249-CR, 2012 WL 3116252, at *1 (Tex. App.—Tyler Jul. 31, 2012, no pet.) (per curiam) (mem. op., not designated for publication). // Greenbook 15th ed. 17
+  actual:   Green v. State, No. 12-12-00249-CR, 2012 WL 3116252, at *1 (Tex. App.—Tyler Jul. 31, 2012, no pet.) (per curiam) (mem. op., not designated for publication).
+
+08: OK
+  expected: State v. Auguillard, No. 139002101010, Trial Ct. No. 2013-CR-4567 (338th Dist. Ct., Harris County, Tex. Oct. 21, 2013, prelim. injunction order). // Greenbook 15th ed. 34
+  actual:   State v. Auguillard, No. 139002101010, Trial Ct. No. 2013-CR-4567 (338th Dist. Ct., Harris County, Tex. Oct. 21, 2013, prelim. injunction order).
+
+09: OK
+  expected: Auguillard, No. 139002101010, Trial Ct. No. 2013-CR-4567, at *4 (338th Dist. Ct., Harris County, Tex. Oct. 21, 2013, prelim. injunction order). // Greenbook 15th ed. 34
+  actual:   Auguillard, No. 139002101010, Trial Ct. No. 2013-CR-4567, at *4 (338th Dist. Ct., Harris County, Tex. Oct. 21, 2013, prelim. injunction order).
+
+10: OK
+  expected: In re Academy, Ltd., No. 21-0993, 2024 WL 1234567, at *5 (Tex. Mar. 8, 2024, orig. proceeding) (per curiam) (slip op.), available at https://search.txcourts.gov/Case.aspx?cn=21-0993&coa=cossup, mand. dismissed, No. 22-0150, 2025 WL 987654, at *2 (Tex. 2025) (per curiam). // Greenbook 15th ed. 31, 36
+  actual:   In re Academy, Ltd., No. 21-0993, 2024 WL 1234567, at *5 (Tex. Mar. 8, 2024, orig. proceeding) (per curiam) (slip op.), available at https://search.txcourts.gov/Case.aspx?cn=21-0993&coa=cossup, mand. dismissed, No. 22-0150, 2025 WL 987654, at *2 (Tex. 2025) (per curiam).
+
+11: OK
+  expected: Baggs v. Becker, No. 03-07-00731-CV, 2009 WL 280664, at *1 (Tex. App.—Austin Feb. 6, 2009, no pet.) (mem. op.). // Greenbook 15th ed. 17
+  actual:   Baggs v. Becker, No. 03-07-00731-CV, 2009 WL 280664, at *1 (Tex. App.—Austin Feb. 6, 2009, no pet.) (mem. op.).
+
+12: OK
+  expected: Jenkins v. State, No. 03-13-0632-CR, 2013 WL 5567890, at *2 (Tex. App.—Austin Oct. 25, 2013, no pet. h.) (mem. op., not designated for publication), available at http://www.search.txcourts.gov/SearchMedia.aspx?MediaVersionID=9a9e6403-aac0-45ac-8e31-27c4d2fd8a33&MediaID=a0ea946d-bccf-4336-9228-581bd0b046c5&coa=%22%20+%20this.CurrentWebState.CurrentCourt%20+%20@%22&DT=Opinion. // Greenbook 15th ed. 36
+  actual:   Jenkins v. State, No. 03-13-0632-CR, 2013 WL 5567890, at *2 (Tex. App.—Austin Oct. 25, 2013, no pet. h.) (mem. op., not designated for publication), available at http://www.search.txcourts.gov/SearchMedia.aspx?MediaVersionID=9a9e6403-aac0-45ac-8e31-27c4d2fd8a33&MediaID=a0ea946d-bccf-4336-9228-581bd0b046c5&coa=%22%20+%20this.CurrentWebState.CurrentCourt%20+%20@%22&DT=Opinion.
+
+13: OK
+  expected: Id. at 2. // Greenbook 15th ed. 36
+  actual:   Id. at 2.
+
+14: OK
+  expected: In re Luna, No. 01-03-01055-CV, 2004 WL 2005935, at *1 (Tex. App.—Houston [1st Dist.] Sep. 9, 2004, orig. proceeding [mand. pending]). // Greenbook 15th ed. 32
+  actual:   In re Luna, No. 01-03-01055-CV, 2004 WL 2005935, at *1 (Tex. App.—Houston [1st Dist.] Sep. 9, 2004, orig. proceeding [mand. pending]).
+
+15: OK
+  expected: Massoth v. State, No. 14-03-00605-CR, 2004 WL 1381027, at *1 (Tex. App.—Houston [14th Dist.] Jun. 22, 2004, pet. ref'd) (mem. op., not designated for publication), habeas corpus granted in part sub nom. Ex parte Massoth, No. AP-75215, 2005 WL 1774115, at *1 (Tex. Crim. App. July 27, 2005) (per curiam) (not designated for publication). // Greenbook 15th ed. 25
+  actual:   Massoth v. State, No. 14-03-00605-CR, 2004 WL 1381027, at *1 (Tex. App.—Houston [14th Dist.] Jun. 22, 2004, pet. ref'd) (mem. op., not designated for publication), habeas corpus granted in part sub nom. Ex parte Massoth, No. AP-75215, 2005 WL 1774115, at *1 (Tex. Crim. App. July 27, 2005) (per curiam) (not designated for publication).
+
+16: OK
+  expected: Gen. Motors Corp. v. Gayle, 924 S.W.2d 222, 224 (Tex. App.—Houston [14th Dist.] 1996, orig. proceeding), leave granted, mand. denied, 940 S.W.2d 598, 599 (Tex. 1997) (per curiam). // Greenbook 15th ed. 51
+  actual:   Gen. Motors Corp. v. Gayle, 924 S.W.2d 222, 224 (Tex. App.—Houston [14th Dist.] 1996, orig. proceeding), leave granted, mand. denied, 940 S.W.2d 598, 599 (Tex. 1997) (per curiam).
+
+17: OK
+  expected: See Gen. Motors Corp. v. Gayle, 924 S.W.2d 222, 224 (Tex. App.—Houston [14th Dist.] 1996, orig. proceeding), leave granted, mand. denied, 940 S.W.2d 598, 599 (Tex. 1997) (per curiam). // Greenbook 15th ed. 51
+  actual:   See Gen. Motors Corp. v. Gayle, 924 S.W.2d 222, 224 (Tex. App.—Houston [14th Dist.] 1996, orig. proceeding), leave granted, mand. denied, 940 S.W.2d 598, 599 (Tex. 1997) (per curiam).
+
+18: OK
+  expected: In re Gen. Motors Corp., 940 S.W.2d 598 (Tex. 1997, leave granted). // Greenbook 15th ed. 51
+  actual:   In re Gen. Motors Corp., 940 S.W.2d 598 (Tex. 1997, leave granted).
+
+19: OK
+  expected: In re Gen. Motors Corp., 940 S.W.2d 599 (Tex. 1997, mand. denied). // Greenbook 15th ed. 51
+  actual:   In re Gen. Motors Corp., 940 S.W.2d 599 (Tex. 1997, mand. denied).
+
+20: OK
+  expected: Johnson v. Davis, 512 S.W.3d 398, 402 (Tex. App.—Dallas 2017, on reh'g, op. withdrawn) (mem. op.). // Greenbook 15th ed. 24
+  actual:   Johnson v. Davis, 512 S.W.3d 398, 402 (Tex. App.—Dallas 2017, on reh'g, op. withdrawn) (mem. op.).
+
+21: OK
+  expected: Jackson v. Maddox, 53 Tex. Civ. App. 478, 479 (Fort Worth 1909, no writ), prior proceeding sub nom. Maddox v. Jackson, 48 Tex. Civ. App. 101, 106 S.W. 15 (1907), writ ref'd, 102 Tex. 123, 113 S.W. 3 (1908), 117 S.W. 185, 185. // Greenbook 15th ed. 100
+  actual:   Jackson v. Maddox, 53 Tex. Civ. App. 478, 479 (Fort Worth 1909, no writ), prior proceeding sub nom. Maddox v. Jackson, 48 Tex. Civ. App. 101, 106 S.W. 15 (1907), writ ref'd, 102 Tex. 123, 113 S.W. 3 (1908), 117 S.W. 185, 185.
+
+22: OK
+  expected: See also Jackson v. Maddox, 53 Tex. Civ. App. 478, 480 (Fort Worth 1909, no writ), prior proceeding sub nom. Maddox v. Jackson, 48 Tex. Civ. App. 101, 106 S.W. 15 (1907), writ ref'd, 102 Tex. 123, 113 S.W. 3 (1908). // Greenbook 15th ed. 4
+  actual:   See also Jackson v. Maddox, 53 Tex. Civ. App. 478, 480 (Fort Worth 1909, no writ), prior proceeding sub nom. Maddox v. Jackson, 48 Tex. Civ. App. 101, 106 S.W. 15 (1907), writ ref'd, 102 Tex. 123, 113 S.W. 3 (1908).
+
+23: OK
+  expected: Jupiter Oil, 819 S.W.2d 466, 470 (Tex. 1991). // Greenbook 15th ed. 4
+  actual:   Jupiter Oil, 819 S.W.2d 466, 470 (Tex. 1991).
+
+24: OK
+  expected: Tex. Gov’t Code Ann. § 2001.003(6). // Greenbook 15th ed. 2
+  actual:   Tex. Gov’t Code Ann. § 2001.003(6).
+
+25: OK
+  expected: Id. § 2001.003(7). // Greenbook 15th ed. 4
+  actual:   Id. § 2001.003(7).
+
+26: OK
+  expected: Tex. Penal Code § 29.02. // Greenbook 15th ed. 46
+  actual:   Tex. Penal Code § 29.02.
+
+27: OK
+  expected: Tex. Rev. Civ. Stat. Ann. art. 5415e-4, § 2(a). // Greenbook 15th ed. 47
+  actual:   Tex. Rev. Civ. Stat. Ann. art. 5415e-4, § 2(a).
+
+28: OK
+  expected: Tex. Tax Code Ann. § 26.06(a). // Greenbook 15th ed. 44
+  actual:   Tex. Tax Code Ann. § 26.06(a).
+
+29: OK
+  expected: Tex. Tax Code Ann. § 26.06(a). // Greenbook 15th ed. 44
+  actual:   Tex. Tax Code Ann. § 26.06(a).
+
+30: OK
+  expected: Tex. Tax Code Ann.. // Greenbook 15th ed. 44
+  actual:   Tex. Tax Code Ann..
+
+31: OK
+  expected: Tex. Gov’t Code Ann. § 2001.021. // Greenbook 15th ed. 44
+  actual:   Tex. Gov’t Code Ann. § 2001.021.
+
+32: OK
+  expected: Tex. Gov’t Code Ann. § 2001.021. // Greenbook 15th ed. 44
+  actual:   Tex. Gov’t Code Ann. § 2001.021.
+
+33: OK
+  expected: Tex. Gov’t Code Ann. § 2001.031. // Greenbook 15th ed. 44
+  actual:   Tex. Gov’t Code Ann. § 2001.031.
+
+34: OK
+  expected: Tex. Gov’t Code Ann. § 2001.021. // Greenbook 15th ed. 44
+  actual:   Tex. Gov’t Code Ann. § 2001.021.
+
+35: OK
+  expected: Tex. Const. art. V, § 6. // Greenbook 15th ed. 39
+  actual:   Tex. Const. art. V, § 6.
+
+36: OK
+  expected: Tex. Const. art. XVI, § 70 (expired Sept. 1, 2008). // Greenbook 15th ed. 39
+  actual:   Tex. Const. art. XVI, § 70 (expired Sept. 1, 2008).
+
+37: OK
+  expected: 4 Tex. Admin. Code § 9.12 (2013) (Tex. Dep’t of Agric., Seed Sampling Procedures). // Greenbook 15th ed. 2
+  actual:   4 Tex. Admin. Code § 9.12 (2013) (Tex. Dep’t of Agric., Seed Sampling Procedures).
+
+38: OK
+  expected: Id. § 9.13. // Greenbook 15th ed. 4
+  actual:   Id. § 9.13.
+
+39: OK
+  expected: 39 Tex. Reg. 573, 574 (2014) (to be codified at 22 Tex. Admin. Code § 367.14) (Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings). // Greenbook 15th ed. 2
+  actual:   39 Tex. Reg. 573, 574 (2014) (to be codified at 22 Tex. Admin. Code § 367.14) (Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings).
+
+40: OK
+  expected: 16 Tex. Admin. Code § 25.101 (2022) (Tex. Comm’n on Env’t Quality, Emission Standards Division). // Greenbook 15th ed. 77
+  actual:   16 Tex. Admin. Code § 25.101 (2022) (Tex. Comm’n on Env’t Quality, Emission Standards Division).
+
+41: OK
+  expected: Id. § 25.102. // Greenbook 15th ed. 77
+  actual:   Id. § 25.102.
+
+42: OK
+  expected: 16 Tex. Admin. Code (2022) (Tex. Comm’n on Env’t Quality). // Greenbook 15th ed. 77
+  actual:   16 Tex. Admin. Code (2022) (Tex. Comm’n on Env’t Quality).
+
+43: OK
+  expected: Tex. R. Civ. P. 97(d). // Greenbook 15th ed. 2
+  actual:   Tex. R. Civ. P. 97(d).
+
+44: DIFF
+  expected: Id. 97(e). // Greenbook 15th ed. 4
+  actual:   Id. R. 97(e).
+
+45: OK
+  expected: Tex. R. App. P. 2. // Greenbook 15th ed. 2
+  actual:   Tex. R. App. P. 2.
+
+46: OK
+  expected: Tex. R. Evid. 405(b). // Greenbook 15th ed. 2
+  actual:   Tex. R. Evid. 405(b).
+
+47: OK
+  expected: Tex. R. Jud. Admin. 5. // Greenbook 15th ed. 63
+  actual:   Tex. R. Jud. Admin. 5.
+
+48: OK
+  expected: Tex. R. Jud. Admin. 5. // Greenbook 15th ed. 63
+  actual:   Tex. R. Jud. Admin. 5.
+
+49: OK
+  expected: Tex. R. Jud. Admin.. // Greenbook 15th ed. 63
+  actual:   Tex. R. Jud. Admin..
+
+50: OK
+  expected: Act of May 27, 2005, 79th Leg., R.S., ch. 484, § 2, sec. 153.433, 2005 Tex. Gen. Laws 1345. // Greenbook 15th ed. 2
+  actual:   Act of May 27, 2005, 79th Leg., R.S., ch. 484, § 2, sec. 153.433, 2005 Tex. Gen. Laws 1345.
+
+51: OK
+  expected: Act approved Mar. 8, 1871, 12th Leg., R.S., ch. 16, § 2, 1871 Tex. Gen. Laws 11, 11, reprinted in 6 H.P.N. Gammel, The Laws of Texas 1822–1897, at 913, 913 (Austin, Gammel Book Co. 1898). // Greenbook 15th ed. 55
+  actual:   Act approved Mar. 8, 1871, 12th Leg., R.S., ch. 16, § 2, 1871 Tex. Gen. Laws 11, 11, reprinted in 6 H.P.N. Gammel, The Laws of Texas 1822–1897, at 913, 913 (Austin, Gammel Book Co. 1898).
+
+52: OK
+  expected: Tex. Att’y Gen. Op. No. GA-0002 (2002). // Greenbook 15th ed. 73
+  actual:   Tex. Att’y Gen. Op. No. GA-0002 (2002).
+
+53: OK
+  expected: Tex. Att’y Gen. LO-96-045 (1996). // Greenbook 15th ed. 75
+  actual:   Tex. Att’y Gen. LO-96-045 (1996).
+
+54: OK
+  expected: Hous., Tex., Code of Ordinances ch. 20, art. IV, § 20-216 (1968). // Greenbook 15th ed. 52
+  actual:   Hous., Tex., Code of Ordinances ch. 20, art. IV, § 20-216 (1968).
+
+55: OK
+  expected: Austin, Tex., City Code ch. 12-1, § 12-4-11 (2022). // Greenbook 15th ed. 52
+  actual:   Austin, Tex., City Code ch. 12-1, § 12-4-11 (2022).
+
+56: OK
+  expected: Tex. Tax Code Ann. § 26.06(a). // Greenbook 15th ed. 44
+  actual:   Tex. Tax Code Ann. § 26.06(a).
+
+57: OK
+  expected: Tex. R. Jud. Admin. 5. // Greenbook 15th ed. 63
+  actual:   Tex. R. Jud. Admin. 5.
+
+58: OK
+  expected: 16 Tex. Admin. Code § 25.101 (2022) (Tex. Comm’n on Env’t Quality, Emission Standards Division). // Greenbook 15th ed. 77
+  actual:   16 Tex. Admin. Code § 25.101 (2022) (Tex. Comm’n on Env’t Quality, Emission Standards Division).
+
+59: OK
+  expected: William V. Dorsaneo and Brandon R. Orr, 1 Texas Litigation Guide § 5.2 (5th ed.; Matthew Bender & Co., New York; 2024) (surveying evidentiary burdens). // Greenbook 15th ed. 2
+  actual:   William V. Dorsaneo and Brandon R. Orr, 1 Texas Litigation Guide § 5.2 (5th ed.; Matthew Bender & Co., New York; 2024) (surveying evidentiary burdens).
+
+60: OK
+  expected: Robert W. Calvert, The Application for Writ of Error § 469 (1st ed.; West, St. Paul; 1985) (commentary on procedural requirements). // Greenbook 15th ed. 62
+  actual:   Robert W. Calvert, The Application for Writ of Error § 469 (1st ed.; West, St. Paul; 1985) (commentary on procedural requirements).
+
+61: OK
+  expected: Alex W. Albright, “The Texas Discovery Privileges: A Fool’s Game?”, 70 Tex. L. Rev. 781 (1992). // Greenbook 15th ed. 4
+  actual:   Alex W. Albright, “The Texas Discovery Privileges: A Fool’s Game?”, 70 Tex. L. Rev. 781 (1992).
+
+62: OK
+  expected: See also Marisa Chen, “Reconsidering Texas Water Rights”, 55 Tex. Envtl. L.J. 201, at 215 (forthcoming), available at https://example.com/chen-water-rights (Accessed Jan. 12, 2025). // Greenbook 15th ed. 4
+  actual:   See also Marisa Chen, “Reconsidering Texas Water Rights”, 55 Tex. Envtl. L.J. 201, at 215 (forthcoming), available at https://example.com/chen-water-rights (Accessed Jan. 12, 2025).
+
+63: OK
+  expected: “Texas Courts Technology Standards Update”, Office of Court Administration, 2023, available at https://www.txcourts.gov/technology-standards-update (Accessed Feb. 10, 2025). // Greenbook 15th ed. 76
+  actual:   “Texas Courts Technology Standards Update”, Office of Court Administration, 2023, available at https://www.txcourts.gov/technology-standards-update (Accessed Feb. 10, 2025).
+
+64: OK
+  expected: “Supreme Court of Texas Issues Annual Report”, Texas Judiciary, 2024, available at https://www.txcourts.gov/media/releases/annual-report (Accessed Mar. 15, 2025). // Greenbook 15th ed. 76
+  actual:   “Supreme Court of Texas Issues Annual Report”, Texas Judiciary, 2024, available at https://www.txcourts.gov/media/releases/annual-report (Accessed Mar. 15, 2025).
+
+65: OK
+  expected: “Remote Hearings Expand Across Texas Courts”, Texas Judiciary, press release, available at https://www.txcourts.gov/media/releases/remote-hearings-expand (Accessed Mar. 22, 2025). // Greenbook 15th ed. 76
+  actual:   “Remote Hearings Expand Across Texas Courts”, Texas Judiciary, press release, available at https://www.txcourts.gov/media/releases/remote-hearings-expand (Accessed Mar. 22, 2025).
+
+66: OK
+  expected: “Designing Accessible Virtual Hearings”, Texas Courts Blog, Sep. 8, 2022, available at https://blog.txcourts.gov/designing-accessible-virtual-hearings (Accessed Feb. 18, 2025). // Greenbook 15th ed. 77
+  actual:   “Designing Accessible Virtual Hearings”, Texas Courts Blog, Sep. 8, 2022, available at https://blog.txcourts.gov/designing-accessible-virtual-hearings (Accessed Feb. 18, 2025).
+
+67: OK
+  expected: “Texas Judicial Council, 2024 Weighted Caseload Study”, 2024, available at https://www.txcourts.gov/media/weighted-caseload-study.pdf (Accessed Jan. 20, 2025). // Greenbook 15th ed. 77
+  actual:   “Texas Judicial Council, 2024 Weighted Caseload Study”, 2024, available at https://www.txcourts.gov/media/weighted-caseload-study.pdf (Accessed Jan. 20, 2025).
+
+68: OK
+  expected: Adriana Lopez, “Bench Memorandum on Emergency Injunction Standards”, at 3, unpublished memorandum (draft) (on file with the Tex. Supreme Court). // Greenbook 15th ed. 34
+  actual:   Adriana Lopez, “Bench Memorandum on Emergency Injunction Standards”, at 3, unpublished memorandum (draft) (on file with the Tex. Supreme Court).
+
+69: OK
+  expected: Isabel Ramirez, “Letter to Court Regarding Mediation Update”, at 2, correspondence (letter) (on file with the 191st District Court) (July 8, 2024). // Greenbook 15th ed. 34
+  actual:   Isabel Ramirez, “Letter to Court Regarding Mediation Update”, at 2, correspondence (letter) (on file with the 191st District Court) (July 8, 2024).
+
+70: OK
+  expected: State v. Morales, 975 S.W.3d 415, 418 (Tex. App.—Austin 2002), review denied, 81 S.W.3d 755 (Tex. 2002). // Greenbook 15th ed. 4
+  actual:   State v. Morales, 975 S.W.3d 415, 418 (Tex. App.—Austin 2002), review denied, 81 S.W.3d 755 (Tex. 2002).
+
+71: OK
+  expected: See State v. Morales, 975 S.W.3d 415, 420 (Tex. App.—Austin 2002), review denied, 81 S.W.3d 755 (Tex. 2002). // Greenbook 15th ed. 4
+  actual:   See State v. Morales, 975 S.W.3d 415, 420 (Tex. App.—Austin 2002), review denied, 81 S.W.3d 755 (Tex. 2002).
+
+72: OK
+  expected: People v. Duran, 42 P.3d 327, 330 (Cal. 2002), cert. denied, 540 U.S. 923 (2003). // Greenbook 15th ed. 4
+  actual:   People v. Duran, 42 P.3d 327, 330 (Cal. 2002), cert. denied, 540 U.S. 923 (2003).
+
+73: DIFF
+  expected: See also People v. Duran, 42 P.3d 327, 332 (Cal. 2002), cert. denied, 540 U.S. 923 (2003). // Greenbook 15th ed. 4
+  actual:   See People v. Duran, 42 P.3d 327, 332 (Cal. 2002), cert. denied, 540 U.S. 923 (2003).
+
+74: OK
+  expected: In re Salazar, 650 S.W.3d 210, 212 (Tex. 2017), pet. denied, 555 S.W.3d 101 (Tex. 2018). // Greenbook 15th ed. 4
+  actual:   In re Salazar, 650 S.W.3d 210, 212 (Tex. 2017), pet. denied, 555 S.W.3d 101 (Tex. 2018).
+
+75: OK
+  expected: See In re Salazar, 650 S.W.3d 210, 213 (Tex. 2017), pet. denied, 555 S.W.3d 101 (Tex. 2018). // Greenbook 15th ed. 4
+  actual:   See In re Salazar, 650 S.W.3d 210, 213 (Tex. 2017), pet. denied, 555 S.W.3d 101 (Tex. 2018).
+
+76: OK
+  expected: State v. Herrera, 145 P.3d 118, 122 (N.M. 2008), cert. denied, 556 U.S. 1001 (2009). // Greenbook 15th ed. 4
+  actual:   State v. Herrera, 145 P.3d 118, 122 (N.M. 2008), cert. denied, 556 U.S. 1001 (2009).
+
+77: OK
+  expected: See State v. Herrera, 145 P.3d 118, 123 (N.M. 2008), cert. denied, 556 U.S. 1001 (2009). // Greenbook 15th ed. 4
+  actual:   See State v. Herrera, 145 P.3d 118, 123 (N.M. 2008), cert. denied, 556 U.S. 1001 (2009).
+
+78: OK
+  expected: Lena R. Hawkins, 2 Texas Injunction Practice § 8.3 (6th ed.; Texas Legal Press, Dallas) (analyzing injunction practice). // Greenbook 15th ed. 94
+  actual:   Lena R. Hawkins, 2 Texas Injunction Practice § 8.3 (6th ed.; Texas Legal Press, Dallas) (analyzing injunction practice).
+
+79: OK
+  expected: Id. § 8.5. // Greenbook 15th ed. 94
+  actual:   Id. § 8.5.
+
+80: OK
+  expected: Avery M. Nguyen, “Ethics Update for Trial Lawyers”, at 12, CLE paper (State Bar of Tex. CLE) (Advanced Trial Strategies Institute, Dallas, Tex.). // Greenbook 15th ed. 96
+  actual:   Avery M. Nguyen, “Ethics Update for Trial Lawyers”, at 12, CLE paper (State Bar of Tex. CLE) (Advanced Trial Strategies Institute, Dallas, Tex.).
+
+81: OK
+  expected: Id. at 15. // Greenbook 15th ed. 96
+  actual:   Id. at 15.
+
