@@ -24,8 +24,17 @@
       <term name="article" form="short">art.</term>
       <term name="rule" form="short">R.</term>
       <term name="paragraph" form="short">¶</term>
+      <term name="ibid">Id.</term>
     </terms>
   </locale>
+
+  <macro name="prefatory-signal">
+    <choose>
+      <if variable="annote">
+        <text variable="annote" font-style="italic"/>
+      </if>
+    </choose>
+  </macro>
 
   <macro name="case-name">
     <text variable="title" font-style="italic"/>
@@ -54,6 +63,20 @@
       <else-if variable="collection-number locator" match="all">
         <text variable="locator" prefix=", at *"/>
       </else-if>
+    </choose>
+  </macro>
+
+  <macro name="ibid-locator">
+    <choose>
+      <if locator="page">
+        <text variable="locator" prefix="at "/>
+      </if>
+      <else>
+        <group delimiter=" ">
+          <label variable="locator" form="symbol"/>
+          <text variable="locator"/>
+        </group>
+      </else>
     </choose>
   </macro>
 
@@ -91,6 +114,22 @@
     <choose>
       <if variable="medium">
         <text variable="medium" prefix=" (" suffix=")"/>
+      </if>
+    </choose>
+  </macro>
+
+  <macro name="explanatory-parenthetical">
+    <choose>
+      <if variable="abstract">
+        <text variable="abstract" prefix=" (" suffix=")"/>
+      </if>
+    </choose>
+  </macro>
+
+  <macro name="related-proceedings">
+    <choose>
+      <if variable="reviewed-title">
+        <text variable="reviewed-title" prefix=", "/>
       </if>
     </choose>
   </macro>
@@ -176,12 +215,21 @@
     <text macro="pinpoint"/>
     <text macro="court-and-date"/>
     <text macro="weight-parentheticals"/>
+    <text macro="explanatory-parenthetical"/>
+    <text macro="related-proceedings"/>
     <text macro="subsequent-history"/>
   </macro>
 
   <macro name="legal-case-short">
     <group delimiter=", ">
-      <text macro="case-name"/>
+      <choose>
+        <if variable="title-short">
+          <text variable="title" form="short" font-style="italic"/>
+        </if>
+        <else>
+          <text macro="case-name"/>
+        </else>
+      </choose>
       <choose>
         <if variable="volume page container-title" match="all">
           <text macro="reporter-print"/>
@@ -193,6 +241,9 @@
     </group>
     <text macro="pinpoint"/>
     <text macro="court-and-date"/>
+    <text macro="weight-parentheticals"/>
+    <text macro="explanatory-parenthetical"/>
+    <text macro="related-proceedings"/>
   </macro>
 
   <macro name="legal-case-cross-reference">
@@ -211,9 +262,11 @@
       </group>
     </group>
     <text macro="pinpoint"/>
-    <text macro="court-and-date" prefix=", "/>
+    <text macro="court-and-date"/>
     <text macro="weight-parentheticals"/>
-    <text variable="references" prefix=", "/>
+    <text macro="explanatory-parenthetical"/>
+    <text macro="related-proceedings"/>
+    <text macro="subsequent-history"/>
   </macro>
 
   <macro name="cross-reference-cue">
@@ -338,6 +391,7 @@
       <text macro="secondary-pinpoint"/>
       <text macro="edition-publisher-year"/>
     </group>
+    <text macro="explanatory-parenthetical"/>
   </macro>
 
   <macro name="book-like-short">
@@ -348,6 +402,7 @@
         <date-part name="year"/>
       </date>
     </group>
+    <text macro="explanatory-parenthetical"/>
   </macro>
 
   <macro name="book-like-cross-reference">
@@ -360,6 +415,7 @@
       </group>
     </group>
     <text variable="references" prefix=", "/>
+    <text macro="explanatory-parenthetical"/>
   </macro>
 
   <macro name="book-like-bibliography">
@@ -710,53 +766,75 @@
   <citation et-al-min="4" et-al-use-first="3" disambiguate-add-givenname="true" givenname-disambiguation-rule="primary-name">
     <layout delimiter="; " suffix=".">
       <choose>
-        <if type="legal_case">
-          <text macro="legal-case"/>
+        <if position="ibid-with-locator">
+          <group delimiter=" ">
+            <text macro="prefatory-signal"/>
+            <group delimiter=" ">
+              <text term="ibid" text-case="capitalize-first" font-style="italic"/>
+              <text macro="ibid-locator"/>
+            </group>
+          </group>
         </if>
-        <else-if type="legislation">
-          <choose>
-            <if variable="collection-number">
-              <text macro="session-law"/>
-            </if>
-            <else-if variable="genre" match="any">
-              <text macro="tex-constitution"/>
-            </else-if>
-            <else>
-              <text macro="tex-statute"/>
-            </else>
-          </choose>
-        </else-if>
-        <else-if type="regulation">
-          <choose>
-            <if variable="volume">
-              <text macro="tex-admin-code"/>
-            </if>
-            <else>
-              <text macro="municipal-code"/>
-            </else>
-          </choose>
-        </else-if>
-        <else-if type="report">
-          <text macro="ag-opinion"/>
-        </else-if>
-        <else-if type="article-journal">
-          <text macro="article-journal"/>
-        </else-if>
-        <else-if type="book chapter report entry-encyclopedia entry-dictionary" match="any">
-          <text macro="book-like"/>
-        </else-if>
-        <else-if type="webpage post-weblog post" match="any">
-          <text macro="web"/>
-        </else-if>
-        <else-if type="manuscript thesis" match="any">
-          <text macro="unpublished"/>
+        <else-if position="ibid">
+          <group delimiter=" ">
+            <text macro="prefatory-signal"/>
+            <text term="ibid" text-case="capitalize-first" font-style="italic"/>
+          </group>
         </else-if>
         <else>
-          <group delimiter=", ">
-            <text variable="title"/>
-            <date variable="issued">
-              <date-part name="year"/>
-            </date>
+          <group delimiter=" ">
+            <text macro="prefatory-signal"/>
+            <choose>
+              <if type="legal_case">
+                <text macro="legal-case"/>
+              </if>
+              <else-if type="legislation">
+                <choose>
+                  <if variable="collection-number">
+                    <text macro="session-law"/>
+                  </if>
+                  <else-if variable="genre" match="any">
+                    <text macro="tex-constitution"/>
+                  </else-if>
+                  <else>
+                    <text macro="tex-statute"/>
+                  </else>
+                </choose>
+              </else-if>
+              <else-if type="regulation">
+                <choose>
+                  <if variable="volume">
+                    <text macro="tex-admin-code"/>
+                  </if>
+                  <else>
+                    <text macro="municipal-code"/>
+                  </else>
+                </choose>
+              </else-if>
+              <else-if type="report">
+                <text macro="ag-opinion"/>
+              </else-if>
+              <else-if type="article-journal">
+                <text macro="article-journal"/>
+              </else-if>
+              <else-if type="book chapter report entry-encyclopedia entry-dictionary" match="any">
+                <text macro="book-like"/>
+              </else-if>
+              <else-if type="webpage post-weblog post" match="any">
+                <text macro="web"/>
+              </else-if>
+              <else-if type="manuscript thesis" match="any">
+                <text macro="unpublished"/>
+              </else-if>
+              <else>
+                <group delimiter=", ">
+                  <text variable="title"/>
+                  <date variable="issued">
+                    <date-part name="year"/>
+                  </date>
+                </group>
+              </else>
+            </choose>
           </group>
         </else>
       </choose>
