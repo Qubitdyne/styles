@@ -136,7 +136,7 @@ end bibliography
 - **Statute and rule placeholders.** `tex-statute` (ll. 318–338), `tex-admin-code` (ll. 349–382), and `municipal-code` (ll. 421–435) lack the `choose` scaffolding used above, so subsequent notes currently rerun the full form instead of a Greenbook-compliant short string. This confirms the outstanding TODO to add dedicated short-form macros for chapters 10–13 (pp. 42–65).
 
 ### Requirement matrix alignment audit (2025-11-03)
-- **Cases.** Existing `legal-case-*` macros satisfy the matrix expectations for first, short, and cross-reference outputs, but `cross-reference-cue` presently ignores the jurisdiction test promised in the matrix narrative. To honor the “See” vs. “See also” split, the helper must ingest `jurisdiction` alongside the optional `note` override.
+- **Cases.** Existing `legal-case-*` macros satisfy the matrix expectations for first, short, and cross-reference outputs. `cross-reference-cue` now evaluates `jurisdiction` so Texas authorities default to “See” while out-of-state items emit “See also,” aligning with the Chapter 1 prefatory signal guidance (p. 4) and exercised by `tests.json` fixtures `case_tex_cross`/`case_nontex_cross`.
 - **Texas statutes and codes.** The matrix calls for `tex-statute-first`/`short`/`cross-reference` variants keyed to Greenbook chs. 10–12 (pp. 42–60), yet only the base `tex-statute` macro exists today. Mandatory variables (`container-title`, `section`, `note` for publisher/date) cannot map to the short-form column, leaving fixtures `stat_govt_code`, `stat_penal_code`, and `stat_rev_civ` unable to express the condensed form.
 - **Administrative materials.** `tex-admin-code` (ll. 349–382) always prints the issued year and optional `note`, contradicting the matrix requirement that short forms drop the year (ch. 16 at 76–84). No `tex-admin-code-short` exists to separate the behaviors, and fixture `tac_rule` therefore repeats the full cite on subsequent notes.
 - **Court rules.** There is no `rule-core` helper in the edition file, so procedural (`rule_civp`, `rule_appellate`) and evidentiary (`rule_evidence`) fixtures also rerun the long form contrary to ch. 13 (pp. 61–65).
@@ -149,11 +149,57 @@ end bibliography
   4. **P1:** Add municipality/AG opinion short-form helpers so the matrix rows cease diverging from Greenbook chs. 14–15 expectations.
   5. **P2:** Create non-Texas statute/treaty short-form macros (e.g., `statute-code-short`) to match the matrix for federal authorities, enabling future fixture additions.
 
+### Publication/status string inventory (2025-11-04)
+- **Command log.** Ran `rg "Supp\\.|Supp|session|effective" temp -n --glob '*.csl'` and archived the output in `temp/reports/publication_string_scan.txt` to capture every occurrence across the active edition and TOA variants. The scan surfaced only `session-law` macro hooks plus one legacy comment containing "Supp." in archived draft1; no live strings currently emit supplement or effective-date parentheticals for statutes (chs. 10–13, pp. 42–65).
+- **False positives.** The archived drafts (`temp/archive/texas-greenbook-15th-draft*.csl`) retain exploratory `session-law` definitions and a `Supp.` comment; they were excluded from the active inventory but retained in the log for historical comparison. The `session-law` macro references inside the five TOA styles use the namespace-prefixed XML schema but mirror the same logic.
+- **Match annotation.** Table 1 maps each live reference to its authority category and notes duplicate routing:
+
+| File | Macro context | Authority category | Notes |
+| --- | --- | --- | --- |
+| `texas-greenbook-15th-edition.csl` ll. 440–455 | `session-law` | Session laws (Texas General Laws) | Primary implementation; presently lacks publication/status parenthetical branches despite Greenbook ch. 10 guidance. |
+| `texas-greenbook-15th-toa.csl` ll. 148–255 | `session-law` | Session laws (TOA) | Repeats the edition macro verbatim; duplication opportunity for shared helper once publication strings land. |
+| `texas-greenbook-15th-toa-by-reporter.csl` ll. 85–183 | `session-law` | Session laws (TOA by reporter) | Same grouping uses namespace prefix `ns0`, but logic and delimiters match the edition file. |
+| `texas-greenbook-15th-toa-grouped.csl` ll. 149–288 | `session-law` | Session laws (TOA grouped) | Identical output stack; no status handling. |
+| `texas-greenbook-15th-toa-leaders.csl` ll. 141–269 | `session-law` | Session laws (TOA dotted leaders) | Mirrors edition macro but wraps nodes in `ns0` namespace. |
+| `texas-greenbook-15th-toa-grouped-leaders.csl` ll. 111–280 | `session-law` | Session laws (TOA grouped leaders) | Same duplication and namespace pattern as other TOA variants. |
+
+- **Capitalization/abbreviation audit.** No divergent capitalization appeared because all outputs currently assemble raw metadata without hard-coded abbreviations; however, the lack of `Supp.`/`R.S.` strings confirms that supplements (ch. 10 at 42–53) and session designations (ch. 11 at 54–56) remain unimplemented.
+- **Duplication priority.** The `session-law` macro repeats in six active styles, making it the highest-value target for the upcoming publication/status helper extraction. Collapsing these duplicates into a shared helper will prevent future drift once supplement/status strings are added.
+- **Fixture coverage.** Existing regression entries `session_law` and `session_law_gammel` in `tests.json` exercise the current macro stack; add-on fixtures should join them once supplement/status strings are implemented to verify both Texas General Laws and historical session-law behaviors.
+- **Legal-review triggers.** Because the current macros rely entirely on metadata, the eventual helper must confirm the authoritative abbreviations (`Supp.`, `Leg.`, `R.S.`, `Tex. Reg.`) against Greenbook chs. 10–13 before emitting strings. Capture any deviations for reviewer confirmation when coding the helper logic.
+- **Context snippet.**
+
+```
+<macro name="session-law">
+  <group delimiter=", ">
+    <text variable="title"/>
+    <text variable="collection-number"/>
+    <text variable="number" prefix="ch. "/>
+    <group delimiter=" ">
+      <text term="section" form="symbol"/>
+      <text variable="section"/>
+    </group>
+    <group delimiter=" ">
+      <text variable="volume"/>
+      <text variable="container-title"/>
+      <text variable="page"/>
+    </group>
+    <text variable="locator"/>
+  </group>
+  <text variable="references" prefix=", "/>
+</macro>
+```
+
+- **Outstanding questions.**
+  1. Confirm whether supplements should emit `Supp. ####` or `Supp. ####-####` when covering multi-year updates (ch. 10 examples reference `Supp. 2024`).
+  2. Determine if session identifiers need hyphenated regular/special session abbreviations (e.g., `1st C.S.`) for the session-law helper per ch. 11.
+  3. Clarify how to handle effective-date parentheticals for administrative materials so the eventual helper can share logic across statutes, session laws, and TAC cites.
+
 ### Helper extraction candidates (2025-11-03)
-- **Shared code-section renderer.** `tex-statute` (ll. 318–338) and `municipal-code` (ll. 421–435) duplicate the pattern `container-title` + optional `chapter-number` + `§` + `section`. A dedicated helper (e.g., `tex-code-section`) would prevent drift once short-form branches appear. Effort: medium—requires extracting the group node and swapping macro calls in both styles and TOA variants. Coverage: `tests.json` fixtures `stat_govt_code`, `stat_penal_code`, `stat_rev_civ`, and `municipal_code_dallas` exercise the sequence today.
-- **Administrative code core.** `tex-admin-code` in the edition and `tac-core` in the TOA file share 90% of their logic (volume/title, `§` section, issued year, optional `note`/`authority`). Centralizing that block into a helper will simplify adding `tex-admin-code-short`. Effort: medium—helper must accept a flag for year suppression. Coverage: `tests.json` fixture `tac_rule` plus TOA fixture `toa_tac_rule` validate the branches.
+- **Shared code-section renderer.** Implemented via the new `tex-code-section` macro, which now feeds both `tex-statute` and `municipal-code` (note and TOA variants), keeping chapter/section assembly in sync (coverage: `stat_*` + municipal fixtures).
+- **Administrative code core.** Centralized the shared block as `tex-admin-core`, reused in the edition and all TOA families while preserving Texas Register `locator` handling; this sets the stage for future `tex-admin-code-short` work (fixtures `tac_rule`/`toa_tac_rule`).
 - **Cross-reference cue routing.** Once jurisdiction-aware cues are restored, statutes, rules, and admin materials should reuse the same helper call chain rather than embedding ad-hoc strings. Documenting this now ensures any future `tex-*-cross-reference` macros source their cue from one place. Effort: low—requires updating the helper and ensuring pending macros reference it. Coverage: future statute/rule fixtures will need explicit cross-reference cases; add new JSON entries alongside the existing `stat_*` and `rule_*` items when implementation work begins.
-- **Year fallback guard.** `book-like-short` and `unpublished-short` both assume an issued year or descriptor, so extracting a mini helper that omits empty years would avoid dangling commas when metadata is incomplete. Effort: low—wrap year/descriptors in `choose` blocks and share via a helper. Coverage: extend `tests.json` with an undated treatise and CLE entry to confirm behavior post-refactor.
+- **Year fallback guard.** Added the `short-pinpoint-year` helper to collapse missing `issued` values in treatise/CLE short forms. New fixtures `treatise_undated` (Ch. 18, pp. 93–95) and `cle_undated` (Ch. 19, p. 96) verify the guard and provide coverage for undated materials.
 
 ## Citation Requirement Matrix
 | Citation Type | Required CSL Variables | Ordering & Punctuation | Mandatory Abbreviations | Short-Form, Parenthetical & Signal Notes | Footnote vs. Bibliography | Greenbook Reference |

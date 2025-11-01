@@ -117,26 +117,40 @@
       <ns0:group delimiter=" "><ns0:text variable="volume" /><ns0:text variable="container-title" /><ns0:text variable="page" /></ns0:group>
     </ns0:group>
   </ns0:macro>
-  <ns0:macro name="tac-core">
+  <ns0:macro name="tex-code-section">
+    <ns0:group delimiter=" ">
+      <ns0:text variable="container-title" />
+      <ns0:choose>
+        <ns0:if variable="chapter-number">
+          <ns0:group delimiter=" ">
+            <ns0:text variable="chapter-number" />
+            <ns0:choose>
+              <ns0:if type="regulation"><ns0:group delimiter=" "><ns0:text term="section" form="symbol" /><ns0:text variable="section" /></ns0:group></ns0:if>
+              <ns0:else><ns0:text variable="section" /></ns0:else>
+            </ns0:choose>
+          </ns0:group>
+        </ns0:if>
+        <ns0:else-if variable="genre" match="any"><ns0:text variable="section" /></ns0:else-if>
+        <ns0:else><ns0:group delimiter=" "><ns0:label variable="section" form="symbol" /><ns0:text variable="section" /></ns0:group></ns0:else>
+      </ns0:choose>
+    </ns0:group>
+  </ns0:macro>
+  <ns0:macro name="tex-admin-core">
     <ns0:choose>
       <ns0:if variable="section">
         <ns0:group delimiter=" ">
           <ns0:text variable="volume" />
           <ns0:text variable="container-title" />
-          <ns0:group delimiter=" ">
-            <ns0:text term="section" form="symbol" />
-            <ns0:text variable="section" />
-          </ns0:group>
+          <ns0:group delimiter=" "><ns0:text term="section" form="symbol" /><ns0:text variable="section" /></ns0:group>
         </ns0:group>
       </ns0:if>
       <ns0:else>
-        <ns0:group delimiter=" ">
-          <ns0:text variable="volume" />
-          <ns0:text variable="container-title" />
-          <ns0:text variable="page" />
-        </ns0:group>
+        <ns0:group delimiter=" "><ns0:text variable="volume" /><ns0:text variable="container-title" /><ns0:text variable="page" /></ns0:group>
       </ns0:else>
     </ns0:choose>
+  </ns0:macro>
+  <ns0:macro name="tac-core">
+    <ns0:text macro="tex-admin-core" />
     <ns0:date variable="issued" prefix=" (" suffix=")"><ns0:date-part name="year" /></ns0:date>
     <ns0:choose>
       <ns0:if variable="note"><ns0:text variable="note" prefix=" (" suffix=")" /></ns0:if>
@@ -147,7 +161,7 @@
   <ns0:macro name="municipal-code">
     <ns0:group delimiter=", ">
       <ns0:text variable="authority" />
-      <ns0:group delimiter=" "><ns0:text variable="container-title" /><ns0:text variable="chapter-number" /><ns0:group delimiter=" "><ns0:text term="section" form="symbol" /><ns0:text variable="section" /></ns0:group></ns0:group>
+      <ns0:text macro="tex-code-section" />
     </ns0:group>
     <ns0:date variable="issued" prefix=" (" suffix=")"><ns0:date-part name="year" /></ns0:date>
   </ns0:macro>
