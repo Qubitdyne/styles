@@ -1,0 +1,125 @@
+[
+  {
+    "id": "case_tx_sc",
+    "type": "legal_case",
+    "title": "HEB Ministries, Inc. v. Texas Higher Educ. Coordinating Bd.",
+    "container-title": "S.W.3d",
+    "volume": "235",
+    "page": "627",
+    "authority": "Tex.",
+    "issued": {
+      "date-parts": [
+        [
+          2007
+        ]
+      ]
+    },
+    "locator": "646"
+  },
+  {
+    "id": "case_tx_app_hou14_mem",
+    "type": "legal_case",
+    "title": "Richardson v. Kays",
+    "number": "02-03-241-CV",
+    "collection-number": "2003 WL 22457054",
+    "authority": "Tex. App.—Fort Worth",
+    "issued": {
+      "date-parts": [
+        [
+          2003,
+          10,
+          30
+        ]
+      ]
+    },
+    "status": "no pet.",
+    "genre": "per curiam",
+    "medium": "mem. op.",
+    "locator": "1"
+  },
+  {
+    "id": "case_tx_crim_app",
+    "type": "legal_case",
+    "title": "Cantu v. State",
+    "container-title": "S.W.2d",
+    "volume": "939",
+    "page": "627",
+    "authority": "Tex. Crim. App.",
+    "issued": {
+      "date-parts": [
+        [
+          1997
+        ]
+      ]
+    },
+    "locator": "631"
+  },
+  {
+    "id": "stat_tax_code",
+    "type": "legislation",
+    "container-title": "Tex. Tax Code Ann.",
+    "section": "26.06(a)"
+  },
+  {
+    "id": "const_art",
+    "type": "legislation",
+    "genre": "constitution",
+    "container-title": "Tex. Const.",
+    "chapter-number": "III",
+    "section": "5(a)"
+  },
+  {
+    "id": "tac_rule",
+    "type": "regulation",
+    "volume": "4",
+    "container-title": "Tex. Admin. Code",
+    "section": "9.12",
+    "issued": {
+      "date-parts": [
+        [
+          2013
+        ]
+      ]
+    },
+    "authority": "Tex. Dep’t of Agric., Seed Sampling Procedures"
+  },
+  {
+    "id": "session_law",
+    "type": "legislation",
+    "title": "Act of May 30, 2005",
+    "collection-number": "79th Leg., R.S.",
+    "number": "268",
+    "section": "1.06",
+    "container-title": "Tex. Gen. Laws",
+    "volume": "2005",
+    "page": "621"
+  },
+  {
+    "id": "ag_op",
+    "type": "report",
+    "authority": "Tex. Att’y Gen. Op.",
+    "number": "GA-0002",
+    "issued": {
+      "date-parts": [
+        [
+          2002
+        ]
+      ]
+    }
+  },
+  {
+    "id": "muni",
+    "type": "regulation",
+    "authority": "Hous., Tex.",
+    "container-title": "Code of Ordinances",
+    "chapter-number": "ch. 20, art. IV,",
+    "section": "20-216",
+    "issued": {
+      "date-parts": [
+        [
+          1968
+        ]
+      ]
+    }
+  }
+]

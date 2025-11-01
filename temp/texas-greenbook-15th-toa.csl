@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0.2" class="note" default-locale="en-US">
+  <info>
+    <title>Texas Greenbook (15th ed.) — Table of Authorities</title>
+    <title-short>Texas Greenbook 15th TOA</title-short>
+    <id>http://www.zotero.org/styles/texas-greenbook-15th-toa</id>
+    <link href="http://www.zotero.org/styles/texas-greenbook-15th-toa" rel="self"/>
+    <link href="http://www.zotero.org/styles/texas-greenbook-15th-master" rel="template"/>
+    <link href="https://www.txcourts.gov/rules-forms/rules-standards/" rel="documentation"/>
+    <author><name>GPT-5 Pro</name></author>
+    <category citation-format="note"/>
+    <category field="law"/>
+    <updated>2025-11-01T00:53:48Z</updated>
+    <summary>TOA-style bibliography for Texas practice: prints full case and authority cites, sorts by authority, and minimizes styling for easy copy into a Table of Authorities.</summary>
+  </info>
+
+  <locale xml:lang="en-US">
+    <terms>
+      <term name="section" form="symbol">§</term>
+      <term name="article" form="short">art.</term>
+      <term name="chapter" form="short">ch.</term>
+      <term name="rule" form="short">R.</term>
+    </terms>
+  </locale>
+
+  <!-- Case formatting (matches master) -->
+  <macro name="case-name"><text variable="title" font-style="italic"/></macro>
+  <macro name="reporter-print"><group delimiter=" "><text variable="volume"/><text variable="container-title"/><text variable="page"/></group></macro>
+  <macro name="reporter-wl"><group delimiter=", "><text variable="number" prefix="No. "/><text variable="collection-number"/></group></macro>
+  <macro name="pinpoint">
+    <choose>
+      <if variable="volume page container-title" match="all"><text variable="locator" prefix=", "/></if>
+      <else-if variable="collection-number locator" match="all"><text variable="locator" prefix=", at *"/></else-if>
+    </choose>
+  </macro>
+  <macro name="court-and-date">
+    <choose>
+      <if variable="volume page container-title" match="all">
+        <group prefix=" (" suffix=")">
+          <text variable="authority"/>
+          <date variable="issued" prefix=" "><date-part name="year"/></date>
+          <text variable="status" prefix=", "/>
+        </group>
+      </if>
+      <else>
+        <group prefix=" (" suffix=")">
+          <text variable="authority"/>
+          <date variable="issued" form="text" prefix=" "/>
+          <text variable="status" prefix=", "/>
+        </group>
+      </else>
+    </choose>
+  </macro>
+  <macro name="weight-parentheticals">
+    <choose><if variable="genre"><text variable="genre" prefix=" (" suffix=")"/></if></choose>
+    <choose><if variable="medium"><text variable="medium" prefix=" (" suffix=")"/></if></choose>
+  </macro>
+  <macro name="legal-case">
+    <group delimiter=", ">
+      <text macro="case-name"/>
+      <choose>
+        <if variable="volume page container-title" match="all"><text macro="reporter-print"/></if>
+        <else><text macro="reporter-wl"/></else>
+      </choose>
+      <text macro="pinpoint"/>
+    </group>
+    <text macro="court-and-date"/>
+    <text macro="weight-parentheticals"/>
+  </macro>
+
+  <!-- Statutes, constitution, TAC, rules, session laws, municipal code, AG opinions (same as master) -->
+  <macro name="statute-code">
+    <group delimiter=" "><text variable="container-title"/><text term="section" form="symbol"/><text variable="section"/></group>
+  </macro>
+  <macro name="constitution-core">
+    <group delimiter=", ">
+      <group delimiter=" ">
+        <text variable="container-title"/>
+        <group delimiter=" "><text term="article" form="short"/><text variable="chapter-number"/></group>
+      </group>
+      <group delimiter=" "><text term="section" form="symbol"/><text variable="section"/></group>
+    </group>
+    <text variable="status" prefix=" (" suffix=")"/>
+  </macro>
+  <macro name="session-law">
+    <group delimiter=", ">
+      <text variable="title"/>
+      <text variable="collection-number"/>
+      <text variable="number" prefix="ch. "/>
+      <group delimiter=" "><text term="section" form="symbol"/><text variable="section"/></group>
+      <group delimiter=" "><text variable="volume"/><text variable="container-title"/><text variable="page"/></group>
+    </group>
+  </macro>
+  <macro name="tac-core">
+    <group delimiter=" "><text variable="volume"/><text variable="container-title"/><text term="section" form="symbol"/><text variable="section"/></group>
+    <date variable="issued" prefix=" (" suffix=")"><date-part name="year"/></date>
+    <text variable="authority" prefix=" (" suffix=")"/>
+  </macro>
+  <macro name="rule-core"><group delimiter=" "><text variable="container-title"/><text variable="section"/></group></macro>
+  <macro name="municipal-code">
+    <group delimiter=", ">
+      <text variable="authority"/>
+      <group delimiter=" "><text variable="container-title"/><text variable="chapter-number"/><group delimiter=" "><text term="section" form="symbol"/><text variable="section"/></group></group>
+    </group>
+    <date variable="issued" prefix=" (" suffix=")"><date-part name="year"/></date>
+  </macro>
+  <macro name="ag-opinion">
+    <group delimiter=" "><text variable="authority"/><text variable="number" prefix="No. "/></group>
+    <date variable="issued" prefix=" (" suffix=")"><date-part name="year"/></date>
+  </macro>
+
+  <!-- Citation layout: same as master -->
+  <citation et-al-min="4" et-al-use-first="3">
+    <layout suffix=".">
+      <choose>
+        <if type="legal_case"><text macro="legal-case"/></if>
+        <else-if type="regulation">
+          <choose>
+            <if variable="volume"><text macro="tac-core"/></if>
+            <else-if variable="authority chapter-number" match="all"><text macro="municipal-code"/></else-if>
+            <else><text macro="rule-core"/></else>
+          </choose>
+        </else-if>
+        <else-if type="legislation">
+          <choose>
+            <if variable="title"><text macro="session-law"/></if>
+            <else-if variable="chapter-number"><text macro="constitution-core"/></else-if>
+            <else><text macro="statute-code"/></else>
+          </choose>
+        </else-if>
+        <else-if type="report"><text macro="ag-opinion"/></else-if>
+        <else><text variable="title"/></else>
+      </choose>
+    </layout>
+  </citation>
+
+  <!-- Bibliography tuned for TOA: no hanging indent; sort by type/authority/title -->
+  <bibliography hanging-indent="false" second-field-align="flush">
+    <sort>
+      <key variable="type"/>
+      <key variable="authority"/>
+      <key variable="title"/>
+    </sort>
+    <layout suffix=".">
+      <choose>
+        <if type="legal_case"><text macro="legal-case"/></if>
+        <else-if type="regulation">
+          <choose>
+            <if variable="volume"><text macro="tac-core"/></if>
+            <else-if variable="authority chapter-number" match="all"><text macro="municipal-code"/></else-if>
+            <else><text macro="rule-core"/></else>
+          </choose>
+        </else-if>
+        <else-if type="legislation">
+          <choose>
+            <if variable="title"><text macro="session-law"/></if>
+            <else-if variable="chapter-number"><text macro="constitution-core"/></else-if>
+            <else><text macro="statute-code"/></else>
+          </choose>
+        </else-if>
+        <else-if type="report"><text macro="ag-opinion"/></else-if>
+        <else><text variable="title"/></else>
+      </choose>
+    </layout>
+  </bibliography>
+</style>

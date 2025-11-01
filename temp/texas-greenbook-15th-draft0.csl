@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0.2" class="note" default-locale="en-US">
+  <info>
+    <title>Texas Greenbook (best-effort)</title>
+    <title-short>Greenbook (TX)</title-short>
+    <id>http://www.zotero.org/styles/texas-greenbook</id>
+    <link href="http://www.zotero.org/styles/texas-greenbook" rel="self"/>
+    <link href="https://law.utexas.edu/publications/books/texas-rules-of-form-the-greenbook/" rel="documentation"/>
+    <author>
+      <name>ChatGPT (automatically generated)</name>
+      <email>noreply@example.com</email>
+    </author>
+    <category citation-format="note"/>
+    <category field="law"/>
+    <updated>2025-10-31T00:00:00+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This CSL style is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+    <summary>
+      A pragmatic first-pass CSL style that approximates core rules of the Texas Rules of Form ("The Greenbook") for cases and statutes.
+      Due to CSL limitations and the complexity of legal citation rules, this style cannot fully implement all Greenbook requirements
+      (e.g., subsequent history, "id."/"supra"/"infra", parenthetical explanations, and automatic Texas court/district abbreviations).
+      Users should enter reporter and court abbreviations as they should appear in the citation.
+    </summary>
+  </info>
+
+  <locale xml:lang="en">
+    <terms>
+      <term name="section" form="symbol">§</term>
+      <term name="paragraph" form="symbol">¶</term>
+      <term name="sub verbo" form="short">sub nom.</term>
+      <term name="anonymous">Anonymous</term>
+    </terms>
+  </locale>
+
+  <!-- Common macros -->
+  <macro name="issued-year">
+    <date variable="issued">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <macro name="authors">
+    <names variable="author">
+      <name and="text" delimiter=", " name-as-sort-order="first"/>
+      <et-al term="et-al"/>
+    </names>
+  </macro>
+
+  <macro name="editors">
+    <names variable="editor">
+      <name and="text" delimiter=", " name-as-sort-order="first"/>
+      <label form="short" prefix=", "/>
+    </names>
+  </macro>
+
+  <macro name="title-italic">
+    <text variable="title" font-style="italic"/>
+  </macro>
+
+  <macro name="title-plain">
+    <text variable="title"/>
+  </macro>
+
+  <macro name="publisher-place-year">
+    <group delimiter=", ">
+      <text variable="publisher"/>
+      <text variable="publisher-place"/>
+      <text macro="issued-year"/>
+    </group>
+  </macro>
+
+  <!-- Legal case (e.g., Smith v. Jones, 123 S.W.3d 456, 458 (Tex. 2005)) -->
+  <macro name="case-cite">
+    <group delimiter=", ">
+      <text macro="title-italic"/>
+      <group delimiter=" ">
+        <text variable="volume"/>
+        <text variable="container-title"/>
+        <text variable="page"/>
+      </group>
+      <choose>
+        <if variable="locator">
+          <group delimiter=" ">
+            <text variable="locator"/>
+          </group>
+        </if>
+      </choose>
+    </group>
+    <group prefix=" (" suffix=")">
+      <group delimiter=" ">
+        <text variable="authority"/>
+        <text macro="issued-year"/>
+      </group>
+    </group>
+  </macro>
+
+  <!-- Texas statute (e.g., Tex. Gov't Code § 22.001 (West 2022)) -->
+  <macro name="statute-cite">
+    <group delimiter=" ">
+      <text variable="container-title"/>
+      <group delimiter=" ">
+        <text term="section" form="symbol"/>
+        <text variable="section"/>
+      </group>
+    </group>
+    <group prefix=" (" suffix=")">
+      <group delimiter=" ">
+        <text variable="publisher"/>
+        <text macro="issued-year"/>
+      </group>
+    </group>
+  </macro>
+
+  <!-- Journal article -->
+  <macro name="article-cite">
+    <group delimiter=", ">
+      <text macro="authors"/>
+      <text macro="title-plain" quotes="true"/>
+      <group delimiter=" ">
+        <text variable="volume"/>
+        <text variable="container-title"/>
+        <text variable="page"/>
+      </group>
+      <text macro="issued-year"/>
+    </group>
+  </macro>
+
+  <!-- Book -->
+  <macro name="book-cite">
+    <group delimiter=", ">
+      <text macro="authors"/>
+      <text macro="title-italic"/>
+      <text variable="edition"/>
+      <text macro="publisher-place-year"/>
+    </group>
+  </macro>
+
+  <!-- Default fallback for types not explicitly handled -->
+  <macro name="default-cite">
+    <group delimiter=", ">
+      <text macro="authors"/>
+      <text macro="title-plain"/>
+      <text variable="container-title"/>
+      <text macro="publisher-place-year"/>
+    </group>
+  </macro>
+
+  <citation et-al-min="4" et-al-use-first="3" disambiguate-add-names="true" disambiguate-add-year-suffix="true" collapse="citation-number">
+    <layout delimiter="; ">
+      <choose>
+        <if type="legal_case">
+          <text macro="case-cite"/>
+        </if>
+        <else-if type="legislation bill" match="any">
+          <text macro="statute-cite"/>
+        </else-if>
+        <else-if type="article-journal">
+          <text macro="article-cite"/>
+        </else-if>
+        <else-if type="book chapter" match="any">
+          <text macro="book-cite"/>
+        </else-if>
+        <else>
+          <text macro="default-cite"/>
+        </else>
+      </choose>
+    </layout>
+  </citation>
+
+  <bibliography hanging-indent="true" et-al-min="8" et-al-use-first="7" line-spacing="1" entry-spacing="0">
+    <sort>
+      <key macro="authors"/>
+      <key variable="issued"/>
+      <key variable="title"/>
+    </sort>
+    <layout suffix=".">
+      <choose>
+        <if type="legal_case">
+          <text macro="case-cite"/>
+        </if>
+        <else-if type="legislation bill" match="any">
+          <text macro="statute-cite"/>
+        </else-if>
+        <else-if type="article-journal">
+          <text macro="article-cite"/>
+        </else-if>
+        <else-if type="book chapter" match="any">
+          <text macro="book-cite"/>
+        </else-if>
+        <else>
+          <text macro="default-cite"/>
+        </else>
+      </choose>
+    </layout>
+  </bibliography>
+</style>

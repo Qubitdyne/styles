@@ -1,0 +1,428 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ns0:style xmlns:ns0="http://purl.org/net/xbiblio/csl" version="1.0.2" class="note" default-locale="en-US">
+  <ns0:info>
+    <ns0:title>Texas Greenbook (15th ed.)</ns0:title>
+    <ns0:title-short>Texas Greenbook 15th</ns0:title-short>
+    <ns0:id>http://www.zotero.org/styles/texas-greenbook-15th</ns0:id>
+    <ns0:link rel="self" href="http://www.zotero.org/styles/texas-greenbook-15th" />
+    <ns0:link rel="template" href="http://www.zotero.org/styles/bluebook-law-review" />
+    <ns0:category citation-format="note" />
+    <ns0:category field="law" />
+    <ns0:updated>2025-10-31T22:25:40.863515Z</ns0:updated>
+    <ns0:rights license="http://creativecommons.org/licenses/by-sa/3.0/">This style is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</ns0:rights>
+    <ns0:author>
+      <ns0:name>Qubitdyne, Inc.</ns0:name>
+    </ns0:author>
+  <ns0:updated>2025-10-31T23:50:52Z</ns0:updated><ns0:link rel="documentation" href="https://www.txcourts.gov/rules-forms/rules-standards/" /></ns0:info>
+
+  
+  
+  <ns0:macro name="author">
+    <ns0:names variable="author">
+      <ns0:name initialize-with=". " and="text" />
+      <ns0:label form="short" prefix=", " />
+    </ns0:names>
+  </ns0:macro>
+
+  
+  <ns0:macro name="case-name">
+    <ns0:text variable="title" font-style="italic" />
+  </ns0:macro>
+
+  
+  <ns0:macro name="reporter">
+    <ns0:group delimiter=" ">
+      <ns0:text variable="volume" />
+      <ns0:text variable="container-title" form="short" />
+      <ns0:text variable="page-first" />
+    </ns0:group>
+  </ns0:macro>
+
+  
+  <ns0:macro name="court-year">
+    <ns0:group prefix=" (" suffix=")">
+      <ns0:group delimiter=" ">
+        <ns0:text variable="authority" />
+        <ns0:date variable="issued">
+          <ns0:date-part name="year" />
+        </ns0:date>
+      </ns0:group>
+    </ns0:group>
+  </ns0:macro>
+
+  
+  <ns0:macro name="subsequent-history">
+    <ns0:text variable="references" prefix=", " />
+  </ns0:macro>
+
+  
+  <ns0:macro name="tex-constitution">
+    <ns0:group delimiter=", ">
+      <ns0:text variable="container-title" form="short" />
+      <ns0:group delimiter=" ">
+        <ns0:text term="article" form="short" />
+        <ns0:text variable="chapter-number" />
+      </ns0:group>
+      <ns0:group delimiter=" ">
+        <ns0:label variable="section" form="symbol" />
+        <ns0:text variable="section" />
+      </ns0:group>
+    </ns0:group>
+    <ns0:group prefix=" (" suffix=")">
+      <ns0:date variable="issued">
+        <ns0:date-part name="year" />
+      </ns0:date>
+    </ns0:group>
+  </ns0:macro>
+
+  
+  <ns0:macro name="tex-statute">
+    <ns0:group delimiter=" ">
+      <ns0:text variable="container-title" form="short" />
+      <ns0:group delimiter=" ">
+        <ns0:label variable="section" form="symbol" />
+        <ns0:text variable="section" />
+      </ns0:group>
+    </ns0:group>
+    
+    <ns0:text variable="note" prefix=" (" suffix=")" />
+  </ns0:macro>
+
+  
+  <ns0:macro name="tex-admin-code">
+    <ns0:group delimiter=" ">
+      <ns0:text variable="volume" />
+      <ns0:text variable="container-title" form="short" />
+      <ns0:group delimiter=" ">
+        <ns0:label variable="section" form="symbol" />
+        <ns0:text variable="section" />
+      </ns0:group>
+    </ns0:group>
+    <ns0:group prefix=" (" suffix=")">
+      <ns0:date variable="issued">
+        <ns0:date-part name="year" />
+      </ns0:date>
+    </ns0:group>
+    <ns0:text variable="title" prefix=" (" suffix=")" />
+  </ns0:macro>
+
+  
+  <ns0:macro name="tex-register">
+    <ns0:group delimiter=" ">
+      <ns0:text variable="volume" />
+      <ns0:text variable="container-title" form="short" />
+      <ns0:text variable="page-first" />
+      <ns0:text variable="page" prefix=", " />
+    </ns0:group>
+    <ns0:group prefix=" (" suffix=")">
+      <ns0:date variable="issued">
+        <ns0:date-part name="year" />
+      </ns0:date>
+    </ns0:group>
+    <ns0:text variable="note" prefix=" (" suffix=")" />
+  </ns0:macro>
+
+  
+  <ns0:macro name="book-like">
+    <ns0:group delimiter=", ">
+      <ns0:names variable="author">
+        <ns0:name and="text" initialize-with=". " />
+      </ns0:names>
+      <ns0:group delimiter=" ">
+        <ns0:number variable="volume" form="numeric" />
+        <ns0:text variable="title" font-style="italic" />
+      </ns0:group>
+      <ns0:group delimiter=" ">
+        <ns0:text variable="section" />
+      </ns0:group>
+      <ns0:group delimiter="; ">
+        <ns0:group delimiter=" ">
+          <ns0:number variable="edition" form="ordinal" />
+          <ns0:text term="edition" form="short" />
+        </ns0:group>
+        <ns0:date variable="issued">
+          <ns0:date-part name="year" />
+        </ns0:date>
+      </ns0:group>
+    </ns0:group>
+  </ns0:macro>
+
+  
+  <ns0:macro name="article-journal">
+    <ns0:group delimiter=", ">
+      <ns0:names variable="author">
+        <ns0:name and="text" initialize-with=". " />
+      </ns0:names>
+      <ns0:text variable="title" quotes="true" />
+      <ns0:group delimiter=" ">
+        <ns0:text variable="volume" />
+        <ns0:text variable="container-title" form="short" />
+        <ns0:text variable="page-first" />
+      </ns0:group>
+      <ns0:date variable="issued">
+        <ns0:date-part name="year" />
+      </ns0:date>
+    </ns0:group>
+  </ns0:macro>
+
+  
+  <ns0:macro name="web">
+    <ns0:group delimiter=", ">
+      <ns0:text variable="title" />
+      <ns0:text variable="container-title" />
+      <ns0:date variable="issued">
+        <ns0:date-part name="year" />
+      </ns0:date>
+      <ns0:group delimiter=" ">
+        <ns0:text term="available at" />
+        <ns0:text variable="URL" />
+      </ns0:group>
+      <ns0:group prefix=" (" suffix=")">
+        <ns0:text term="accessed" text-case="capitalize-first" />
+        <ns0:date variable="accessed" delimiter=" ">
+          <ns0:date-part name="month" form="short" />
+          <ns0:date-part name="day" form="numeric" />
+          <ns0:date-part name="year" />
+        </ns0:date>
+      </ns0:group>
+    </ns0:group>
+  </ns0:macro>
+
+  
+  <ns0:citation et-al-min="4" et-al-use-first="3" disambiguate-add-givenname="true" givenname-disambiguation-rule="primary-name">
+    <ns0:layout delimiter="; ">
+      <ns0:choose>
+        <ns0:if type="legal_case">
+          <ns0:text macro="legal-case" /></ns0:if>
+        <ns0:else-if type="legislation">
+          <ns0:choose><ns0:if variable="collection-title authority title chapter-number" match="any"><ns0:text macro="statute-code" /></ns0:if><ns0:else><ns0:text macro="tex-statute" /></ns0:else></ns0:choose></ns0:else-if>
+        <ns0:else-if type="bill">
+          <ns0:text macro="tex-statute" />
+        </ns0:else-if>
+        <ns0:else-if type="treaty standard">
+          <ns0:text macro="tac-core" />
+        </ns0:else-if>
+        <ns0:else-if type="article-journal">
+          <ns0:text macro="article-journal" />
+        </ns0:else-if>
+        <ns0:else-if type="book chapter report entry-encyclopedia entry-dictionary">
+          <ns0:text macro="book-like" />
+        </ns0:else-if>
+        <ns0:else-if type="webpage post-weblog post">
+          <ns0:text macro="web" />
+        </ns0:else-if>
+        <ns0:else>
+          <ns0:group delimiter=", ">
+            <ns0:text variable="title" />
+            <ns0:date variable="issued">
+              <ns0:date-part name="year" />
+            </ns0:date>
+          </ns0:group>
+        </ns0:else>
+      </ns0:choose>
+    </ns0:layout>
+  </ns0:citation>
+
+  
+  <ns0:bibliography et-al-min="8" et-al-use-first="7" hanging-indent="true">
+    <ns0:sort>
+      <ns0:key variable="author" />
+      <ns0:key variable="title" />
+    </ns0:sort>
+    <ns0:layout suffix=".">
+      <ns0:choose>
+        <ns0:if type="legal_case">
+          <ns0:group delimiter=", ">
+            <ns0:text macro="case-name" />
+            <ns0:text macro="reporter" />
+            <ns0:text macro="court-year" />
+          </ns0:group>
+        </ns0:if>
+        <ns0:else-if type="legislation bill">
+          <ns0:text macro="tex-statute" />
+        </ns0:else-if>
+        <ns0:else-if type="treaty standard">
+          <ns0:text macro="tex-admin-code" />
+        </ns0:else-if>
+        <ns0:else-if type="article-journal">
+          <ns0:text macro="article-journal" />
+        </ns0:else-if>
+        <ns0:else-if type="book chapter report entry-encyclopedia entry-dictionary">
+          <ns0:text macro="book-like" />
+        </ns0:else-if>
+        <ns0:else-if type="webpage post-weblog post">
+          <ns0:text macro="web" />
+        </ns0:else-if>
+        <ns0:else>
+          <ns0:group delimiter=", ">
+            <ns0:text variable="title" />
+            <ns0:date variable="issued">
+              <ns0:date-part name="year" />
+            </ns0:date>
+          </ns0:group>
+        </ns0:else>
+      </ns0:choose>
+    </ns0:layout>
+  </ns0:bibliography>
+<ns0:macro name="reporter-print">
+    <ns0:group delimiter=" ">
+      <ns0:text variable="volume" />
+      <ns0:text variable="container-title" />
+      <ns0:text variable="page" />
+    </ns0:group>
+  </ns0:macro><ns0:macro name="reporter-wl">
+    <ns0:group delimiter=", ">
+      <ns0:text variable="number" prefix="No. " />
+      <ns0:text variable="collection-number" />
+    </ns0:group>
+  </ns0:macro><ns0:macro name="court-and-date">
+    <ns0:choose>
+      <ns0:if variable="volume page container-title" match="all">
+        <ns0:group prefix=" (" suffix=")">
+          <ns0:text variable="authority" />
+          <ns0:date variable="issued" prefix=" ">
+            <ns0:date-part name="year" />
+          </ns0:date>
+          <ns0:text variable="status" prefix=", " />
+        </ns0:group>
+      </ns0:if>
+      <ns0:else>
+        <ns0:group prefix=" (" suffix=")">
+          <ns0:text variable="authority" />
+          <ns0:date variable="issued" form="text" prefix=" " />
+          <ns0:text variable="status" prefix=", " />
+        </ns0:group>
+      </ns0:else>
+    </ns0:choose>
+  </ns0:macro><ns0:macro name="weight-parentheticals">
+    <ns0:choose>
+      <ns0:if variable="genre">
+        <ns0:text variable="genre" prefix=" (" suffix=")" />
+      </ns0:if>
+    </ns0:choose>
+    <ns0:choose>
+      <ns0:if variable="medium">
+        <ns0:text variable="medium" prefix=" (" suffix=")" />
+      </ns0:if>
+    </ns0:choose>
+  </ns0:macro><ns0:macro name="legal-case">
+    <ns0:group delimiter=", ">
+      <ns0:text macro="case-name" />
+      <ns0:choose>
+        <ns0:if variable="volume page container-title" match="all">
+          <ns0:text macro="reporter-print" />
+        </ns0:if>
+        <ns0:else>
+          <ns0:text macro="reporter-wl" />
+        </ns0:else>
+      </ns0:choose>
+      <ns0:text macro="pinpoint" />
+    </ns0:group>
+    <ns0:text macro="court-and-date" />
+    <ns0:text macro="weight-parentheticals" />
+  </ns0:macro><ns0:macro name="statute-code">
+    <ns0:group delimiter=" ">
+      <ns0:text variable="container-title" />
+      <ns0:text term="section" form="symbol" />
+      <ns0:text variable="section" />
+    </ns0:group>
+  </ns0:macro><ns0:macro name="constitution-core">
+    <ns0:group delimiter=", ">
+      <ns0:group delimiter=" ">
+        <ns0:text variable="container-title" />
+        <ns0:group delimiter=" ">
+          <ns0:text term="article" form="short" />
+          <ns0:text variable="chapter-number" />
+        </ns0:group>
+      </ns0:group>
+      <ns0:group delimiter=" ">
+        <ns0:text term="section" form="symbol" />
+        <ns0:text variable="section" />
+      </ns0:group>
+    </ns0:group>
+    <ns0:text variable="status" prefix=" (" suffix=")" />
+  </ns0:macro><ns0:macro name="session-law">
+    <ns0:group delimiter=", ">
+      <ns0:text variable="title" />
+      <ns0:text variable="collection-number" />
+      <ns0:text variable="number" prefix="ch. " />
+      <ns0:group delimiter=" ">
+        <ns0:text term="section" form="symbol" />
+        <ns0:text variable="section" />
+      </ns0:group>
+      <ns0:group delimiter=" ">
+        <ns0:text variable="volume" />
+        <ns0:text variable="container-title" />
+        <ns0:text variable="page" />
+      </ns0:group>
+    </ns0:group>
+  </ns0:macro><ns0:macro name="tac-core">
+    <ns0:group delimiter=" ">
+      <ns0:text variable="volume" />
+      <ns0:text variable="container-title" />
+      <ns0:text term="section" form="symbol" />
+      <ns0:text variable="section" />
+    </ns0:group>
+    <ns0:date variable="issued" prefix=" (" suffix=")">
+      <ns0:date-part name="year" />
+    </ns0:date>
+    <ns0:text variable="authority" prefix=" (" suffix=")" />
+  </ns0:macro><ns0:macro name="rule-core">
+    <ns0:group delimiter=" ">
+      <ns0:text variable="container-title" />
+      <ns0:text variable="section" />
+    </ns0:group>
+  </ns0:macro><ns0:macro name="municipal-code">
+    <ns0:group delimiter=", ">
+      <ns0:text variable="authority" />
+      <ns0:group delimiter=" ">
+        <ns0:text variable="container-title" />
+        <ns0:text variable="chapter-number" />
+        <ns0:group delimiter=" ">
+          <ns0:text term="section" form="symbol" />
+          <ns0:text variable="section" />
+        </ns0:group>
+      </ns0:group>
+    </ns0:group>
+    <ns0:date variable="issued" prefix=" (" suffix=")">
+      <ns0:date-part name="year" />
+    </ns0:date>
+  </ns0:macro><ns0:macro name="ag-opinion">
+    <ns0:group delimiter=" ">
+      <ns0:text variable="authority" />
+      <ns0:text variable="number" prefix="No. " />
+    </ns0:group>
+    <ns0:date variable="issued" prefix=" (" suffix=")">
+      <ns0:date-part name="year" />
+    </ns0:date>
+  </ns0:macro><ns0:macro name="journal-article">
+    <ns0:group delimiter=", ">
+      <ns0:names variable="author">
+        <ns0:name and="text" delimiter=", " />
+      </ns0:names>
+      <ns0:text variable="title" />
+      <ns0:group delimiter=" ">
+        <ns0:text variable="volume" />
+        <ns0:text variable="container-title" font-style="italic" />
+        <ns0:text variable="page" />
+      </ns0:group>
+      <ns0:date variable="issued">
+        <ns0:date-part name="year" prefix="(" suffix=")" />
+      </ns0:date>
+    </ns0:group>
+  </ns0:macro><ns0:macro name="pinpoint">
+    <ns0:choose>
+      <ns0:if variable="volume page container-title" match="all">
+        <ns0:text variable="locator" prefix=", " />
+      </ns0:if>
+      <ns0:else-if variable="collection-number locator" match="all">
+        <ns0:text variable="locator" prefix=", at *" />
+      </ns0:else-if>
+    </ns0:choose>
+  </ns0:macro><ns0:locale xml:lang="en-US"><ns0:terms><ns0:term name="section" form="symbol">§</ns0:term>
+      <ns0:term name="and">and</ns0:term>
+      <ns0:term name="rule" form="short">R.</ns0:term>
+      <ns0:term name="chapter" form="short">ch.</ns0:term>
+      <ns0:term name="article" form="short">art.</ns0:term>
+      <ns0:term name="paragraph" form="short">¶</ns0:term>
+    </ns0:terms></ns0:locale></ns0:style>

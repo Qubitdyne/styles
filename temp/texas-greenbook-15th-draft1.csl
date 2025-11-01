@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0.2" class="note" default-locale="en-US">
+  <info>
+    <title>Texas Greenbook (15th ed.)</title>
+    <title-short>Greenbook</title-short>
+    <id>http://www.zotero.org/styles/texas-greenbook</id>
+    <link rel="self" href="http://www.zotero.org/styles/texas-greenbook"/>
+    <link rel="template" href="http://www.zotero.org/styles/bluebook-law-review"/>
+    <category citation-format="note"/>
+    <category field="law"/>
+    <updated>2025-10-31T22:25:40.863515Z</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This style is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+    <author>
+      <name>Qubitdyne, Inc.</name>
+    </author>
+  </info>
+
+  <!-- ========== MACROS ========== -->
+  <!-- Names -->
+  <macro name="author">
+    <names variable="author">
+      <name initialize-with=". " and="text"/>
+      <label form="short" prefix=", "/>
+    </names>
+  </macro>
+
+  <!-- Case name (italic in notes) -->
+  <macro name="case-name">
+    <text variable="title" font-style="italic"/>
+  </macro>
+
+  <!-- Reporter citation: volume reporter first-page -->
+  <macro name="reporter">
+    <group delimiter=" ">
+      <text variable="volume"/>
+      <text variable="container-title" form="short"/>
+      <text variable="page-first"/>
+    </group>
+  </macro>
+
+  <!-- Pinpoint page as locator (no label per Greenbook practice) -->
+  <macro name="pinpoint">
+    <text variable="locator" prefix=", "/>
+  </macro>
+
+  <!-- Court and year parenthetical, e.g., (Tex. 1991) or (Tex. App.—Austin 1985, writ ref'd n.r.e.) -->
+  <macro name="court-year">
+    <group prefix=" (" suffix=")">
+      <group delimiter=" ">
+        <text variable="authority"/>
+        <date variable="issued">
+          <date-part name="year"/>
+        </date>
+      </group>
+    </group>
+  </macro>
+
+  <!-- Subsequent history or petition/writ history, passed in through `references` -->
+  <macro name="subsequent-history">
+    <text variable="references" prefix=", "/>
+  </macro>
+
+  <!-- Constitution articles/sections, e.g., Tex. Const. art. III, § 5(a) -->
+  <macro name="tex-constitution">
+    <group delimiter=", ">
+      <text variable="container-title" form="short"/>
+      <group delimiter=" ">
+        <text term="article" form="short"/>
+        <text variable="chapter-number"/>
+      </group>
+      <group delimiter=" ">
+        <label variable="section" form="symbol"/>
+        <text variable="section"/>
+      </group>
+    </group>
+    <group prefix=" (" suffix=")">
+      <date variable="issued">
+        <date-part name="year"/>
+      </date>
+    </group>
+  </macro>
+
+  <!-- Texas statutes in annotated codes, e.g., Tex. Tax Code Ann. § 26.06(a) -->
+  <macro name="tex-statute">
+    <group delimiter=" ">
+      <text variable="container-title" form="short"/>
+      <group delimiter=" ">
+        <label variable="section" form="symbol"/>
+        <text variable="section"/>
+      </group>
+    </group>
+    <!-- optional parenthetical, feed e.g. "Supp." or edition via `note` -->
+    <text variable="note" prefix=" (" suffix=")"/>
+  </macro>
+
+  <!-- Texas Administrative Code, e.g., 4 Tex. Admin. Code § 9.12 (2013) -->
+  <macro name="tex-admin-code">
+    <group delimiter=" ">
+      <text variable="volume"/>
+      <text variable="container-title" form="short"/>
+      <group delimiter=" ">
+        <label variable="section" form="symbol"/>
+        <text variable="section"/>
+      </group>
+    </group>
+    <group prefix=" (" suffix=")">
+      <date variable="issued">
+        <date-part name="year"/>
+      </date>
+    </group>
+    <text variable="title" prefix=" (" suffix=")"/>
+  </macro>
+
+  <!-- Texas Register citation, minimal core -->
+  <macro name="tex-register">
+    <group delimiter=" ">
+      <text variable="volume"/>
+      <text variable="container-title" form="short"/>
+      <text variable="page-first"/>
+      <text variable="page" prefix=", " />
+    </group>
+    <group prefix=" (" suffix=")">
+      <date variable="issued">
+        <date-part name="year"/>
+      </date>
+    </group>
+    <text variable="note" prefix=" (" suffix=")"/>
+  </macro>
+
+  <!-- Generic book -->
+  <macro name="book-like">
+    <group delimiter=", ">
+      <names variable="author">
+        <name and="text" initialize-with=". "/>
+      </names>
+      <group delimiter=" ">
+        <number variable="volume" form="numeric"/>
+        <text variable="title" font-style="italic"/>
+      </group>
+      <group delimiter=" ">
+        <text variable="section"/>
+      </group>
+      <group delimiter="; ">
+        <group delimiter=" ">
+          <number variable="edition" form="ordinal"/>
+          <text term="edition" form="short"/>
+        </group>
+        <date variable="issued">
+          <date-part name="year"/>
+        </date>
+      </group>
+    </group>
+  </macro>
+
+  <!-- Journal article (used for law reviews etc.) -->
+  <macro name="article-journal">
+    <group delimiter=", ">
+      <names variable="author">
+        <name and="text" initialize-with=". "/>
+      </names>
+      <text variable="title" quotes="true"/>
+      <group delimiter=" ">
+        <text variable="volume"/>
+        <text variable="container-title" form="short"/>
+        <text variable="page-first"/>
+      </group>
+      <date variable="issued">
+        <date-part name="year"/>
+      </date>
+    </group>
+  </macro>
+
+  <!-- Catch-all for web -->
+  <macro name="web">
+    <group delimiter=", ">
+      <text variable="title"/>
+      <text variable="container-title"/>
+      <date variable="issued">
+        <date-part name="year"/>
+      </date>
+      <group delimiter=" ">
+        <text term="available at"/>
+        <text variable="URL"/>
+      </group>
+      <group prefix=" (" suffix=")">
+        <text term="accessed" text-case="capitalize-first"/>
+        <date variable="accessed" delimiter=" ">
+          <date-part name="month" form="short"/>
+          <date-part name="day" form="numeric"/>
+          <date-part name="year"/>
+        </date>
+      </group>
+    </group>
+  </macro>
+
+  <!-- ========== CITATION ========== -->
+  <citation et-al-min="4" et-al-use-first="3" disambiguate-add-givenname="true" givenname-disambiguation-rule="primary-name">
+    <layout delimiter="; ">
+      <choose>
+        <if type="legal_case">
+          <group delimiter=", ">
+            <text macro="case-name"/>
+            <text macro="reporter"/>
+            <text macro="pinpoint"/>
+            <text macro="court-year"/>
+          </group>
+          <text macro="subsequent-history"/>
+        </if>
+        <else-if type="legislation">
+          <text macro="tex-statute"/>
+        </else-if>
+        <else-if type="bill">
+          <text macro="tex-statute"/>
+        </else-if>
+        <else-if type="treaty standard">
+          <text macro="tex-admin-code"/>
+        </else-if>
+        <else-if type="article-journal">
+          <text macro="article-journal"/>
+        </else-if>
+        <else-if type="book chapter report entry-encyclopedia entry-dictionary">
+          <text macro="book-like"/>
+        </else-if>
+        <else-if type="webpage post-weblog post">
+          <text macro="web"/>
+        </else-if>
+        <else>
+          <group delimiter=", ">
+            <text variable="title"/>
+            <date variable="issued">
+              <date-part name="year"/>
+            </date>
+          </group>
+        </else>
+      </choose>
+    </layout>
+  </citation>
+
+  <!-- ========== BIBLIOGRAPHY (minimal; mostly for compatibility) ========== -->
+  <bibliography et-al-min="8" et-al-use-first="7" hanging-indent="true">
+    <sort>
+      <key variable="author"/>
+      <key variable="title"/>
+    </sort>
+    <layout suffix=".">
+      <choose>
+        <if type="legal_case">
+          <group delimiter=", ">
+            <text macro="case-name"/>
+            <text macro="reporter"/>
+            <text macro="court-year"/>
+          </group>
+        </if>
+        <else-if type="legislation bill">
+          <text macro="tex-statute"/>
+        </else-if>
+        <else-if type="treaty standard">
+          <text macro="tex-admin-code"/>
+        </else-if>
+        <else-if type="article-journal">
+          <text macro="article-journal"/>
+        </else-if>
+        <else-if type="book chapter report entry-encyclopedia entry-dictionary">
+          <text macro="book-like"/>
+        </else-if>
+        <else-if type="webpage post-weblog post">
+          <text macro="web"/>
+        </else-if>
+        <else>
+          <group delimiter=", ">
+            <text variable="title"/>
+            <date variable="issued">
+              <date-part name="year"/>
+            </date>
+          </group>
+        </else>
+      </choose>
+    </layout>
+  </bibliography>
+</style>
