@@ -13,22 +13,44 @@ with open(TESTS_PATH, "r", encoding="utf-8") as f:
     test_items = json.load(f)
 
 items_for_source = []
+items_by_id = {}
 notes = []
+
 for entry in test_items:
-    entry_copy = deepcopy(entry)
-    suffix = entry_copy.pop("_citation_suffix", None)
-    locator = entry_copy.pop("locator", None)
-    label = entry_copy.pop("label", None)
-    # Preserve any remaining metadata for citeproc
-    items_for_source.append(entry_copy)
+    if "id" in entry:
+        entry_copy = deepcopy(entry)
+        suffix = entry_copy.pop("_citation_suffix", None)
+        locator = entry_copy.pop("locator", None)
+        label = entry_copy.pop("label", None)
 
-    citation_kwargs = {}
-    if locator:
-        citation_kwargs["locator"] = Locator(label or "page", locator)
-    if suffix:
-        citation_kwargs["suffix"] = suffix
+        items_for_source.append(entry_copy)
+        items_by_id[entry_copy["id"]] = entry_copy
 
-    notes.append(Citation([CitationItem(entry["id"], **citation_kwargs)]))
+        citation_kwargs = {}
+        if locator:
+            citation_kwargs["locator"] = Locator(label or "page", locator)
+        if suffix:
+            citation_kwargs["suffix"] = suffix
+
+        notes.append(Citation([CitationItem(entry["id"], **citation_kwargs)]))
+    elif "_cite" in entry:
+        cite_id = entry["_cite"]
+        if cite_id not in items_by_id:
+            raise KeyError(f"Citation references unknown id: {cite_id}")
+
+        locator = entry.get("locator")
+        label = entry.get("label")
+        suffix = entry.get("_citation_suffix")
+
+        citation_kwargs = {}
+        if locator:
+            citation_kwargs["locator"] = Locator(label or "page", locator)
+        if suffix:
+            citation_kwargs["suffix"] = suffix
+
+        notes.append(Citation([CitationItem(cite_id, **citation_kwargs)]))
+    else:
+        raise ValueError("Each test entry must declare either 'id' or '_cite'.")
 
 style = CitationStylesStyle(STYLE_PATH, validate=False)
 source = CiteProcJSON(items_for_source)

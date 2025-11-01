@@ -3,6 +3,7 @@
     "id": "case_supreme",
     "type": "legal_case",
     "title": "Jupiter Oil Co. v. Snow",
+    "title-short": "Jupiter Oil",
     "container-title": "S.W.2d",
     "volume": "819",
     "page": "466",
@@ -10,33 +11,43 @@
     "issued": {"date-parts": [[1991]]},
     "locator": "467"
   },
+  {"_cite": "case_supreme", "locator": "467"},
+  {"_cite": "case_supreme", "locator": "468"},
   {
     "id": "case_app_hou14",
     "type": "legal_case",
     "title": "IPCO-G. & C. Joint Venture v. A.B. Chance Co.",
+    "title-short": "IPCO-G.",
     "container-title": "S.W.3d",
     "volume": "65",
     "page": "252",
     "authority": "Tex. App.—Houston [14th Dist.]",
     "issued": {"date-parts": [[2001]]},
     "status": "pet. denied",
-    "locator": "254"
+    "locator": "254",
+    "annote": "See, e.g.,",
+    "abstract": "demonstrating comparative fault allocation",
+    "reviewed-title": "prior proceeding sub nom. In re A.B. Chance Co., 56 S.W.3d 730 (Tex. 2001)"
   },
   {
     "id": "case_crim_app",
     "type": "legal_case",
     "title": "Cantu v. State",
+    "title-short": "Cantu",
     "container-title": "S.W.2d",
     "volume": "939",
     "page": "627",
     "authority": "Tex. Crim. App.",
     "issued": {"date-parts": [[1997]]},
-    "locator": "631"
+    "locator": "631",
+    "abstract": "addressing double-jeopardy arguments",
+    "references": "op. on reh'g, 971 S.W.2d 255 (Tex. Crim. App. 1998)"
   },
   {
     "id": "case_wl_unpub",
     "type": "legal_case",
     "title": "Richardson v. Kays",
+    "title-short": "Richardson",
     "authority": "Tex. App.—Fort Worth",
     "number": "02-03-241-CV",
     "collection-number": "2003 WL 22457054",
@@ -44,7 +55,8 @@
     "status": "no pet.",
     "genre": "per curiam",
     "medium": "mem. op.",
-    "locator": "1"
+    "locator": "1",
+    "abstract": "memorializing summary-judgment disposition"
   },
   {
     "id": "stat_govt_code",
@@ -110,6 +122,7 @@
     "id": "parallel_cite_case",
     "type": "legal_case",
     "title": "Jackson v. Maddox",
+    "title-short": "Jackson",
     "container-title": "Tex. Civ. App.",
     "volume": "53",
     "page": "478",
@@ -117,6 +130,9 @@
     "issued": {"date-parts": [[1909]]},
     "status": "no writ",
     "locator": "479",
+    "references": "writ ref'd, 102 Tex. 123, 113 S.W. 3 (1908)",
+    "reviewed-title": "prior proceeding sub nom. Maddox v. Jackson, 48 Tex. Civ. App. 101, 106 S.W. 15 (1907)",
+    "note": "see also",
     "_citation_suffix": ", 117 S.W. 185, 185"
   },
   {
@@ -134,7 +150,8 @@
     "publisher-place": "New York",
     "issued": {"date-parts": [[2024]]},
     "label": "section",
-    "locator": "5.2"
+    "locator": "5.2",
+    "abstract": "surveying evidentiary burdens"
   },
   {
     "id": "law_review_online",
@@ -148,7 +165,8 @@
     "locator": "215",
     "URL": "https://example.com/chen-water-rights",
     "status": "forthcoming",
-    "accessed": {"date-parts": [[2025, 1, 12]]}
+    "accessed": {"date-parts": [[2025, 1, 12]]},
+    "annote": "See also"
   },
   {
     "id": "website_source",
@@ -169,5 +187,7 @@
     "locator": "3",
     "status": "on file with the Tex. Supreme Court",
     "medium": "draft"
-  }
+  },
+  {"_cite": "parallel_cite_case", "locator": "480"},
+  {"_cite": "case_supreme", "locator": "470"}
 ]
