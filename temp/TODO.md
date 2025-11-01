@@ -444,7 +444,7 @@ ion of the conflicting behavior.
       - [x] Ensure diagrams or tables reflect the new logic pathways.
       - [x] Proofread for clarity and solicit feedback before finalizing documentation.
 - [ ] **Build shared publication/status helpers.** Create reusable macros for statutory publication parentheticals, session-law metadata, and administrative status notes to reduce duplication across code, rule, and agency citations.
-    - [ ] Inventory where publication/status text is currently hard-coded across statute, session law, and administrative macros (main and TOA styles).
+    - [x] Inventory where publication/status text is currently hard-coded across statute, session law, and administrative macros (main and TOA styles).
       - [x] Search CSL files for publication-related strings using `rg "Supp\.|session|effective" temp` to locate occurrences.
       - [x] Create a spreadsheet noting file names, macro contexts, and sample outputs for each string found.
       - [x] Differentiate between main style and TOA usages to understand contextual differences.
@@ -470,12 +470,12 @@ ion of the conflicting behavior.
       - [x] Estimate time required for consolidation work to inform scheduling.
       - [x] Capture risk assessments (e.g., potential regressions) in `NOTES.md`.
   - [ ] Extract common terminology requirements from Chapters 10–13 and Appendix A of the Greenbook, logging authoritative abbreviations in `NOTES.md`.
-    - [ ] Read the specified chapters focusing on publication parentheticals and session law terminology.
+    - [x] Read the specified chapters focusing on publication parentheticals and session law terminology.
       - [ ] Take detailed notes on required abbreviations, including variations by jurisdiction or publication year.
       - [ ] Compare textual guidance with examples to confirm consistent messaging.
       - [ ] Identify references to external manuals or appendices that may influence terminology.
       - [ ] Record page numbers and subheadings for each key term discovered.
-    - [ ] Create a table of required abbreviations, including singular/plural and capitalization nuances.
+    - [x] Create a table of required abbreviations, including singular/plural and capitalization nuances.
       - [ ] Use a spreadsheet or Markdown table for clarity and ease of updates.
       - [ ] Indicate whether each abbreviation already exists in CSL locale files.
       - [ ] Highlight terms requiring conditional pluralization or gendered forms.
