@@ -384,9 +384,12 @@
       </if>
       <else-if type="legal_case legislation regulation" match="any">
         <choose>
-          <if variable="jurisdiction">
-            <text value="See also"/>
+          <if variable="jurisdiction" value="us:tx" match="any">
+            <text value="See"/>
           </if>
+          <else-if variable="jurisdiction">
+            <text value="See also"/>
+          </else-if>
           <else>
             <text value="See"/>
           </else>
