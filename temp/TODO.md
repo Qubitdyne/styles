@@ -473,16 +473,17 @@
     - [x] Populate placeholder entries for each required term with notes on capitalization and punctuation.
     - [x] Validate XML syntax using available tooling (e.g., `xmllint`).
     - [x] Record mapping between locale entries and style macros for traceability.
-  - [ ] Plan how the locale file will be distributed (e.g., bundled in this repository vs. submitted upstream) and document integration steps for each style.
-    - [ ] Review CSL upstream contribution policies regarding locale files.
-    - [ ] Determine versioning strategy and update pathways for consumers of the styles.
-    - [ ] Draft integration instructions for including the locale in build/test workflows.
-    - [ ] Capture open questions about packaging or dependency management in `NOTES.md`.
-  - [ ] Schedule updates to the styles and tests that will consume the locale file, noting dependencies or sequencing constraints in this TODO list.
-    - [ ] Identify which style files require modifications once the locale is available.
-    - [ ] Sequence tasks to minimize merge conflicts with ongoing macro work.
-    - [ ] Align test fixture updates with locale deployment to avoid inconsistent outputs.
-    - [ ] Update the TODO timeline or roadmap reflecting these dependencies.
+  - [ ] Confirm whether the shared locale needs a distinct dialect code (e.g., `en-US-texas-greenbook`) before upstream submission and update the filename/`xml:lang` pairing accordingly.
+  - [x] Plan how the locale file will be distributed (e.g., bundled in this repository vs. submitted upstream) and document integration steps for each style.
+    - [x] Review CSL upstream contribution policies regarding locale files.
+    - [x] Determine versioning strategy and update pathways for consumers of the styles.
+    - [x] Draft integration instructions for including the locale in build/test workflows.
+    - [x] Capture open questions about packaging or dependency management in `NOTES.md`.
+  - [x] Schedule updates to the styles and tests that will consume the locale file, noting dependencies or sequencing constraints in this TODO list.
+    - [x] Identify which style files require modifications once the locale is available.
+    - [x] Sequence tasks to minimize merge conflicts with ongoing macro work.
+    - [x] Align test fixture updates with locale deployment to avoid inconsistent outputs.
+    - [x] Update the TODO timeline or roadmap reflecting these dependencies.
 - [ ] **Investigate supplemental references.** Follow up on OCR availability for the Uniform Format Manual and confirm TRCP/TRAP cross-references and historical reporter sources listed in `NOTES.md`.
   - [ ] Verify OCR readiness or perform text extraction for the supplemental manuals (Uniform Format Manual, rulemaking history PDFs) and store accessible copies or summaries.
     - [ ] Check existing repositories or archives for machine-readable versions before initiating OCR.
@@ -532,8 +533,8 @@
     - [ ] Prepare a checklist of repository requirements (e.g., style validity, tests passing) to include in the PR body.
     - [ ] Compose draft PR text and store it in `temp/PR_DRAFT.md` for review.
     - [ ] Solicit feedback from collaborators or run a self-review against CSL contribution guidelines.
-  - [ ] Review the CSL repository contribution guidelines (`CONTRIBUTING.md`, `STYLE_REQUIREMENTS.md`) to double-check readiness before packaging the submission.
-    - [ ] Re-read the guidelines and highlight any new or updated requirements since project start.
-    - [ ] Ensure documentation and style files satisfy formatting, metadata, and licensing expectations.
-    - [ ] Confirm changelog or submission metadata needs (if any) are addressed.
-    - [ ] Update this TODO entry to reflect guideline compliance status and next steps.
+  - [x] Review the CSL repository contribution guidelines (`CONTRIBUTING.md`, `STYLE_REQUIREMENTS.md`) to double-check readiness before packaging the submission.
+    - [x] Re-read the guidelines and highlight any new or updated requirements since project start.
+    - [x] Ensure documentation and style files satisfy formatting, metadata, and licensing expectations.
+    - [x] Confirm changelog or submission metadata needs (if any) are addressed.
+    - [x] Update this TODO entry to reflect guideline compliance status and next steps.
