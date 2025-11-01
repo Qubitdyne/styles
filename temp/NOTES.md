@@ -149,6 +149,89 @@ end bibliography
   4. **P1:** Add municipality/AG opinion short-form helpers so the matrix rows cease diverging from Greenbook chs. 14–15 expectations.
   5. **P2:** Create non-Texas statute/treaty short-form macros (e.g., `statute-code-short`) to match the matrix for federal authorities, enabling future fixture additions.
 
+## Chapter 10–13 short-form trigger audit (2025-11-04)
+
+### Source transcription (Greenbook pp. 42–65)
+- **Current statute format guide (Ch. 10, p. 42).** The table lists four exemplar cites—subject-matter code, uncodified statute, session law, and electronic database—clarifying that the short form for current statutes retains the code title plus section while omitting publisher/year data. No diagrams accompany the table beyond the four entry rows.
+- **Section vs. article labeling (Ch. 10, p. 44).** “The subject matter codes are divided into sections. Uncodified statutes, Title 1 of the Insurance Code, and independent codes are divided into articles. … Compare: Tex. Ins. Code Ann. § 823.456.; Tex. Ins. Code Ann. art. 5.06.; Tex. Rev. Civ. Stat. Ann. art. 581-4(A.).” This confirms the short-form trigger for choosing `§` versus `art.` in statute macros.
+- **Pamphlet and supplement handling (Ch. 10, p. 44).** “Cite statutes appearing in pamphlets … include the abbreviation ‘Supp.’ in a final parenthetical… Do not … use the abbreviation ‘Supp.’ when citing a pamphlet that does not supplement a bound volume.” Short forms must therefore omit the supplement parenthetical unless the metadata indicates a true supplement.
+- **Multiple sections and articles (Ch. 10, p. 45).** The text mandates `§§` for multiple sections with a shared date parenthetical and requires repeating `art.` labels when any cited article includes a section reference. These instructions govern how short forms collapse ranges while preserving article designations.
+- **Current code citations (Ch. 10, p. 46).** “Cite material in these statutes to the subject matter codes … If a statute is currently in force, cite it without indicating the date of publication… Unannotated statutory reprints… should omit the abbreviation ‘Ann.’” Short forms must mirror the publisher suppression and observe the annotated/unannotated distinction.
+- **Ongoing codification notes (Ch. 10, pp. 46–47).** Subparagraphs (a)–(e) enumerate Insurance Code, Business Organizations Code, Special District Local Laws Code, Criminal Procedure Code, and Estates Code nuances, pointing to Appendix H for abbreviations. The triggers require conditional parentheticals (e.g., pamphlet signals for Estates Code pre-2014) and awareness of tentative code titles.
+- **Uncodified statutes (Ch. 10, p. 47).** “Most statutes not yet incorporated … are cited as follows: Tex. Rev. Civ. Stat. Ann. art. 5415e-4, § 2(a).” This example anchors the article/section pairing the short form must retain.
+- **Session law elements (Ch. 10, pp. 49–51).** Rules 10.3.1–10.3.4 specify the five-part structure: official act name, legislature/session, chapter/section numbers distinguishing `§` (act sections) from `sec.` (code sections), publication cite with pinpoint pages, and optional to-be-codified parenthetical. These clauses establish which metadata fields the short form must compress while still surfacing chapter/section identifiers.
+- **Unpublished statutes and electronic sources (Ch. 10, pp. 52–53).** Rule 10.4 substitutes bill numbers for unpublished acts, and Rule 10.5 warns that Legislative Council PDFs are informational only—short forms must continue to cite commercial sources or municipal codes per Rule 10.6, which itself prescribes the municipality + code + chapter/section + year pattern. The municipal examples highlight the need to keep political subdivision names in repeat cites.
+- **Statutes no longer in effect (Ch. 11, pp. 54–56).** Rule 11.1.1 requires the first citation to amended statutes to include amendment year plus current code location, while subsequent cites retain only the amendment year. Rule 11.1.2 mirrors the pattern for repealed statutes, and Rule 11.1.3 mandates expiration dates. Rules 11.2 and 11.3 add parallel cites to Gammel for pre-1898 and Republic-era materials. These passages supply the triggers for when short forms must still surface amendment/repeal metadata.
+- **Comments, notes, and U.C.C. commentary (Ch. 12, pp. 58–60).** The format guide lists historical comment, revisor’s note, U.C.C. comment, and historical note exemplars. Subsequent text explains bracketed session-law parentheticals for historical notes, creating short-form obligations to preserve bracketed provenance even when truncating other elements.
+- **Rules of procedure and evidence (Ch. 13, pp. 61–65).** The format guide enumerates rule cites (civil, judicial administration, appellate, evidence, and local). Rule 13.1.1 bars date parentheticals for in-force civil rules, Rule 13.1.2 details historical rule parentheticals, Rule 13.1.4 states subsequent citations to the Rules of Judicial Administration omit the “reprinted in” pointer, Rule 13.2.2 directs outdated TRAP cites to Tex. B.J. with adoption/repeal dates, Rule 13.2.3 renames the criminal appendix short form, and Rule 13.4 outlines local rule elements. Collectively these passages define when short forms may drop source parentheticals versus when they must keep provenance data.
+- **Appendix cross-references.** Chapters 10–13 repeatedly point to Appendix H (code abbreviations), Appendix F (petition history abbreviations noted earlier in Chapter 4 but relevant to statutory tables), and Appendices K.1–K.3 for historic rules. These references are logged here so future development can consult the appendices when encoding locale abbreviations or rule provenance.
+
+### Structured CSL condition mapping
+- **Subject-matter codes (Ch. 10, pp. 44–46).**
+  - *Metadata:* `container-title`, `section`, optional `note` (for supplements/pamphlets) and `title-short` (for code short names).
+  - *Conditions:* `if` multiple sections share `container-title` → emit `§§` plus comma-delimited `section` list; `elif` citation references an article → prefix each with `art.` and retain section subdivisions when present.
+  - *Helper needs:* `code-range` helper to collapse sequential sections and guard against duplicate `art.` labels; `supplement-flag` helper to gate the `(Supp.)` parenthetical.
+  - *Expected output:* First cite `Tex. Tax Code Ann. § 26.06(a).`; short cite `Tex. Tax Code § 26.06(a)` with optional `(Supp.)` only when `note` signals a bound supplement.
+- **Unannotated reprints (Ch. 10, p. 46).**
+  - *Metadata:* `container-title` without “Ann.”, `section`.
+  - *Conditions:* `if` `container-title` lacks “Ann.” and item is repeat cite → reuse same string; no publisher/year added.
+  - *Helper needs:* `strip-annotation` helper to prevent accidental “Ann.” insertion during short-form generation.
+  - *Expected output:* `Tex. Penal Code § 29.02` for both first and short forms.
+- **Uncodified statutes (Ch. 10, pp. 45–47).**
+  - *Metadata:* `chapter-number` storing article label, `section`, optional `note` for codification status.
+  - *Conditions:* Always emit `art.` prefix; when `section` present, include `§` within the same cite block; short form mirrors full cite minus any “(West YEAR)” publisher detail.
+  - *Helper needs:* `article-section` formatter to merge `chapter-number` and `section` reliably.
+  - *Expected output:* `Tex. Rev. Civ. Stat. Ann. art. 5415e-4, § 2(a).`
+- **Session laws (Ch. 10, pp. 49–51).**
+  - *Metadata:* `title`, `collection-number` (e.g., “79th Leg., R.S.”), `number` (chapter), `section`, `container-title`, `volume`, `page`, optional `note` for to-be-codified parentheticals.
+  - *Conditions:* Always print `title` (or “Act of [date]” fallback) + legislature/session + chapter/section; include `sec.` when referencing amended code sections; for short form omit the closing codification parenthetical but retain act identifiers to maintain traceability.
+  - *Helper needs:* `session-identifiers` helper to stitch `collection-number`/`number`; `codification-parenthetical` helper to optionally append `(to be codified …)` only on first cites.
+  - *Expected output:* First cite `Act of May 27, 2005, 79th Leg., R.S., ch. 484, § 2, sec. 153.433, 2005 Tex. Gen. Laws 1345.`; short cite drops the codification parenthetical yet keeps the pinpoint.
+- **Amended/repealed/expired statutes (Ch. 11, pp. 54–55).**
+  - *Metadata:* `note` capturing amendment/repeal/expiration year, `references` for current location when needed.
+  - *Conditions:* `if position="first"` → append `(amended YEAR)` and `(current version at …)` or `(repealed YEAR)`; `else` (short form) → retain only the `(amended YEAR)`/`(repealed YEAR)` parenthetical to satisfy Rule 11.1.1(b) and 11.1.2(b); `expired` always prints `(expired DATE)` regardless of position.
+  - *Helper needs:* `status-parenthetical` helper keyed by `note` tokens to minimize duplication.
+  - *Expected output:* `Act of May 30, 1977 … (repealed 2003).`
+- **Pre-1898 and Republic-era laws (Ch. 11, pp. 55–56).**
+  - *Metadata:* `references` storing the Gammel parallel cite.
+  - *Conditions:* Always append the Gammel reference; short form may abbreviate the parallel cite to “reprinted in …” but cannot drop it entirely.
+  - *Helper needs:* `gammel-parallel` helper to pull `references` into both first and short cites.
+  - *Expected output:* `Act approved Mar. 8, 1871 … reprinted in 6 H.P.N. Gammel …`.
+- **Comments and notes (Ch. 12, pp. 58–60).**
+  - *Metadata:* `genre` (e.g., “historical note”), `note` for bracketed session law provenance, `container-title` (statute code), `section`.
+  - *Conditions:* Always print the code cite followed by the comment label; preserve bracketed session law parenthetical even in short form.
+  - *Helper needs:* `comment-descriptor` helper to emit “cmt.”/“revisor’s note”/“historical note” strings based on `genre` or dedicated field.
+  - *Expected output:* `Tex. Nat. Res. Code Ann. § 52.024 historical note (West Supp. 1997) [Act of May 22, 1981, …].`
+- **Rules of Judicial Administration (Ch. 13, p. 63).**
+  - *Metadata:* `container-title` for rule series, `section`, `note` for reprint location, `references` for subsequent history if any.
+  - *Conditions:* First cite includes “reprinted in Tex. Gov’t Code Ann., tit. 2, subtit. F app.”; short cite removes the reprint clause per Rule 13.1.4 while retaining rule number.
+  - *Helper needs:* `jud-admin-first` vs. `jud-admin-short` wrappers toggled by `position`.
+  - *Expected output:* `Tex. R. Jud. Admin. 5, reprinted in Tex. Gov’t Code Ann., tit. 2, subtit. F app.` (first); short form `Tex. R. Jud. Admin. 5.`
+- **Historic rules (civil/appellate/evidence) (Ch. 13, pp. 62–64).**
+  - *Metadata:* `title` (rule designation), `collection-title`/`container-title` for source (e.g., Tex. B.J.), `issued` for adoption/repeal dates.
+  - *Conditions:* Always include adoption/repeal years in parenthetical; when citing pre-1997 criminal appendix rules, substitute “Tex. R. App. P. Crim. app.” before emitting number.
+  - *Helper needs:* `historic-rule-parenthetical` to join adoption/repeal dates, and `trapp-crim-prefix` to swap the rule label.
+  - *Expected output:* `Tex. R. App. P. 9, 49 Tex. B.J. 561 (Tex. & Tex. Crim. App. 1986, amended 1997).` / `Tex. R. App. P. Crim. app. 2.`
+- **Local rules (Ch. 13, p. 65).**
+  - *Metadata:* `authority` (court name), `title` or `section` for rule number, optional `note` for county list.
+  - *Conditions:* Always lead with the court and location, followed by “Loc. R.” and the rule identifier; short forms may omit parenthetical county list if unchanged, but must keep the court + “Loc. R.” label.
+  - *Helper needs:* `local-rule` helper to format court/location consistently.
+  - *Expected output:* `Dallas (Tex.) Civ. Dist. Ct. Loc. R. 1.22.`
+
+### Example inventory and fixture coverage
+- **Multiple section cite (Ch. 10, p. 45).** Example: “Tex. Health & Safety Code Ann. §§ 286.101, 433.045.” No JSON fixture currently exercises a multi-section cite, so the statute test suite needs an additional entry; flagged below for future fixture work. Aligns with the “Texas statutes & codes” requirement matrix row and will require short-form logic to reuse the double section symbol.
+- **Mixed article/section cite (Ch. 10, p. 45).** Example: “Tex. Rev. Civ. Stats. Ann. art. 4512.5, art. 5415e-4, § 2(a), arts. 5421b, 5421b-1.” Highlights the necessity of repeating `art.` when a cited article contains sections; no fixture covers this complexity yet, so the upcoming test expansion should add it. Matches the matrix expectation for uncodified statutes.
+- **Pamphlet supplement (Ch. 10, p. 44).** Example: “Tex. Alco. Bev. Code Ann. § 22.03 (Supp.).” Existing `stat_govt_code` fixture lacks a supplement flag; we will need to extend the dataset with a `note`-driven example to validate the `(Supp.)` trigger.
+- **Session law pinpoint (Ch. 10, p. 51).** Example: “Act of May 20, 2013, 83d Leg., R.S., ch. 920, § 4, sec. 981.215(a)(11), 2013 Tex. Sess. Law Serv. 2288, 2289 (to be codified at Tex. Ins. Code § 981.215(a)).” `tests.json` already includes `session_law` but omits the to-be-codified parenthetical; future fixture updates should add a `note`/`references` entry to replicate the bracketed codification note.【F:temp/tests.json†L296-L320】
+- **Amended statute subsequent cite (Ch. 11, p. 55).** Example: “Act of July 3, 1984 … (amended 2001).” No current fixture exercises the amendment-year-only short form; add to the pending statute fixture list. This example directly maps to the requirement matrix’s “status parenthetical” column.
+- **Repealed statute first cite (Ch. 11, p. 55).** Example: “Act of May 30, 1977 … (repealed 2003).” Also uncovered by fixtures—needs a JSON entry with `note` capturing the repeal year so short-form logic can persist the parenthetical.
+- **Historical note with bracketed session law (Ch. 12, p. 58).** Example: “Tex. Nat. Res. Code Ann. § 52.024 historical note (West Supp. 1997) [Act of May 22, 1981 …].” Secondary fixtures currently focus on treatises and CLE materials; we should extend them to cover historical notes to ensure the bracketed provenance persists in short cites.
+- **Rules of Judicial Administration repeat cite (Ch. 13, p. 63).** First cite demands the “reprinted in” clause, while the short form omits it. Existing `rule_appellate` and `rule_civp` fixtures do not include judicial administration examples; add a `Tex. R. Jud. Admin. 5` entry to prove the position-aware omission works.
+- **TRAP criminal appendix (Ch. 13, p. 64).** Example: “Tex. R. App. P. Crim. app. 2.” No fixture currently targets the pre-1997 criminal appendix label (`rg 'Crim\. app'` returned no matches), so a new test is necessary. This scenario also stresses the requirement matrix’s “rule set aliasing” notes.
+- **Local rule cite (Ch. 13, p. 65).** Example: “Dallas (Tex.) Civ. Dist. Ct. Loc. R. 1.22.” Our `tests.json` includes municipal code authorities but no local court rules; adding one will ensure locality rendering and potential county parentheticals remain stable. No cross-jurisdictional reporters appear in this chapter’s examples, so no additional handling is required beyond locale abbreviations.
+
+- **Fixture gap flags.** The examples above highlight missing regression coverage for multi-section statutes, pamphlet supplements, amendment/repeal parentheticals, historical notes, judicial administration short forms, TRAP criminal appendix rules, and local court rules. These have been flagged for follow-up in the TODO backlog so future runs can seed the JSON fixtures accordingly.
+
 ### Publication/status string inventory (2025-11-04)
 - **Command log.** Ran `rg "Supp\\.|Supp|session|effective" temp -n --glob '*.csl'` and archived the output in `temp/reports/publication_string_scan.txt` to capture every occurrence across the active edition and TOA variants. The scan surfaced only `session-law` macro hooks plus one legacy comment containing "Supp." in archived draft1; no live strings currently emit supplement or effective-date parentheticals for statutes (chs. 10–13, pp. 42–65).
 - **False positives.** The archived drafts (`temp/archive/texas-greenbook-15th-draft*.csl`) retain exploratory `session-law` definitions and a `Supp.` comment; they were excluded from the active inventory but retained in the log for historical comparison. The `session-law` macro references inside the five TOA styles use the namespace-prefixed XML schema but mirror the same logic.

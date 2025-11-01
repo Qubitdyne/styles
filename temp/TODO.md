@@ -83,21 +83,21 @@ ion of the conflicting behavior.
     - [x] Add undated treatise and CLE fixtures to `tests.json` once the year-fallback helper lands, ensuring the guard logic is regression-tested.
       - [x] Implement the `short-pinpoint-year` helper for short-form macros so missing years no longer leave trailing delimiters.
   - [ ] Outline Greenbook Chapter 10–13 short-form triggers (sections, chapters, and rule ranges) with page citations in `NOTES.md` to confirm requirements and edge cases.
-    - [ ] Read the relevant PDF sections and list each trigger verbatim with pinpoint page numbers.
-      - [ ] Use a PDF reader with search to locate discussions of short-form triggers within Chapters 10–13.
-      - [ ] Transcribe the trigger wording faithfully into `NOTES.md`, ensuring page numbers include subsection identifiers where available.
-      - [ ] Capture any diagrams or tables that illustrate exceptions, noting whether they affect citation structure.
-      - [ ] Confirm that references to appendices or footnotes are also recorded if they modify the main rule text.
-    - [ ] Translate each textual rule into structured conditions (e.g., `if section range && same title`) for CSL application.
-      - [ ] Define the exact metadata fields that correspond to each textual element (e.g., `section`, `chapter`, `rule-number`).
-      - [ ] Express compound conditions in pseudocode to check feasibility within CSL's `choose` and `if` constructs.
-      - [ ] Identify where helper macros or pre-processing may be required to satisfy the conditions.
-      - [ ] Document expected outputs for each condition, including punctuation and abbreviation requirements.
-    - [ ] Capture examples demonstrating exceptions (e.g., multi-source authorities) and log them in `NOTES.md`.
-      - [ ] Extract example citations from the PDF, recording full context sentences for accurate interpretation.
-      - [ ] Note whether the example references alternative reporters or cross-jurisdictional materials.
-      - [ ] Compare examples with the requirement matrix to ensure they map to existing or planned metadata fields.
-      - [ ] Flag examples lacking sufficient metadata in the test suite for future fixture creation.
+    - [x] Read the relevant PDF sections and list each trigger verbatim with pinpoint page numbers.
+      - [x] Use a PDF reader with search to locate discussions of short-form triggers within Chapters 10–13.
+      - [x] Transcribe the trigger wording faithfully into `NOTES.md`, ensuring page numbers include subsection identifiers where available.
+      - [x] Capture any diagrams or tables that illustrate exceptions, noting whether they affect citation structure.
+      - [x] Confirm that references to appendices or footnotes are also recorded if they modify the main rule text.
+    - [x] Translate each textual rule into structured conditions (e.g., `if section range && same title`) for CSL application.
+      - [x] Define the exact metadata fields that correspond to each textual element (e.g., `section`, `chapter`, `rule-number`).
+      - [x] Express compound conditions in pseudocode to check feasibility within CSL's `choose` and `if` constructs.
+      - [x] Identify where helper macros or pre-processing may be required to satisfy the conditions.
+      - [x] Document expected outputs for each condition, including punctuation and abbreviation requirements.
+    - [x] Capture examples demonstrating exceptions (e.g., multi-source authorities) and log them in `NOTES.md`.
+      - [x] Extract example citations from the PDF, recording full context sentences for accurate interpretation.
+      - [x] Note whether the example references alternative reporters or cross-jurisdictional materials.
+      - [x] Compare examples with the requirement matrix to ensure they map to existing or planned metadata fields.
+      - [x] Flag examples lacking sufficient metadata in the test suite for future fixture creation.
     - [ ] Validate the derived triggers against existing citation requirement matrices to ensure coverage alignment.
       - [ ] Cross-reference each trigger with the matrix, noting any missing categories or contradictory instructions.
       - [ ] Update the matrix or create addenda in `NOTES.md` when new conditions are discovered.
@@ -109,6 +109,7 @@ ion of the conflicting behavior.
       - [ ] Reuse existing JSON templates to ensure field naming and nesting remain consistent.
       - [ ] Identify any new metadata fields and document them for addition to data schemas or documentation.
       - [ ] Gather example values from the Greenbook to populate realistic citation information.
+      - [ ] Queue fixtures for the Chapter 10–13 short-form gaps logged on 2025-11-04 (multi-section code cites, supplement parentheticals, amendment/repeal statuses, historical notes, judicial administration repeats, TRAP criminal appendix rules, and local court rules).
     - [ ] Add fixture entries incrementally, verifying JSON schema compatibility via `run_tests.py --list-tests`.
       - [ ] Insert one scenario at a time into `tests.json`, running the command after each addition to isolate syntax issues.
       - [ ] Capture command output logs and store them in `temp/test-logs/` for traceability.
