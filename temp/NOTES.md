@@ -65,6 +65,69 @@
   - Aligning the book/secondary bibliography macros with the explanatory helper will require optional parameters so bibliographies can suppress parentheticals without losing access to the wording. Draft plan: introduce a `explanatory-parenthetical` boolean flag passed into the helper and gate the appended group accordingly, leaving bibliography layout otherwise unchanged.
   - Prioritize consolidating the TOA helper duplication after the pending parenthetical refactor lands (P1), while the bibliography flag work can trail once short-form statute tasks unblock (P2). Fixture updates will need to cover TOA slip opinions and bibliography treatises when the refactor occurs, so note those dependencies when scheduling the helper extraction.
 
+## Explanatory parenthetical catalog (2025-11-20)
+
+- **Slip opinion (Westlaw cite; court/date parenthetical required).** `Am. K-9 Detection Servs., LLC v. Freeman, No. 15-0932, 2018 WL 3207134, at *3 (Tex. June 29, 2018).` Parenthetical cues supply the court (`Tex.`) and the exact decision date, which the text flags as mandatory for current slip opinions published electronically.
+- **Slip opinion with website pagination.** `City of Keller v. Wilson, No. 02-1012, slip op. at 2 (Tex. June 10, 2005), available at http://www.search.txcourts.gov/historical/2005/jun/021012.pdf.` The `slip op.` locator preceding the pinpoint and the `available at` URL clause are both mandated when the Court posts a paginated PDF.
+- **Texas Supreme Court Journal parallel cite.** `Texas Dep’t of State Health Servs. v. Crown Distrib., 65 Tex. Sup. Ct. J. 1630, 1630, 2022 WL 2283170, at *1 (June 24, 2022).` The instructions note that the court designation is omitted as redundant in this configuration, highlighting an optional element normally present in the parenthetical.
+- **Mandatory vs. optional elements.**
+  | Element | Status | Source |
+  | --- | --- | --- |
+  | Court-and-date parenthetical (`(Tex. June 29, 2018)`) | Mandatory for slip opinions | PDF p. 26 |
+  | Pinpoint to electronic reporter (`at *3`) | Mandatory | PDF p. 26 |
+  | `slip op.` locator | Optional only when citing the case generally | PDF p. 26 |
+  | `available at` URL clause | Mandatory for court-website copies | PDF p. 26 |
+  - No ambiguous directives flagged; the chapter explicitly labels each requirement with “must” or “no need,” so no legal review follow-up is required.
+  - CSL mapping: these cues surface through `legal-case-first`/`legal-case-short` combined with `reporter-wl`, `court-and-date`, and `case-parenthetical-stack` in `texas-greenbook-15th-edition.csl`. Slip-opinion URLs currently flow through `reporter-wl`, so any helper sharing should anchor there.
+  - Shared helper opportunity: align the slip-opinion URL handling with the Courts-of-Appeals branch so a single helper can inject `slip op.` locators and `available at` clauses across authority levels.
+  - Test coverage: `tests.json` fixtures `case_supreme` and `case_slip_opinion` exercise the slip-opinion chains and the `available at` handling noted above.
+
+- **Memorandum opinion with publication status.** `Massoth v. State, No. 14-03-00605-CR, 2004 WL 1381027, at *1 (Tex. App.—Houston [14th Dist.] June 22, 2004, pet. ref’d) (mem. op., not designated for publication), habeas corpus granted in part sub nom. Ex parte Massoth, No. AP-75215, 2005 WL 1774115, at *1 (Tex. Crim. App. July 27, 2005) (per curiam) (not designated for publication).` This example demonstrates consecutive parenthetical cues for memorandum weight and publication status, plus a separate subsequent-history parenthetical from the Court of Criminal Appeals.
+- **Slip opinion paragraph pinpoint.** `Powell v. State, No. PD-0051-05, slip op. ¶ 2 (Tex. Crim. App. Apr. 5, 2006), available at http://search.txcourts.gov/Case.aspx?cn=PD-0051-05&coa=coscca.` The chapter clarifies that paragraph pinpoints (`¶ 2`) replace page pinpoints when pagination is absent; the `slip op.` designation becomes optional only when citing the case generally (PDF p. 30).
+- **Mandatory vs. optional elements.**
+  | Element | Status | Source |
+  | --- | --- | --- |
+  | `(mem. op.)` weight parenthetical | Mandatory whenever opinion designated memorandum | PDF p. 28 |
+  | `(not designated for publication)` | Mandatory when publication status so indicates | PDF p. 28 |
+  | Paragraph/page pinpoint plus `available at` URL | Mandatory for slip opinions without pagination | PDF p. 30 |
+  | `slip op.` designation | Optional only for general cites without pinpoint | PDF p. 30 |
+  - No ambiguous guidance noted; chapter text clearly distinguishes “must” and “may,” so no escalation required.
+  - CSL mapping: the cues route through `legal-case-first`, `case-parenthetical-stack`, and `related-proceedings`; memorandum and publication tags live inside `weight-parentheticals` and `explanatory-parenthetical` macros that also feed the TOA variants.
+  - Shared helper opportunity: consider consolidating slip-opinion paragraph handling with the Supreme Court branch so `reporter-wl` can inject `¶` locators regardless of jurisdiction.
+  - Test coverage: `tests.json` entries `case_crim_app` and `case_slip_opinion` cover memorandum status, publication cues, and paragraph pinpoints for Court of Criminal Appeals authorities.
+
+- **Per curiam memorandum opinion.** `Richardson v. Kays, No. 02-03-241-CV, 2003 WL 22457054, at *1 (Tex. App.—Fort Worth Oct. 30, 2003, no pet.) (per curiam) (mem. op.).` The layered parentheticals illustrate that the per curiam designation precedes the memorandum notation when both apply.
+- **Memorandum opinion with publication status.** `State v. Wise, No. 04-04-00695-CR, 2005 WL 2952357, at *1 (Tex. App.—San Antonio Oct. 26, 2005, no pet.) (mem. op., not designated for publication).` The comma-separated cues inside a single parenthetical confirm the combined formatting mandated for cases that are both memorandum opinions and unpublished.
+- **Recent decision slip opinion with URL.** `Jenkins v. State, No. 03-13-0632-CR, slip op. at 2 (Tex. App.—Austin Oct. 25, 2013, no pet. h.) (mem. op., not designated for publication), available at http://www.search.txcourts.gov/SearchMedia.aspx?MediaVersionID=9a9e6403-aac0-45ac-8e31-27c4d2fd8a33&MediaID=a0ea946d-bccf-4336-9228-581bd0b046c5&coa=%22%20+%20this.CurrentWebState.CurrentCourt%20+%20@%22&DT=Opinion.` The chapter requires retaining both the memorandum and publication-status cues alongside the slip-opinion pinpoint and URL.
+- **Mandatory vs. optional elements.**
+  | Element | Status | Source |
+  | --- | --- | --- |
+  | `(per curiam)` | Mandatory when court issues per curiam opinion | PDF p. 34 |
+  | `(mem. op.)` | Mandatory when court labels opinion memorandum | PDF p. 34 |
+  | `(not designated for publication)` | Mandatory for unpublished designations | PDF pp. 34–35 |
+  | `slip op.` plus pinpoint and `available at` URL | Mandatory for recent decisions posted online | PDF pp. 35–36 |
+  | `slip op.` text | Optional when citing case generally without pinpoint | PDF p. 36 |
+  - No ambiguous directives surfaced; instructions differentiate “must” vs. “no need,” so no open questions remain.
+  - CSL mapping: `legal-case-first`, `case-parenthetical-stack`, `weight-parentheticals`, and `related-proceedings` macros emit these cues, while slip-opinion URLs flow through `reporter-wl` and `docket-parenthetical` in the edition file.
+  - Shared helper opportunity: unify memorandum/publish-status handling between note and TOA styles via a shared `weight-parentheticals` helper to eliminate duplication documented earlier in this file.
+  - Test coverage: `tests.json` fixtures `case_app_hou14`, `case_mem_not_designated`, and `case_slip_opinion` validate the memorandum, publication-status, and slip-opinion behaviors.
+
+- **Origination tag in parenthetical.** `Flores v. Fourth Court of Appeals, 777 S.W.2d 38, 39 (Tex. 1989) (orig. proceeding).` The separate parenthetical marks mandamus posture for Texas Supreme Court original proceedings.
+- **Pending mandamus status.** `In re Luna, No. 01-03-01055-CV, 2004 WL 2005935, at *1 (Tex. App.—Houston [1st Dist.] Sept. 9, 2004, orig. proceeding [mand. pending]).` Bracketed status must follow `orig. proceeding` when the Texas Supreme Court has not resolved the petition.
+- **Mandamus granted as subsequent history.** `Contico Int’l, Inc. v. Alvarez, 910 S.W.2d 29, 32 (Tex. App.—El Paso 1995, orig. proceeding), mand. granted sub nom. Mendoza v. Eighth Court of Appeals, 917 S.W.2d 787, 789 (Tex. 1996) (per curiam).` The chapter instructs authors to prefix the Supreme Court citation with `mand. granted` whenever relief is awarded.
+- **Leave granted then denied.** `Gen. Motors Corp. v. Gayle, 924 S.W.2d 222, 224 (Tex. App.—Houston [14th Dist.] 1996, orig. proceeding), leave granted, mand. denied, 940 S.W.2d 598, 599 (Tex. 1997) (per curiam).` Bracketed notations such as `[leave denied]` or sequential `leave granted, mand. denied` phrases are mandatory to capture procedural history (PDF p. 51).
+- **Mandatory vs. optional elements.**
+  | Element | Status | Source |
+  | --- | --- | --- |
+  | `(orig. proceeding)` parenthetical | Mandatory for mandamus/original proceeding cites | PDF pp. 49–50 |
+  | Bracketed outcomes (`[mand. pending]`, `[mand. denied]`, `[leave denied]`) | Mandatory whenever Supreme Court action occurs | PDF pp. 50–51 |
+  | `mand. granted` / `mand. denied` subsequent history strings | Mandatory when Supreme Court resolves relief | PDF pp. 50–51 |
+  | Combined `leave granted, mand. denied` phrases | Mandatory when both actions occurred | PDF p. 51 |
+  - No ambiguous wording detected; chapter supplies prescriptive phrases, so no follow-up tasks needed.
+  - CSL mapping: `related-proceedings`, `case-parenthetical-stack`, and `court-and-date` macros in the note style emit these cues; TOA counterparts reuse the same logic inline and should be refactored to call the shared helper once extracted.
+  - Shared helper opportunity: expose a reusable “mandamus-status” helper so courts of appeals, Supreme Court, and TOA variants all source bracketed outcomes from a single macro.
+  - Test coverage: `tests.json` fixtures `case_slip_opinion` and `case_trial_court` document orig. proceeding parentheticals and subsequent-history strings for mandamus workflows; `tests_toa.json` mirrors the bracketed status in TOA contexts.
+
 ## Comprehensive QA audit (2025-11-18)
 - **Dependency verification.** Attempting to execute `run_tests.py` without installing `citeproc-py` still triggers `ModuleNotFoundError`; installed the package via `pip install citeproc-py` before rerunning the harness.【bfbf00†L1-L6】【2f6cb0†L1-L9】 Capture this prerequisite in the README so new environments do not fail at the first test command.
 - **Regression suite status.** Re-ran the full note regression suite with `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt`; all 60 fixtures returned `OK`, confirming no drift from the stored expectations.【955aca†L1-L120】 The citeproc warnings about unsupported `label`/`reviewed_title` metadata persist but remain informational.
