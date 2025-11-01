@@ -463,7 +463,7 @@
     - [x] Verify whether terms require pluralization or gender variants for locale coverage.
     - [x] Note duplicate or conflicting overrides needing consolidation.
   - [x] Confirm whether the standalone `and` override needs a dedicated Greenbook citation or can defer to the default locale; record the decision path in `NOTES.md`.
-  - [x] Determine whether existing CSL locales cover these terms or if a custom `locales-en-US-texas-greenbook.xml` (or similar) file is required.
+  - [x] Determine whether existing CSL locales cover these terms or if a custom `locales-en-US-x-texas-greenbook.xml` (or similar) file is required.
     - [x] Review stock CSL locale files to identify overlapping term definitions.
     - [x] Assess compatibility of existing locales with Greenbook-specific abbreviations.
     - [x] Decide on the necessity of a custom locale and document justification in `NOTES.md`.
@@ -473,7 +473,8 @@
     - [x] Populate placeholder entries for each required term with notes on capitalization and punctuation.
     - [x] Validate XML syntax using available tooling (e.g., `xmllint`).
     - [x] Record mapping between locale entries and style macros for traceability.
-  - [ ] Confirm whether the shared locale needs a distinct dialect code (e.g., `en-US-texas-greenbook`) before upstream submission and update the filename/`xml:lang` pairing accordingly.
+  - [x] Confirm whether the shared locale needs a distinct dialect code (e.g., `en-US-x-texas-greenbook`) before upstream submission and update the filename/`xml:lang` pairing accordingly.
+  - [ ] Add required CSL locale metadata (`version`, `<style-options>`, `<date>`) to `temp/locales/locales-en-US-x-texas-greenbook.xml` so the shared file validates before upstream submission.
   - [x] Plan how the locale file will be distributed (e.g., bundled in this repository vs. submitted upstream) and document integration steps for each style.
     - [x] Review CSL upstream contribution policies regarding locale files.
     - [x] Determine versioning strategy and update pathways for consumers of the styles.
@@ -490,16 +491,16 @@
     - [ ] If OCR is needed, select tooling, configure language options, and process the documents.
     - [ ] Review output for accuracy, correcting errors or marking unclear sections for follow-up.
     - [ ] Save processed text in `temp/` or a referenced location with clear filenames.
-  - [ ] Cross-reference TRCP/TRAP citations in `NOTES.md` with the supplemental materials to validate abbreviations and historical reporter references.
-    - [ ] Build a comparison table aligning `NOTES.md` entries with supplemental source terminology.
-    - [ ] Highlight discrepancies in abbreviations or reporter names needing resolution.
-    - [ ] Document confirmation of matches with precise page or section references.
-    - [ ] Escalate any conflicting guidance to legal editors or subject-matter experts if necessary.
-  - [ ] Update `NOTES.md` with confirmed cross-references, including any discrepancies or areas needing authoritative clarification.
-    - [ ] Summarize validation outcomes per citation type (TRCP, TRAP, reporters).
-    - [ ] Record open questions with proposed next steps or responsible parties.
-    - [ ] Ensure entries include page numbers and document identifiers for traceability.
-    - [ ] Tag updates with timestamps or authorship notes if collaborative tracking is required.
+  - [x] Cross-reference TRCP/TRAP citations in `NOTES.md` with the supplemental materials to validate abbreviations and historical reporter references.
+    - [x] Build a comparison table aligning `NOTES.md` entries with supplemental source terminology.
+    - [x] Highlight discrepancies in abbreviations or reporter names needing resolution.
+    - [x] Document confirmation of matches with precise page or section references.
+    - [x] Escalate any conflicting guidance to legal editors or subject-matter experts if necessary.
+  - [x] Update `NOTES.md` with confirmed cross-references, including any discrepancies or areas needing authoritative clarification.
+    - [x] Summarize validation outcomes per citation type (TRCP, TRAP, reporters).
+    - [x] Record open questions with proposed next steps or responsible parties.
+    - [x] Ensure entries include page numbers and document identifiers for traceability.
+    - [x] Tag updates with timestamps or authorship notes if collaborative tracking is required.
   - [ ] Identify whether additional fixtures or macros are needed based on findings and create follow-up TODO entries if required.
     - [ ] Evaluate whether uncovered abbreviations necessitate new style logic or locale terms.
     - [ ] Draft new fixture requirements capturing supplemental authority nuances.

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<locale xmlns="http://purl.org/net/xbiblio/csl" xml:lang="en-US">
+<locale xmlns="http://purl.org/net/xbiblio/csl" xml:lang="en-US-x-texas-greenbook">
   <info>
     <title>English (United States) — Texas Greenbook Terms</title>
-    <id>http://www.zotero.org/styles/locales-en-US-texas-greenbook</id>
+    <id>http://www.zotero.org/styles/locales-en-US-x-texas-greenbook</id>
     <link rel="documentation" href="https://www.txcourts.gov/rules-forms/rules-standards/"/>
     <updated>2025-03-17T00:00:00+00:00</updated>
   </info>
