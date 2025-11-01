@@ -1,3 +1,4 @@
+import argparse
 import json
 from copy import deepcopy
 from citeproc import Citation, CitationItem, Locator
@@ -5,11 +6,23 @@ from citeproc import CitationStylesBibliography, CitationStylesStyle
 from citeproc import formatter
 from citeproc.source.json import CiteProcJSON
 
-STYLE_PATH = "temp/texas-greenbook-15th-edition.csl"
-TESTS_PATH = "temp/tests.json"
-EXPECTED_PATH = "temp/expected.txt"
+DEFAULT_STYLE_PATH = "temp/texas-greenbook-15th-edition.csl"
+DEFAULT_TESTS_PATH = "temp/tests.json"
+DEFAULT_EXPECTED_PATH = "temp/expected.txt"
 
-with open(TESTS_PATH, "r", encoding="utf-8") as f:
+parser = argparse.ArgumentParser(description="Render citeproc fixtures and compare against expected output.")
+parser.add_argument("--style", default=DEFAULT_STYLE_PATH, help="Path to the CSL file under test.")
+parser.add_argument("--tests", default=DEFAULT_TESTS_PATH, help="JSON fixture containing citeproc items and citations.")
+parser.add_argument("--expected", default=DEFAULT_EXPECTED_PATH, help="Text file with expected cite strings (one per line).")
+parser.add_argument(
+    "--mode",
+    choices=["notes", "bibliography"],
+    default="notes",
+    help="Render either note citations (default) or the final bibliography entries.",
+)
+args = parser.parse_args()
+
+with open(args.tests, "r", encoding="utf-8") as f:
     test_items = json.load(f)
 
 items_for_source = []
@@ -20,8 +33,8 @@ for entry in test_items:
     if "id" in entry:
         entry_copy = deepcopy(entry)
         suffix = entry_copy.pop("_citation_suffix", None)
-        locator = entry_copy.pop("locator", None)
-        label = entry_copy.pop("label", None)
+        locator = entry_copy.get("locator")
+        label = entry_copy.get("label")
 
         items_for_source.append(entry_copy)
         items_by_id[entry_copy["id"]] = entry_copy
@@ -52,7 +65,7 @@ for entry in test_items:
     else:
         raise ValueError("Each test entry must declare either 'id' or '_cite'.")
 
-style = CitationStylesStyle(STYLE_PATH, validate=False)
+style = CitationStylesStyle(args.style, validate=False)
 source = CiteProcJSON(items_for_source)
 bibliography = CitationStylesBibliography(style, source, formatter.plain)
 
@@ -61,9 +74,13 @@ for index, citation in enumerate(notes, start=1):
     citation.note_index = index
     bibliography.register(citation)
     citation_result = bibliography.cite(citation, lambda _: None)
-    rendered.append(str(citation_result))
+    if args.mode == "notes":
+        rendered.append(str(citation_result))
 
-with open(EXPECTED_PATH, "r", encoding="utf-8") as f:
+if args.mode == "bibliography":
+    rendered = [str(entry) for entry in bibliography.bibliography()]
+
+with open(args.expected, "r", encoding="utf-8") as f:
     raw_expected_lines = [line.rstrip("\n") for line in f]
 
 expected_lines = []

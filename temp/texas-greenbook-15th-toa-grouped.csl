@@ -86,7 +86,11 @@
       <else>
         <group prefix=" (" suffix=")">
           <text variable="authority"/>
-          <date variable="issued" form="text" prefix=" "/>
+          <date variable="issued" prefix=" ">
+            <date-part name="month" form="short" suffix=" "/>
+            <date-part name="day" form="numeric" suffix=", "/>
+            <date-part name="year"/>
+          </date>
           <text variable="status" prefix=", "/>
         </group>
       </else>
@@ -103,15 +107,34 @@
         <if variable="volume page container-title" match="all"><text macro="reporter-print"/></if>
         <else><text macro="reporter-wl"/></else>
       </choose>
-      <text macro="pinpoint"/>
     </group>
+    <text macro="pinpoint"/>
     <text macro="court-and-date"/>
     <text macro="weight-parentheticals"/>
   </macro>
 
   <!-- Statutes / Constitution / TAC / Session law / Rules / Municipal / AG -->
   <macro name="statute-code">
-    <group delimiter=" "><text variable="container-title"/><text term="section" form="symbol"/><text variable="section"/></group>
+    <group delimiter=" ">
+      <text variable="container-title"/>
+      <choose>
+        <if variable="chapter-number">
+          <group delimiter=" ">
+            <text variable="chapter-number"/>
+            <text variable="section"/>
+          </group>
+        </if>
+        <else-if variable="genre" match="any">
+          <text variable="section"/>
+        </else-if>
+        <else>
+          <group delimiter=" ">
+            <label variable="section" form="symbol"/>
+            <text variable="section"/>
+          </group>
+        </else>
+      </choose>
+    </group>
   </macro>
   <macro name="constitution-core">
     <group delimiter=", ">
@@ -133,9 +156,51 @@
     </group>
   </macro>
   <macro name="tac-core">
-    <group delimiter=" "><text variable="volume"/><text variable="container-title"/><text term="section" form="symbol"/><text variable="section"/></group>
+    <choose>
+      <if variable="section">
+        <group delimiter=" ">
+          <text variable="volume"/>
+          <text variable="container-title"/>
+          <group delimiter=" ">
+            <text term="section" form="symbol"/>
+            <text variable="section"/>
+          </group>
+        </group>
+      </if>
+      <else>
+        <group delimiter=" ">
+          <text variable="volume"/>
+          <text variable="container-title"/>
+          <text variable="page"/>
+        </group>
+      </else>
+    </choose>
     <date variable="issued" prefix=" (" suffix=")"><date-part name="year"/></date>
+    <choose>
+      <if variable="note">
+        <text variable="note" prefix=" (" suffix=")"/>
+      </if>
+    </choose>
     <text variable="authority" prefix=" (" suffix=")"/>
+  </macro>
+
+  <macro name="book-entry">
+    <group delimiter=", ">
+      <names variable="author">
+        <name and="text" delimiter=", "/>
+      </names>
+      <group delimiter=" ">
+        <number variable="volume" form="numeric"/>
+        <text variable="title" font-style="italic"/>
+      </group>
+      <group delimiter=" ">
+        <label variable="locator" form="symbol"/>
+        <text variable="locator"/>
+      </group>
+      <date variable="issued">
+        <date-part name="year"/>
+      </date>
+    </group>
   </macro>
   <macro name="rule-core"><group delimiter=" "><text variable="container-title"/><text variable="section"/></group></macro>
   <macro name="municipal-code">
@@ -170,6 +235,7 @@
           </choose>
         </else-if>
         <else-if type="report"><text macro="ag-opinion"/></else-if>
+        <else-if type="book"><text macro="book-entry"/></else-if>
         <else><text variable="title"/></else>
       </choose>
     </layout>
@@ -203,6 +269,7 @@
           </choose>
         </else-if>
         <else-if type="report"><text macro="ag-opinion"/></else-if>
+        <else-if type="book"><text macro="book-entry"/></else-if>
         <else><text variable="title"/></else>
       </choose>
     </layout>

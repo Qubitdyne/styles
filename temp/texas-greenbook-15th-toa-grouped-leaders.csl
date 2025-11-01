@@ -48,7 +48,11 @@
       <ns0:else>
         <ns0:group prefix=" (" suffix=")">
           <ns0:text variable="authority" />
-          <ns0:date variable="issued" form="text" prefix=" " />
+          <ns0:date variable="issued" prefix=" ">
+            <ns0:date-part name="month" form="short" suffix=" " />
+            <ns0:date-part name="day" form="numeric" suffix=", " />
+            <ns0:date-part name="year" />
+          </ns0:date>
           <ns0:text variable="status" prefix=", " />
         </ns0:group>
       </ns0:else>
@@ -65,15 +69,34 @@
         <ns0:if variable="volume page container-title" match="all"><ns0:text macro="reporter-print" /></ns0:if>
         <ns0:else><ns0:text macro="reporter-wl" /></ns0:else>
       </ns0:choose>
-      <ns0:text macro="pinpoint" />
     </ns0:group>
+    <ns0:text macro="pinpoint" />
     <ns0:text macro="court-and-date" />
     <ns0:text macro="weight-parentheticals" />
   </ns0:macro>
 
   
   <ns0:macro name="statute-code">
-    <ns0:group delimiter=" "><ns0:text variable="container-title" /><ns0:text term="section" form="symbol" /><ns0:text variable="section" /></ns0:group>
+    <ns0:group delimiter=" ">
+      <ns0:text variable="container-title" />
+      <ns0:choose>
+        <ns0:if variable="chapter-number">
+          <ns0:group delimiter=" ">
+            <ns0:text variable="chapter-number" />
+            <ns0:text variable="section" />
+          </ns0:group>
+        </ns0:if>
+        <ns0:else-if variable="genre" match="any">
+          <ns0:text variable="section" />
+        </ns0:else-if>
+        <ns0:else>
+          <ns0:group delimiter=" ">
+            <ns0:label variable="section" form="symbol" />
+            <ns0:text variable="section" />
+          </ns0:group>
+        </ns0:else>
+      </ns0:choose>
+    </ns0:group>
   </ns0:macro>
   <ns0:macro name="constitution-core">
     <ns0:group delimiter=", ">
@@ -95,8 +118,29 @@
     </ns0:group>
   </ns0:macro>
   <ns0:macro name="tac-core">
-    <ns0:group delimiter=" "><ns0:text variable="volume" /><ns0:text variable="container-title" /><ns0:text term="section" form="symbol" /><ns0:text variable="section" /></ns0:group>
+    <ns0:choose>
+      <ns0:if variable="section">
+        <ns0:group delimiter=" ">
+          <ns0:text variable="volume" />
+          <ns0:text variable="container-title" />
+          <ns0:group delimiter=" ">
+            <ns0:text term="section" form="symbol" />
+            <ns0:text variable="section" />
+          </ns0:group>
+        </ns0:group>
+      </ns0:if>
+      <ns0:else>
+        <ns0:group delimiter=" ">
+          <ns0:text variable="volume" />
+          <ns0:text variable="container-title" />
+          <ns0:text variable="page" />
+        </ns0:group>
+      </ns0:else>
+    </ns0:choose>
     <ns0:date variable="issued" prefix=" (" suffix=")"><ns0:date-part name="year" /></ns0:date>
+    <ns0:choose>
+      <ns0:if variable="note"><ns0:text variable="note" prefix=" (" suffix=")" /></ns0:if>
+    </ns0:choose>
     <ns0:text variable="authority" prefix=" (" suffix=")" />
   </ns0:macro>
   <ns0:macro name="rule-core"><ns0:group delimiter=" "><ns0:text variable="container-title" /><ns0:text variable="section" /></ns0:group></ns0:macro>
@@ -111,22 +155,63 @@
     <ns0:group delimiter=" "><ns0:text variable="authority" /><ns0:text variable="number" prefix="No. " /></ns0:group>
     <ns0:date variable="issued" prefix=" (" suffix=")"><ns0:date-part name="year" /></ns0:date>
   </ns0:macro>
+  <ns0:macro name="book-entry">
+    <ns0:group delimiter=", ">
+      <ns0:names variable="author">
+        <ns0:name and="text" delimiter=", " />
+      </ns0:names>
+      <ns0:group delimiter=" ">
+        <ns0:number variable="volume" form="numeric" />
+        <ns0:text variable="title" font-style="italic" />
+      </ns0:group>
+      <ns0:group delimiter=" ">
+        <ns0:label variable="locator" form="symbol" />
+        <ns0:text variable="locator" />
+      </ns0:group>
+      <ns0:date variable="issued">
+        <ns0:date-part name="year" />
+      </ns0:date>
+    </ns0:group>
+  </ns0:macro>
 
-  
-  <ns0:macro name="sort-group">
+
+  <ns0:macro name="toa-type-rank">
     <ns0:choose>
-      <ns0:if type="legal_case"><ns0:text value="1" /></ns0:if>
+      <ns0:if type="legal_case">
+        <ns0:text value="01" />
+      </ns0:if>
       <ns0:else-if type="legislation">
         <ns0:choose>
-          <ns0:if variable="chapter-number"><ns0:text value="2" /></ns0:if> 
-          <ns0:else-if variable="title"><ns0:text value="4" /></ns0:else-if> 
-          <ns0:else><ns0:text value="2" /></ns0:else> 
+          <ns0:if variable="chapter-number">
+            <ns0:text value="02" />
+          </ns0:if>
+          <ns0:else-if variable="title">
+            <ns0:text value="06" />
+          </ns0:else-if>
+          <ns0:else>
+            <ns0:text value="03" />
+          </ns0:else>
         </ns0:choose>
       </ns0:else-if>
-      <ns0:else-if type="regulation"><ns0:text value="3" /></ns0:else-if>
-      <ns0:else-if type="report"><ns0:text value="5" /></ns0:else-if>
-      <ns0:else-if type="article-journal book chapter entry-encyclopedia entry-dictionary"><ns0:text value="6" /></ns0:else-if>
-      <ns0:else><ns0:text value="9" /></ns0:else>
+      <ns0:else-if type="regulation">
+        <ns0:choose>
+          <ns0:if variable="volume">
+            <ns0:text value="04" />
+          </ns0:if>
+          <ns0:else-if variable="authority chapter-number" match="all">
+            <ns0:text value="08" />
+          </ns0:else-if>
+          <ns0:else>
+            <ns0:text value="05" />
+          </ns0:else>
+        </ns0:choose>
+      </ns0:else-if>
+      <ns0:else-if type="report">
+        <ns0:text value="07" />
+      </ns0:else-if>
+      <ns0:else>
+        <ns0:text value="09" />
+      </ns0:else>
     </ns0:choose>
   </ns0:macro>
 
@@ -150,6 +235,7 @@
           </ns0:choose>
         </ns0:else-if>
         <ns0:else-if type="report"><ns0:text macro="ag-opinion" /></ns0:else-if>
+        <ns0:else-if type="book"><ns0:text macro="book-entry" /></ns0:else-if>
         <ns0:else><ns0:text variable="title" /></ns0:else>
       </ns0:choose>
     </ns0:layout>
@@ -158,7 +244,7 @@
   
   <ns0:bibliography hanging-indent="false" second-field-align="flush">
     <ns0:sort>
-      <ns0:key macro="sort-group" />
+      <ns0:key macro="toa-type-rank" />
       <ns0:key variable="authority" />
       <ns0:key variable="container-title" />
       <ns0:key variable="volume" />
@@ -183,6 +269,7 @@
           </ns0:choose>
         </ns0:else-if>
         <ns0:else-if type="report"><ns0:text macro="ag-opinion" /></ns0:else-if>
+        <ns0:else-if type="book"><ns0:text macro="book-entry" /></ns0:else-if>
         <ns0:else><ns0:text variable="title" /></ns0:else>
       </ns0:choose>
     <ns0:text value=" ........................................" /><ns0:text value="&amp;#9;" /></ns0:layout>

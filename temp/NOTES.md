@@ -461,6 +461,12 @@ Authority-Specific Supporting Macros
 - The CSL drafts do not yet differentiate short-form vs. cross-reference output for Texas statutes, constitutions, court rules, or register notices. The new fixtures flag the desired strings, but current style logic will need to adopt `references`-aware branches similar to the case macros.
 - Web citations in Chapter 16 rely on “available at” plus “Accessed” parentheticals. The PDF text uses ligatures that complicate automated extraction, so the inline comments cite the chapter generally (`Greenbook 15th ed. 76`). A follow-up task should confirm the precise pin cites once optical text cleanup is available.
 - Table of Authorities tests cover the major groups but still lack examples for federal authorities and multi-level leaders (e.g., nested subentries). Future iterations should add those once the TOA CSL variants support secondary sorting keys.
+
+## Verification Log — 2025-11-04
+- Re-ran the core note fixture suite with `python temp/run_tests.py` to confirm no regressions in the primary style output. The rendered cites still match the annotated expectations from the October baseline snapshot.
+- Generated fresh TOA bibliographies (base, grouped, leaders, and grouped-leaders) and synchronized the expected artifacts via `python temp/run_tests.py --style … --mode bibliography --expected …`. All four variants now emit the expanded 13-entry list covering trial orders, register notices, rules, and secondary sources without ordering drift.
+- Spot-checked representative entries against the *Texas Greenbook* (15th ed.): case signals and short forms (pp. 3–5), constitution citations (pp. 39–40), administrative code/register formatting (pp. 76–77), and secondary sources (pp. 93–95). The revised macros and dotted leader spacing align with the PDF exemplars.
+- Remaining follow-ups: incorporate federal authorities into `tests_toa.json` once style support lands, and add cross-reference aware branches for statutes/rules so the TOA variants inherit the note-mode short-form behavior.
 ### Stock Locale Comparison (locales-en-US.xml)
 | Term | Draft 3 Value | Stock en-US Value | Override Needed? |
 | --- | --- | --- | --- |

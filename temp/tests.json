@@ -198,8 +198,8 @@
     "type": "regulation",
     "volume": "39",
     "container-title": "Tex. Reg.",
-    "page-first": "573",
-    "page": "574",
+    "page": "573",
+    "locator": "574",
     "issued": {
       "date-parts": [
         [
@@ -215,19 +215,22 @@
     "id": "rule_civp",
     "type": "legislation",
     "container-title": "Tex. R. Civ. P.",
-    "section": "97(d)"
+    "section": "97(d)",
+    "genre": "court rule"
   },
   {
     "id": "rule_appellate",
     "type": "legislation",
     "container-title": "Tex. R. App. P.",
-    "section": "2"
+    "section": "2",
+    "genre": "court rule"
   },
   {
     "id": "rule_evidence",
     "type": "legislation",
     "container-title": "Tex. R. Evid.",
-    "section": "405(b)"
+    "section": "405(b)",
+    "genre": "court rule"
   },
   {
     "id": "session_law",
@@ -250,6 +253,7 @@
     "container-title": "Tex. Gen. Laws",
     "volume": "1871",
     "page": "11",
+    "locator": "11",
     "references": "reprinted in 6 H.P.N. Gammel, The Laws of Texas 1822–1897, at 913, 913 (Austin, Gammel Book Co. 1898)"
   },
   {
@@ -349,7 +353,6 @@
     ],
     "title": "The Application for Writ of Error",
     "collection-title": "Tex. R. Civ. P. Ann.",
-    "volume": "1",
     "edition": "1",
     "publisher": "West",
     "publisher-place": "St. Paul",
