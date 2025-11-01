@@ -406,6 +406,11 @@ end bibliography
 - Page 17 illustrates the criminal-side variant `Green v. State, No. 12-12-00249-CR, 2012 WL 3116252, at *1 (Tex. App.—Tyler July 31, 2012, no pet.) (per curiam) (mem. op., not designated for publication).`, reiterating that memorandum opinion parentheticals keep roman styling even when the explanatory phrase adds “not designated for publication.”【F:temp/Greenbook_15thEdition.pdf†L118-L168】
 - Slip-opinion citations on p. 18 (`Jaxson v. Morgan, No. 14-04-00785-CV, slip op. ¶ 4 (Tex. App.—Houston [14th Dist.] Apr. 6, 2006, no pet.) (mem. op.)`) pair the `(mem. op.)` cue with the paragraph pinpoint; no italics shift occurs, so the CSL implementation can rely on roman rendering for these explanatory tails without additional styling hooks.【F:temp/Greenbook_15thEdition.pdf†L168-L212】
 
+#### Memo opinion regression run (2025-03-17)
+- Added explicit `font-style="normal"` attributes to the `weight-parentheticals` macro across the note and TOA styles so `genre`/`medium` parentheticals (including `(mem. op.)`) cannot inherit italics from surrounding macros.【F:temp/texas-greenbook-15th-edition.csl†L143-L155】【F:temp/texas-greenbook-15th-toa.csl†L58-L63】【F:temp/texas-greenbook-15th-toa-grouped.csl†L99-L104】【F:temp/texas-greenbook-15th-toa-grouped-leaders.csl†L61-L66】【F:temp/texas-greenbook-15th-toa-leaders.csl†L58-L63】【F:temp/texas-greenbook-15th-toa-by-reporter.csl†L54-L59】
+- Executed `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt` to confirm memo opinion fixtures continue to match expectations; stored the log at `temp/test-logs/2025-03-17_memo-opinion.txt` for regression traceability.【F:temp/test-logs/2025-03-17_memo-opinion.txt†L1-L39】
+- Re-checked Chapter 4 Format Guide examples (p. 14 / PDF p. 32) to confirm the roman `(mem. op.)` parentheticals remain authoritative references for the CSL output.【F:temp/Greenbook_15thEdition.pdf†L294-L320】
+
 ### Chapter 5 – Commission of Appeals (pp. 28–30)
 - Differentiates the Commission aiding criminal appeals versus civil commissions, detailing how to cite judgments adopted, approved, or holding-approved with proper parenthetical descriptions (5.1–5.2).
 

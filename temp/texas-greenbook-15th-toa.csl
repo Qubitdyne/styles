@@ -56,8 +56,8 @@
     </choose>
   </macro>
   <macro name="weight-parentheticals">
-    <choose><if variable="genre"><text variable="genre" prefix=" (" suffix=")"/></if></choose>
-    <choose><if variable="medium"><text variable="medium" prefix=" (" suffix=")"/></if></choose>
+    <choose><if variable="genre"><text variable="genre" font-style="normal" prefix=" (" suffix=")"/></if></choose>
+    <choose><if variable="medium"><text variable="medium" font-style="normal" prefix=" (" suffix=")"/></if></choose>
   </macro>
 
   <macro name="toa-type-rank">
