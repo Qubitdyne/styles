@@ -436,11 +436,11 @@
     - [ ] Annotate typography rules (e.g., italicized case names vs. roman text) per example.
     - [ ] Record any conflicting guidance between text and examples for later clarification.
     - [ ] Store references to PDF page numbers and figure labels in `NOTES.md`.
-  - [ ] Review the current case macros to determine how memo opinion indicators are applied in both main and TOA outputs.
-    - [ ] Identify macro sections inserting memo opinion signals (e.g., “mem. op.”) and log their formatting.
-    - [ ] Compare note vs. TOA outputs to ensure consistent typography handling.
-    - [ ] Evaluate interactions with parenthetical helpers to anticipate cascading changes.
-    - [ ] Document current implementation limitations in `NOTES.md`.
+  - [x] Review the current case macros to determine how memo opinion indicators are applied in both main and TOA outputs.
+    - [x] Identify macro sections inserting memo opinion signals (e.g., “mem. op.”) and log their formatting.
+    - [x] Compare note vs. TOA outputs to ensure consistent typography handling.
+    - [x] Evaluate interactions with parenthetical helpers to anticipate cascading changes.
+    - [x] Document current implementation limitations in `NOTES.md`.
   - [ ] If adjustments are required, design the preferred formatting approach (e.g., new terms vs. styling attributes) and outline the implementation steps.
     - [ ] Draft alternative formatting strategies and assess compatibility with CSL capabilities.
     - [ ] Select the approach aligning best with Greenbook directives and repository conventions.
@@ -457,11 +457,12 @@
     - [ ] Ensure `NOTES.md` captures closure details and references to supporting tests.
     - [ ] Communicate updates to collaborators or maintainers via shared channels if relevant.
 - [ ] **Decide on shared locale packaging.** Draft the consolidated locale file for terms like “art.” and “ch.” and plan integration across all drafts per the standing assumption.
-  - [ ] Identify all non-default terms currently overridden in the main and TOA styles, listing them in `NOTES.md` along with their source citations.
-    - [ ] Scan CSL files for `<term>` overrides or localized string literals.
-    - [ ] Compile a table mapping each term to its use-case and associated Greenbook citation.
-    - [ ] Verify whether terms require pluralization or gender variants for locale coverage.
-    - [ ] Note duplicate or conflicting overrides needing consolidation.
+  - [x] Identify all non-default terms currently overridden in the main and TOA styles, listing them in `NOTES.md` along with their source citations.
+    - [x] Scan CSL files for `<term>` overrides or localized string literals.
+    - [x] Compile a table mapping each term to its use-case and associated Greenbook citation.
+    - [x] Verify whether terms require pluralization or gender variants for locale coverage.
+    - [x] Note duplicate or conflicting overrides needing consolidation.
+  - [ ] Confirm whether the standalone `and` override needs a dedicated Greenbook citation or can defer to the default locale; record the decision path in `NOTES.md`.
   - [ ] Determine whether existing CSL locales cover these terms or if a custom `locales-en-US-texas-greenbook.xml` (or similar) file is required.
     - [ ] Review stock CSL locale files to identify overlapping term definitions.
     - [ ] Assess compatibility of existing locales with Greenbook-specific abbreviations.
@@ -503,11 +504,11 @@
     - [ ] Draft new fixture requirements capturing supplemental authority nuances.
     - [ ] Add corresponding TODO items or Git issues with clear descriptions and prerequisites.
     - [ ] Communicate new tasks to collaborators to align workload.
-  - [ ] Document the status of supplemental reference acquisition so future contributors know where canonical sources reside.
-    - [ ] Create a summary section in `NOTES.md` listing storage locations and access instructions.
-    - [ ] Note any licensing or usage restrictions associated with the supplemental materials.
-    - [ ] Include backup strategies or mirror locations to prevent data loss.
-    - [ ] Provide contact information or links for requesting updated editions if applicable.
+  - [x] Document the status of supplemental reference acquisition so future contributors know where canonical sources reside.
+    - [x] Create a summary section in `NOTES.md` listing storage locations and access instructions.
+    - [x] Note any licensing or usage restrictions associated with the supplemental materials.
+    - [x] Include backup strategies or mirror locations to prevent data loss.
+    - [x] Provide contact information or links for requesting updated editions if applicable.
 
 ## Release Preparation
 - [ ] **Finalize submission checklist.** Once logic gaps close, run `run_tests.py` suites, refresh documentation, and prepare the PR narrative referencing key Greenbook sections.

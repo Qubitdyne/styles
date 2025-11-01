@@ -105,6 +105,32 @@ end bibliography
 | Books & secondary sources | `author`, `title`, `edition`, `publisher`, `issued`, `locator`, `collection-title` (series) | Author, *Title* `edition` (Publisher year) `at` page; essays include `in` editor, *Title* (publisher year) | Abbreviations for editions (`2d ed.`), editors (`ed.`), translators (`trans.`) | Short form uses author surname and pinpoint (`Smith, at 45`); parentheticals for update services; signals italicized | Footnotes include pinpoint; bibliography lists full publication details without pinpoint | Ch. 18, pp. 93–95 |
 | Conference & institute proceedings | `author`, `title`, `container-title`, `collection-title` (program), `issued`, `page`, `publisher` | Author, *Paper Title*, in *Program Title* page (State Bar of Tex. year) with session parenthetical if applicable | `State Bar of Tex.`, `CLE`, `Inst.` | Short form uses author and abbreviated program; parentheticals note session or panel; signals italicized | Footnotes detail sponsoring body; bibliography orders by author with program title retained | Ch. 19, p. 96 |
 
+## Locale Term Override Inventory (2025-03-27)
+| Term | Form | Styles | Greenbook usage | Notes |
+| --- | --- | --- | --- | --- |
+| section | symbol (`§`) | Edition + all TOA variants | `Tex. Const. art. III, § 5(a)` demonstrates the section sign in constitutional cites, and the session-law template repeats the symbol when pairing chapter and section numbers (ch. 9 at 39; ch. 10 at 50). | Ensures constitution, statute, and TAC macros all draw the same glyph once locale packaging is centralized. |
+| article | short (`art.`) | Edition + all TOA variants | The same constitutional example abbreviates “article” to “art.” immediately before the Roman numeral (ch. 9 at 39). | Captured now so the eventual shared locale can expose the Texas-specific abbreviation. |
+| chapter | short (`ch.`) | Edition + all TOA variants | Session-law guidance abbreviates “chapter” to “ch.” in the Act of May 30, 2005 illustration (ch. 10 at 50). | Keeps a single short form ready for both note and TOA contexts during locale consolidation. |
+| rule | short (`R.`) | Edition + all TOA variants | Rule citations print “Tex. R. Civ. P. 97(d)” without repeating the full word “Rule” (ch. 13 at 61). | Mirrors Appendix H abbreviations; marked here to feed the packaging task. |
+| paragraph | short (`¶`) | Edition only | Slip-opinion instructions require “slip op. ¶ 2” when pagination is absent (ch. 3 at 30). | Only the note style emits paragraph pinpoints today; evaluate TOA demand when unpublished decisions join the table workflow. |
+| ibid | — (`Id.`) | Edition only | Ch. 9.1.1 allows constitutional short forms to use “id.” when appropriate (ch. 9 at 39), matching citeproc’s ibid behavior. | Confirms that the standard `ibid` term can stay mapped to “Id.” for repeated statutes and constitutions. |
+| and | — (`and`) | Edition only | Chapter 1’s typography discussion spells out “LARGE AND SMALL CAPITALS,” reinforcing the manual’s preference for written conjunctions over ampersands in rule text (ch. 1 at 3). | No Texas-specific alternative surfaced; override retained and flagged for later verification when the shared locale is assembled. |
+
+## Memo Opinion Indicator Audit (2025-03-27)
+- `texas-greenbook-15th-edition.csl` routes every case through `case-parenthetical-stack`, which simply echoes `genre` and `medium` via `weight-parentheticals` with no conditional gating (ll. 144–158). Memorandum, per curiam, and rehearing parentheticals therefore appear only when translators populate `genre`/`medium`.
+- The TOA family (`texas-greenbook-15th-toa*.csl`) defines the same helper as two single-node `choose` blocks that emit `genre`/`medium` for each case entry (e.g., `texas-greenbook-15th-toa.csl` ll. 58–112). Tables omit the explanatory-parenthetical macro, so memo markers display once in the case block and nowhere else.
+- No macros promote `status` to memo terminology; `procedural-parenthetical` is limited to `status`/`note` combinations for things like “orig. proceeding.” This inventory confirms memo handling is entirely data-driven today and documents the gap for future conditional helpers or locale terms.
+
+## Supplemental Reference Status (2025-03-27)
+- **Uniform-Format-Manual-07012010.pdf** — 30-page, text-searchable PDF covering reporter formatting; stored in `temp/` and requires no OCR.
+- **How-Court-Rules-Are-Made.pdf** — 10-page, searchable PDF summarizing rulemaking procedures, ready for citation provenance without preprocessing.
+- **technology-standards.pdf** — 35-page Judicial Committee on Information Technology standards document; text extraction succeeds, so administrative macro work can quote directly.
+- **texas-rules-of-appellate-procedure.pdf**, **texas-rules-of-civil-procedure-august-31-2025.pdf**, **texas-rules-of-evidence-effective-912025.pdf** — official rule compilations (146, 351, and 62 pages). Each parsed cleanly with `PyPDF2`, confirming metadata can be mined for pinpoint cites.
+- **texas-court-rules-history-process.html** — archived HTML summary of the rulemaking timeline; keep alongside the PDFs as the canonical non-PDF supplement.
+- All supplemental references under `temp/` are now inventoried as searchable, so no additional OCR passes are required before expanding locale or macro coverage.
+- Each file originates from publicly available judiciary resources; no special licensing restrictions noted beyond standard attribution expectations.
+- Backups live in-repo under `temp/`; refresh from https://www.txcourts.gov/rules-forms/rules-standards/ when official updates publish.
+
 ## Chapter Highlights
 ### Chapter 1 – Briefs and Legal Memoranda (pp. 3–5)
 - Distinguishes roman and italic typefaces for pleadings, allowing large and small capitals for emphasis consistent with recent Bluebook updates (1.0, 1.5).
