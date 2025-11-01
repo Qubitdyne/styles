@@ -397,7 +397,7 @@ ion of the conflicting behavior.
       - [ ] Source realistic case names and docket details from the Greenbook or other authoritative references.
       - [ ] Populate JSON entries with both typical and edge-case data (e.g., consolidated cases, per curiam opinions).
       - [ ] Document each entry's intent and coverage area in `NOTES.md` or inline comments.
-      - [ ] Add a memorandum opinion example that includes the Chapter 4 `(not designated for publication)` parenthetical (PDF p. 17) so weight-parenthetical logic captures that variant.
+      - [x] Add a memorandum opinion example that includes the Chapter 4 `(not designated for publication)` parenthetical (PDF p. 17) so weight-parenthetical logic captures that variant.
     - [ ] Ensure each fixture tests both note and bibliography contexts where applicable.
       - [ ] Duplicate scenarios across note and bibliography outputs if behavior should align.
       - [ ] Validate that citeproc renders both contexts without error messages or missing data.
@@ -455,11 +455,11 @@ ion of the conflicting behavior.
       - [x] Include screenshots or text snippets where helpful to illustrate context.
       - [x] Note cross-cutting themes (e.g., session law parentheticals sharing similar structure).
       - [x] Track outstanding questions or assumptions per category for follow-up.
-    - [ ] Identify opportunities to consolidate similar strings before drafting helpers.
-      - [ ] Suggest candidate helper names and describe their intended responsibilities.
-      - [ ] Validate that consolidation will not break existing fixtures or edge cases.
-      - [ ] Estimate time required for consolidation work to inform scheduling.
-      - [ ] Capture risk assessments (e.g., potential regressions) in `NOTES.md`.
+    - [x] Identify opportunities to consolidate similar strings before drafting helpers.
+      - [x] Suggest candidate helper names and describe their intended responsibilities.
+      - [x] Validate that consolidation will not break existing fixtures or edge cases.
+      - [x] Estimate time required for consolidation work to inform scheduling.
+      - [x] Capture risk assessments (e.g., potential regressions) in `NOTES.md`.
   - [ ] Extract common terminology requirements from Chapters 10–13 and Appendix A of the Greenbook, logging authoritative abbreviations in `NOTES.md`.
     - [ ] Read the specified chapters focusing on publication parentheticals and session law terminology.
       - [ ] Take detailed notes on required abbreviations, including variations by jurisdiction or publication year.
@@ -593,7 +593,7 @@ ion of the conflicting behavior.
     - [x] Catalog discrepancies by type (quotation marks, italics, commas) for targeted fixes.
     - [x] Prioritize discrepancies affecting authoritative compliance before cosmetic issues.
   - [ ] Implement web citation punctuation adjustments in CSL macros and locale terms.
-    - [ ] Draft a change plan noting which macros (`web`, `web-short`, access-date helpers) need updates and the expected output transformations.
+    - [x] Draft a change plan noting which macros (`web`, `web-short`, access-date helpers) need updates and the expected output transformations.
       - [ ] Inventory the specific punctuation issues identified during analysis and map them to the macros responsible.
       - [ ] Outline proposed modifications (e.g., new `if` conditions, locale term updates) in a short design note stored in `NOTES.md`.
       - [ ] Circulate or self-review the plan to ensure it covers both note and bibliography contexts before editing XML.
