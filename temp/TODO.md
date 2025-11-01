@@ -4,8 +4,8 @@
 - [x] **Familiarized with source material.** Cataloged rule coverage, appendices, and page citations from the Greenbook PDF and logged them in `NOTES.md` for traceability.
 - [x] **Surveyed existing CSL styles.** Reviewed Bluebook-derived and legal-dependent templates, noting reusable macros and locale patterns in `NOTES.md`.
 - [x] **Defined citation requirements.** Produced the citation requirement matrix with mandatory variables, abbreviations, and Greenbook page references.
-- [x] **Designed style architecture.** Established Draft 3 macro routing for citation and bibliography layouts, including Table of Authorities variants.
-- [x] **Drafted primary CSL files.** Authored `texas-greenbook-15th-draft0` through `draft3` along with TOA counterparts covering primary authorities.
+- [x] **Designed style architecture.** Established the macro routing now preserved in `texas-greenbook-15th-edition.csl` and its Table of Authorities variants.
+- [x] **Drafted primary CSL files.** Authored legacy drafts (`draft0`–`draft3`, now archived) along with TOA counterparts covering primary authorities.
 - [x] **Implemented secondary source rules.** Completed book-, journal-, CLE-, and web-specific macros shared between citation and bibliography outputs.
 - [x] **Created regression fixtures.** Added `tests.json`, `tests_toa.json`, and matching `expected*.txt` files for authorities and TOA scenarios.
 - [x] **Prepared working documentation.** Wrote the `README.md` overview, expanded research `NOTES.md`, and tracked assumptions and deviations.
@@ -13,7 +13,7 @@
 ## Active Development
 ### Citation Logic Gaps
 - [ ] **Complete statute and rule short-form logic.** Implement cross-reference and `Id.` handling for statutes, rules, and administrative materials, then update `expected.txt` fixtures. (See `README.md` Known Limitations and `NOTES.md` helper sketches.)
-- [ ] **Finish explanatory parentheticals.** Add shared helpers for slip-opinion pinpoints, procedural parentheticals, and docket metadata so case and mandamus citations emit relief/status consistently before finalizing Draft 4.
+- [ ] **Finish explanatory parentheticals.** Add shared helpers for slip-opinion pinpoints, procedural parentheticals, and docket metadata so case and mandamus citations emit relief/status consistently before promoting the next edition revision.
 - [ ] **Build shared publication/status helpers.** Create reusable macros for statutory publication parentheticals, session-law metadata, and administrative status notes to reduce duplication across code, rule, and agency citations.
 
 ### Testing & Coverage
