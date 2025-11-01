@@ -420,18 +420,18 @@ ion of the conflicting behavior.
     - [ ] Share insights on testing gaps to inform future fixture expansions.
     - [ ] Update the task checklist status reflecting completed and pending actions.
 - [ ] **Broaden web citation verification.** Confirm punctuation and quotation usage for Chapter 16 web examples after OCR cleanup and add targeted fixture cases.
-  - [ ] Complete OCR cleanup for the Chapter 16 examples in the Greenbook PDF and extract verbatim sample citations into `NOTES.md` with page references.
-    - [ ] Run OCR tools (e.g., `ocrmypdf`) on the relevant PDF pages if not already processed.
-    - [ ] Manually proofread OCR output to correct typographical errors.
-    - [ ] Capture clean citation examples in `NOTES.md`, including context (e.g., government site, blog).
-    - [ ] Archive cleaned text snippets or references for future validation rounds.
-  - [ ] Compare existing web citation macros against the extracted examples to identify punctuation or quotation discrepancies.
-    - [ ] Trace macros generating web citations and annotate punctuation rules in `NOTES.md`.
-    - [ ] Perform side-by-side comparisons between citeproc output and extracted examples for each scenario.
-    - [ ] Catalog discrepancies by type (quotation marks, italics, commas) for targeted fixes.
-    - [ ] Prioritize discrepancies affecting authoritative compliance before cosmetic issues.
+  - [x] Complete OCR cleanup for the Chapter 16 examples in the Greenbook PDF and extract verbatim sample citations into `NOTES.md` with page references.
+    - [x] Run OCR tools (e.g., `ocrmypdf`) on the relevant PDF pages if not already processed.
+    - [x] Manually proofread OCR output to correct typographical errors.
+    - [x] Capture clean citation examples in `NOTES.md`, including context (e.g., government site, blog).
+    - [x] Archive cleaned text snippets or references for future validation rounds.
+  - [x] Compare existing web citation macros against the extracted examples to identify punctuation or quotation discrepancies.
+    - [x] Trace macros generating web citations and annotate punctuation rules in `NOTES.md`.
+    - [x] Perform side-by-side comparisons between citeproc output and extracted examples for each scenario.
+    - [x] Catalog discrepancies by type (quotation marks, italics, commas) for targeted fixes.
+    - [x] Prioritize discrepancies affecting authoritative compliance before cosmetic issues.
   - [ ] Create new fixture entries in `tests.json` that capture the nuanced web citation formats (e.g., with publication dates, access dates, and quoted titles).
-    - [ ] Enumerate required metadata fields for each format variant (e.g., missing author, corporate author).
+    - [x] Enumerate required metadata fields for each format variant (e.g., missing author, corporate author).
     - [ ] Encode fixtures ensuring JSON validity and alignment with citeproc expectations.
     - [ ] Include commentary or IDs linking each fixture back to the source citation in `NOTES.md`.
     - [ ] Validate fixture coverage by simulating citeproc runs prior to updating expected outputs.
