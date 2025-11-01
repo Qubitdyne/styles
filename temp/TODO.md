@@ -1,5 +1,11 @@
 # Texas Greenbook 15th Edition CSL Development TODO
 
+## Legend & Status Conventions
+- [x] Completed item.
+- [ ] Outstanding item awaiting work.
+- Nested checklists enumerate the full subtask inventory required to complete each parent entry, so clearing a parent task requ
+ires checking off every indented child.
+
 ## Completed Work
 - [x] **Familiarized with source material.** Cataloged rule coverage, appendices, and page citations from the Greenbook PDF and logged them in `NOTES.md` for traceability.
   - [x] Read the entire Greenbook PDF, bookmarking chapters with unresolved CSL implications for later reference.
@@ -51,6 +57,12 @@
       - [x] Open `texas-greenbook-15th-edition.csl` and TOA counterparts in a CSL-aware editor to confirm the matches and capture surrounding context. (Verified short-form coverage for cases/secondary materials and documented absence in TOA variants.)
       - [x] Copy the macro names and file locations into `NOTES.md`, grouping them by authority type for easy reference. (Inventory logged under “Short-form macro inventory (2025-11-02)”.)
       - [ ] Flag any macros with ambiguous naming or duplicate purposes for follow-up clarification tasks.
+        - [ ] Review each inventoried macro name against its implementation to confirm the intended scope and avoid overlaps.
+        - [ ] Document ambiguous or duplicated macros in `NOTES.md`, including file names, line ranges, and a concise descript
+ion of the conflicting behavior.
+        - [ ] Draft proposed resolutions (rename, consolidate, or split) and record the rationale alongside related requirement
+ matrix entries.
+        - [ ] Create follow-up TODO entries or GitHub issues for any macros that require broader refactors or reviewer input.
     - [ ] Diagram current conditional logic and data dependencies for each macro in `NOTES.md` to identify overlapping pathways.
       - [ ] For every macro captured, sketch the `if/else` and `choose` structures, noting required variables and fallback behavior.
       - [ ] Highlight reuse of helper macros or localized terms to map dependency chains accurately.
