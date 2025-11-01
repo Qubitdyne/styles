@@ -83,51 +83,51 @@ ion of the conflicting behavior.
     - [x] Add undated treatise and CLE fixtures to `tests.json` once the year-fallback helper lands, ensuring the guard logic is regression-tested.
       - [x] Implement the `short-pinpoint-year` helper for short-form macros so missing years no longer leave trailing delimiters.
   - [ ] Implement short-form macros for statutes, rules, and administrative materials in the main style.
-    - [ ] Create dedicated macros (e.g., `tex-statute-short`, `tex-rule-short`, `tex-administrative-short`) that mirror the long-form structure while applying the short-form requirements documented in `NOTES.md`.
+    - [x] Create dedicated macros (e.g., `tex-statute-short`, `tex-rule-short`, `tex-administrative-short`) that mirror the long-form structure while applying the short-form requirements documented in `NOTES.md`.
       - [x] Review the existing long-form macros to list the elements that must persist in short form and highlight pieces to omit.
       - [x] Draft pseudo-code for each short-form macro, mapping inputs to outputs alongside the corresponding Greenbook citations.
       - [x] Implement macro shells in the CSL file, copying structural boilerplate (comments, indentation) from comparable case short forms.
       - [x] Run citeproc on a minimal JSON dataset to confirm each macro compiles before layering conditional logic.
       - [x] Annotate the new macro definitions with inline comments referencing the requirement matrix row or `NOTES.md` anchor for quick audits.
-    - [ ] Add `choose` blocks to differentiate between first-reference short cites, cross-references, and `Id.` scenarios, ensuring jurisdictional fallbacks work for both Texas and non-Texas authorities.
+    - [x] Add `choose` blocks to differentiate between first-reference short cites, cross-references, and `Id.` scenarios, ensuring jurisdictional fallbacks work for both Texas and non-Texas authorities.
       - [x] Enumerate the triggering conditions for each branch (first short cite, cross-reference, `Id.`) and link them to metadata fields (e.g., `first-reference-note-number`, `ibid`).
-      - [ ] Encode the branching logic within the macros, double-checking that `jurisdiction` and `authority` comparisons align with existing helper conventions.
-      - [ ] Test each branch using targeted JSON fixtures that force the macro into the intended path.
-      - [ ] Verify punctuation and spacing for every branch against the PDF examples, adjusting delimiters or affixes as needed.
-      - [ ] Document unresolved edge cases (e.g., missing sections, unusual jurisdiction abbreviations) in `NOTES.md` for future refinement.
-    - [ ] Integrate the new macros into existing routing (e.g., `legal-reference-note`, `statute-reference`) without regressing current case or secondary short-form behavior.
-      - [ ] Identify all invocation points for statute, rule, and administrative authorities and replace placeholder calls with the new short-form macros.
-      - [ ] Ensure helper macros supplying shared strings (e.g., `code-section-string`) are reused instead of duplicating literal text.
-      - [ ] Run the full note test suite after each integration pass to catch regressions early.
-      - [ ] Compare outputs with pre-change expectations, noting intentional differences tied to the short-form rollout.
-      - [ ] Stage incremental commits or stash checkpoints so regressions can be isolated if encountered.
-    - [ ] Capture interim outputs and logic decisions in `NOTES.md`, citing relevant Greenbook pages for each branch.
-      - [ ] Log the rationale for each conditional structure, including page citations and paraphrased rule text.
-      - [ ] Save representative citeproc outputs (before and after adjustments) in `temp/test-logs/` and cross-reference them from the notes.
-      - [ ] Summarize gaps discovered during implementation and flag them as follow-up TODO items if they fall outside the current scope.
-      - [ ] Record open questions that require legal review, tagging them with owners or target review dates if applicable.
-      - [ ] Update the citation requirement matrix to reflect any additional metadata dependencies uncovered during coding.
-  - [ ] Mirror the short-form implementation into TOA variants and shared helpers.
-    - [ ] Add corresponding macros or conditional blocks to each `texas-greenbook-15th-toa*.csl` file, maintaining consistent terminology with the main style.
-      - [ ] Copy the finalized short-form macro structure into each TOA file, renaming identifiers only when necessary for style isolation.
-      - [ ] Align TOA macro ordering with the note style to simplify future diffs and reviews.
-      - [ ] Confirm that TOA variants call the same helper macros as the primary style rather than duplicating logic inline.
-      - [ ] Record any TOA-only deviations (e.g., omission of italics) directly in the file comments for reviewer context.
-    - [ ] Verify that TOA grouping and dotted leader alignment remain intact after introducing short-form routing.
-      - [ ] Run TOA-specific citeproc tests for each variant and inspect the generated leaders for spacing shifts.
-      - [ ] Compare outputs to baseline `expected_toa*.txt` files to ensure categories remain in the correct order.
-      - [ ] Adjust macro placements if the new short-form calls interfere with leader generation or indentation.
-      - [ ] Capture before/after screenshots or text snippets in `temp/test-logs/` to document the alignment check.
-    - [ ] Update any shared helper macros so TOA and note styles reuse the same short-form formatting strings.
-      - [ ] Review helper definitions (e.g., `short-form-body`, `code-section-string`) to confirm they accept both note and TOA contexts.
-      - [ ] Add parameters or conditional switches when TOA output needs alternate punctuation.
-      - [ ] Re-run both note and TOA tests after helper modifications to ensure compatibility.
-      - [ ] Summarize helper updates in `NOTES.md`, noting any new dependencies or assumptions introduced.
-    - [ ] Document TOA-specific adjustments (e.g., leader punctuation) in `NOTES.md` with citations to Appendix B requirements.
-      - [ ] Link each documented adjustment to the relevant Appendix B page number and style file line range.
-      - [ ] Highlight any deviations from Appendix examples and justify the CSL implementation choices.
-      - [ ] Flag open questions about TOA formatting (if any) for later review in the Release Preparation phase.
-      - [ ] Update the TOA section of the requirement matrix to reflect the finalized short-form behavior.
+      - [x] Encode the branching logic within the macros, double-checking that `jurisdiction` and `authority` comparisons align with existing helper conventions.
+      - [x] Test each branch using targeted JSON fixtures that force the macro into the intended path.
+      - [x] Verify punctuation and spacing for every branch against the PDF examples, adjusting delimiters or affixes as needed.
+      - [x] Document unresolved edge cases (e.g., missing sections, unusual jurisdiction abbreviations) in `NOTES.md` for future refinement.
+    - [x] Integrate the new macros into existing routing (e.g., `legal-reference-note`, `statute-reference`) without regressing current case or secondary short-form behavior.
+      - [x] Identify all invocation points for statute, rule, and administrative authorities and replace placeholder calls with the new short-form macros.
+      - [x] Ensure helper macros supplying shared strings (e.g., `code-section-string`) are reused instead of duplicating literal text.
+      - [x] Run the full note test suite after each integration pass to catch regressions early.
+      - [x] Compare outputs with pre-change expectations, noting intentional differences tied to the short-form rollout.
+      - [x] Stage incremental commits or stash checkpoints so regressions can be isolated if encountered.
+    - [x] Capture interim outputs and logic decisions in `NOTES.md`, citing relevant Greenbook pages for each branch.
+      - [x] Log the rationale for each conditional structure, including page citations and paraphrased rule text.
+      - [x] Save representative citeproc outputs (before and after adjustments) in `temp/test-logs/` and cross-reference them from the notes.
+      - [x] Summarize gaps discovered during implementation and flag them as follow-up TODO items if they fall outside the current scope.
+      - [x] Record open questions that require legal review, tagging them with owners or target review dates if applicable.
+      - [x] Update the citation requirement matrix to reflect any additional metadata dependencies uncovered during coding.
+  - [x] Mirror the short-form implementation into TOA variants and shared helpers.
+    - [x] Add corresponding macros or conditional blocks to each `texas-greenbook-15th-toa*.csl` file, maintaining consistent terminology with the main style.
+      - [x] Copy the finalized short-form macro structure into each TOA file, renaming identifiers only when necessary for style isolation.
+      - [x] Align TOA macro ordering with the note style to simplify future diffs and reviews.
+      - [x] Confirm that TOA variants call the same helper macros as the primary style rather than duplicating logic inline.
+      - [x] Record any TOA-only deviations (e.g., omission of italics) directly in the file comments for reviewer context.
+    - [x] Verify that TOA grouping and dotted leader alignment remain intact after introducing short-form routing.
+      - [x] Run TOA-specific citeproc tests for each variant and inspect the generated leaders for spacing shifts.
+      - [x] Compare outputs to baseline `expected_toa*.txt` files to ensure categories remain in the correct order.
+      - [x] Adjust macro placements if the new short-form calls interfere with leader generation or indentation.
+      - [x] Capture before/after screenshots or text snippets in `temp/test-logs/` to document the alignment check.
+    - [x] Update any shared helper macros so TOA and note styles reuse the same short-form formatting strings.
+      - [x] Review helper definitions (e.g., `short-form-body`, `code-section-string`) to confirm they accept both note and TOA contexts.
+      - [x] Add parameters or conditional switches when TOA output needs alternate punctuation.
+      - [x] Re-run both note and TOA tests after helper modifications to ensure compatibility.
+      - [x] Summarize helper updates in `NOTES.md`, noting any new dependencies or assumptions introduced.
+    - [x] Document TOA-specific adjustments (e.g., leader punctuation) in `NOTES.md` with citations to Appendix B requirements.
+      - [x] Link each documented adjustment to the relevant Appendix B page number and style file line range.
+      - [x] Highlight any deviations from Appendix examples and justify the CSL implementation choices.
+      - [x] Flag open questions about TOA formatting (if any) for later review in the Release Preparation phase.
+      - [x] Update the TOA section of the requirement matrix to reflect the finalized short-form behavior.
   - [ ] Extend cross-reference cue logic for statutes, rules, and agencies.
     - [ ] Update the `cross-reference-cue` macro so that blank `note` fields trigger “See also” outputs for non-Texas authorities while preserving existing case handling.
       - [ ] Trace current `cross-reference-cue` execution paths to confirm where the note value is evaluated.
@@ -152,22 +152,22 @@ ion of the conflicting behavior.
       - [x] Reference the specific CSL line numbers where ambiguity remains to expedite future debugging.
       - [x] Update the TODO backlog with newly identified follow-up tasks to keep planning aligned.
       - [ ] **Follow-up:** Investigate citeproc jurisdiction filtering. Confirm whether upgrading citeproc-py or introducing a pre-processing hook can restore `jurisdiction` condition support for `cross-reference-cue`, then re-run the Texas vs. non-Texas fixtures to verify “See also” output.
-  - [ ] Update fixtures and expectations to exercise the new short-form logic.
-    - [ ] Add representative statute, rule, and administrative authorities to `tests.json` and `tests_toa.json`, including scenarios with and without available years.
-      - [ ] Gather example citations from the Greenbook and supplemental manuals to ensure realistic metadata coverage.
-      - [ ] Populate JSON entries with explicit notes on which macro branch they are intended to exercise (cross-reference, `Id.`, non-Texas).
-      - [ ] Validate each new entry with `python temp/run_tests.py --list-tests` to confirm schema compliance before committing.
-      - [ ] Track additions in a change log table within `NOTES.md`, linking each fixture to a PDF page reference.
-    - [ ] Regenerate `expected.txt`, `expected_secondary.txt`, and TOA counterparts using `run_tests.py --write-expected`, reviewing diffs for alignment with the Greenbook examples.
-      - [ ] Run the write-expected command separately for note and TOA suites to isolate any anomalies.
-      - [ ] Review generated diffs line-by-line, annotating intentional changes vs. unexpected variations.
-      - [ ] Re-run citeproc after addressing anomalies to confirm stable expectations.
-      - [ ] Record the command invocations and timestamps in `temp/test-logs/` for reproducibility.
-    - [ ] Store citeproc command outputs in `temp/test-logs/` to document verification.
-      - [ ] Save raw command output files using descriptive filenames (e.g., `2025-11-20-short-form-write-expected.txt`).
-      - [ ] Include summary headers in each log noting the related TODO item and data set exercised.
-      - [ ] Cross-reference the log filenames within `NOTES.md` so reviewers can locate them quickly.
-      - [ ] Periodically prune superseded logs to prevent confusion, archiving critical milestones as needed.
+  - [x] Update fixtures and expectations to exercise the new short-form logic.
+    - [x] Add representative statute, rule, and administrative authorities to `tests.json` and `tests_toa.json`, including scenarios with and without available years.
+      - [x] Gather example citations from the Greenbook and supplemental manuals to ensure realistic metadata coverage.
+      - [x] Populate JSON entries with explicit notes on which macro branch they are intended to exercise (cross-reference, `Id.`, non-Texas).
+      - [x] Validate each new entry with `python temp/run_tests.py --list-tests` to confirm schema compliance before committing.
+      - [x] Track additions in a change log table within `NOTES.md`, linking each fixture to a PDF page reference.
+    - [x] Regenerate `expected.txt`, `expected_secondary.txt`, and TOA counterparts using `run_tests.py --write-expected`, reviewing diffs for alignment with the Greenbook examples.
+      - [x] Run the write-expected command separately for note and TOA suites to isolate any anomalies.
+      - [x] Review generated diffs line-by-line, annotating intentional changes vs. unexpected variations.
+      - [x] Re-run citeproc after addressing anomalies to confirm stable expectations.
+      - [x] Record the command invocations and timestamps in `temp/test-logs/` for reproducibility.
+    - [x] Store citeproc command outputs in `temp/test-logs/` to document verification.
+      - [x] Save raw command output files using descriptive filenames (e.g., `2025-11-20-short-form-write-expected.txt`).
+      - [x] Include summary headers in each log noting the related TODO item and data set exercised.
+      - [x] Cross-reference the log filenames within `NOTES.md` so reviewers can locate them quickly.
+      - [x] Periodically prune superseded logs to prevent confusion, archiving critical milestones as needed.
     - [ ] Note fixture provenance and rule citations in `NOTES.md` to keep the regression inventory auditable.
       - [ ] Update the fixture matrix with new entries, capturing authority type, purpose, and Greenbook citation.
       - [ ] Highlight any fixtures that rely on assumptions or inferred data, noting the justification.

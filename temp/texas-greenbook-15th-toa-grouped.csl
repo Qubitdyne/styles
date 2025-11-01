@@ -109,6 +109,24 @@
       </else>
     </choose>
   </macro>
+
+  <macro name="cross-reference-cue">
+    <choose>
+      <if variable="annote" match="none">
+        <choose>
+          <if variable="jurisdiction">
+            <text value="See also"/>
+          </if>
+          <else>
+            <text value="See"/>
+          </else>
+        </choose>
+      </if>
+      <else>
+        <text variable="annote"/>
+      </else>
+    </choose>
+  </macro>
   <macro name="parenthetical-procedural-note">
     <choose>
       <if variable="note references" match="all">
@@ -187,14 +205,24 @@
   </macro>
 
   <!-- Statutes / Constitution / TAC / Session law / Rules / Municipal / AG -->
-  <macro name="statute-code">
+  <macro name="tex-code-section">
     <group delimiter=" ">
       <text variable="container-title"/>
       <choose>
         <if variable="chapter-number">
           <group delimiter=" ">
             <text variable="chapter-number"/>
-            <text variable="section"/>
+            <choose>
+              <if type="regulation">
+                <group delimiter=" ">
+                  <text term="section" form="symbol"/>
+                  <text variable="section"/>
+                </group>
+              </if>
+              <else>
+                <text variable="section"/>
+              </else>
+            </choose>
           </group>
         </if>
         <else-if variable="genre" match="any">
@@ -207,6 +235,177 @@
           </group>
         </else>
       </choose>
+    </group>
+  </macro>
+
+  <macro name="tex-code-section-short">
+    <group delimiter=" ">
+      <choose>
+        <if variable="container-title-short">
+          <text variable="container-title-short"/>
+        </if>
+        <else>
+          <text variable="container-title"/>
+        </else>
+      </choose>
+      <choose>
+        <if variable="chapter-number">
+          <group delimiter=" ">
+            <text variable="chapter-number"/>
+            <choose>
+              <if variable="locator">
+                <text macro="tex-labeled-locator"/>
+              </if>
+              <else-if type="regulation">
+                <group delimiter=" ">
+                  <text term="section" form="symbol"/>
+                  <text variable="section"/>
+                </group>
+              </else-if>
+              <else>
+                <text variable="section"/>
+              </else>
+            </choose>
+          </group>
+        </if>
+        <else-if variable="genre" match="any">
+          <choose>
+            <if variable="locator">
+              <text macro="tex-labeled-locator"/>
+            </if>
+            <else>
+              <text variable="section"/>
+            </else>
+          </choose>
+        </else-if>
+        <else>
+          <choose>
+            <if variable="locator">
+              <text macro="tex-labeled-locator"/>
+            </if>
+            <else>
+              <group delimiter=" ">
+                <label variable="section" form="symbol"/>
+                <text variable="section"/>
+              </group>
+            </else>
+          </choose>
+        </else>
+      </choose>
+    </group>
+  </macro>
+
+  <!-- TOA: bibliography runs lack note numbers, so guard on first-reference-note-number
+       to keep first-cite routing in place without disrupting note-mode short forms. -->
+  <macro name="tex-statute">
+    <choose>
+      <if variable="first-reference-note-number" match="none">
+        <text macro="tex-statute-first"/>
+      </if>
+      <else-if position="first">
+        <text macro="tex-statute-first"/>
+      </else-if>
+      <else-if variable="references">
+        <text macro="tex-statute-cross-reference"/>
+      </else-if>
+      <else>
+        <text macro="tex-statute-short"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="tex-statute-first">
+    <group delimiter=" ">
+      <text macro="tex-code-section"/>
+      <choose>
+        <if variable="note">
+          <choose>
+            <if variable="genre">
+              <text/>
+            </if>
+            <else>
+              <text variable="note" prefix="(" suffix=")"/>
+            </else>
+          </choose>
+        </if>
+      </choose>
+    </group>
+  </macro>
+
+  <macro name="tex-statute-short">
+    <group delimiter=" ">
+      <text macro="tex-code-section-short"/>
+      <choose>
+        <if variable="note">
+          <choose>
+            <if variable="genre">
+              <text/>
+            </if>
+            <else>
+              <text variable="note" prefix="(" suffix=")"/>
+            </else>
+          </choose>
+        </if>
+      </choose>
+    </group>
+  </macro>
+
+  <macro name="tex-statute-cross-reference">
+    <group delimiter=" ">
+      <text macro="cross-reference-cue"/>
+      <group delimiter=", ">
+        <group delimiter=" ">
+          <text macro="tex-code-section-short"/>
+          <choose>
+            <if variable="note">
+              <choose>
+                <if variable="genre">
+                  <text/>
+                </if>
+                <else>
+                  <text variable="note" prefix="(" suffix=")"/>
+                </else>
+              </choose>
+            </if>
+          </choose>
+        </group>
+        <text variable="references"/>
+      </group>
+    </group>
+  </macro>
+
+  <macro name="tex-rule">
+    <choose>
+      <if variable="first-reference-note-number" match="none">
+        <text macro="tex-rule-first"/>
+      </if>
+      <else-if position="first">
+        <text macro="tex-rule-first"/>
+      </else-if>
+      <else-if variable="references">
+        <text macro="tex-rule-cross-reference"/>
+      </else-if>
+      <else>
+        <text macro="tex-rule-short"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="tex-rule-first">
+    <text macro="tex-code-section"/>
+  </macro>
+
+  <macro name="tex-rule-short">
+    <text macro="tex-code-section-short"/>
+  </macro>
+
+  <macro name="tex-rule-cross-reference">
+    <group delimiter=" ">
+      <text macro="cross-reference-cue"/>
+      <group delimiter=", ">
+        <text macro="tex-code-section-short"/>
+        <text variable="references"/>
+      </group>
     </group>
   </macro>
   <macro name="constitution-core">
@@ -268,15 +467,68 @@
       </else>
     </choose>
   </macro>
-  <macro name="tac-core">
+  <macro name="tex-admin-code">
+    <choose>
+      <if variable="first-reference-note-number" match="none">
+        <text macro="tex-admin-code-first"/>
+      </if>
+      <else-if position="first">
+        <text macro="tex-admin-code-first"/>
+      </else-if>
+      <else-if variable="references">
+        <text macro="tex-admin-code-cross-reference"/>
+      </else-if>
+      <else>
+        <text macro="tex-admin-code-short"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="tex-admin-code-first">
     <text macro="tex-admin-core"/>
-    <date variable="issued" prefix=" (" suffix=")"><date-part name="year"/></date>
+    <date variable="issued" prefix=" (" suffix=")">
+      <date-part name="year"/>
+    </date>
     <choose>
       <if variable="note">
         <text variable="note" prefix=" (" suffix=")"/>
       </if>
     </choose>
     <text variable="authority" prefix=" (" suffix=")"/>
+  </macro>
+
+  <macro name="tex-admin-code-short-base">
+    <text macro="tex-admin-core"/>
+  </macro>
+
+  <macro name="tex-admin-code-short-string">
+    <group delimiter=" ">
+      <text macro="tex-admin-code-short-base"/>
+      <choose>
+        <if variable="note">
+          <text variable="note" prefix="(" suffix=")"/>
+        </if>
+      </choose>
+      <choose>
+        <if variable="authority">
+          <text variable="authority" prefix="(" suffix=")"/>
+        </if>
+      </choose>
+    </group>
+  </macro>
+
+  <macro name="tex-admin-code-short">
+    <text macro="tex-admin-code-short-string"/>
+  </macro>
+
+  <macro name="tex-admin-code-cross-reference">
+    <group delimiter=" ">
+      <text macro="cross-reference-cue"/>
+      <group delimiter=", ">
+        <text macro="tex-admin-code-short-string"/>
+        <text variable="references"/>
+      </group>
+    </group>
   </macro>
 
   <macro name="book-entry">
@@ -294,7 +546,6 @@
       </date>
     </group>
   </macro>
-  <macro name="rule-core"><group delimiter=" "><text variable="container-title"/><text variable="section"/></group></macro>
   <macro name="municipal-code">
     <group delimiter=", ">
       <text variable="authority"/>
@@ -314,16 +565,17 @@
         <if type="legal_case"><text macro="legal-case"/></if>
         <else-if type="regulation">
           <choose>
-            <if variable="volume"><text macro="tac-core"/></if>
+            <if variable="volume"><text macro="tex-admin-code"/></if>
             <else-if variable="authority chapter-number" match="all"><text macro="municipal-code"/></else-if>
-            <else><text macro="rule-core"/></else>
+            <else><text macro="tex-rule"/></else>
           </choose>
         </else-if>
         <else-if type="legislation">
           <choose>
             <if variable="title"><text macro="session-law"/></if>
             <else-if variable="chapter-number"><text macro="constitution-core"/></else-if>
-            <else><text macro="statute-code"/></else>
+            <else-if variable="genre" match="any"><text macro="tex-rule"/></else-if>
+            <else><text macro="tex-statute"/></else>
           </choose>
         </else-if>
         <else-if type="report"><text macro="ag-opinion"/></else-if>
@@ -348,16 +600,17 @@
         <if type="legal_case"><text macro="legal-case"/></if>
         <else-if type="regulation">
           <choose>
-            <if variable="volume"><text macro="tac-core"/></if>
+            <if variable="volume"><text macro="tex-admin-code"/></if>
             <else-if variable="authority chapter-number" match="all"><text macro="municipal-code"/></else-if>
-            <else><text macro="rule-core"/></else>
+            <else><text macro="tex-rule"/></else>
           </choose>
         </else-if>
         <else-if type="legislation">
           <choose>
             <if variable="title"><text macro="session-law"/></if>
             <else-if variable="chapter-number"><text macro="constitution-core"/></else-if>
-            <else><text macro="statute-code"/></else>
+            <else-if variable="genre" match="any"><text macro="tex-rule"/></else-if>
+            <else><text macro="tex-statute"/></else>
           </choose>
         </else-if>
         <else-if type="report"><text macro="ag-opinion"/></else-if>

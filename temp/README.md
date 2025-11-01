@@ -55,7 +55,7 @@ This document summarizes the scope, capabilities, and maintenance guidance for t
    ```bash
    python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt
    ```
-   Alternate TOA styles can be tested by swapping the `--style` and `--expected` paths (see `expected_toa.txt`, `expected_toa_grouped.txt`, `expected_toa_leaders.txt`). Pass `--mode` explicitly if you are experimenting with nonstandard filenames or want to override the auto-detection behavior.【F:temp/tests_toa.json†L1-L200】
+   Alternate TOA styles can be tested by swapping the `--style` and `--expected` paths (see `expected_toa.txt`, `expected_toa_grouped.txt`, `expected_toa_leaders.txt`, `expected_toa_by-reporter.txt`). Pass `--mode` explicitly if you are experimenting with nonstandard filenames or want to override the auto-detection behavior.【F:temp/tests_toa.json†L1-L200】
 4. **Exercise the parenthetical subset in both contexts:** the dedicated fixtures mirror the slip-opinion and mandamus examples from `tests.json` while running quickly for focused regression checks.
    ```bash
    python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_notes.txt
