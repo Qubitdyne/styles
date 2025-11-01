@@ -1,0 +1,46 @@
+1  Briefs and Legal Memoranda
+
+Two typefaces traditionally appear in briefs, memoranda, and similar 
+material: roman and italics. The examples in The Greenbook follow 
+this typeface convention, but the ﬁfteenth edition permits the usage of 
+LARGE AND SMALL CAPITALS for stylistic purposes. This change was 
+also adopted in the twentieth edition of The Bluebook. See Bluepages B2. 
+
+To distinguish citations from text in legal briefs and memoranda, the 
+following material should be italicized:
+
+1.1   Introductory Signals and Explanatory Phrases
+Signals used to introduce authorities are italicized:
+
+Accord   
+
+Compare . . . , with
+
+A comma that follows the signal is not italicized, but commas within 
+signals are italicized:
+
+See, e.g.,  
+
+E.g.,
+
+1.2  Cases
+
+In briefs and legal memoranda, italicize case names. Reporters, jurisdic-
+tional information, and writ or petition histories are in roman typeface:
+
+Beckendorff v. Harris-Galveston Coastal Subsidence Dist., 558 S.W.2d 75 
+(Tex. App.(cid:2)—(cid:2)Houston [14th Dist.] 1977, writ ref’d n.r.e.).
+
+Phrases used in subsequent history, except writ or petition treatment, 
+or in identifying secondary sources are italicized:
+
+rev’d on other grounds 
+
+cert. denied,
+
+3
+
+ 
+ 
+ 
+

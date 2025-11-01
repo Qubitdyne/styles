@@ -372,14 +372,25 @@
 
   <macro name="cross-reference-cue">
     <choose>
-      <if variable="note">
-        <text variable="note" text-case="capitalize-first"/>
+      <if variable="annote note" match="any">
+        <choose>
+          <if variable="annote">
+            <text variable="annote" text-case="capitalize-first"/>
+          </if>
+          <else>
+            <text variable="note" text-case="capitalize-first"/>
+          </else>
+        </choose>
       </if>
-      <else-if jurisdiction="us:tx">
-        <text value="See"/>
-      </else-if>
-      <else-if variable="jurisdiction">
-        <text value="See also"/>
+      <else-if type="legal_case legislation regulation" match="any">
+        <choose>
+          <if variable="jurisdiction">
+            <text value="See also"/>
+          </if>
+          <else>
+            <text value="See"/>
+          </else>
+        </choose>
       </else-if>
       <else>
         <text value="See"/>
