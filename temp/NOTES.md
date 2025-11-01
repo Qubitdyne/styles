@@ -83,6 +83,20 @@ start bibliography
 end bibliography
 ```
 
+### Short-form macro inventory (2025-11-02)
+- **Cases — `texas-greenbook-15th-edition.csl` lines 236–299.**
+  - `legal-case-short` (l. 260) retains the full reporter selection logic from the first-position macro while preferring `title-short` where available before falling back to `case-name`. The invocation at l. 236 confirms note-mode citations delegate here when neither `position="first"` nor `references` apply.
+- **Secondary books & reports — `texas-greenbook-15th-edition.csl` lines 447–505.**
+  - `book-like-short` (l. 473) pares the repeat form down to the italicized title plus pinpoint/year stack while preserving the explanatory parenthetical tail. Called from the `book-like` choose block at l. 447.
+- **Secondary periodicals — `texas-greenbook-15th-edition.csl` lines 522–567.**
+  - `article-journal-short` (l. 551) keeps the author-plus-quoted-title framing with the shared secondary pinpoint helper, omitting container/volume strings in repeat cites.
+- **Web materials — `texas-greenbook-15th-edition.csl` lines 671–708.**
+  - `web-short` (l. 709) reduces follow-up cites to the bare title and URL while the choose block at l. 671 confirms routing from the primary `web` macro.
+- **Unpublished & CLE materials — `texas-greenbook-15th-edition.csl` lines 765–804.**
+  - `unpublished-short` (l. 781) reuses the quoted title, secondary pinpoint, and descriptor helper for subsequent notes; invoked from the enclosing choose clause at l. 765.
+- **Gap check.** The TOA variants (`texas-greenbook-15th-toa*.csl`) currently expose no `*-short` macros, and statute/rule short-form helpers such as `tex-statute-short` or `tex-admin-code-short` are not yet defined in the edition file—confirming the broader TODO entry to design those branches remains outstanding.
+  - Searching with `rg "_short" temp -n` only surfaced backlog references because the implemented macros use hyphenated names; future audits should target `-short` when gathering inventory lists.
+
 ## Citation Requirement Matrix
 | Citation Type | Required CSL Variables | Ordering & Punctuation | Mandatory Abbreviations | Short-Form, Parenthetical & Signal Notes | Footnote vs. Bibliography | Greenbook Reference |
 | --- | --- | --- | --- | --- | --- | --- |

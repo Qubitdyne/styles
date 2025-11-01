@@ -47,9 +47,9 @@
 - [ ] **Complete statute and rule short-form logic.** Implement cross-reference and `Id.` handling for statutes, rules, and administrative materials, then update `expected.txt` fixtures. (See `README.md` Known Limitations and `NOTES.md` helper sketches.)
   - [ ] Audit the existing statute, rule, and administrative `*_short` macros in `texas-greenbook-15th-edition.csl` to catalog current branching and pinpoint missing reuse hooks documented in `NOTES.md`.
     - [ ] Locate all `*_short` macros in both the primary style and TOA variants using the CSL editor or `rg` searches.
-      - [ ] Run `rg "_short" temp -n` to generate an initial list of macro definitions and invocations.
-      - [ ] Open `texas-greenbook-15th-edition.csl` and TOA counterparts in a CSL-aware editor to confirm the matches and capture surrounding context.
-      - [ ] Copy the macro names and file locations into `NOTES.md`, grouping them by authority type for easy reference.
+      - [x] Run `rg "_short" temp -n` to generate an initial list of macro definitions and invocations. (Confirmed command currently only surfaces backlog references because implemented macros are hyphenated; noted follow-up in `NOTES.md`.)
+      - [x] Open `texas-greenbook-15th-edition.csl` and TOA counterparts in a CSL-aware editor to confirm the matches and capture surrounding context. (Verified short-form coverage for cases/secondary materials and documented absence in TOA variants.)
+      - [x] Copy the macro names and file locations into `NOTES.md`, grouping them by authority type for easy reference. (Inventory logged under “Short-form macro inventory (2025-11-02)”.)
       - [ ] Flag any macros with ambiguous naming or duplicate purposes for follow-up clarification tasks.
     - [ ] Diagram current conditional logic and data dependencies for each macro in `NOTES.md` to identify overlapping pathways.
       - [ ] For every macro captured, sketch the `if/else` and `choose` structures, noting required variables and fallback behavior.
