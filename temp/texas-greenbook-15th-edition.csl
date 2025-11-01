@@ -29,6 +29,8 @@
       <term name="article" form="short">art.</term>
       <term name="rule" form="short">R.</term>
       <term name="paragraph" form="short">¶</term>
+      <term name="available at">available at</term>
+      <term name="accessed">accessed</term>
       <term name="ibid">Id.</term>
     </terms>
   </locale>
@@ -762,6 +764,39 @@
     </choose>
   </macro>
 
+  <macro name="web-availability">
+    <choose>
+      <if variable="URL DOI" match="any">
+        <group delimiter=" ">
+          <text term="available at"/>
+          <choose>
+            <if variable="URL">
+              <text variable="URL"/>
+            </if>
+            <else-if variable="DOI">
+              <text variable="DOI" prefix="https://doi.org/"/>
+            </else-if>
+          </choose>
+        </group>
+      </if>
+    </choose>
+  </macro>
+
+  <macro name="web-access-date">
+    <choose>
+      <if variable="accessed">
+        <group prefix="(" suffix=")">
+          <text term="accessed" text-case="capitalize-first" suffix=" "/>
+          <date variable="accessed" delimiter=" ">
+            <date-part name="month" form="short"/>
+            <date-part name="day" form="numeric" suffix=","/>
+            <date-part name="year"/>
+          </date>
+        </group>
+      </if>
+    </choose>
+  </macro>
+
   <macro name="web">
     <choose>
       <if position="first">
@@ -790,23 +825,9 @@
           <text variable="status"/>
         </else-if>
       </choose>
-      <group delimiter=" ">
-        <text term="available at"/>
-        <text variable="URL"/>
-      </group>
+      <text macro="web-availability"/>
     </group>
-    <choose>
-      <if variable="accessed">
-        <group prefix=" (" suffix=")">
-          <text term="accessed" text-case="capitalize-first" suffix=" "/>
-          <date variable="accessed" delimiter=" ">
-            <date-part name="month" form="short"/>
-            <date-part name="day" form="numeric" suffix=","/>
-            <date-part name="year"/>
-          </date>
-        </group>
-      </if>
-    </choose>
+    <text macro="web-access-date" prefix=" "/>
   </macro>
 
   <macro name="web-short">
@@ -840,18 +861,8 @@
             <text variable="status"/>
           </else-if>
         </choose>
-        <group delimiter=" ">
-          <text term="available at"/>
-          <text variable="URL"/>
-        </group>
-        <group prefix="(" suffix=")">
-          <text term="accessed" text-case="capitalize-first" suffix=" "/>
-          <date variable="accessed" delimiter=" ">
-            <date-part name="month" form="short"/>
-            <date-part name="day" form="numeric" suffix=","/>
-            <date-part name="year"/>
-          </date>
-        </group>
+        <text macro="web-availability"/>
+        <text macro="web-access-date"/>
       </group>
     </group>
   </macro>
