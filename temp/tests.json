@@ -97,6 +97,7 @@
     "title-short": "Auguillard",
     "authority": "338th Dist. Ct., Harris County, Tex.",
     "number": "139002101010",
+    "collection-number": "Trial Ct. No. 2013-CR-4567",
     "issued": {
       "date-parts": [
         [
@@ -105,11 +106,58 @@
           21
         ]
       ]
-    }
+    },
+    "note": "prelim. injunction order"
   },
   {
     "_cite": "case_trial_court",
     "locator": "4"
+  },
+  {
+    "id": "case_slip_opinion",
+    "type": "legal_case",
+    "title": "In re Academy, Ltd.",
+    "title-short": "Academy",
+    "authority": "Tex.",
+    "number": "21-0993",
+    "collection-number": "2024 WL 1234567",
+    "issued": {
+      "date-parts": [
+        [
+          2024,
+          3,
+          8
+        ]
+      ]
+    },
+    "medium": "slip op.",
+    "genre": "per curiam",
+    "locator": "5",
+    "status": "orig. proceeding",
+    "note": "mand. conditionally granted"
+  },
+  {
+    "id": "case_mem_rehearing",
+    "type": "legal_case",
+    "title": "Johnson v. Davis",
+    "title-short": "Johnson",
+    "container-title": "S.W.3d",
+    "volume": "512",
+    "page": "398",
+    "authority": "Tex. App.—Dallas",
+    "issued": {
+      "date-parts": [
+        [
+          2017,
+          6,
+          22
+        ]
+      ]
+    },
+    "medium": "mem. op.",
+    "locator": "402",
+    "status": "on reh'g",
+    "note": "op. withdrawn"
   },
   {
     "id": "parallel_cite_case",

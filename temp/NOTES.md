@@ -29,6 +29,11 @@
 - **Regression coverage.** Added consecutive cite items in `tests.json` for `stat_govt_code`, `tac_rule`, and `rule_civp` so the harness now validates `Id.` strings for codes (§ 2001.003), TAC rules (§ 9.13), and procedural rules (R. 97(e)). `expected.txt` includes the corresponding lines 13, 19, and 22 annotated with the governing chapter citations.
 - **Open questions.** The current `Id.` output for rules appears as `Id. 97(e).` without repeating the `R.` prefix. This mirrors the production edition but may warrant a follow-up confirmation against Greenbook ch. 13 (p. 63) to ensure no locator prefix is required when the preceding cite already supplied the rule set.
 
+## Draft 3 Update – Parenthetical Metadata Helpers (2025-03-24)
+- **Slip opinions and original proceedings.** Added a shared `docket-parenthetical` block and `procedural-parenthetical` chain so Greenbook slip citations now surface cause numbers, Westlaw/Lexis identifiers, and procedural posture straight from Zotero’s `number`, `collection-number`, `status`, and `note` fields (Greenbook ch. 2 at 7 & ch. 6 at 31–33). The helper skips `note` values that double as cross-reference cues, keeping `See also` triggers confined to the `cross-reference-cue` macro.
+- **Memorandum and rehearing designations.** Normalized weight parentheticals to pull `genre` and `medium` in a consistent order, which allows memorandum opinions and rehearing dispositions to mirror chapter 4 examples without duplicating logic inside the case, mandamus, and trial-court macros (Greenbook ch. 4 at 24–25).
+- **Trial-court docket metadata.** Reused the docket helper across trial-level items so cause numbers and underlying trial-court numbers land before the court/date parenthetical while `note` supplies record-type phrases such as “prelim. injunction order” (Greenbook ch. 7 at 34–35).
+
 ## Macro Dispatch Sketches
 
 ### `cs:citation` authority routing
