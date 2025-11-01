@@ -118,5 +118,56 @@
     "status": "no writ",
     "locator": "479",
     "_citation_suffix": ", 117 S.W. 185, 185"
+  },
+  {
+    "id": "treatise_practice",
+    "type": "book",
+    "author": [
+      {"family": "Dorsaneo", "given": "William V."},
+      {"family": "Orr", "given": "Brandon R."}
+    ],
+    "title": "Texas Litigation Guide",
+    "volume": "1",
+    "collection-title": "Texas Practice Series",
+    "edition": "5",
+    "publisher": "Matthew Bender & Co.",
+    "publisher-place": "New York",
+    "issued": {"date-parts": [[2024]]},
+    "label": "section",
+    "locator": "5.2"
+  },
+  {
+    "id": "law_review_online",
+    "type": "article-journal",
+    "author": [{"family": "Chen", "given": "Marisa"}],
+    "title": "Reconsidering Texas Water Rights",
+    "container-title": "Tex. Envtl. L.J.",
+    "volume": "55",
+    "page": "201",
+    "label": "page",
+    "locator": "215",
+    "URL": "https://example.com/chen-water-rights",
+    "status": "forthcoming",
+    "accessed": {"date-parts": [[2025, 1, 12]]}
+  },
+  {
+    "id": "website_source",
+    "type": "webpage",
+    "title": "Texas Courts Technology Standards Update",
+    "container-title": "Office of Court Administration",
+    "issued": {"date-parts": [[2023]]},
+    "URL": "https://www.txcourts.gov/technology-standards-update",
+    "accessed": {"date-parts": [[2025, 2, 10]]}
+  },
+  {
+    "id": "unpublished_memo",
+    "type": "manuscript",
+    "author": [{"family": "Lopez", "given": "Adriana"}],
+    "title": "Bench Memorandum on Emergency Injunction Standards",
+    "genre": "unpublished memorandum",
+    "label": "page",
+    "locator": "3",
+    "status": "on file with the Tex. Supreme Court",
+    "medium": "draft"
   }
 ]
