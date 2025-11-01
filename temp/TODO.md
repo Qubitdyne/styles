@@ -146,11 +146,12 @@ ion of the conflicting behavior.
       - [ ] Include note sequences that alternate between eligible and ineligible `Id.` contexts to exercise the guards.
       - [ ] Generate updated `expected*.txt` outputs and verify that cues and `Id.` usage match Greenbook expectations.
       - [ ] Store the corresponding citeproc commands and outputs in `temp/test-logs/` for reproducibility.
-    - [ ] Record any limitations or open questions in `NOTES.md` for follow-up review.
-      - [ ] Summarize edge cases deferred from the current sprint (e.g., multi-jurisdiction compound cites).
-      - [ ] Tag questions with the responsible owner or review milestone if collaboration is anticipated.
-      - [ ] Reference the specific CSL line numbers where ambiguity remains to expedite future debugging.
-      - [ ] Update the TODO backlog with newly identified follow-up tasks to keep planning aligned.
+    - [x] Record any limitations or open questions in `NOTES.md` for follow-up review.
+      - [x] Summarize edge cases deferred from the current sprint (e.g., multi-jurisdiction compound cites).
+      - [x] Tag questions with the responsible owner or review milestone if collaboration is anticipated.
+      - [x] Reference the specific CSL line numbers where ambiguity remains to expedite future debugging.
+      - [x] Update the TODO backlog with newly identified follow-up tasks to keep planning aligned.
+      - [ ] **Follow-up:** Investigate citeproc jurisdiction filtering. Confirm whether upgrading citeproc-py or introducing a pre-processing hook can restore `jurisdiction` condition support for `cross-reference-cue`, then re-run the Texas vs. non-Texas fixtures to verify “See also” output.
   - [ ] Update fixtures and expectations to exercise the new short-form logic.
     - [ ] Add representative statute, rule, and administrative authorities to `tests.json` and `tests_toa.json`, including scenarios with and without available years.
       - [ ] Gather example citations from the Greenbook and supplemental manuals to ensure realistic metadata coverage.
@@ -444,7 +445,7 @@ ion of the conflicting behavior.
       - [x] Proofread for clarity and solicit feedback before finalizing documentation.
 - [ ] **Build shared publication/status helpers.** Create reusable macros for statutory publication parentheticals, session-law metadata, and administrative status notes to reduce duplication across code, rule, and agency citations.
     - [ ] Inventory where publication/status text is currently hard-coded across statute, session law, and administrative macros (main and TOA styles).
-      - [ ] Search CSL files for publication-related strings using `rg "Supp\.|session|effective" temp` to locate occurrences.
+      - [x] Search CSL files for publication-related strings using `rg "Supp\.|session|effective" temp` to locate occurrences.
       - [x] Create a spreadsheet noting file names, macro contexts, and sample outputs for each string found.
       - [x] Differentiate between main style and TOA usages to understand contextual differences.
       - [x] Record whether each string is governed by locale terms or inline text.
