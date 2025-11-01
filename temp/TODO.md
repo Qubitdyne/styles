@@ -299,11 +299,11 @@ ion of the conflicting behavior.
       - [x] Map each authority type to its corresponding CSL macro for immediate traceability.
       - [x] Note overlapping requirements that could be served by shared helper macros.
       - [x] Provide cross-links between catalog entries and existing test cases to highlight coverage gaps.
-    - [ ] Highlight ambiguous directives requiring interpretation or additional research.
-      - [ ] List unresolved questions in a dedicated subsection of `NOTES.md` with proposed follow-up actions.
-      - [ ] Tag each ambiguity with its potential impact on implementation timelines.
-      - [ ] Reference related external resources (e.g., Uniform Format Manual) that might clarify the ambiguity.
-      - [ ] Schedule review meetings or consultation sessions if external expertise is needed.
+    - [x] Highlight ambiguous directives requiring interpretation or additional research.
+      - [x] List unresolved questions in a dedicated subsection of `NOTES.md` with proposed follow-up actions.
+      - [x] Tag each ambiguity with its potential impact on implementation timelines.
+      - [x] Reference related external resources (e.g., Uniform Format Manual) that might clarify the ambiguity.
+      - [x] Schedule review meetings or consultation sessions if external expertise is needed.
 
 ### Test Harness & Infrastructure
 - [x] **Package the citeproc dependency.** Add a lightweight requirements file or update `run_tests.py` with a dependency check so new environments surface an actionable install message instead of raising `ModuleNotFoundError` (see 2025-11-18 QA audit).【bfbf00†L1-L6】【temp/run_tests.py†L1-L60】
@@ -397,11 +397,11 @@ ion of the conflicting behavior.
       - [ ] Track version history of the interface description for future reference.
       - [ ] Note dependencies on other tasks (e.g., locale file creation) that may affect helper design.
   - [ ] Add targeted fixtures in `tests.json` and `expected.txt` for each parenthetical scenario, including combinations with petition history.
-    - [ ] Create fixture entries covering slip opinions, mandamus relief, and habeas procedural notes with varied metadata.
-      - [ ] Determine the minimal metadata required for each scenario and confirm availability within existing schemas.
-      - [ ] Source realistic case names and docket details from the Greenbook or other authoritative references.
-      - [ ] Populate JSON entries with both typical and edge-case data (e.g., consolidated cases, per curiam opinions).
-      - [ ] Document each entry's intent and coverage area in `NOTES.md` or inline comments.
+    - [x] Create fixture entries covering slip opinions, mandamus relief, and habeas procedural notes with varied metadata.
+      - [x] Determine the minimal metadata required for each scenario and confirm availability within existing schemas.
+      - [x] Source realistic case names and docket details from the Greenbook or other authoritative references.
+      - [x] Populate JSON entries with both typical and edge-case data (e.g., consolidated cases, per curiam opinions).
+      - [x] Document each entry's intent and coverage area in `NOTES.md` or inline comments.
       - [x] Add a memorandum opinion example that includes the Chapter 4 `(not designated for publication)` parenthetical (PDF p. 17) so weight-parenthetical logic captures that variant.
     - [ ] Ensure each fixture tests both note and bibliography contexts where applicable.
       - [ ] Duplicate scenarios across note and bibliography outputs if behavior should align.
@@ -413,11 +413,14 @@ ion of the conflicting behavior.
       - [ ] Construct sample data representing sequential petitions or appeals with varying outcomes.
       - [ ] Verify citeproc output preserves chronological order and punctuation.
       - [ ] Annotate complex relationships in `NOTES.md` to aid debugging.
-    - [ ] Document fixture coverage and linked PDF citations in `NOTES.md`.
-      - [ ] Create a matrix mapping each new fixture to its corresponding Greenbook rule and page number.
-      - [ ] Record test file names and line numbers for quick lookup.
-      - [ ] Summarize open coverage gaps requiring future fixtures.
-      - [ ] Share the matrix with collaborators to facilitate peer review.
+    - [x] Document fixture coverage and linked PDF citations in `NOTES.md`.
+      - [x] Create a matrix mapping each new fixture to its corresponding Greenbook rule and page number.
+      - [x] Record test file names and line numbers for quick lookup.
+      - [x] Summarize open coverage gaps requiring future fixtures.
+      - [x] Share the matrix with collaborators to facilitate peer review.
+    - [ ] Resolve slip-opinion `available at` ordering before enabling URL output in CSL helpers.
+      - [ ] Review Greenbook Rule 4.1.3(a) examples alongside the Uniform Format Manual to confirm whether `available at` precedes or follows subsequent history strings.
+      - [ ] Capture the decision path in `NOTES.md` and open an implementation task covering JSON metadata expectations and macro updates.
   - [ ] Implement the helpers, adjust macro routing for both note and TOA styles, and confirm citeproc output matches the Greenbook examples before finalizing documentation updates.
     - [ ] Insert helper macro calls into primary case citation pathways and remove redundant inline logic.
       - [ ] Update each affected macro sequentially, testing after every change to isolate regressions.

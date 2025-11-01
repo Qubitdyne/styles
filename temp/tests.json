@@ -159,6 +159,69 @@
     "note": "mand. conditionally granted"
   },
   {
+    "id": "case_slip_baggs",
+    "type": "legal_case",
+    "title": "Baggs v. Becker",
+    "title-short": "Baggs",
+    "authority": "Tex. App.—Austin",
+    "number": "03-07-00731-CV",
+    "collection-number": "2009 WL 280664",
+    "issued": {
+      "date-parts": [
+        [
+          2009,
+          2,
+          6
+        ]
+      ]
+    },
+    "status": "no pet.",
+    "medium": "mem. op.",
+    "locator": "1"
+  },
+  {
+    "id": "case_mandamus_pending",
+    "type": "legal_case",
+    "title": "In re Luna",
+    "title-short": "Luna",
+    "authority": "Tex. App.—Houston [1st Dist.]",
+    "number": "01-03-01055-CV",
+    "collection-number": "2004 WL 2005935",
+    "issued": {
+      "date-parts": [
+        [
+          2004,
+          9,
+          9
+        ]
+      ]
+    },
+    "status": "orig. proceeding [mand. pending]",
+    "locator": "1"
+  },
+  {
+    "id": "case_habeas_massoth",
+    "type": "legal_case",
+    "title": "Massoth v. State",
+    "title-short": "Massoth",
+    "authority": "Tex. App.—Houston [14th Dist.]",
+    "number": "14-03-00605-CR",
+    "collection-number": "2004 WL 1381027",
+    "issued": {
+      "date-parts": [
+        [
+          2004,
+          6,
+          22
+        ]
+      ]
+    },
+    "status": "pet. ref'd",
+    "medium": "mem. op., not designated for publication",
+    "locator": "1",
+    "references": "habeas corpus granted in part sub nom. Ex parte Massoth, No. AP-75215, 2005 WL 1774115, at *1 (Tex. Crim. App. July 27, 2005) (per curiam) (not designated for publication)"
+  },
+  {
     "id": "case_mem_rehearing",
     "type": "legal_case",
     "title": "Johnson v. Davis",
