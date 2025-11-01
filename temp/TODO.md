@@ -284,21 +284,21 @@ ion of the conflicting behavior.
       - [x] Extract verbatim language, noting whether examples differ between authority types.
       - [x] Record page numbers, section headers, and any footnote clarifications alongside each entry.
       - [x] Organize the list chronologically according to the chapter layout for quick cross-referencing later.
-    - [ ] Extract sample parenthetical language verbatim from the PDF and capture contextual notes (case type, jurisdiction).
-      - [ ] Use PDF text selection tools to avoid transcription errors and double-check formatting (italics, capitalization).
-      - [ ] Note the authority type (e.g., civil appeal, mandamus) for each sample to ensure correct macro targeting.
-      - [ ] Document whether the sample includes additional metadata such as docket numbers or writ history.
-      - [ ] Store captured text snippets in a version-controlled appendix within `NOTES.md` or a dedicated attachment file.
-    - [ ] Identify mandatory vs. optional elements within each parenthetical based on textual cues or examples.
-      - [ ] Highlight words such as “must,” “shall,” or “may” in the PDF to determine requirement levels.
-      - [ ] Create a decision table summarizing which elements are conditional and the criteria for inclusion.
-      - [ ] Annotate ambiguous instructions with questions for legal review.
-      - [ ] Reference each determination with precise page numbers for future audits.
-    - [ ] Organize the parenthetical catalog by authority type in `NOTES.md` to simplify macro mapping.
-      - [ ] Create sections or tables for cases, mandamus petitions, habeas proceedings, and other relevant categories.
-      - [ ] Map each authority type to its corresponding CSL macro for immediate traceability.
-      - [ ] Note overlapping requirements that could be served by shared helper macros.
-      - [ ] Provide cross-links between catalog entries and existing test cases to highlight coverage gaps.
+    - [x] Extract sample parenthetical language verbatim from the PDF and capture contextual notes (case type, jurisdiction).
+      - [x] Use PDF text selection tools to avoid transcription errors and double-check formatting (italics, capitalization).
+      - [x] Note the authority type (e.g., civil appeal, mandamus) for each sample to ensure correct macro targeting.
+      - [x] Document whether the sample includes additional metadata such as docket numbers or writ history.
+      - [x] Store captured text snippets in a version-controlled appendix within `NOTES.md` or a dedicated attachment file.
+    - [x] Identify mandatory vs. optional elements within each parenthetical based on textual cues or examples.
+      - [x] Highlight words such as “must,” “shall,” or “may” in the PDF to determine requirement levels.
+      - [x] Create a decision table summarizing which elements are conditional and the criteria for inclusion.
+      - [x] Annotate ambiguous instructions with questions for legal review.
+      - [x] Reference each determination with precise page numbers for future audits.
+    - [x] Organize the parenthetical catalog by authority type in `NOTES.md` to simplify macro mapping.
+      - [x] Create sections or tables for cases, mandamus petitions, habeas proceedings, and other relevant categories.
+      - [x] Map each authority type to its corresponding CSL macro for immediate traceability.
+      - [x] Note overlapping requirements that could be served by shared helper macros.
+      - [x] Provide cross-links between catalog entries and existing test cases to highlight coverage gaps.
     - [ ] Highlight ambiguous directives requiring interpretation or additional research.
       - [ ] List unresolved questions in a dedicated subsection of `NOTES.md` with proposed follow-up actions.
       - [ ] Tag each ambiguity with its potential impact on implementation timelines.
