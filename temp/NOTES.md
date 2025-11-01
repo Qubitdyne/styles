@@ -96,6 +96,7 @@ end bibliography
   - `unpublished-short` (l. 781) reuses the quoted title, secondary pinpoint, and descriptor helper for subsequent notes; invoked from the enclosing choose clause at l. 765.
 - **Gap check.** The TOA variants (`texas-greenbook-15th-toa*.csl`) currently expose no `*-short` macros, and statute/rule short-form helpers such as `tex-statute-short` or `tex-admin-code-short` are not yet defined in the edition file—confirming the broader TODO entry to design those branches remains outstanding.
   - Searching with `rg "_short" temp -n` only surfaced backlog references because the implemented macros use hyphenated names; future audits should target `-short` when gathering inventory lists.
+- **Backlog follow-up (2025-11-02).** Re-reviewed the TODO backlog after logging the ambiguity check and confirmed that the standing “Complete statute and rule short-form logic” epic already tracks every outstanding legislation/agency helper refactor. No new TODO entries were required; cross-referenced this conclusion in the TODO file for future auditors.
 
 #### Short-form macro naming review (2025-03-28)
 - **`legal-case-short` — `texas-greenbook-15th-edition.csl` ll. 260–279.** Confirms the macro title matches its remit of emitting the condensed reporter block for repeat case citations while sharing the same helper stack (`pinpoint`, `court-and-date`, `case-parenthetical-stack`, `related-proceedings`) as catalogued in the requirement matrix’s case entries (Ch. 2–6). No competing macro reuses the name or scope, so overlap risk is minimal.
@@ -139,6 +140,9 @@ end bibliography
 | ibid | — (`Id.`) | Edition only | Ch. 9.1.1 allows constitutional short forms to use “id.” when appropriate (ch. 9 at 39), matching citeproc’s ibid behavior. | Confirms that the standard `ibid` term can stay mapped to “Id.” for repeated statutes and constitutions. |
 | and | — (`and`) | Edition only | Chapter 1’s typography discussion spells out “LARGE AND SMALL CAPITALS,” reinforcing the manual’s preference for written conjunctions over ampersands in rule text (ch. 1 at 3).【d3b9e8†L1-L15】 | Verified the stock `en-US` locale already emits the spelled-out conjunction, so the edition now defers to the default term instead of carrying a redundant override.【6f5683†L1-L35】 |
 
+### Locale packaging decision (2025-11-02)
+- Validated `temp/locales/locales-en-US-x-texas-greenbook.xml` metadata (title, id, license, updated timestamp, and `style-options`) and the bundled abbreviation terms (`art.`, `ch.`, `R.`, `§`, `¶`, `Id.`). With the file in place, no further packaging steps are needed before wiring the citation styles to the shared locale.
+
 ## Memo Opinion Indicator Audit (2025-03-27)
 - `texas-greenbook-15th-edition.csl` routes every case through `case-parenthetical-stack`, which simply echoes `genre` and `medium` via `weight-parentheticals` with no conditional gating (ll. 144–158). Memorandum, per curiam, and rehearing parentheticals therefore appear only when translators populate `genre`/`medium`.
 - The TOA family (`texas-greenbook-15th-toa*.csl`) defines the same helper as two single-node `choose` blocks that emit `genre`/`medium` for each case entry (e.g., `texas-greenbook-15th-toa.csl` ll. 58–112). Tables omit the explanatory-parenthetical macro, so memo markers display once in the case block and nowhere else.
@@ -153,6 +157,7 @@ end bibliography
 - All supplemental references under `temp/` are now inventoried as searchable, so no additional OCR passes are required before expanding locale or macro coverage.
 - Each file originates from publicly available judiciary resources; no special licensing restrictions noted beyond standard attribution expectations.
 - Backups live in-repo under `temp/`; refresh from https://www.txcourts.gov/rules-forms/rules-standards/ when official updates publish.
+- **OCR spot-check (2025-11-02).** Confirmed the Uniform Format Manual (30 pp.), How Court Rules Are Made (10 pp.), and Technology Standards (35 pp.) remain fully searchable by extracting sample text with `PyPDF2`; no supplementary OCR exports are necessary at this time.
 
 ## Chapter Highlights
 ### Chapter 1 – Briefs and Legal Memoranda (pp. 3–5)
