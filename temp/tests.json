@@ -8,11 +8,23 @@
     "volume": "819",
     "page": "466",
     "authority": "Tex.",
-    "issued": {"date-parts": [[1991]]},
+    "issued": {
+      "date-parts": [
+        [
+          1991
+        ]
+      ]
+    },
     "locator": "467"
   },
-  {"_cite": "case_supreme", "locator": "467"},
-  {"_cite": "case_supreme", "locator": "468"},
+  {
+    "_cite": "case_supreme",
+    "locator": "467"
+  },
+  {
+    "_cite": "case_supreme",
+    "locator": "468"
+  },
   {
     "id": "case_app_hou14",
     "type": "legal_case",
@@ -22,7 +34,13 @@
     "volume": "65",
     "page": "252",
     "authority": "Tex. App.—Houston [14th Dist.]",
-    "issued": {"date-parts": [[2001]]},
+    "issued": {
+      "date-parts": [
+        [
+          2001
+        ]
+      ]
+    },
     "status": "pet. denied",
     "locator": "254",
     "annote": "See, e.g.,",
@@ -38,7 +56,13 @@
     "volume": "939",
     "page": "627",
     "authority": "Tex. Crim. App.",
-    "issued": {"date-parts": [[1997]]},
+    "issued": {
+      "date-parts": [
+        [
+          1997
+        ]
+      ]
+    },
     "locator": "631",
     "abstract": "addressing double-jeopardy arguments",
     "references": "op. on reh'g, 971 S.W.2d 255 (Tex. Crim. App. 1998)"
@@ -51,7 +75,15 @@
     "authority": "Tex. App.—Fort Worth",
     "number": "02-03-241-CV",
     "collection-number": "2003 WL 22457054",
-    "issued": {"date-parts": [[2003, 10, 30]]},
+    "issued": {
+      "date-parts": [
+        [
+          2003,
+          10,
+          30
+        ]
+      ]
+    },
     "status": "no pet.",
     "genre": "per curiam",
     "medium": "mem. op.",
@@ -59,10 +91,75 @@
     "abstract": "memorializing summary-judgment disposition"
   },
   {
+    "id": "case_trial_court",
+    "type": "legal_case",
+    "title": "State v. Auguillard",
+    "title-short": "Auguillard",
+    "authority": "338th Dist. Ct., Harris County, Tex.",
+    "number": "139002101010",
+    "issued": {
+      "date-parts": [
+        [
+          2013,
+          10,
+          21
+        ]
+      ]
+    }
+  },
+  {
+    "_cite": "case_trial_court",
+    "locator": "4"
+  },
+  {
+    "id": "parallel_cite_case",
+    "type": "legal_case",
+    "title": "Jackson v. Maddox",
+    "title-short": "Jackson",
+    "container-title": "Tex. Civ. App.",
+    "volume": "53",
+    "page": "478",
+    "authority": "Fort Worth",
+    "issued": {
+      "date-parts": [
+        [
+          1909
+        ]
+      ]
+    },
+    "status": "no writ",
+    "locator": "479",
+    "references": "writ ref'd, 102 Tex. 123, 113 S.W. 3 (1908)",
+    "reviewed-title": "prior proceeding sub nom. Maddox v. Jackson, 48 Tex. Civ. App. 101, 106 S.W. 15 (1907)",
+    "note": "see also",
+    "_citation_suffix": ", 117 S.W. 185, 185"
+  },
+  {
+    "_cite": "parallel_cite_case",
+    "locator": "480"
+  },
+  {
+    "_cite": "case_supreme",
+    "locator": "470"
+  },
+  {
     "id": "stat_govt_code",
     "type": "legislation",
     "container-title": "Tex. Gov’t Code Ann.",
     "section": "2001.003(6)"
+  },
+  {
+    "id": "stat_penal_code",
+    "type": "legislation",
+    "container-title": "Tex. Penal Code",
+    "section": "29.02"
+  },
+  {
+    "id": "stat_rev_civ",
+    "type": "legislation",
+    "container-title": "Tex. Rev. Civ. Stat. Ann.",
+    "chapter-number": "art. 5415e-4,",
+    "section": "§ 2(a)"
   },
   {
     "id": "constitution_art_sec",
@@ -73,13 +170,64 @@
     "section": "6"
   },
   {
+    "id": "constitution_amended",
+    "type": "legislation",
+    "genre": "constitution",
+    "container-title": "Tex. Const.",
+    "chapter-number": "XVI",
+    "section": "70",
+    "status": "expired Sept. 1, 2008"
+  },
+  {
     "id": "tac_rule",
     "type": "regulation",
     "volume": "4",
     "container-title": "Tex. Admin. Code",
     "section": "9.12",
-    "issued": {"date-parts": [[2013]]},
+    "issued": {
+      "date-parts": [
+        [
+          2013
+        ]
+      ]
+    },
     "authority": "Tex. Dep’t of Agric., Seed Sampling Procedures"
+  },
+  {
+    "id": "tex_register_notice",
+    "type": "regulation",
+    "volume": "39",
+    "container-title": "Tex. Reg.",
+    "page-first": "573",
+    "page": "574",
+    "issued": {
+      "date-parts": [
+        [
+          2014
+        ]
+      ]
+    },
+    "status": "proposed Feb. 7, 2014",
+    "authority": "Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings",
+    "note": "to be codified at 22 Tex. Admin. Code § 367.14"
+  },
+  {
+    "id": "rule_civp",
+    "type": "legislation",
+    "container-title": "Tex. R. Civ. P.",
+    "section": "97(d)"
+  },
+  {
+    "id": "rule_appellate",
+    "type": "legislation",
+    "container-title": "Tex. R. App. P.",
+    "section": "2"
+  },
+  {
+    "id": "rule_evidence",
+    "type": "legislation",
+    "container-title": "Tex. R. Evid.",
+    "section": "405(b)"
   },
   {
     "id": "session_law",
@@ -93,21 +241,41 @@
     "page": "1345"
   },
   {
+    "id": "session_law_gammel",
+    "type": "legislation",
+    "title": "Act approved Mar. 8, 1871",
+    "collection-number": "12th Leg., R.S.",
+    "number": "16",
+    "section": "2",
+    "container-title": "Tex. Gen. Laws",
+    "volume": "1871",
+    "page": "11",
+    "references": "reprinted in 6 H.P.N. Gammel, The Laws of Texas 1822–1897, at 913, 913 (Austin, Gammel Book Co. 1898)"
+  },
+  {
     "id": "ag_opinion",
     "type": "report",
     "authority": "Tex. Att’y Gen. Op.",
     "number": "GA-0002",
-    "issued": {"date-parts": [[2002]]}
+    "issued": {
+      "date-parts": [
+        [
+          2002
+        ]
+      ]
+    }
   },
   {
-    "id": "law_review_article",
-    "type": "article-journal",
-    "author": [{"family": "Albright", "given": "Alex W."}],
-    "title": "The Texas Discovery Privileges: A Fool’s Game?",
-    "container-title": "Tex. L. Rev.",
-    "volume": "70",
-    "page": "781",
-    "issued": {"date-parts": [[1992]]}
+    "id": "ag_letter_opinion",
+    "type": "report",
+    "authority": "Tex. Att’y Gen. LO-96-045",
+    "issued": {
+      "date-parts": [
+        [
+          1996
+        ]
+      ]
+    }
   },
   {
     "id": "municipal_code",
@@ -116,31 +284,42 @@
     "container-title": "Code of Ordinances",
     "chapter-number": "ch. 20, art. IV,",
     "section": "20-216",
-    "issued": {"date-parts": [[1968]]}
+    "issued": {
+      "date-parts": [
+        [
+          1968
+        ]
+      ]
+    }
   },
   {
-    "id": "parallel_cite_case",
-    "type": "legal_case",
-    "title": "Jackson v. Maddox",
-    "title-short": "Jackson",
-    "container-title": "Tex. Civ. App.",
-    "volume": "53",
-    "page": "478",
-    "authority": "Fort Worth",
-    "issued": {"date-parts": [[1909]]},
-    "status": "no writ",
-    "locator": "479",
-    "references": "writ ref'd, 102 Tex. 123, 113 S.W. 3 (1908)",
-    "reviewed-title": "prior proceeding sub nom. Maddox v. Jackson, 48 Tex. Civ. App. 101, 106 S.W. 15 (1907)",
-    "note": "see also",
-    "_citation_suffix": ", 117 S.W. 185, 185"
+    "id": "municipal_austin",
+    "type": "regulation",
+    "authority": "Austin, Tex.",
+    "container-title": "City Code",
+    "chapter-number": "ch. 12-1,",
+    "section": "12-4-11",
+    "issued": {
+      "date-parts": [
+        [
+          2022
+        ]
+      ]
+    },
+    "abstract": "noise ordinance"
   },
   {
     "id": "treatise_practice",
     "type": "book",
     "author": [
-      {"family": "Dorsaneo", "given": "William V."},
-      {"family": "Orr", "given": "Brandon R."}
+      {
+        "family": "Dorsaneo",
+        "given": "William V."
+      },
+      {
+        "family": "Orr",
+        "given": "Brandon R."
+      }
     ],
     "title": "Texas Litigation Guide",
     "volume": "1",
@@ -148,15 +327,73 @@
     "edition": "5",
     "publisher": "Matthew Bender & Co.",
     "publisher-place": "New York",
-    "issued": {"date-parts": [[2024]]},
+    "issued": {
+      "date-parts": [
+        [
+          2024
+        ]
+      ]
+    },
     "label": "section",
     "locator": "5.2",
     "abstract": "surveying evidentiary burdens"
   },
   {
+    "id": "treatise_commentary",
+    "type": "book",
+    "author": [
+      {
+        "family": "Calvert",
+        "given": "Robert W."
+      }
+    ],
+    "title": "The Application for Writ of Error",
+    "collection-title": "Tex. R. Civ. P. Ann.",
+    "volume": "1",
+    "edition": "1",
+    "publisher": "West",
+    "publisher-place": "St. Paul",
+    "issued": {
+      "date-parts": [
+        [
+          1985
+        ]
+      ]
+    },
+    "label": "section",
+    "locator": "469",
+    "abstract": "commentary on procedural requirements"
+  },
+  {
+    "id": "law_review_article",
+    "type": "article-journal",
+    "author": [
+      {
+        "family": "Albright",
+        "given": "Alex W."
+      }
+    ],
+    "title": "The Texas Discovery Privileges: A Fool’s Game?",
+    "container-title": "Tex. L. Rev.",
+    "volume": "70",
+    "page": "781",
+    "issued": {
+      "date-parts": [
+        [
+          1992
+        ]
+      ]
+    }
+  },
+  {
     "id": "law_review_online",
     "type": "article-journal",
-    "author": [{"family": "Chen", "given": "Marisa"}],
+    "author": [
+      {
+        "family": "Chen",
+        "given": "Marisa"
+      }
+    ],
     "title": "Reconsidering Texas Water Rights",
     "container-title": "Tex. Envtl. L.J.",
     "volume": "55",
@@ -165,7 +402,15 @@
     "locator": "215",
     "URL": "https://example.com/chen-water-rights",
     "status": "forthcoming",
-    "accessed": {"date-parts": [[2025, 1, 12]]},
+    "accessed": {
+      "date-parts": [
+        [
+          2025,
+          1,
+          12
+        ]
+      ]
+    },
     "annote": "See also"
   },
   {
@@ -173,14 +418,57 @@
     "type": "webpage",
     "title": "Texas Courts Technology Standards Update",
     "container-title": "Office of Court Administration",
-    "issued": {"date-parts": [[2023]]},
+    "issued": {
+      "date-parts": [
+        [
+          2023
+        ]
+      ]
+    },
     "URL": "https://www.txcourts.gov/technology-standards-update",
-    "accessed": {"date-parts": [[2025, 2, 10]]}
+    "accessed": {
+      "date-parts": [
+        [
+          2025,
+          2,
+          10
+        ]
+      ]
+    }
+  },
+  {
+    "id": "web_press_release",
+    "type": "webpage",
+    "title": "Supreme Court of Texas Issues Annual Report",
+    "container-title": "Texas Judiciary",
+    "issued": {
+      "date-parts": [
+        [
+          2024
+        ]
+      ]
+    },
+    "URL": "https://www.txcourts.gov/media/releases/annual-report",
+    "accessed": {
+      "date-parts": [
+        [
+          2025,
+          3,
+          15
+        ]
+      ]
+    },
+    "status": "press release"
   },
   {
     "id": "unpublished_memo",
     "type": "manuscript",
-    "author": [{"family": "Lopez", "given": "Adriana"}],
+    "author": [
+      {
+        "family": "Lopez",
+        "given": "Adriana"
+      }
+    ],
     "title": "Bench Memorandum on Emergency Injunction Standards",
     "genre": "unpublished memorandum",
     "label": "page",
@@ -188,6 +476,29 @@
     "status": "on file with the Tex. Supreme Court",
     "medium": "draft"
   },
-  {"_cite": "parallel_cite_case", "locator": "480"},
-  {"_cite": "case_supreme", "locator": "470"}
+  {
+    "id": "unpublished_letter",
+    "type": "manuscript",
+    "author": [
+      {
+        "family": "Ramirez",
+        "given": "Isabel"
+      }
+    ],
+    "title": "Letter to Court Regarding Mediation Update",
+    "genre": "correspondence",
+    "label": "page",
+    "locator": "2",
+    "medium": "letter",
+    "status": "on file with the 191st District Court",
+    "issued": {
+      "date-parts": [
+        [
+          2024,
+          7,
+          8
+        ]
+      ]
+    }
+  }
 ]

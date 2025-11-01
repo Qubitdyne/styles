@@ -1,90 +1,95 @@
 [
   {
-    "id": "case_tx_sc",
+    "id": "toa_case_supreme",
     "type": "legal_case",
     "title": "HEB Ministries, Inc. v. Texas Higher Educ. Coordinating Bd.",
     "container-title": "S.W.3d",
     "volume": "235",
     "page": "627",
     "authority": "Tex.",
-    "issued": {
-      "date-parts": [
-        [
-          2007
-        ]
-      ]
-    },
-    "locator": "646"
+    "issued": {"date-parts": [[2007]]},
+    "locator": "15"
   },
   {
-    "id": "case_tx_app_hou14_mem",
+    "id": "toa_case_app_mem",
     "type": "legal_case",
     "title": "Richardson v. Kays",
     "number": "02-03-241-CV",
     "collection-number": "2003 WL 22457054",
     "authority": "Tex. App.—Fort Worth",
-    "issued": {
-      "date-parts": [
-        [
-          2003,
-          10,
-          30
-        ]
-      ]
-    },
+    "issued": {"date-parts": [[2003, 10, 30]]},
     "status": "no pet.",
     "genre": "per curiam",
     "medium": "mem. op.",
-    "locator": "1"
+    "locator": "21"
   },
   {
-    "id": "case_tx_crim_app",
+    "id": "toa_case_crim",
     "type": "legal_case",
     "title": "Cantu v. State",
     "container-title": "S.W.2d",
     "volume": "939",
     "page": "627",
     "authority": "Tex. Crim. App.",
-    "issued": {
-      "date-parts": [
-        [
-          1997
-        ]
-      ]
-    },
-    "locator": "631"
+    "issued": {"date-parts": [[1997]]},
+    "locator": "34"
   },
   {
-    "id": "stat_tax_code",
-    "type": "legislation",
-    "container-title": "Tex. Tax Code Ann.",
-    "section": "26.06(a)"
+    "id": "toa_case_trial",
+    "type": "legal_case",
+    "title": "State v. Auguillard",
+    "authority": "338th Dist. Ct., Harris County, Tex.",
+    "number": "139002101010",
+    "issued": {"date-parts": [[2013, 10, 21]]},
+    "locator": "42"
   },
   {
-    "id": "const_art",
+    "id": "toa_constitution",
     "type": "legislation",
     "genre": "constitution",
     "container-title": "Tex. Const.",
     "chapter-number": "III",
-    "section": "5(a)"
+    "section": "5(a)",
+    "locator": "48"
   },
   {
-    "id": "tac_rule",
+    "id": "toa_statute",
+    "type": "legislation",
+    "container-title": "Tex. Tax Code Ann.",
+    "section": "26.06(a)",
+    "locator": "52"
+  },
+  {
+    "id": "toa_rule",
+    "type": "legislation",
+    "container-title": "Tex. R. Civ. P.",
+    "section": "97(d)",
+    "locator": "57"
+  },
+  {
+    "id": "toa_admin_code",
     "type": "regulation",
     "volume": "4",
     "container-title": "Tex. Admin. Code",
     "section": "9.12",
-    "issued": {
-      "date-parts": [
-        [
-          2013
-        ]
-      ]
-    },
-    "authority": "Tex. Dep’t of Agric., Seed Sampling Procedures"
+    "issued": {"date-parts": [[2013]]},
+    "authority": "Tex. Dep’t of Agric., Seed Sampling Procedures",
+    "locator": "63"
   },
   {
-    "id": "session_law",
+    "id": "toa_register",
+    "type": "regulation",
+    "volume": "39",
+    "container-title": "Tex. Reg.",
+    "page-first": "573",
+    "page": "574",
+    "issued": {"date-parts": [[2014]]},
+    "note": "to be codified at 22 Tex. Admin. Code § 367.14",
+    "authority": "Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings",
+    "locator": "64"
+  },
+  {
+    "id": "toa_session_law",
     "type": "legislation",
     "title": "Act of May 30, 2005",
     "collection-number": "79th Leg., R.S.",
@@ -92,34 +97,37 @@
     "section": "1.06",
     "container-title": "Tex. Gen. Laws",
     "volume": "2005",
-    "page": "621"
+    "page": "621",
+    "locator": "70"
   },
   {
-    "id": "ag_op",
+    "id": "toa_ag_opinion",
     "type": "report",
     "authority": "Tex. Att’y Gen. Op.",
     "number": "GA-0002",
-    "issued": {
-      "date-parts": [
-        [
-          2002
-        ]
-      ]
-    }
+    "issued": {"date-parts": [[2002]]},
+    "locator": "75"
   },
   {
-    "id": "muni",
+    "id": "toa_municipal",
     "type": "regulation",
     "authority": "Hous., Tex.",
     "container-title": "Code of Ordinances",
     "chapter-number": "ch. 20, art. IV,",
     "section": "20-216",
-    "issued": {
-      "date-parts": [
-        [
-          1968
-        ]
-      ]
-    }
+    "issued": {"date-parts": [[1968]]},
+    "locator": "80"
+  },
+  {
+    "id": "toa_secondary",
+    "type": "book",
+    "author": [{"family": "Dorsaneo", "given": "William V."}],
+    "title": "Texas Litigation Guide",
+    "volume": "1",
+    "collection-title": "Texas Practice Series",
+    "issued": {"date-parts": [[2024]]},
+    "label": "section",
+    "locator": "5.2",
+    "abstract": "secondary authority entry"
   }
 ]
