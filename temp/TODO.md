@@ -356,6 +356,23 @@ ion of the conflicting behavior.
     - [x] Record any follow-up tasks or monitoring requirements tied to the decision.
     - [x] Link to relevant commits, fixture diffs, or script changes so auditors can trace the implementation.
     - [x] Update `TODO.md` statuses accordingly once the warnings are addressed.
+- [ ] **Restore TOA fixture ordering.** Realign `tests_toa.json` with all `expected_toa*.txt` variants so grouped-leader runs render the full 17-authority inventory captured in the historical baselines.
+  - [ ] Capture a fresh grouped-leaders run that highlights the truncated 13-entry output and annotate which authorities disappeared (`Tex. Gov’t Code Ann. § 311.021(1)`, `Tex. R. Civ. P. 21`, etc.).
+    - [ ] Execute `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt --mode bibliography` and save the diff log under `temp/test-logs/` with a timestamped filename.
+    - [ ] Compare the new log against `temp/test-logs/20250506_toa_grouped_leaders.txt` to confirm the four missing authorities and document the gap in `NOTES.md`.
+    - [ ] Update this task with a checklist of the missing IDs so fixture work can be distributed if needed.
+  - [ ] Reintroduce the absent authorities to `tests_toa.json`, mirroring the naming and field structure used by the surviving entries.
+    - [ ] Draft JSON objects for the Government Code, procedural rule, supplementary rule, and administrative statute authorities with accurate `type`, `container-title`, `authority`, and `issued` metadata.
+    - [ ] Validate the edited JSON with `python temp/run_tests.py --tests temp/tests_toa.json --list-tests` after each addition to guard against syntax regressions.
+    - [ ] Annotate each new object with inline comments or `NOTES.md` references citing the Greenbook pages that justify the authority selection.
+  - [ ] Regenerate the TOA expectations once the dataset is complete to restore dotted-leader ordering and spacing.
+    - [ ] Run `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --write-expected temp/expected_toa_grouped_leaders.txt --mode bibliography` and repeat for the other TOA variants.
+    - [ ] Inspect the regenerated files for alignment with the 2025-05-06 baseline, paying close attention to leader characters and grouped headings.
+    - [ ] Capture before/after diffs and archive the regeneration commands in `temp/test-logs/` for traceability.
+  - [ ] Refresh documentation to reflect the restored inventory and prevent the regression from reoccurring.
+    - [ ] Summarize the fixture restoration in `temp/NOTES.md`, including the command outputs and Greenbook citations.
+    - [ ] Update `temp/README.md` test instructions if additional flags or dataset notes emerge during regeneration.
+    - [ ] Flag any external documentation (e.g., PR draft, release checklist) that references the TOA suite so reviewers know the expectations were rebuilt.
   - [ ] Review existing macros handling parentheticals to identify duplicated logic between case notes and TOA outputs.
     - [x] Trace all macro invocations that append parenthetical content using CSL search tools.
       - [x] Search for keywords like “parenthetical” or specific strings (e.g., “slip op.”) within the CSL files using `rg`.

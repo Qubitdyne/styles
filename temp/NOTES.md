@@ -23,6 +23,12 @@
 | 18 | Books | 93–95 |
 | 19 | Conference and Institute Proceedings | 96 |
 
+## QA spot-check – Regression audit (2025-12-05)
+- Re-ran the canonical note regression via `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt` and confirmed all fixtures continue to match except for the outstanding “See” vs. “See also” delta on test 74, which aligns with the open jurisdiction cue follow-up in the short-form backlog.【8360ab†L1-L208】【34ab82†L181-L209】
+- Executed the grouped-leaders TOA suite with the same harness invocation (`--mode bibliography`) and observed that only 13 authorities rendered even though the expectations enumerate 17 entries, producing cascading diffs beginning with the missing Government Code cite.【e29318†L1-L37】【F:temp/expected_toa_grouped_leaders.txt†L1-L17】
+- Verified that `tests_toa.json` currently contains 13 records (`jq 'length'`), then compared today’s diff against the 2025-05-06 grouped-leader log to confirm that four authorities (Tex. Gov’t Code Ann. § 311.021(1), Tex. R. Civ. P. 21, 16 Tex. Admin. Code § 25.101, 1 Tex. Admin. Code § 3.5) dropped from the dataset after that baseline was captured.【4bd8bb†L1-L1】【F:temp/test-logs/20250506_toa_grouped_leaders.txt†L1-L40】
+- Captured the remediation plan in `TODO.md` under “Restore TOA fixture ordering” so fixture restoration, expectation regeneration, and documentation follow-up can proceed methodically.【F:temp/TODO.md†L359-L375】
+
 ## Legacy Draft 3 Update – Position-Aware Statutes, Rules, and Agencies (2025-03-17)
 - **Baseline review.** The archived `texas-greenbook-15th-draft3.csl` (now mirrored in `texas-greenbook-15th-edition.csl`) previously routed statutes through `statute-code`/`tex-statute` and agency materials through `tex-admin-code`/`tex-register`, but each macro only branched on `position="first"` and `variable="references"`. There was no shared handling for `Id.` cues, so repeat notes defaulted to the full form instead of the Greenbook short forms mandated in chs. 10–13 (pp. 42–84).
 - **New cue + id stack.** Imported the `prefatory-signal`, `note-body`, and `ibid-locator` scaffolding into the edition build so that `cs:citation` now emits italicized signals and `Id.` strings before delegating to the substantive macros. Statutes (`tex-statute`), codified rules (`tex-admin-code`/`rule-core` logic embedded in `note-body`), and agency entries all inherit the shared `Id.` behavior (Greenbook ch. 10 at 42–53; ch. 13 at 61–65; ch. 16 at 76–84).
