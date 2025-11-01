@@ -23,6 +23,12 @@
 | 18 | Books | 93–95 |
 | 19 | Conference and Institute Proceedings | 96 |
 
+## Draft 3 Update – Position-Aware Statutes, Rules, and Agencies (2025-03-17)
+- **Baseline review.** `texas-greenbook-15th-draft3.csl` previously routed statutes through `statute-code`/`tex-statute` and agency materials through `tex-admin-code`/`tex-register`, but each macro only branched on `position="first"` and `variable="references"`. There was no shared handling for `Id.` cues, so repeat notes defaulted to the full form instead of the Greenbook short forms mandated in chs. 10–13 (pp. 42–84).
+- **New cue + id stack.** Imported the `prefatory-signal`, `note-body`, and `ibid-locator` scaffolding from the edition build so that `cs:citation` now emits italicized signals and `Id.` strings before delegating to the substantive macros. Statutes (`tex-statute`), codified rules (`tex-admin-code`/`rule-core` logic embedded in `note-body`), and agency entries all inherit the shared `Id.` behavior (Greenbook ch. 10 at 42–53; ch. 13 at 61–65; ch. 16 at 76–84).
+- **Regression coverage.** Added consecutive cite items in `tests.json` for `stat_govt_code`, `tac_rule`, and `rule_civp` so the harness now validates `Id.` strings for codes (§ 2001.003), TAC rules (§ 9.13), and procedural rules (R. 97(e)). `expected.txt` includes the corresponding lines 13, 19, and 22 annotated with the governing chapter citations.
+- **Open questions.** The current `Id.` output for rules appears as `Id. 97(e).` without repeating the `R.` prefix. This mirrors the production edition but may warrant a follow-up confirmation against Greenbook ch. 13 (p. 63) to ensure no locator prefix is required when the preceding cite already supplied the rule set.
+
 ## Macro Dispatch Sketches
 
 ### `cs:citation` authority routing

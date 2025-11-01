@@ -149,6 +149,11 @@
     "section": "2001.003(6)"
   },
   {
+    "_cite": "stat_govt_code",
+    "label": "section",
+    "locator": "2001.003(7)"
+  },
+  {
     "id": "stat_penal_code",
     "type": "legislation",
     "container-title": "Tex. Penal Code",
@@ -194,6 +199,11 @@
     "authority": "Tex. Dep’t of Agric., Seed Sampling Procedures"
   },
   {
+    "_cite": "tac_rule",
+    "label": "section",
+    "locator": "9.13"
+  },
+  {
     "id": "tex_register_notice",
     "type": "regulation",
     "volume": "39",
@@ -217,6 +227,11 @@
     "container-title": "Tex. R. Civ. P.",
     "section": "97(d)",
     "genre": "court rule"
+  },
+  {
+    "_cite": "rule_civp",
+    "label": "rule",
+    "locator": "97(e)"
   },
   {
     "id": "rule_appellate",
