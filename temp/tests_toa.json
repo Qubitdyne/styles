@@ -8,7 +8,7 @@
     "page": "627",
     "authority": "Tex.",
     "issued": {"date-parts": [[2007]]},
-    "locator": "15"
+    "locator": "646"
   },
   {
     "id": "toa_case_app_mem",
@@ -21,7 +21,7 @@
     "status": "no pet.",
     "genre": "per curiam",
     "medium": "mem. op.",
-    "locator": "21"
+    "locator": "1"
   },
   {
     "id": "toa_case_crim",
@@ -32,7 +32,7 @@
     "page": "627",
     "authority": "Tex. Crim. App.",
     "issued": {"date-parts": [[1997]]},
-    "locator": "34"
+    "locator": "631"
   },
   {
     "id": "toa_case_trial",
@@ -64,6 +64,7 @@
     "type": "legislation",
     "container-title": "Tex. R. Civ. P.",
     "section": "97(d)",
+    "genre": "court rule",
     "locator": "57"
   },
   {
@@ -81,8 +82,7 @@
     "type": "regulation",
     "volume": "39",
     "container-title": "Tex. Reg.",
-    "page-first": "573",
-    "page": "574",
+    "page": "573, 574",
     "issued": {"date-parts": [[2014]]},
     "note": "to be codified at 22 Tex. Admin. Code § 367.14",
     "authority": "Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings",
