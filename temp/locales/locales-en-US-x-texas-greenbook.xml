@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<locale xmlns="http://purl.org/net/xbiblio/csl" xml:lang="en-US-x-texas-greenbook">
+<locale xmlns="http://purl.org/net/xbiblio/csl" version="1.0" xml:lang="en-US-x-texas-greenbook">
   <info>
     <title>English (United States) — Texas Greenbook Terms</title>
     <id>http://www.zotero.org/styles/locales-en-US-x-texas-greenbook</id>
     <link rel="documentation" href="https://www.txcourts.gov/rules-forms/rules-standards/"/>
-    <updated>2025-03-17T00:00:00+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+    <updated>2025-11-01T07:20:12+00:00</updated>
   </info>
+  <style-options punctuation-in-quote="true"/>
+  <date form="text">
+    <date-part name="month" suffix=" "/>
+    <date-part name="day" suffix=", "/>
+    <date-part name="year"/>
+  </date>
+  <date form="numeric">
+    <date-part name="month" form="numeric-leading-zeros" suffix="/"/>
+    <date-part name="day" form="numeric-leading-zeros" suffix="/"/>
+    <date-part name="year"/>
+  </date>
   <terms>
     <!-- Abbreviations drawn from Greenbook ch. 9–13 and Appendix H. -->
     <term name="article" form="short">art.</term>

@@ -152,6 +152,11 @@ end bibliography
 - Memorandum, per curiam, and “not designated for publication” designations require explicit parentheticals, with distinctions between civil and criminal publication practices and pre-2003 “do not publish” notes (4.1.2).
 - Recent opinions rely on electronic citations paralleling slip-opinion rules; historic instructions cover pre-1981 civil appeals reporters, city identification (including special Houston rules), and petition/writ notation tables (4.1.3–4.7, 4.2–4.6).
 
+#### Memo opinion typography check (2025-11-01)
+- The examples on p. 16 show memorandum opinion parentheticals appended in roman type after the court/date block: `Richardson v. Kays, No. 02-03-241-CV, 2003 WL 22457054, at *1 (Tex. App.—Fort Worth Oct. 30, 2003, no pet.) (per curiam) (mem. op.)` and `In re Int’l Profit Assocs., Inc., 274 S.W.3d 696, 697 (Tex. App.—Corpus Christi 2008, orig. proceeding) (per curiam) (mem. op.), mand. granted, 274 S.W.3d 672, 680 (Tex. 2009) (per curiam).` This confirms that the case names remain italicized while `(per curiam)` and `(mem. op.)` stay in roman text consistent with Chapter 1 guidance.【F:temp/Greenbook_15thEdition.pdf†L70-L118】
+- Page 17 illustrates the criminal-side variant `Green v. State, No. 12-12-00249-CR, 2012 WL 3116252, at *1 (Tex. App.—Tyler July 31, 2012, no pet.) (per curiam) (mem. op., not designated for publication).`, reiterating that memorandum opinion parentheticals keep roman styling even when the explanatory phrase adds “not designated for publication.”【F:temp/Greenbook_15thEdition.pdf†L118-L168】
+- Slip-opinion citations on p. 18 (`Jaxson v. Morgan, No. 14-04-00785-CV, slip op. ¶ 4 (Tex. App.—Houston [14th Dist.] Apr. 6, 2006, no pet.) (mem. op.)`) pair the `(mem. op.)` cue with the paragraph pinpoint; no italics shift occurs, so the CSL implementation can rely on roman rendering for these explanatory tails without additional styling hooks.【F:temp/Greenbook_15thEdition.pdf†L168-L212】
+
 ### Chapter 5 – Commission of Appeals (pp. 28–30)
 - Differentiates the Commission aiding criminal appeals versus civil commissions, detailing how to cite judgments adopted, approved, or holding-approved with proper parenthetical descriptions (5.1–5.2).
 
@@ -230,6 +235,11 @@ end bibliography
 | Texas Rules of Evidence | Tex. R. Evid. 405(b) | Greenbook p. 2 introduction (`Tex. R. Evid. 405(b)`) | Supplemental PDFs lack examples; Greenbook remains authoritative. |
 
 - **Historical reporter citations verified:** Greenbook Appendix C flags Charles L. Robards’s *Synopses of the Decisions of the Supreme Court of the State of Texas* (p. 117), the four-volume *Condensed Reports of Cases in the Court of Appeals of Texas* by Judges White & Willson (p. 119), and Posey’s *Texas Unreported Cases* (p. 120), aligning with the historical reporter inventory maintained for fixture planning.
+
+### Supplemental reference gap review (2025-11-01)
+- Re-read the Uniform Format Manual transcript examples (pp. 7, 13) and the 2025 Texas procedural rule updates (TRCP p. 331; TRAP Rule 13.2(b)) to confirm abbreviations already match the Greenbook authority forms recorded above; no new locale terms are required beyond the shared `art.`, `ch.`, `R.`, and pilcrow entries captured in the consolidated locale.【F:temp/Uniform-Format-Manual-07012010.pdf†L1-L12】【F:temp/texas-rules-of-civil-procedure-august-31-2025.pdf†L1-L12】【F:temp/Greenbook_15thEdition.pdf†L40-L92】
+- Reviewed the existing statute, rule, and agency fixtures in `tests.json`/`expected.txt` alongside the supplemental sources and found that each authority type already exercises the abbreviations the manuals reinforce (e.g., Tex. R. Civ. P. 97(d), Tex. R. App. P. 2); no additional citeproc JSON scenarios are needed until new authority classes emerge from future research.【F:temp/tests.json†L1-L166】【F:temp/expected.txt†L1-L214】
+- Documented the conclusion so future contributors know that supplemental reference coverage is up to date; re-open the TODO item once new materials introduce abbreviations or structures absent from the current macros.
 
 ## Existing CSL Style Inventory
 
