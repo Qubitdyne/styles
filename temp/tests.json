@@ -91,6 +91,28 @@
     "abstract": "memorializing summary-judgment disposition"
   },
   {
+    "id": "case_mem_not_designated",
+    "type": "legal_case",
+    "title": "Green v. State",
+    "title-short": "Green",
+    "authority": "Tex. App.—Tyler",
+    "number": "12-12-00249-CR",
+    "collection-number": "2012 WL 3116252",
+    "issued": {
+      "date-parts": [
+        [
+          2012,
+          7,
+          31
+        ]
+      ]
+    },
+    "status": "no pet.",
+    "genre": "per curiam",
+    "medium": "mem. op., not designated for publication",
+    "locator": "1"
+  },
+  {
     "id": "case_trial_court",
     "type": "legal_case",
     "title": "State v. Auguillard",
