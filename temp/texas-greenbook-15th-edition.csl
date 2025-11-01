@@ -375,6 +375,40 @@
     <text macro="tex-code-section"/>
   </macro>
 
+  <macro name="tex-statute-short">
+    <choose>
+      <if variable="references">
+        <group delimiter=" ">
+          <text macro="cross-reference-cue"/>
+          <group delimiter=", ">
+            <text macro="tex-code-section"/>
+            <text variable="references"/>
+          </group>
+        </group>
+      </if>
+      <else>
+        <text macro="tex-code-section"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="tex-rule-short">
+    <choose>
+      <if variable="references">
+        <group delimiter=" ">
+          <text macro="cross-reference-cue"/>
+          <group delimiter=", ">
+            <text macro="tex-code-section"/>
+            <text variable="references"/>
+          </group>
+        </group>
+      </if>
+      <else>
+        <text macro="tex-code-section"/>
+      </else>
+    </choose>
+  </macro>
+
   <macro name="tex-constitution">
     <group delimiter=", ">
       <group delimiter=" ">
@@ -435,6 +469,30 @@
       </if>
     </choose>
     <text variable="authority" prefix=" (" suffix=")"/>
+  </macro>
+
+  <macro name="tex-admin-code-short">
+    <choose>
+      <if variable="references">
+        <group delimiter=" ">
+          <text macro="cross-reference-cue"/>
+          <group delimiter=", ">
+            <text macro="tex-admin-core"/>
+            <text variable="references"/>
+          </group>
+        </group>
+      </if>
+      <else>
+        <group delimiter=", ">
+          <text macro="tex-admin-core"/>
+          <choose>
+            <if variable="locator">
+              <text variable="locator"/>
+            </if>
+          </choose>
+        </group>
+      </else>
+    </choose>
   </macro>
 
   <macro name="session-law">

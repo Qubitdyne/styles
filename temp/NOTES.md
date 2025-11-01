@@ -198,6 +198,39 @@ end bibliography
 - **Appendix cross-references.** Chapters 10–13 repeatedly point to Appendix H (code abbreviations), Appendix F (petition history abbreviations noted earlier in Chapter 4 but relevant to statutory tables), and Appendices K.1–K.3 for historic rules. These references are logged here so future development can consult the appendices when encoding locale abbreviations or rule provenance.
 
 ### Structured CSL condition mapping
+
+## Statute, rule, and agency long-form element inventory (2025-11-01)
+
+- **`tex-code-section` / `tex-statute` (edition ll. 341–376).** The long-form branch emits the full code title plus section symbol handling from `label` or `chapter-number`, letting annotated volumes surface article numbers while regulations fall back to `§` groupings. The output therefore already covers the Greenbook mandate that first cites recite the chapter/article label and section in tandem (ch. 10, pp. 62–63). Short-form variants must preserve only the code title (abbreviated per Appendix H) and the section/article string while omitting any publisher/year parentheticals that appear elsewhere in the long form (e.g., West, Supp. signals referenced in ch. 10, p. 63).【F:temp/texas-greenbook-15th-edition.csl†L341-L376】【7c9040†L1-L24】
+- **Court rules routed through `tex-statute`.** Procedural, appellate, and evidence rules currently arrive as `type="legislation"` items without `collection-number` metadata, so `note-body` funnels them into `tex-statute`. Their long-form output is therefore limited to the rule series title (e.g., “Tex. R. Civ. P.”) and rule identifier. Greenbook ch. 13 requires subsequent cites to retain the rule designation and subdivision but to drop any adoption/reprint parentheticals after the first cite (pp. 61–65). The planned `tex-rule-short` helper can reuse the same code/section string emitted by `tex-code-section` while eliding the historical parentheticals captured in the first-position flow.【F:temp/tests.json†L206-L230】【F:temp/texas-greenbook-15th-edition.csl†L341-L376】
+- **`tex-admin-code` (edition ll. 395–438).** Long-form administrative cites emit the volume/title pair, section symbol group, optional locator, issued year, and parenthetical agency/source detail. Chapter 16 instructs that short forms retain the Texas Administrative Code title + section while suppressing the year parenthetical and only restating the agency when needed for clarity (pp. 77–78). The forthcoming short-form helper therefore needs to keep the `volume` + `container-title` + section chain, optionally echo the locator, and reserve agency titles for situations where multiple departments appear in the same discussion.【F:temp/texas-greenbook-15th-edition.csl†L395-L438】【02ad57†L1-L24】
+- **Municipal code routing (`municipal-code`, edition ll. 469–477).** Municipal ordinances layer the city authority ahead of the shared `tex-code-section` output and append a year parenthetical. Under Greenbook Rule 10.6 (p. 53) the municipality and code cite persist in every reference, while the publication year can drop after the first cite. Any `municipal-code-short` macro must therefore keep the authority + section string and drop the issued-date wrapper unless it resolves ambiguity between different municipal compilations.【F:temp/texas-greenbook-15th-edition.csl†L469-L477】【7c9040†L1-L24】
+
+### Short-form pseudo-code sketches (2025-11-01)
+
+```text
+tex-statute-short
+  inputs: container-title, section, chapter-number?, genre?, note?, references?, jurisdiction
+  branch: if references present → call tex-statute-cross-reference (future), else continue
+  choose title-short fallback: prefer container-title-short else container-title
+  output: [container-title-abbrev] [chapter-number + section string from tex-code-section]
+  omit: note-sourced publisher/year parentheticals per ch. 10 (pp. 62–63)
+
+tex-rule-short
+  inputs: container-title (rule series), section, references, note (for adoption parentheticals), jurisdiction
+  branch: if references present → cross-reference helper
+  output: [container-title] [section symbol + subdivision]; reuse tex-code-section for symbols
+  omit: adoption/reprint parenthetical strings captured in note/status after first cite (ch. 13, pp. 61–65)
+
+tex-admin-code-short
+  inputs: volume, container-title, section or page, locator, authority, note, references
+  branch: if references present → cross-reference helper, else continue
+  output: [volume] [container-title] [§ section or page]; append locator when supplied
+  omit: issued year parenthetical; include agency authority only when `authority` present and multiple agencies appear (ch. 16, p. 77)
+```
+
+- Each pseudo-code block above aligns with the authority matrix rows already mapped in `authority-note-matrix.md` (Texas statutes & codes, court rules, and Texas administrative code). The inputs list mirrors the CSL variables surfaced in the regression fixtures (`stat_*`, `rule_*`, `tac_*`), ensuring the future implementation can layer `choose` blocks over known metadata without expanding the JSON schema.【F:temp/authority-note-matrix.md†L8-L26】【F:temp/tests.json†L205-L267】
+- Follow-up work: once the shells exist, wire `position="first"`/`references` routing inside `note-body` so short forms trigger automatically; update the fixture expectations to document the condensed outputs for Chapters 10–13 authorities.
 - **Subject-matter codes (Ch. 10, pp. 44–46).**
   - *Metadata:* `container-title`, `section`, optional `note` (for supplements/pamphlets) and `title-short` (for code short names).
   - *Conditions:* `if` multiple sections share `container-title` → emit `§§` plus comma-delimited `section` list; `elif` citation references an article → prefix each with `art.` and retain section subdivisions when present.
