@@ -130,11 +130,11 @@ ion of the conflicting behavior.
       - [x] Update the TOA section of the requirement matrix to reflect the finalized short-form behavior.
   - [ ] Extend cross-reference cue logic for statutes, rules, and agencies.
     - [ ] Update the `cross-reference-cue` macro so that blank `note` fields trigger “See also” outputs for non-Texas authorities while preserving existing case handling.
-      - [ ] Trace current `cross-reference-cue` execution paths to confirm where the note value is evaluated.
-      - [ ] Add conditional checks for statute, rule, and administrative authority types, reusing existing jurisdiction helpers when possible.
+      - [x] Trace current `cross-reference-cue` execution paths to confirm where the note value is evaluated.
+      - [x] Add conditional checks for statute, rule, and administrative authority types, reusing existing jurisdiction helpers when possible.
       - [ ] Verify that the macro still returns empty output when `note` contains substantive text, avoiding redundant cues.
       - [ ] Run citeproc scenarios with mixed Texas and non-Texas authorities to confirm the cue renders only in the expected cases.
-      - [ ] Update inline comments or `NOTES.md` to document the new logic with Greenbook references.
+      - [x] Update inline comments or `NOTES.md` to document the new logic with Greenbook references.
     - [ ] Ensure statute/rule short forms properly interpret `ibid`-style references, respecting Greenbook triggers for when `Id.` is permitted.
       - [ ] Review the CSL `ibid` handling configuration to understand current processor behavior for statutes and rules.
       - [ ] Add conditional guards within the short-form macros that suppress `Id.` when the Greenbook disallows it (e.g., cross-title citations).
