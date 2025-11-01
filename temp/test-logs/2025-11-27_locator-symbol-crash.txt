@@ -1,0 +1,85 @@
+/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/source/__init__.py:31: UserWarning: The following arguments for Reference are unsupported: label
+  warn('The following arguments for {} are '.format(cls_name) +
+Traceback (most recent call last):
+  File "/workspace/styles/temp/run_tests.py", line 111, in <module>
+    citation_result = bibliography.cite(citation, lambda _: None)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/frontend.py", line 102, in cite
+    return self.style.render_citation(citation, self._cites, callback)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/frontend.py", line 69, in render_citation
+    return self.root.citation.render(citation, cites, callback)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 227, in render
+    return self.layout.render_citation(citation, callback)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 606, in render_citation
+    output = self.render_children(item)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 569, in render_children
+    text = child.render(item, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 1400, in render
+    return child.render(item, context=context, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 1435, in render
+    return self.render_children(item, context=context, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 569, in render_children
+    text = child.render(item, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 1400, in render
+    return child.render(item, context=context, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 1522, in render
+    return self.render_children(item, context=context, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 569, in render_children
+    text = child.render(item, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 98, in render
+    return self.markup(self.process(*args, **kwargs))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 1371, in process
+    child_text = child.render(item, context=context, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 98, in render
+    return self.markup(self.process(*args, **kwargs))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 1371, in process
+    child_text = child.render(item, context=context, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 706, in render
+    text, language = self.process(*args, **kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 720, in process
+    text = self.get_macro(self.get('macro')).render(item, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 586, in render
+    return self.render_children(item, context=context,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 569, in render_children
+    text = child.render(item, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 1400, in render
+    return child.render(item, context=context, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 1522, in render
+    return self.render_children(item, context=context, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 569, in render_children
+    text = child.render(item, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 98, in render
+    return self.markup(self.process(*args, **kwargs))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 1371, in process
+    child_text = child.render(item, context=context, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 98, in render
+    return self.markup(self.process(*args, **kwargs))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.10/lib/python3.12/site-packages/citeproc/model.py", line 1332, in process
+    text = term.single
+           ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'single'

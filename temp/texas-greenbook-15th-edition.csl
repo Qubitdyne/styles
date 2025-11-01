@@ -87,16 +87,39 @@
     </choose>
   </macro>
 
+  <macro name="tex-labeled-locator">
+    <choose>
+      <if locator="section paragraph" match="any">
+        <group delimiter=" ">
+          <label variable="locator" form="symbol"/>
+          <text variable="locator"/>
+        </group>
+      </if>
+      <else-if locator="rule regulation" match="any">
+        <group delimiter=" ">
+          <label variable="locator" form="short"/>
+          <text variable="locator"/>
+        </group>
+      </else-if>
+      <else-if locator="article chapter part title volume" match="any">
+        <group delimiter=" ">
+          <label variable="locator" form="short"/>
+          <text variable="locator"/>
+        </group>
+      </else-if>
+      <else>
+        <text variable="locator"/>
+      </else>
+    </choose>
+  </macro>
+
   <macro name="ibid-locator">
     <choose>
       <if locator="page">
         <text variable="locator" prefix="at "/>
       </if>
       <else>
-        <group delimiter=" ">
-          <label variable="locator" form="symbol"/>
-          <text variable="locator"/>
-        </group>
+        <text macro="tex-labeled-locator"/>
       </else>
     </choose>
   </macro>
@@ -188,10 +211,7 @@
             <text variable="locator" prefix="at "/>
           </if>
           <else>
-            <group delimiter=" ">
-              <label variable="locator" form="symbol"/>
-              <text variable="locator"/>
-            </group>
+            <text macro="tex-labeled-locator"/>
           </else>
         </choose>
       </if>

@@ -2,6 +2,7 @@ import argparse
 import importlib.util
 import json
 import sys
+import warnings
 from copy import deepcopy
 
 
@@ -19,6 +20,12 @@ def _ensure_citeproc_available() -> None:
 
 
 _ensure_citeproc_available()
+
+warnings.filterwarnings(
+    "ignore",
+    message=r"The following arguments for Reference are unsupported: (?:comment|label|reviewed_title)",
+    category=UserWarning,
+)
 
 from citeproc import Citation, CitationItem, Locator
 from citeproc import CitationStylesBibliography, CitationStylesStyle

@@ -36,6 +36,23 @@
       <ns0:else-if variable="collection-number locator" match="all"><ns0:text variable="locator" prefix=", at *" /></ns0:else-if>
     </ns0:choose>
   </ns0:macro>
+
+  <ns0:macro name="tex-labeled-locator">
+    <ns0:choose>
+      <ns0:if locator="section paragraph" match="any">
+        <ns0:group delimiter=" "><ns0:label variable="locator" form="symbol" /><ns0:text variable="locator" /></ns0:group>
+      </ns0:if>
+      <ns0:else-if locator="rule regulation" match="any">
+        <ns0:group delimiter=" "><ns0:label variable="locator" form="short" /><ns0:text variable="locator" /></ns0:group>
+      </ns0:else-if>
+      <ns0:else-if locator="article chapter part title volume" match="any">
+        <ns0:group delimiter=" "><ns0:label variable="locator" form="short" /><ns0:text variable="locator" /></ns0:group>
+      </ns0:else-if>
+      <ns0:else>
+        <ns0:text variable="locator" />
+      </ns0:else>
+    </ns0:choose>
+  </ns0:macro>
   <ns0:macro name="court-and-date">
     <ns0:choose>
       <ns0:if variable="volume page container-title" match="all">
@@ -178,10 +195,7 @@
         <ns0:number variable="volume" form="numeric" />
         <ns0:text variable="title" font-style="italic" />
       </ns0:group>
-      <ns0:group delimiter=" ">
-        <ns0:label variable="locator" form="symbol" />
-        <ns0:text variable="locator" />
-      </ns0:group>
+      <ns0:text macro="tex-labeled-locator" />
       <ns0:date variable="issued">
         <ns0:date-part name="year" />
       </ns0:date>

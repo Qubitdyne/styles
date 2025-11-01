@@ -214,7 +214,7 @@ ion of the conflicting behavior.
       - [x] Update the matrix or create addenda in `NOTES.md` when new conditions are discovered.
       - [x] Schedule follow-up tasks for triggers that cannot be implemented with current data structures.
       - [x] Seek clarification from subject-matter experts for ambiguous or conflicting trigger interpretations.
-  - [ ] Extend `tests.json` with statute, rule, and administrative cross-reference scenarios that cover `Id.`, short-form without `Id.`, and cross-volume citations.
+  - [x] Extend `tests.json` with statute, rule, and administrative cross-reference scenarios that cover `Id.`, short-form without `Id.`, and cross-volume citations.
     - [x] Draft minimal input data for each scenario, noting required metadata fields (e.g., `volume`, `authority-type`).
       - [x] Create a spreadsheet or table listing each scenario with the metadata keys needed for citeproc to evaluate correctly.
       - [x] Reuse existing JSON templates to ensure field naming and nesting remain consistent.
@@ -317,11 +317,11 @@ ion of the conflicting behavior.
     - [x] If a requirements file is used, reference it in developer onboarding notes and any automation scripts.
     - [x] If a guard clause is preferred, include example output so contributors know what to expect.
     - [x] Verify external documentation (e.g., PR template, NOTES) stays consistent with the new guidance.
-- [ ] **Harden locator label fallbacks.** Prevent citeproc from crashing when `label` renders non-page locators with `form="symbol"` (e.g., rules, administrative materials) so the full `tests.json` suite runs end-to-end.
-  - [ ] Reproduce the failure with a dedicated test log capturing the offending citation and macro stack.
-  - [ ] Audit `ibid-locator` and related helpers to confirm whether non-page locators should prefer `form="short"` fallbacks for rules and administrative materials.
-  - [ ] Determine whether the fix belongs in the macros (e.g., conditional `form` selection) or via additional locale terms.
-  - [ ] Update dependency guidance and documentation once the crash is resolved, noting any citeproc version constraints that remain.
+- [x] **Harden locator label fallbacks.** Prevent citeproc from crashing when `label` renders non-page locators with `form="symbol"` (e.g., rules, administrative materials) so the full `tests.json` suite runs end-to-end.
+  - [x] Reproduce the failure with a dedicated test log capturing the offending citation and macro stack.
+  - [x] Audit `ibid-locator` and related helpers to confirm whether non-page locators should prefer `form="short"` fallbacks for rules and administrative materials.
+  - [x] Determine whether the fix belongs in the macros (e.g., conditional `form` selection) or via additional locale terms.
+  - [x] Update dependency guidance and documentation once the crash is resolved, noting any citeproc version constraints that remain.
 - [x] **Auto-select bibliography mode for TOA runs.** Extend `run_tests.py` (or provide a thin wrapper) that inspects the style filename and defaults to `--mode bibliography` for TOA variants to prevent false diffs like the ones captured on 2025-11-18.【eab112†L1-L41】【temp/tests_toa.json†L1-L200】
   - [x] Prototype detection logic (e.g., filename contains `toa`) and ensure it remains overridable via CLI flags.
     - [x] Draft a helper function that inspects the `--style` argument and returns an inferred mode while honoring explicit user overrides.
@@ -338,22 +338,22 @@ ion of the conflicting behavior.
     - [x] Highlight any scenarios where contributors should still pass `--mode` explicitly (e.g., experimenting with alternate contexts).
     - [x] Ensure README code snippets remain copy/paste friendly after edits.
     - [x] Note the documentation update in `TODO.md` and `NOTES.md` once published.
-- [ ] **Silence benign citeproc warnings.** Evaluate whether fixture metadata (e.g., `label`, `reviewed_title`) should be pruned or whether the harness should filter the warnings so audit logs stay clean during routine runs.【955aca†L1-L24】
-  - [ ] Audit `tests.json`/`tests_toa.json` for unused metadata fields that trigger the warnings and document any intentional shims before removal.
-    - [ ] List the warning messages produced during a baseline `run_tests.py` execution and map them to specific fixture entries.
-    - [ ] Inspect each implicated fixture to determine whether the triggering fields are required for future scenarios.
-    - [ ] Remove or annotate unnecessary metadata fields in a scratch branch to gauge impact on citeproc output.
-    - [ ] Capture findings in `NOTES.md`, including justification for keeping or pruning each field.
-  - [ ] If the metadata must remain, capture an explicit warning suppression strategy (context manager or CLI flag) so log diffs focus on substantive regressions.
-    - [ ] Research citeproc-py options for suppressing or filtering warnings without hiding genuine errors.
-    - [ ] Prototype the suppression approach in `run_tests.py`, ensuring the solution is limited in scope and clearly documented.
-    - [ ] Validate that suppressed warnings continue to appear when running the script in a verbose/debug mode if needed.
-    - [ ] Document the suppression behavior and usage instructions in `README.md` or inline comments for transparency.
-  - [ ] Note the final decision in `NOTES.md` for future audits.
-    - [ ] Summarize the chosen remediation path (data cleanup vs. suppression) with supporting rationale.
-    - [ ] Record any follow-up tasks or monitoring requirements tied to the decision.
-    - [ ] Link to relevant commits, fixture diffs, or script changes so auditors can trace the implementation.
-    - [ ] Update `TODO.md` statuses accordingly once the warnings are addressed.
+- [x] **Silence benign citeproc warnings.** Evaluate whether fixture metadata (e.g., `label`, `reviewed_title`) should be pruned or whether the harness should filter the warnings so audit logs stay clean during routine runs.【955aca†L1-L24】
+  - [x] Audit `tests.json`/`tests_toa.json` for unused metadata fields that trigger the warnings and document any intentional shims before removal.
+    - [x] List the warning messages produced during a baseline `run_tests.py` execution and map them to specific fixture entries.
+    - [x] Inspect each implicated fixture to determine whether the triggering fields are required for future scenarios.
+    - [x] Remove or annotate unnecessary metadata fields in a scratch branch to gauge impact on citeproc output.
+    - [x] Capture findings in `NOTES.md`, including justification for keeping or pruning each field.
+  - [x] If the metadata must remain, capture an explicit warning suppression strategy (context manager or CLI flag) so log diffs focus on substantive regressions.
+    - [x] Research citeproc-py options for suppressing or filtering warnings without hiding genuine errors.
+    - [x] Prototype the suppression approach in `run_tests.py`, ensuring the solution is limited in scope and clearly documented.
+    - [x] Validate that suppressed warnings continue to appear when running the script in a verbose/debug mode if needed.
+    - [x] Document the suppression behavior and usage instructions in `README.md` or inline comments for transparency.
+  - [x] Note the final decision in `NOTES.md` for future audits.
+    - [x] Summarize the chosen remediation path (data cleanup vs. suppression) with supporting rationale.
+    - [x] Record any follow-up tasks or monitoring requirements tied to the decision.
+    - [x] Link to relevant commits, fixture diffs, or script changes so auditors can trace the implementation.
+    - [x] Update `TODO.md` statuses accordingly once the warnings are addressed.
   - [ ] Review existing macros handling parentheticals to identify duplicated logic between case notes and TOA outputs.
     - [x] Trace all macro invocations that append parenthetical content using CSL search tools.
       - [x] Search for keywords like “parenthetical” or specific strings (e.g., “slip op.”) within the CSL files using `rg`.

@@ -44,6 +44,7 @@ This document summarizes the scope, capabilities, and maintenance guidance for t
 ## Running the Test Suites
 
 1. **Install citeproc test dependencies** (once per environment): run `pip install -r temp/requirements.txt` to install the minimal dependency set. The harness now checks for `citeproc` explicitly and exits with an actionable hint ("Missing required dependency 'citeproc'. Install it with 'pip install -r temp/requirements.txt' or 'pip install citeproc-py'.") if the library is missing.【F:temp/run_tests.py†L1-L46】
+   - The runner suppresses citeproc's benign `UserWarning` messages about unsupported metadata keys (`comment`, `label`, `reviewed_title`) so regression logs stay readable. Set `PYTHONWARNINGS=default` when invoking `run_tests.py` if you need to audit the raw warning stream.【F:temp/run_tests.py†L1-L52】
 2. **Run the core note/bibliography suite:**
    ```bash
    python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt
@@ -55,6 +56,7 @@ This document summarizes the scope, capabilities, and maintenance guidance for t
    ```
    Alternate TOA styles can be tested by swapping the `--style` and `--expected` paths (see `expected_toa.txt`, `expected_toa_grouped.txt`, `expected_toa_leaders.txt`). Pass `--mode` explicitly if you are experimenting with nonstandard filenames or want to override the auto-detection behavior.【F:temp/tests_toa.json†L1-L200】
 4. **Update fixtures:** Use the `--write-expected` flag to regenerate expected outputs after intentional changes; review diffs to ensure alignment with Greenbook requirements before committing.【F:temp/run_tests.py†L75-L114】
+5. **Reproduce historical locator issues (optional):** The diagnostic pair `tests_locator_symbol.json` / `expected_locator_symbol.txt` exercises the non-page locator pathways that previously crashed when citeproc lacked a symbol-form term. Run them to confirm fallback behavior before altering locator macros.【F:temp/tests_locator_symbol.json†L1-L16】【F:temp/expected_locator_symbol.txt†L1-L1】
 
 ## Maintenance & Extension Guidance
 
