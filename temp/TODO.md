@@ -98,18 +98,18 @@ ion of the conflicting behavior.
       - [x] Note whether the example references alternative reporters or cross-jurisdictional materials.
       - [x] Compare examples with the requirement matrix to ensure they map to existing or planned metadata fields.
       - [x] Flag examples lacking sufficient metadata in the test suite for future fixture creation.
-    - [ ] Validate the derived triggers against existing citation requirement matrices to ensure coverage alignment.
-      - [ ] Cross-reference each trigger with the matrix, noting any missing categories or contradictory instructions.
-      - [ ] Update the matrix or create addenda in `NOTES.md` when new conditions are discovered.
-      - [ ] Schedule follow-up tasks for triggers that cannot be implemented with current data structures.
-      - [ ] Seek clarification from subject-matter experts for ambiguous or conflicting trigger interpretations.
+    - [x] Validate the derived triggers against existing citation requirement matrices to ensure coverage alignment.
+      - [x] Cross-reference each trigger with the matrix, noting any missing categories or contradictory instructions.
+      - [x] Update the matrix or create addenda in `NOTES.md` when new conditions are discovered.
+      - [x] Schedule follow-up tasks for triggers that cannot be implemented with current data structures.
+      - [x] Seek clarification from subject-matter experts for ambiguous or conflicting trigger interpretations.
   - [ ] Extend `tests.json` with statute, rule, and administrative cross-reference scenarios that cover `Id.`, short-form without `Id.`, and cross-volume citations.
-    - [ ] Draft minimal input data for each scenario, noting required metadata fields (e.g., `volume`, `authority-type`).
-      - [ ] Create a spreadsheet or table listing each scenario with the metadata keys needed for citeproc to evaluate correctly.
-      - [ ] Reuse existing JSON templates to ensure field naming and nesting remain consistent.
-      - [ ] Identify any new metadata fields and document them for addition to data schemas or documentation.
-      - [ ] Gather example values from the Greenbook to populate realistic citation information.
-      - [ ] Queue fixtures for the Chapter 10–13 short-form gaps logged on 2025-11-04 (multi-section code cites, supplement parentheticals, amendment/repeal statuses, historical notes, judicial administration repeats, TRAP criminal appendix rules, and local court rules).
+    - [x] Draft minimal input data for each scenario, noting required metadata fields (e.g., `volume`, `authority-type`).
+      - [x] Create a spreadsheet or table listing each scenario with the metadata keys needed for citeproc to evaluate correctly.
+      - [x] Reuse existing JSON templates to ensure field naming and nesting remain consistent.
+      - [x] Identify any new metadata fields and document them for addition to data schemas or documentation.
+      - [x] Gather example values from the Greenbook to populate realistic citation information.
+      - [x] Queue fixtures for the Chapter 10–13 short-form gaps logged on 2025-11-04 (multi-section code cites, supplement parentheticals, amendment/repeal statuses, historical notes, judicial administration repeats, TRAP criminal appendix rules, and local court rules).
     - [ ] Add fixture entries incrementally, verifying JSON schema compatibility via `run_tests.py --list-tests`.
       - [ ] Insert one scenario at a time into `tests.json`, running the command after each addition to isolate syntax issues.
       - [ ] Capture command output logs and store them in `temp/test-logs/` for traceability.
@@ -168,11 +168,11 @@ ion of the conflicting behavior.
       - [ ] Verify that no extraneous files are staged prior to committing.
       - [ ] Push changes to a feature branch for review after passing all tests.
 - [ ] **Finish explanatory parentheticals.** Add shared helpers for slip-opinion pinpoints, procedural parentheticals, and docket metadata so case and mandamus citations emit relief/status consistently before promoting the next edition revision.
-    - [ ] Compile the list of required explanatory parentheticals (slip opinion, procedural posture, relief granted, docket disposition) with page references from Chapters 2, 4, and 6 in `NOTES.md`.
-      - [ ] Read the specified chapters sequentially and bookmark sections discussing explanatory parentheticals.
-      - [ ] Extract verbatim language, noting whether examples differ between authority types.
-      - [ ] Record page numbers, section headers, and any footnote clarifications alongside each entry.
-      - [ ] Organize the list chronologically according to the chapter layout for quick cross-referencing later.
+    - [x] Compile the list of required explanatory parentheticals (slip opinion, procedural posture, relief granted, docket disposition) with page references from Chapters 2, 4, and 6 in `NOTES.md`.
+      - [x] Read the specified chapters sequentially and bookmark sections discussing explanatory parentheticals.
+      - [x] Extract verbatim language, noting whether examples differ between authority types.
+      - [x] Record page numbers, section headers, and any footnote clarifications alongside each entry.
+      - [x] Organize the list chronologically according to the chapter layout for quick cross-referencing later.
     - [ ] Extract sample parenthetical language verbatim from the PDF and capture contextual notes (case type, jurisdiction).
       - [ ] Use PDF text selection tools to avoid transcription errors and double-check formatting (italics, capitalization).
       - [ ] Note the authority type (e.g., civil appeal, mandamus) for each sample to ensure correct macro targeting.
