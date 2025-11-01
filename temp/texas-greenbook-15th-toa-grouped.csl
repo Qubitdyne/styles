@@ -74,6 +74,23 @@
       <else-if variable="collection-number locator" match="all"><text variable="locator" prefix=", at *"/></else-if>
     </choose>
   </macro>
+
+  <macro name="tex-labeled-locator">
+    <choose>
+      <if locator="section paragraph" match="any">
+        <group delimiter=" "><label variable="locator" form="symbol"/><text variable="locator"/></group>
+      </if>
+      <else-if locator="rule regulation" match="any">
+        <group delimiter=" "><label variable="locator" form="short"/><text variable="locator"/></group>
+      </else-if>
+      <else-if locator="article chapter part title volume" match="any">
+        <group delimiter=" "><label variable="locator" form="short"/><text variable="locator"/></group>
+      </else-if>
+      <else>
+        <text variable="locator"/>
+      </else>
+    </choose>
+  </macro>
   <macro name="court-and-date">
     <choose>
       <if variable="volume page container-title" match="all">
@@ -215,10 +232,7 @@
         <number variable="volume" form="numeric"/>
         <text variable="title" font-style="italic"/>
       </group>
-      <group delimiter=" ">
-        <label variable="locator" form="symbol"/>
-        <text variable="locator"/>
-      </group>
+      <text macro="tex-labeled-locator"/>
       <date variable="issued">
         <date-part name="year"/>
       </date>

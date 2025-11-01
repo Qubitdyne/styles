@@ -1,0 +1,20 @@
+[
+  {
+    "id": "rule_civp_missing_symbol",
+    "type": "legislation",
+    "title": "Tex. R. Civ. P.",
+    "container-title": "Tex. R. Civ. P.",
+    "section": "97",
+    "authority": "Tex. R. Civ. P.",
+    "issued": {
+      "date-parts": [[2024]]
+    },
+    "locator": "97(e)",
+    "label": "rule"
+  },
+  {
+    "_cite": "rule_civp_missing_symbol",
+    "locator": "97(f)",
+    "label": "rule"
+  }
+]
