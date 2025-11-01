@@ -194,21 +194,21 @@ ion of the conflicting behavior.
       - [ ] Reference related external resources (e.g., Uniform Format Manual) that might clarify the ambiguity.
       - [ ] Schedule review meetings or consultation sessions if external expertise is needed.
   - [ ] Review existing macros handling parentheticals to identify duplicated logic between case notes and TOA outputs.
-    - [ ] Trace all macro invocations that append parenthetical content using CSL search tools.
-      - [ ] Search for keywords like “parenthetical” or specific strings (e.g., “slip op.”) within the CSL files using `rg`.
-      - [ ] Document each macro invocation path, including upstream macros and dependent outputs.
-      - [ ] Verify whether macros differ between note and bibliography contexts.
-      - [ ] Record findings in `NOTES.md`, citing file names and line ranges.
-    - [ ] Compare string construction patterns to determine where variables or punctuation diverge between outputs.
-      - [ ] Capture sample outputs from existing tests to illustrate the current formatting.
-      - [ ] Note inconsistencies such as missing commas or varying capitalization.
-      - [ ] Determine whether divergences stem from macro logic or locale terms.
-      - [ ] Propose standardization strategies and record them in `NOTES.md` for future action.
-    - [ ] Record duplication hotspots and opportunities for shared helper insertion in `NOTES.md`.
-      - [ ] Identify macros repeating similar conditional logic and list them in a consolidation table.
-      - [ ] Assess the effort required to merge each duplicated segment into a helper macro.
-      - [ ] Note dependencies (tests, documentation) that will need updates when duplication is removed.
-      - [ ] Prioritize hotspots according to frequency of use in the test suite or production citations.
+    - [x] Trace all macro invocations that append parenthetical content using CSL search tools.
+      - [x] Search for keywords like “parenthetical” or specific strings (e.g., “slip op.”) within the CSL files using `rg`.
+      - [x] Document each macro invocation path, including upstream macros and dependent outputs.
+      - [x] Verify whether macros differ between note and bibliography contexts.
+      - [x] Record findings in `NOTES.md`, citing file names and line ranges.
+    - [x] Compare string construction patterns to determine where variables or punctuation diverge between outputs.
+      - [x] Capture sample outputs from existing tests to illustrate the current formatting.
+      - [x] Note inconsistencies such as missing commas or varying capitalization.
+      - [x] Determine whether divergences stem from macro logic or locale terms.
+      - [x] Propose standardization strategies and record them in `NOTES.md` for future action.
+    - [x] Record duplication hotspots and opportunities for shared helper insertion in `NOTES.md`.
+      - [x] Identify macros repeating similar conditional logic and list them in a consolidation table.
+      - [x] Assess the effort required to merge each duplicated segment into a helper macro.
+      - [x] Note dependencies (tests, documentation) that will need updates when duplication is removed.
+      - [x] Prioritize hotspots according to frequency of use in the test suite or production citations.
     - [ ] Verify current behavior against existing fixtures to understand baseline expectations.
       - [ ] Run the parenthetical-related tests and store outputs for side-by-side comparison.
       - [ ] Check fixture expectations for coverage completeness and annotate any missing scenarios.

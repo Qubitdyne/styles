@@ -1,0 +1,47 @@
+temp/texas-greenbook-15th-toa-leaders.csl:58:  <ns0:macro name="weight-parentheticals">
+temp/texas-greenbook-15th-toa-leaders.csl:111:    <ns0:text macro="weight-parentheticals" />
+temp/texas-greenbook-15th-toa-grouped.csl:99:  <macro name="weight-parentheticals">
+temp/texas-greenbook-15th-toa-grouped.csl:113:    <text macro="weight-parentheticals"/>
+temp/archive/texas-greenbook-15th-draft1.csl:46:  <!-- Court and year parenthetical, e.g., (Tex. 1991) or (Tex. App.—Austin 1985, writ ref'd n.r.e.) -->
+temp/archive/texas-greenbook-15th-draft1.csl:92:    <!-- optional parenthetical, feed e.g. "Supp." or edition via `note` -->
+temp/archive/texas-greenbook-15th-draft0.csl:20:      (e.g., subsequent history, "id."/"supra"/"infra", parenthetical explanations, and automatic Texas court/district abbreviations).
+temp/archive/texas-greenbook-15th-draft3.csl:51:  <macro name="docket-parenthetical">
+temp/archive/texas-greenbook-15th-draft3.csl:63:    <text macro="docket-parenthetical"/>
+temp/archive/texas-greenbook-15th-draft3.csl:102:  <macro name="procedural-parenthetical">
+temp/archive/texas-greenbook-15th-draft3.csl:121:          <text macro="procedural-parenthetical" prefix=", "/>
+temp/archive/texas-greenbook-15th-draft3.csl:132:          <text macro="procedural-parenthetical" prefix=", "/>
+temp/archive/texas-greenbook-15th-draft3.csl:138:  <macro name="weight-parentheticals">
+temp/archive/texas-greenbook-15th-draft3.csl:149:  <macro name="case-parenthetical-stack">
+temp/archive/texas-greenbook-15th-draft3.csl:150:    <text macro="weight-parentheticals"/>
+temp/archive/texas-greenbook-15th-draft3.csl:151:    <text macro="explanatory-parenthetical"/>
+temp/archive/texas-greenbook-15th-draft3.csl:154:  <macro name="explanatory-parenthetical">
+temp/archive/texas-greenbook-15th-draft3.csl:250:    <text macro="case-parenthetical-stack"/>
+temp/archive/texas-greenbook-15th-draft3.csl:276:    <text macro="case-parenthetical-stack"/>
+temp/archive/texas-greenbook-15th-draft3.csl:297:    <text macro="case-parenthetical-stack"/>
+temp/archive/texas-greenbook-15th-draft3.csl:465:    <text macro="explanatory-parenthetical"/>
+temp/archive/texas-greenbook-15th-draft3.csl:478:    <text macro="explanatory-parenthetical"/>
+temp/archive/texas-greenbook-15th-draft3.csl:487:    <text macro="explanatory-parenthetical"/>
+temp/archive/texas-greenbook-15th-draft2.csl:84:  <macro name="weight-parentheticals">
+temp/archive/texas-greenbook-15th-draft2.csl:111:    <text macro="weight-parentheticals"/>
+temp/texas-greenbook-15th-toa.csl:58:  <macro name="weight-parentheticals">
+temp/texas-greenbook-15th-toa.csl:112:    <text macro="weight-parentheticals"/>
+temp/texas-greenbook-15th-toa-grouped-leaders.csl:61:  <ns0:macro name="weight-parentheticals">
+temp/texas-greenbook-15th-toa-grouped-leaders.csl:75:    <ns0:text macro="weight-parentheticals" />
+temp/texas-greenbook-15th-toa-by-reporter.csl:54:  <ns0:macro name="weight-parentheticals">
+temp/texas-greenbook-15th-toa-by-reporter.csl:68:    <ns0:text macro="weight-parentheticals" />
+temp/texas-greenbook-15th-edition.csl:56:  <macro name="docket-parenthetical">
+temp/texas-greenbook-15th-edition.csl:68:    <text macro="docket-parenthetical"/>
+temp/texas-greenbook-15th-edition.csl:107:  <macro name="procedural-parenthetical">
+temp/texas-greenbook-15th-edition.csl:126:          <text macro="procedural-parenthetical" prefix=", "/>
+temp/texas-greenbook-15th-edition.csl:137:          <text macro="procedural-parenthetical" prefix=", "/>
+temp/texas-greenbook-15th-edition.csl:143:  <macro name="weight-parentheticals">
+temp/texas-greenbook-15th-edition.csl:154:  <macro name="case-parenthetical-stack">
+temp/texas-greenbook-15th-edition.csl:155:    <text macro="weight-parentheticals"/>
+temp/texas-greenbook-15th-edition.csl:156:    <text macro="explanatory-parenthetical"/>
+temp/texas-greenbook-15th-edition.csl:159:  <macro name="explanatory-parenthetical">
+temp/texas-greenbook-15th-edition.csl:272:    <text macro="case-parenthetical-stack"/>
+temp/texas-greenbook-15th-edition.csl:298:    <text macro="case-parenthetical-stack"/>
+temp/texas-greenbook-15th-edition.csl:319:    <text macro="case-parenthetical-stack"/>
+temp/texas-greenbook-15th-edition.csl:511:    <text macro="explanatory-parenthetical"/>
+temp/texas-greenbook-15th-edition.csl:519:    <text macro="explanatory-parenthetical"/>
+temp/texas-greenbook-15th-edition.csl:528:    <text macro="explanatory-parenthetical"/>
