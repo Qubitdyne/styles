@@ -14,61 +14,241 @@
 ### Citation Logic Gaps
 - [ ] **Complete statute and rule short-form logic.** Implement cross-reference and `Id.` handling for statutes, rules, and administrative materials, then update `expected.txt` fixtures. (See `README.md` Known Limitations and `NOTES.md` helper sketches.)
   - [ ] Audit the existing statute, rule, and administrative `*_short` macros in `texas-greenbook-15th-edition.csl` to catalog current branching and pinpoint missing reuse hooks documented in `NOTES.md`.
+    - [ ] Locate all `*_short` macros in both the primary style and TOA variants using the CSL editor or `rg` searches.
+    - [ ] Diagram current conditional logic and data dependencies for each macro in `NOTES.md` to identify overlapping pathways.
+    - [ ] Compare macro inputs/outputs with the requirement matrix to spot absent variables or conflicting conditions.
+    - [ ] Mark segments needing shared helper extraction or substitution fallbacks for later implementation tasks.
   - [ ] Outline Greenbook Chapter 10–13 short-form triggers (sections, chapters, and rule ranges) with page citations in `NOTES.md` to confirm requirements and edge cases.
+    - [ ] Read the relevant PDF sections and list each trigger verbatim with pinpoint page numbers.
+    - [ ] Translate each textual rule into structured conditions (e.g., `if section range && same title`) for CSL application.
+    - [ ] Capture examples demonstrating exceptions (e.g., multi-source authorities) and log them in `NOTES.md`.
+    - [ ] Validate the derived triggers against existing citation requirement matrices to ensure coverage alignment.
   - [ ] Extend `tests.json` with statute, rule, and administrative cross-reference scenarios that cover `Id.`, short-form without `Id.`, and cross-volume citations.
+    - [ ] Draft minimal input data for each scenario, noting required metadata fields (e.g., `volume`, `authority-type`).
+    - [ ] Add fixture entries incrementally, verifying JSON schema compatibility via `run_tests.py --list-tests`.
+    - [ ] Annotate each new test case with Greenbook citations inside `tests.json` comments or in `NOTES.md`.
+    - [ ] Ensure both positive and negative cases exist to exercise fallback logic and `substitute` behavior.
   - [ ] Implement the shared short-form logic (including `substitute` fallbacks) within the style macros and mirror the changes into each TOA variant where applicable.
+    - [ ] Prototype shared helper macros for repeated short-form behaviors before wiring them into case-specific blocks.
+    - [ ] Replace duplicated conditional branches with helper macro calls, keeping regression snapshots for comparison.
+    - [ ] Update TOA variants to reference the same helpers, ensuring variable availability matches note-style assumptions.
+    - [ ] Perform localized citeproc runs to confirm behavior prior to full fixture regeneration.
   - [ ] Regenerate `expected.txt` (and any affected TOA fixtures) with `run_tests.py --write-expected`, manually verify outputs against the Greenbook PDF, and document remaining discrepancies in `NOTES.md` if any.
+    - [ ] Execute targeted tests for statute/rule citations and review diff outputs for unexpected formatting changes.
+    - [ ] Cross-check each regenerated citation with the authoritative PDF, noting page confirmations in `NOTES.md`.
+    - [ ] Flag anomalies for follow-up (either additional TODO entries or clarifications) before finalizing fixtures.
+    - [ ] Commit regenerated fixtures alongside documentation updates once verification is complete.
 - [ ] **Finish explanatory parentheticals.** Add shared helpers for slip-opinion pinpoints, procedural parentheticals, and docket metadata so case and mandamus citations emit relief/status consistently before promoting the next edition revision.
   - [ ] Compile the list of required explanatory parentheticals (slip opinion, procedural posture, relief granted, docket disposition) with page references from Chapters 2, 4, and 6 in `NOTES.md`.
+    - [ ] Extract sample parenthetical language verbatim from the PDF and capture contextual notes (case type, jurisdiction).
+    - [ ] Identify mandatory vs. optional elements within each parenthetical based on textual cues or examples.
+    - [ ] Organize the parenthetical catalog by authority type in `NOTES.md` to simplify macro mapping.
+    - [ ] Highlight ambiguous directives requiring interpretation or additional research.
   - [ ] Review existing macros handling parentheticals to identify duplicated logic between case notes and TOA outputs.
+    - [ ] Trace all macro invocations that append parenthetical content using CSL search tools.
+    - [ ] Compare string construction patterns to determine where variables or punctuation diverge between outputs.
+    - [ ] Record duplication hotspots and opportunities for shared helper insertion in `NOTES.md`.
+    - [ ] Verify current behavior against existing fixtures to understand baseline expectations.
   - [ ] Design shared helper macros (e.g., `parenthetical-slip-op`, `parenthetical-procedural-status`, `parenthetical-docket`) that can be reused by case, mandamus, and habeas branches.
+    - [ ] Draft pseudo-code for each helper detailing inputs, optional parameters, and output ordering.
+    - [ ] Confirm helper naming and placement aligns with CSL best practices and repository conventions.
+    - [ ] Validate that helpers can accept jurisdiction-specific terminology without hard-coded strings.
+    - [ ] Update `NOTES.md` with the planned helper interface for review before implementation.
   - [ ] Add targeted fixtures in `tests.json` and `expected.txt` for each parenthetical scenario, including combinations with petition history.
+    - [ ] Create fixture entries covering slip opinions, mandamus relief, and habeas procedural notes with varied metadata.
+    - [ ] Ensure each fixture tests both note and bibliography contexts where applicable.
+    - [ ] Capture petition history interactions by chaining multiple `related` entries in the test data.
+    - [ ] Document fixture coverage and linked PDF citations in `NOTES.md`.
   - [ ] Implement the helpers, adjust macro routing for both note and TOA styles, and confirm citeproc output matches the Greenbook examples before finalizing documentation updates.
+    - [ ] Insert helper macro calls into primary case citation pathways and remove redundant inline logic.
+    - [ ] Update TOA macro sequences to call the same helpers while preserving alphabetical grouping behavior.
+    - [ ] Run incremental citeproc checks for each parenthetical type to validate punctuation and ordering.
+    - [ ] Revise documentation (`README.md`, `NOTES.md`) to describe the new helper architecture.
 - [ ] **Build shared publication/status helpers.** Create reusable macros for statutory publication parentheticals, session-law metadata, and administrative status notes to reduce duplication across code, rule, and agency citations.
   - [ ] Inventory where publication/status text is currently hard-coded across statute, session law, and administrative macros (main and TOA styles).
+    - [ ] Use `rg` to list instances of publication-related strings (e.g., “Supp.”, “session”) within the CSL files.
+    - [ ] Map each occurrence to the authority types it serves, noting duplication or inconsistent phrasing.
+    - [ ] Record findings in `NOTES.md`, grouping by authority category for clarity.
+    - [ ] Identify opportunities to consolidate similar strings before drafting helpers.
   - [ ] Extract common terminology requirements from Chapters 10–13 and Appendix A of the Greenbook, logging authoritative abbreviations in `NOTES.md`.
+    - [ ] Read the specified chapters focusing on publication parentheticals and session law terminology.
+    - [ ] Create a table of required abbreviations, including singular/plural and capitalization nuances.
+    - [ ] Note any conflicting or context-dependent terms requiring conditional logic.
+    - [ ] Cross-reference terms with existing locale files to prevent redundancy.
   - [ ] Draft shared helper macros (e.g., `publication-parenthetical`, `session-law-metadata`, `administrative-status`) with parameters for date/session ranges and adoption/recodification notes.
+    - [ ] Define macro signatures and document expected input variables in `NOTES.md` prior to coding.
+    - [ ] Prototype helper logic in isolated CSL snippets to confirm feasibility of parameter passing.
+    - [ ] Ensure helpers gracefully handle missing data using CSL conditional structures.
+    - [ ] Prepare inline comments or `NOTES.md` explanations for complex conditional flows.
   - [ ] Update style code to call the new helpers in all relevant branches, ensuring no duplication remains and TOA variants reference the same logic.
+    - [ ] Replace hard-coded strings with helper invocations across main and TOA styles.
+    - [ ] Verify that helper calls respect existing variable scoping and citeproc evaluation order.
+    - [ ] Conduct spot tests on affected citation types to validate parenthetical output and formatting.
+    - [ ] Remove obsolete macros or strings and document the refactor in `NOTES.md`.
   - [ ] Expand tests to include examples of session laws, codified statutes with publication notes, and administrative actions, then regenerate fixtures and document verification steps.
+    - [ ] Add diverse authorities to `tests.json` capturing publication nuances and jurisdictional variations.
+    - [ ] Run citeproc to generate provisional outputs and review for adherence to Greenbook standards.
+    - [ ] Update `expected.txt` and relevant TOA fixtures, noting verification results with PDF citations.
+    - [ ] Summarize new coverage areas and outstanding questions in `NOTES.md`.
 
 ### Testing & Coverage
 - [ ] **Expand Table of Authorities fixtures.** Introduce federal authorities and additional jurisdictional groupings to `tests_toa.json` and `expected_toa_*.txt` once the macro support exists.
   - [ ] Map the federal authority categories and grouping labels required by Appendix B, citing page numbers in `NOTES.md` for traceability.
+    - [ ] Extract Appendix B tables outlining category names and ordering requirements.
+    - [ ] Translate grouping labels into CSL term equivalents or new locale entries if necessary.
+    - [ ] Identify dependencies on jurisdiction metadata fields to support grouping logic.
+    - [ ] Document any unresolved mapping issues for follow-up research.
   - [ ] Determine the minimal set of sample citations (cases, statutes, administrative materials) needed to exercise each new grouping and leader combination.
+    - [ ] List representative authorities for each category, ensuring coverage of unique edge cases (e.g., consolidated cases).
+    - [ ] Specify required metadata attributes for each sample to ensure accurate sorting.
+    - [ ] Check for overlap with existing fixtures to avoid redundancy while preserving coverage.
+    - [ ] Record rationale for sample selection in `NOTES.md` with Appendix citations.
   - [ ] Add the new authorities to `tests_toa.json`, including jurisdiction metadata necessary for correct sorting and grouping.
+    - [ ] Encode each sample authority in JSON, validating field names against existing schema.
+    - [ ] Include grouping hints or categories in the test data to drive TOA leader formatting.
+    - [ ] Run targeted TOA tests to confirm grouping behavior and adjust metadata as needed.
+    - [ ] Annotate each JSON entry with references to the corresponding Greenbook guidance.
   - [ ] Update each `expected_toa*.txt` fixture to reflect the new authorities, running the TOA-specific styles to confirm alignment.
+    - [ ] Execute `run_tests.py --write-expected --toa` (or equivalent) and review diff outputs for accuracy.
+    - [ ] Compare generated grouping headers and indentation against Appendix B exemplars.
+    - [ ] Resolve discrepancies by adjusting macros or test data before finalizing fixtures.
+    - [ ] Log verification outcomes and any unresolved issues in `NOTES.md`.
   - [ ] Record any TOA macro adjustments or uncovered gaps in `NOTES.md` and feed follow-up tasks back into this TODO list if additional development is needed.
+    - [ ] Summarize code changes affecting TOA behavior with references to modified macros.
+    - [ ] Note remaining deficiencies and create new TODO entries or GitHub issues as appropriate.
+    - [ ] Share insights on testing gaps to inform future fixture expansions.
+    - [ ] Update the task checklist status reflecting completed and pending actions.
 - [ ] **Broaden web citation verification.** Confirm punctuation and quotation usage for Chapter 16 web examples after OCR cleanup and add targeted fixture cases.
   - [ ] Complete OCR cleanup for the Chapter 16 examples in the Greenbook PDF and extract verbatim sample citations into `NOTES.md` with page references.
+    - [ ] Run OCR tools (e.g., `ocrmypdf`) on the relevant PDF pages if not already processed.
+    - [ ] Manually proofread OCR output to correct typographical errors.
+    - [ ] Capture clean citation examples in `NOTES.md`, including context (e.g., government site, blog).
+    - [ ] Archive cleaned text snippets or references for future validation rounds.
   - [ ] Compare existing web citation macros against the extracted examples to identify punctuation or quotation discrepancies.
+    - [ ] Trace macros generating web citations and annotate punctuation rules in `NOTES.md`.
+    - [ ] Perform side-by-side comparisons between citeproc output and extracted examples for each scenario.
+    - [ ] Catalog discrepancies by type (quotation marks, italics, commas) for targeted fixes.
+    - [ ] Prioritize discrepancies affecting authoritative compliance before cosmetic issues.
   - [ ] Create new fixture entries in `tests.json` that capture the nuanced web citation formats (e.g., with publication dates, access dates, and quoted titles).
+    - [ ] Enumerate required metadata fields for each format variant (e.g., missing author, corporate author).
+    - [ ] Encode fixtures ensuring JSON validity and alignment with citeproc expectations.
+    - [ ] Include commentary or IDs linking each fixture back to the source citation in `NOTES.md`.
+    - [ ] Validate fixture coverage by simulating citeproc runs prior to updating expected outputs.
   - [ ] Update `expected_secondary.txt` (and related outputs) based on citeproc runs, verifying each change against the authoritative examples.
+    - [ ] Regenerate expected outputs using `run_tests.py --write-expected` and confirm only targeted sections change.
+    - [ ] Inspect punctuation and capitalization carefully, referencing Greenbook examples for each case.
+    - [ ] Address any regressions introduced elsewhere in the fixtures before committing updates.
+    - [ ] Document verification steps and outcomes in `NOTES.md` for reviewer transparency.
   - [ ] Document any remaining ambiguities or interpretive decisions in `NOTES.md` for future reviewers.
+    - [ ] Summarize unresolved questions with proposed follow-up actions or references for escalation.
+    - [ ] Highlight any dependencies on pending research tasks to maintain traceability.
+    - [ ] Tag ambiguous items with TODO markers in `NOTES.md` for easy discovery.
+    - [ ] Share context on decision-making rationale to aid future maintainers.
 
 ## Research & Backlog
 - [ ] **Resolve memo opinion styling.** Verify italicization requirements for unpublished memorandum opinions (Greenbook Ch. 4, pp. 24–25) before locking typography rules.
   - [ ] Extract the memo opinion examples from the PDF and note the typography treatment (italics, capitalization, spacing) with precise citations in `NOTES.md`.
+    - [ ] Capture screenshots or text snippets of each example for visual comparison.
+    - [ ] Annotate typography rules (e.g., italicized case names vs. roman text) per example.
+    - [ ] Record any conflicting guidance between text and examples for later clarification.
+    - [ ] Store references to PDF page numbers and figure labels in `NOTES.md`.
   - [ ] Review the current case macros to determine how memo opinion indicators are applied in both main and TOA outputs.
+    - [ ] Identify macro sections inserting memo opinion signals (e.g., “mem. op.”) and log their formatting.
+    - [ ] Compare note vs. TOA outputs to ensure consistent typography handling.
+    - [ ] Evaluate interactions with parenthetical helpers to anticipate cascading changes.
+    - [ ] Document current implementation limitations in `NOTES.md`.
   - [ ] If adjustments are required, design the preferred formatting approach (e.g., new terms vs. styling attributes) and outline the implementation steps.
+    - [ ] Draft alternative formatting strategies and assess compatibility with CSL capabilities.
+    - [ ] Select the approach aligning best with Greenbook directives and repository conventions.
+    - [ ] Produce a mini design doc in `NOTES.md` enumerating required macro updates.
+    - [ ] Solicit feedback from collaborators (if applicable) before coding.
   - [ ] Prototype the change in a feature branch or local draft, run targeted tests, and evaluate against the Greenbook examples.
+    - [ ] Implement experimental modifications in a sandbox version of the style.
+    - [ ] Execute citeproc runs focusing on memo opinion cases to gather output samples.
+    - [ ] Compare outputs with PDF examples and iterate until alignment is achieved.
+    - [ ] Record lessons learned and final decisions in `NOTES.md`.
   - [ ] Update this TODO item with the chosen solution and file any residual questions in `NOTES.md`.
+    - [ ] Check off completed subtasks and adjust the main TODO entry to reflect status.
+    - [ ] List outstanding issues requiring future attention or upstream consultation.
+    - [ ] Ensure `NOTES.md` captures closure details and references to supporting tests.
+    - [ ] Communicate updates to collaborators or maintainers via shared channels if relevant.
 - [ ] **Decide on shared locale packaging.** Draft the consolidated locale file for terms like “art.” and “ch.” and plan integration across all drafts per the standing assumption.
   - [ ] Identify all non-default terms currently overridden in the main and TOA styles, listing them in `NOTES.md` along with their source citations.
+    - [ ] Scan CSL files for `<term>` overrides or localized string literals.
+    - [ ] Compile a table mapping each term to its use-case and associated Greenbook citation.
+    - [ ] Verify whether terms require pluralization or gender variants for locale coverage.
+    - [ ] Note duplicate or conflicting overrides needing consolidation.
   - [ ] Determine whether existing CSL locales cover these terms or if a custom `locales-en-US-texas-greenbook.xml` (or similar) file is required.
+    - [ ] Review stock CSL locale files to identify overlapping term definitions.
+    - [ ] Assess compatibility of existing locales with Greenbook-specific abbreviations.
+    - [ ] Decide on the necessity of a custom locale and document justification in `NOTES.md`.
+    - [ ] Outline integration implications (e.g., repository structure, packaging requirements).
   - [ ] Draft the shared locale file structure, including `<term>` entries for abbreviations and any required pluralization forms.
+    - [ ] Sketch the XML schema layout, ensuring compliance with CSL locale standards.
+    - [ ] Populate placeholder entries for each required term with notes on capitalization and punctuation.
+    - [ ] Validate XML syntax using available tooling (e.g., `xmllint`).
+    - [ ] Record mapping between locale entries and style macros for traceability.
   - [ ] Plan how the locale file will be distributed (e.g., bundled in this repository vs. submitted upstream) and document integration steps for each style.
+    - [ ] Review CSL upstream contribution policies regarding locale files.
+    - [ ] Determine versioning strategy and update pathways for consumers of the styles.
+    - [ ] Draft integration instructions for including the locale in build/test workflows.
+    - [ ] Capture open questions about packaging or dependency management in `NOTES.md`.
   - [ ] Schedule updates to the styles and tests that will consume the locale file, noting dependencies or sequencing constraints in this TODO list.
+    - [ ] Identify which style files require modifications once the locale is available.
+    - [ ] Sequence tasks to minimize merge conflicts with ongoing macro work.
+    - [ ] Align test fixture updates with locale deployment to avoid inconsistent outputs.
+    - [ ] Update the TODO timeline or roadmap reflecting these dependencies.
 - [ ] **Investigate supplemental references.** Follow up on OCR availability for the Uniform Format Manual and confirm TRCP/TRAP cross-references and historical reporter sources listed in `NOTES.md`.
   - [ ] Verify OCR readiness or perform text extraction for the supplemental manuals (Uniform Format Manual, rulemaking history PDFs) and store accessible copies or summaries.
+    - [ ] Check existing repositories or archives for machine-readable versions before initiating OCR.
+    - [ ] If OCR is needed, select tooling, configure language options, and process the documents.
+    - [ ] Review output for accuracy, correcting errors or marking unclear sections for follow-up.
+    - [ ] Save processed text in `temp/` or a referenced location with clear filenames.
   - [ ] Cross-reference TRCP/TRAP citations in `NOTES.md` with the supplemental materials to validate abbreviations and historical reporter references.
+    - [ ] Build a comparison table aligning `NOTES.md` entries with supplemental source terminology.
+    - [ ] Highlight discrepancies in abbreviations or reporter names needing resolution.
+    - [ ] Document confirmation of matches with precise page or section references.
+    - [ ] Escalate any conflicting guidance to legal editors or subject-matter experts if necessary.
   - [ ] Update `NOTES.md` with confirmed cross-references, including any discrepancies or areas needing authoritative clarification.
+    - [ ] Summarize validation outcomes per citation type (TRCP, TRAP, reporters).
+    - [ ] Record open questions with proposed next steps or responsible parties.
+    - [ ] Ensure entries include page numbers and document identifiers for traceability.
+    - [ ] Tag updates with timestamps or authorship notes if collaborative tracking is required.
   - [ ] Identify whether additional fixtures or macros are needed based on findings and create follow-up TODO entries if required.
+    - [ ] Evaluate whether uncovered abbreviations necessitate new style logic or locale terms.
+    - [ ] Draft new fixture requirements capturing supplemental authority nuances.
+    - [ ] Add corresponding TODO items or Git issues with clear descriptions and prerequisites.
+    - [ ] Communicate new tasks to collaborators to align workload.
   - [ ] Document the status of supplemental reference acquisition so future contributors know where canonical sources reside.
+    - [ ] Create a summary section in `NOTES.md` listing storage locations and access instructions.
+    - [ ] Note any licensing or usage restrictions associated with the supplemental materials.
+    - [ ] Include backup strategies or mirror locations to prevent data loss.
+    - [ ] Provide contact information or links for requesting updated editions if applicable.
 
 ## Release Preparation
 - [ ] **Finalize submission checklist.** Once logic gaps close, run `run_tests.py` suites, refresh documentation, and prepare the PR narrative referencing key Greenbook sections.
   - [ ] Confirm that all Active Development tasks are checked off and corresponding tests/fixtures are current.
+    - [ ] Review each Active Development checklist item for completion status and update boxes accordingly.
+    - [ ] Verify test fixtures reflect latest logic changes by diffing against previous baselines.
+    - [ ] Note outstanding dependencies preventing closure and escalate if needed.
+    - [ ] Document completion evidence (commit hashes, test logs) in `NOTES.md`.
   - [ ] Execute the full battery of regression tests for both note and TOA styles, capturing command output for inclusion in the eventual PR summary.
+    - [ ] Run `python run_tests.py --all` (or equivalent) and capture logs with timestamps.
+    - [ ] Re-run failing suites after addressing issues to confirm stability.
+    - [ ] Store command outputs in `temp/test-logs/` or reference location for PR documentation.
+    - [ ] Summarize notable test coverage notes in `NOTES.md`.
   - [ ] Sweep documentation (`README.md`, `NOTES.md`, `TODO.md`) to ensure they reflect the completed work, Greenbook citations, and outstanding questions.
+    - [ ] Perform a structured read-through of each document, updating sections for accuracy and completeness.
+    - [ ] Insert new Greenbook page references where additional rules were implemented.
+    - [ ] Remove outdated information or relocate it to archival sections if still relevant.
+    - [ ] Proofread for clarity and consistency prior to final review.
   - [ ] Draft the PR narrative aligning with CSL submission requirements (title, summary, documentation links) and note specific Greenbook sections referenced during implementation.
+    - [ ] Outline key feature changes and bug fixes with supporting citations.
+    - [ ] Prepare a checklist of repository requirements (e.g., style validity, tests passing) to include in the PR body.
+    - [ ] Compose draft PR text and store it in `temp/PR_DRAFT.md` for review.
+    - [ ] Solicit feedback from collaborators or run a self-review against CSL contribution guidelines.
   - [ ] Review the CSL repository contribution guidelines (`CONTRIBUTING.md`, `STYLE_REQUIREMENTS.md`) to double-check readiness before packaging the submission.
+    - [ ] Re-read the guidelines and highlight any new or updated requirements since project start.
+    - [ ] Ensure documentation and style files satisfy formatting, metadata, and licensing expectations.
+    - [ ] Confirm changelog or submission metadata needs (if any) are addressed.
+    - [ ] Update this TODO entry to reflect guideline compliance status and next steps.
