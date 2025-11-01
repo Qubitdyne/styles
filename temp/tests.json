@@ -409,6 +409,29 @@
     "note": "Supp. 2024"
   },
   {
+    "id": "statute_id_sequence",
+    "type": "legislation",
+    "container-title": "Tex. Gov’t Code Ann.",
+    "section": "2001.021",
+    "note": "Supp. 2024"
+  },
+  {
+    "_cite": "statute_id_sequence",
+    "label": "section",
+    "locator": "2001.022"
+  },
+  {
+    "id": "statute_id_sequence_break",
+    "type": "legislation",
+    "container-title": "Tex. Gov’t Code Ann.",
+    "section": "2001.031"
+  },
+  {
+    "_cite": "statute_id_sequence",
+    "label": "section",
+    "locator": "2001.025"
+  },
+  {
     "id": "constitution_art_sec",
     "type": "legislation",
     "genre": "constitution",
@@ -944,6 +967,54 @@
   {
     "_cite": "case_nontex_cross",
     "locator": "332"
+  },
+  {
+    "id": "case_tex_cross_jurisdiction",
+    "type": "legal_case",
+    "title": "In re Salazar",
+    "title-short": "Salazar",
+    "container-title": "S.W.3d",
+    "volume": "650",
+    "page": "210",
+    "authority": "Tex.",
+    "jurisdiction": "us:tx",
+    "issued": {
+      "date-parts": [
+        [
+          2017
+        ]
+      ]
+    },
+    "references": "pet. denied, 555 S.W.3d 101 (Tex. 2018)",
+    "locator": "212"
+  },
+  {
+    "_cite": "case_tex_cross_jurisdiction",
+    "locator": "213"
+  },
+  {
+    "id": "case_nontex_cross_sequence",
+    "type": "legal_case",
+    "title": "State v. Herrera",
+    "title-short": "Herrera",
+    "container-title": "P.3d",
+    "volume": "145",
+    "page": "118",
+    "authority": "N.M.",
+    "jurisdiction": "us:nm",
+    "issued": {
+      "date-parts": [
+        [
+          2008
+        ]
+      ]
+    },
+    "references": "cert. denied, 556 U.S. 1001 (2009)",
+    "locator": "122"
+  },
+  {
+    "_cite": "case_nontex_cross_sequence",
+    "locator": "123"
   },
   {
     "id": "treatise_undated",

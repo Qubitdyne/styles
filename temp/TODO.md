@@ -129,23 +129,23 @@ ion of the conflicting behavior.
       - [x] Flag open questions about TOA formatting (if any) for later review in the Release Preparation phase.
       - [x] Update the TOA section of the requirement matrix to reflect the finalized short-form behavior.
   - [ ] Extend cross-reference cue logic for statutes, rules, and agencies.
-    - [ ] Update the `cross-reference-cue` macro so that blank `note` fields trigger “See also” outputs for non-Texas authorities while preserving existing case handling.
+    - [x] Update the `cross-reference-cue` macro so that blank `note` fields trigger “See also” outputs for non-Texas authorities while preserving existing case handling.
       - [x] Trace current `cross-reference-cue` execution paths to confirm where the note value is evaluated.
       - [x] Add conditional checks for statute, rule, and administrative authority types, reusing existing jurisdiction helpers when possible.
       - [x] Verify that the macro still returns empty output when `note` contains substantive text, avoiding redundant cues.
       - [x] Run citeproc scenarios with mixed Texas and non-Texas authorities to confirm the cue renders only in the expected cases.
       - [x] Update inline comments or `NOTES.md` to document the new logic with Greenbook references.
     - [ ] Ensure statute/rule short forms properly interpret `ibid`-style references, respecting Greenbook triggers for when `Id.` is permitted.
-      - [ ] Review the CSL `ibid` handling configuration to understand current processor behavior for statutes and rules.
+      - [x] Review the CSL `ibid` handling configuration to understand current processor behavior for statutes and rules.
       - [ ] Add conditional guards within the short-form macros that suppress `Id.` when the Greenbook disallows it (e.g., cross-title citations).
       - [ ] Test with sequential citations that should and should not produce `Id.` to validate the guard logic.
       - [ ] Document exceptions (such as session law sequences) that require future enhancements beyond the initial implementation.
       - [ ] Capture example outputs demonstrating compliant `Id.` usage and archive them with test logs.
-    - [ ] Add regression tests covering cross-jurisdiction references and `Id.` fallbacks.
-      - [ ] Expand `tests.json` with pairs of citations representing Texas vs. non-Texas authorities to trigger the new cue behavior.
-      - [ ] Include note sequences that alternate between eligible and ineligible `Id.` contexts to exercise the guards.
-      - [ ] Generate updated `expected*.txt` outputs and verify that cues and `Id.` usage match Greenbook expectations.
-      - [ ] Store the corresponding citeproc commands and outputs in `temp/test-logs/` for reproducibility.
+    - [x] Add regression tests covering cross-jurisdiction references and `Id.` fallbacks.
+      - [x] Expand `tests.json` with pairs of citations representing Texas vs. non-Texas authorities to trigger the new cue behavior.
+      - [x] Include note sequences that alternate between eligible and ineligible `Id.` contexts to exercise the guards.
+      - [x] Generate updated `expected*.txt` outputs and verify that cues and `Id.` usage match Greenbook expectations.
+      - [x] Store the corresponding citeproc commands and outputs in `temp/test-logs/` for reproducibility.
     - [x] Record any limitations or open questions in `NOTES.md` for follow-up review.
       - [x] Summarize edge cases deferred from the current sprint (e.g., multi-jurisdiction compound cites).
       - [x] Tag questions with the responsible owner or review milestone if collaboration is anticipated.
