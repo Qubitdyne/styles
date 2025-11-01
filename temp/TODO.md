@@ -57,10 +57,10 @@ ires checking off every indented child.
       - [x] Open `texas-greenbook-15th-edition.csl` and TOA counterparts in a CSL-aware editor to confirm the matches and capture surrounding context. (Verified short-form coverage for cases/secondary materials and documented absence in TOA variants.)
       - [x] Copy the macro names and file locations into `NOTES.md`, grouping them by authority type for easy reference. (Inventory logged under “Short-form macro inventory (2025-11-02)”.)
       - [ ] Flag any macros with ambiguous naming or duplicate purposes for follow-up clarification tasks.
-        - [ ] Review each inventoried macro name against its implementation to confirm the intended scope and avoid overlaps.
-        - [ ] Document ambiguous or duplicated macros in `NOTES.md`, including file names, line ranges, and a concise descript
+        - [x] Review each inventoried macro name against its implementation to confirm the intended scope and avoid overlaps.
+        - [x] Document ambiguous or duplicated macros in `NOTES.md`, including file names, line ranges, and a concise descript
 ion of the conflicting behavior.
-        - [ ] Draft proposed resolutions (rename, consolidate, or split) and record the rationale alongside related requirement
+        - [x] Draft proposed resolutions (rename, consolidate, or split) and record the rationale alongside related requirement
  matrix entries.
         - [ ] Create follow-up TODO entries or GitHub issues for any macros that require broader refactors or reviewer input.
     - [ ] Diagram current conditional logic and data dependencies for each macro in `NOTES.md` to identify overlapping pathways.
