@@ -246,3 +246,142 @@ Authority-Specific Supporting Macros
 - The matrix enumerates every substantive category appearing in the Table of Contents overview (Chs. 1–19), ensuring that case law, constitutional, statutory, rule-based, legislative, administrative, professional, and secondary-source citations each have dedicated rows aligned with their chapter-specific guidance.【F:temp/NOTES.md†L5-L111】【F:temp/NOTES.md†L113-L187】
 - Chapter 1’s brief-formatting directives inform the italicization and signal usage conventions embedded across table entries, maintaining consistency with the Greenbook’s introductory typography rules.【F:temp/NOTES.md†L5-L44】【F:temp/NOTES.md†L113-L187】
 - Appendices A–K supply abbreviation inventories and historical contexts that are reflected in the mandatory abbreviation columns for reporters, petition histories, codes, and agencies, confirming cross-references to every appendix-listed authority class.【F:temp/NOTES.md†L88-L111】【F:temp/NOTES.md†L113-L187】
+
+## Locale Audit – Draft 3 (texas-greenbook-15th-draft3.csl)
+
+### Term Calls
+| Context | Attributes |
+| --- | --- |
+| style > style > macro:tex-constitution > group (delim=', ') > group (delim=' ') > text | form='short', term='article' |
+| style > style > macro:book-like > group (delim=', ') > group (delim='; ') > group (delim=' ') > text | form='short', term='edition' |
+| style > style > macro:web > group (delim=', ') > group (delim=' ') > text | term='available at' |
+| style > style > macro:web > group (delim=', ') > group (wrap=' (', ')') > text | term='accessed', text-case='capitalize-first' |
+| style > style > macro:statute-code > group (delim=' ') > text | form='symbol', term='section' |
+| style > style > macro:constitution-core > group (delim=', ') > group (delim=' ') > group (delim=' ') > text | form='short', term='article' |
+| style > style > macro:constitution-core > group (delim=', ') > group (delim=' ') > text | form='symbol', term='section' |
+| style > style > macro:session-law > group (delim=', ') > group (delim=' ') > text | form='symbol', term='section' |
+| style > style > macro:tac-core > group (delim=' ') > text | form='symbol', term='section' |
+| style > style > macro:municipal-code > group (delim=', ') > group (delim=' ') > group (delim=' ') > text | form='symbol', term='section' |
+
+### Label Calls
+| Context | Attributes |
+| --- | --- |
+| style > style > macro:author > names:author > label | form='short', prefix=', ' |
+| style > style > macro:tex-constitution > group (delim=', ') > group (delim=' ') > label | form='symbol', variable='section' |
+| style > style > macro:tex-statute > group (delim=' ') > group (delim=' ') > label | form='symbol', variable='section' |
+| style > style > macro:tex-admin-code > group (delim=' ') > group (delim=' ') > label | form='symbol', variable='section' |
+
+### Text Calls and Punctuation Affixes
+| Context | Attributes |
+| --- | --- |
+| style > style > macro:case-name > text | font-style='italic', variable='title' |
+| style > style > macro:reporter > group (delim=' ') > text | variable='volume' |
+| style > style > macro:reporter > group (delim=' ') > text | form='short', variable='container-title' |
+| style > style > macro:reporter > group (delim=' ') > text | variable='page-first' |
+| style > style > macro:court-year > group (wrap=' (', ')') > group (delim=' ') > text | variable='authority' |
+| style > style > macro:subsequent-history > text | prefix=', ', variable='references' |
+| style > style > macro:tex-constitution > group (delim=', ') > text | form='short', variable='container-title' |
+| style > style > macro:tex-constitution > group (delim=', ') > group (delim=' ') > text | variable='chapter-number' |
+| style > style > macro:tex-constitution > group (delim=', ') > group (delim=' ') > text | variable='section' |
+| style > style > macro:tex-statute > group (delim=' ') > text | form='short', variable='container-title' |
+| style > style > macro:tex-statute > group (delim=' ') > group (delim=' ') > text | variable='section' |
+| style > style > macro:tex-statute > text | prefix=' (', suffix=')', variable='note' |
+| style > style > macro:tex-admin-code > group (delim=' ') > text | variable='volume' |
+| style > style > macro:tex-admin-code > group (delim=' ') > text | form='short', variable='container-title' |
+| style > style > macro:tex-admin-code > group (delim=' ') > group (delim=' ') > text | variable='section' |
+| style > style > macro:tex-admin-code > text | prefix=' (', suffix=')', variable='title' |
+| style > style > macro:tex-register > group (delim=' ') > text | variable='volume' |
+| style > style > macro:tex-register > group (delim=' ') > text | form='short', variable='container-title' |
+| style > style > macro:tex-register > group (delim=' ') > text | variable='page-first' |
+| style > style > macro:tex-register > group (delim=' ') > text | prefix=', ', variable='page' |
+| style > style > macro:tex-register > text | prefix=' (', suffix=')', variable='note' |
+| style > style > macro:book-like > group (delim=', ') > group (delim=' ') > text | font-style='italic', variable='title' |
+| style > style > macro:book-like > group (delim=', ') > group (delim=' ') > text | variable='section' |
+| style > style > macro:article-journal > group (delim=', ') > text | quotes='true', variable='title' |
+| style > style > macro:article-journal > group (delim=', ') > group (delim=' ') > text | variable='volume' |
+| style > style > macro:article-journal > group (delim=', ') > group (delim=' ') > text | form='short', variable='container-title' |
+| style > style > macro:article-journal > group (delim=', ') > group (delim=' ') > text | variable='page-first' |
+| style > style > macro:web > group (delim=', ') > text | variable='title' |
+| style > style > macro:web > group (delim=', ') > text | variable='container-title' |
+| style > style > macro:web > group (delim=', ') > group (delim=' ') > text | variable='URL' |
+| style > style > citation > layout > choose > if > text | macro='legal-case' |
+| style > style > citation > layout > choose > else-if > choose > if > text | macro='statute-code' |
+| style > style > citation > layout > choose > else-if > choose > else > text | macro='tex-statute' |
+| style > style > citation > layout > choose > else-if > text | macro='tex-statute' |
+| style > style > citation > layout > choose > else-if > text | macro='tac-core' |
+| style > style > citation > layout > choose > else-if > text | macro='article-journal' |
+| style > style > citation > layout > choose > else-if > text | macro='book-like' |
+| style > style > citation > layout > choose > else-if > text | macro='web' |
+| style > style > citation > layout > choose > else > group (delim=', ') > text | variable='title' |
+| style > style > bibliography > layout > choose > if > group (delim=', ') > text | macro='case-name' |
+| style > style > bibliography > layout > choose > if > group (delim=', ') > text | macro='reporter' |
+| style > style > bibliography > layout > choose > if > group (delim=', ') > text | macro='court-year' |
+| style > style > bibliography > layout > choose > else-if > text | macro='tex-statute' |
+| style > style > bibliography > layout > choose > else-if > text | macro='tex-admin-code' |
+| style > style > bibliography > layout > choose > else-if > text | macro='article-journal' |
+| style > style > bibliography > layout > choose > else-if > text | macro='book-like' |
+| style > style > bibliography > layout > choose > else-if > text | macro='web' |
+| style > style > bibliography > layout > choose > else > group (delim=', ') > text | variable='title' |
+| style > style > macro:reporter-print > group (delim=' ') > text | variable='volume' |
+| style > style > macro:reporter-print > group (delim=' ') > text | variable='container-title' |
+| style > style > macro:reporter-print > group (delim=' ') > text | variable='page' |
+| style > style > macro:reporter-wl > group (delim=', ') > text | prefix='No. ', variable='number' |
+| style > style > macro:reporter-wl > group (delim=', ') > text | variable='collection-number' |
+| style > style > macro:court-and-date > choose > if > group (wrap=' (', ')') > text | variable='authority' |
+| style > style > macro:court-and-date > choose > if > group (wrap=' (', ')') > text | prefix=', ', variable='status' |
+| style > style > macro:court-and-date > choose > else > group (wrap=' (', ')') > text | variable='authority' |
+| style > style > macro:court-and-date > choose > else > group (wrap=' (', ')') > text | prefix=', ', variable='status' |
+| style > style > macro:weight-parentheticals > choose > if > text | prefix=' (', suffix=')', variable='genre' |
+| style > style > macro:weight-parentheticals > choose > if > text | prefix=' (', suffix=')', variable='medium' |
+| style > style > macro:legal-case > group (delim=', ') > text | macro='case-name' |
+| style > style > macro:legal-case > group (delim=', ') > choose > if > text | macro='reporter-print' |
+| style > style > macro:legal-case > group (delim=', ') > choose > else > text | macro='reporter-wl' |
+| style > style > macro:legal-case > group (delim=', ') > text | macro='pinpoint' |
+| style > style > macro:legal-case > text | macro='court-and-date' |
+| style > style > macro:legal-case > text | macro='weight-parentheticals' |
+| style > style > macro:statute-code > group (delim=' ') > text | variable='container-title' |
+| style > style > macro:statute-code > group (delim=' ') > text | variable='section' |
+| style > style > macro:constitution-core > group (delim=', ') > group (delim=' ') > text | variable='container-title' |
+| style > style > macro:constitution-core > group (delim=', ') > group (delim=' ') > group (delim=' ') > text | variable='chapter-number' |
+| style > style > macro:constitution-core > group (delim=', ') > group (delim=' ') > text | variable='section' |
+| style > style > macro:constitution-core > text | prefix=' (', suffix=')', variable='status' |
+| style > style > macro:session-law > group (delim=', ') > text | variable='title' |
+| style > style > macro:session-law > group (delim=', ') > text | variable='collection-number' |
+| style > style > macro:session-law > group (delim=', ') > text | prefix='ch. ', variable='number' |
+| style > style > macro:session-law > group (delim=', ') > group (delim=' ') > text | variable='section' |
+| style > style > macro:session-law > group (delim=', ') > group (delim=' ') > text | variable='volume' |
+| style > style > macro:session-law > group (delim=', ') > group (delim=' ') > text | variable='container-title' |
+| style > style > macro:session-law > group (delim=', ') > group (delim=' ') > text | variable='page' |
+| style > style > macro:tac-core > group (delim=' ') > text | variable='volume' |
+| style > style > macro:tac-core > group (delim=' ') > text | variable='container-title' |
+| style > style > macro:tac-core > group (delim=' ') > text | variable='section' |
+| style > style > macro:tac-core > text | prefix=' (', suffix=')', variable='authority' |
+| style > style > macro:rule-core > group (delim=' ') > text | variable='container-title' |
+| style > style > macro:rule-core > group (delim=' ') > text | variable='section' |
+| style > style > macro:municipal-code > group (delim=', ') > text | variable='authority' |
+| style > style > macro:municipal-code > group (delim=', ') > group (delim=' ') > text | variable='container-title' |
+| style > style > macro:municipal-code > group (delim=', ') > group (delim=' ') > text | variable='chapter-number' |
+| style > style > macro:municipal-code > group (delim=', ') > group (delim=' ') > group (delim=' ') > text | variable='section' |
+| style > style > macro:ag-opinion > group (delim=' ') > text | variable='authority' |
+| style > style > macro:ag-opinion > group (delim=' ') > text | prefix='No. ', variable='number' |
+| style > style > macro:journal-article > group (delim=', ') > text | variable='title' |
+| style > style > macro:journal-article > group (delim=', ') > group (delim=' ') > text | variable='volume' |
+| style > style > macro:journal-article > group (delim=', ') > group (delim=' ') > text | font-style='italic', variable='container-title' |
+| style > style > macro:journal-article > group (delim=', ') > group (delim=' ') > text | variable='page' |
+| style > style > macro:pinpoint > choose > if > text | prefix=', ', variable='locator' |
+| style > style > macro:pinpoint > choose > else-if > text | prefix=', at *', variable='locator' |
+
+### Stock Locale Comparison (locales-en-US.xml)
+| Term | Draft 3 Value | Stock en-US Value | Override Needed? |
+| --- | --- | --- | --- |
+| `rule` (short) | `R.` | `r.` (Oxford legal abbreviations)【4ef913†L1-L9】 | Yes – enforce capital R per Greenbook |
+| `chapter` (short) | `ch.` | `chap.`【f7239e†L1-L6】 | Yes – match Greenbook contraction |
+| `article` (short) | `art.` | _not defined_ (only long form present)【118bc8†L1-L2】 | Yes – add short form |
+| `paragraph` (short) | `¶` | `para.`【4d2547†L1-L6】 | Yes – use pilcrow symbol |
+| `section` (symbol) | `§` | `§`【b3a0ce†L21-L28】 | Optional – identical to stock |
+| `and` | `and` | `and`【7c627c†L1-L3】 | Optional – identical to stock |
+
+### Override Placement Recommendation
+- Multiple in-progress drafts (Draft 3 and the table-of-authorities variants) repeat the same custom abbreviations for `article`, `chapter`, `rule`, and `section`/`paragraph`, which makes drift likely if each file hand-maintains overrides.【F:temp/texas-greenbook-15th-draft3.csl†L422-L428】【69b6f5†L3-L16】
+- Creating a shared custom locale (e.g., `locales/locales-en-US-texas-greenbook.xml`) centralizes the Greenbook-specific abbreviations while letting each draft include it with `<locale>` references, ensuring that future drafts (Draft 4, TOA leaders) inherit updates automatically.
+- The inline `<locale>` block can then shrink to only truly draft-specific terms (if any emerge), simplifying the style diff and keeping the main CSL focus on citation structure rather than terminology management.
