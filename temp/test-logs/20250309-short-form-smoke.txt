@@ -1,0 +1,24 @@
+01: OK
+  expected: Tex. Tax Code Ann. § 26.06(a).
+  actual:   Tex. Tax Code Ann. § 26.06(a).
+
+02: OK
+  expected: Tex. Tax Code Ann. § 26.06(a).
+  actual:   Tex. Tax Code Ann. § 26.06(a).
+
+03: OK
+  expected: 16 Tex. Admin. Code § 25.101 (2022) (Tex. Comm’n on Env’t Quality, Emission Standards Division).
+  actual:   16 Tex. Admin. Code § 25.101 (2022) (Tex. Comm’n on Env’t Quality, Emission Standards Division).
+
+04: OK
+  expected: Id. § 25.102.
+  actual:   Id. § 25.102.
+
+05: OK
+  expected: Tex. Gov’t Code Ann. § 82.064.
+  actual:   Tex. Gov’t Code Ann. § 82.064.
+
+06: OK
+  expected: Tex. Gov’t Code Ann. § 82.064.
+  actual:   Tex. Gov’t Code Ann. § 82.064.
+

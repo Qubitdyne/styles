@@ -87,10 +87,10 @@ ion of the conflicting behavior.
       - [x] Review the existing long-form macros to list the elements that must persist in short form and highlight pieces to omit.
       - [x] Draft pseudo-code for each short-form macro, mapping inputs to outputs alongside the corresponding Greenbook citations.
       - [x] Implement macro shells in the CSL file, copying structural boilerplate (comments, indentation) from comparable case short forms.
-      - [ ] Run citeproc on a minimal JSON dataset to confirm each macro compiles before layering conditional logic.
-      - [ ] Annotate the new macro definitions with inline comments referencing the requirement matrix row or `NOTES.md` anchor for quick audits.
+      - [x] Run citeproc on a minimal JSON dataset to confirm each macro compiles before layering conditional logic.
+      - [x] Annotate the new macro definitions with inline comments referencing the requirement matrix row or `NOTES.md` anchor for quick audits.
     - [ ] Add `choose` blocks to differentiate between first-reference short cites, cross-references, and `Id.` scenarios, ensuring jurisdictional fallbacks work for both Texas and non-Texas authorities.
-      - [ ] Enumerate the triggering conditions for each branch (first short cite, cross-reference, `Id.`) and link them to metadata fields (e.g., `first-reference-note-number`, `ibid`).
+      - [x] Enumerate the triggering conditions for each branch (first short cite, cross-reference, `Id.`) and link them to metadata fields (e.g., `first-reference-note-number`, `ibid`).
       - [ ] Encode the branching logic within the macros, double-checking that `jurisdiction` and `authority` comparisons align with existing helper conventions.
       - [ ] Test each branch using targeted JSON fixtures that force the macro into the intended path.
       - [ ] Verify punctuation and spacing for every branch against the PDF examples, adjusting delimiters or affixes as needed.

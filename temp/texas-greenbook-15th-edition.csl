@@ -375,6 +375,9 @@
     <text macro="tex-code-section"/>
   </macro>
 
+  <!-- Texas statutes & codes short-form expectations are cataloged in the Authority Note Output Matrix and the
+       "Position mapping summary (2025-11-05)" section of NOTES.md. The branch keeps § + section while dropping
+       first-cite parentheticals until the TODO short-form epic wires full logic. -->
   <macro name="tex-statute-short">
     <choose>
       <if variable="references">
@@ -392,6 +395,9 @@
     </choose>
   </macro>
 
+  <!-- Court rule short-form triggers mirror the matrix row "Court rules" and NOTES.md fixture plan entries for
+       judicial administration and TRAP criminal appendix examples. This macro currently proxies the long-form
+       output until differentiated logic lands in the short-form implementation tasks. -->
   <macro name="tex-rule-short">
     <choose>
       <if variable="references">
@@ -471,6 +477,9 @@
     <text variable="authority" prefix=" (" suffix=")"/>
   </macro>
 
+  <!-- Texas administrative code short-form handling follows the matrix row "Texas administrative code & registers"
+       and the NOTES.md fixture scenario plan for TAC repeat cites. It retains the base code string while deferring
+       pinpoint tweaks to the pending helper extraction. -->
   <macro name="tex-admin-code-short">
     <choose>
       <if variable="references">
