@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0.2" class="note" default-locale="en-US">
+  <info>
+    <title>Texas Greenbook (15th ed.)</title>
+    <title-short>Tex. Greenbook</title-short>
+    <id>http://www.zotero.org/styles/texas-greenbook-15th-edition</id>
+    <link rel="self" href="http://www.zotero.org/styles/texas-greenbook-15th-edition"/>
+    <link rel="template" href="http://www.zotero.org/styles/bluebook-law-review"/>
+    <link rel="documentation" href="https://www.txcourts.gov/rules-forms/rules-standards/"/>
+    <author>
+      <name>Qubitdyne, Inc.</name>
+    </author>
+    <category citation-format="note"/>
+    <category field="law"/>
+    <updated>2025-03-17T00:00:00+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This style is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+  </info>
+
+  <locale xml:lang="en-US">
+    <terms>
+      <term name="section" form="symbol">§</term>
+      <term name="and">and</term>
+      <term name="chapter" form="short">ch.</term>
+      <term name="article" form="short">art.</term>
+      <term name="rule" form="short">R.</term>
+      <term name="paragraph" form="short">¶</term>
+    </terms>
+  </locale>
+
+  <macro name="case-name">
+    <text variable="title" font-style="italic"/>
+  </macro>
+
+  <macro name="reporter-print">
+    <group delimiter=" ">
+      <text variable="volume"/>
+      <text variable="container-title"/>
+      <text variable="page"/>
+    </group>
+  </macro>
+
+  <macro name="reporter-wl">
+    <group delimiter=", ">
+      <text variable="number" prefix="No. "/>
+      <text variable="collection-number"/>
+    </group>
+  </macro>
+
+  <macro name="pinpoint">
+    <choose>
+      <if variable="volume page container-title" match="all">
+        <text variable="locator" prefix=", "/>
+      </if>
+      <else-if variable="collection-number locator" match="all">
+        <text variable="locator" prefix=", at *"/>
+      </else-if>
+    </choose>
+  </macro>
+
+  <macro name="court-and-date">
+    <choose>
+      <if variable="volume page container-title" match="all">
+        <group prefix=" (" suffix=")">
+          <text variable="authority"/>
+          <date variable="issued" prefix=" ">
+            <date-part name="year"/>
+          </date>
+          <text variable="status" prefix=", "/>
+        </group>
+      </if>
+      <else>
+        <group prefix=" (" suffix=")">
+          <text variable="authority"/>
+          <date variable="issued" prefix=" ">
+            <date-part name="month" form="short" suffix=" "/>
+            <date-part name="day" form="numeric" suffix=", "/>
+            <date-part name="year"/>
+          </date>
+          <text variable="status" prefix=", "/>
+        </group>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="weight-parentheticals">
+    <choose>
+      <if variable="genre">
+        <text variable="genre" prefix=" (" suffix=")"/>
+      </if>
+    </choose>
+    <choose>
+      <if variable="medium">
+        <text variable="medium" prefix=" (" suffix=")"/>
+      </if>
+    </choose>
+  </macro>
+
+  <macro name="subsequent-history">
+    <text variable="references" prefix=", "/>
+  </macro>
+
+  <macro name="legal-case">
+    <choose>
+      <if position="first">
+        <text macro="legal-case-first"/>
+      </if>
+      <else-if variable="references">
+        <text macro="legal-case-cross-reference"/>
+      </else-if>
+      <else>
+        <text macro="legal-case-short"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="legal-case-first">
+    <group delimiter=", ">
+      <text macro="case-name"/>
+      <choose>
+        <if variable="volume page container-title" match="all">
+          <text macro="reporter-print"/>
+        </if>
+        <else>
+          <text macro="reporter-wl"/>
+        </else>
+      </choose>
+    </group>
+    <text macro="pinpoint"/>
+    <text macro="court-and-date"/>
+    <text macro="weight-parentheticals"/>
+    <text macro="subsequent-history"/>
+  </macro>
+
+  <macro name="legal-case-short">
+    <group delimiter=", ">
+      <text macro="case-name"/>
+      <choose>
+        <if variable="volume page container-title" match="all">
+          <text macro="reporter-print"/>
+        </if>
+        <else>
+          <text macro="reporter-wl"/>
+        </else>
+      </choose>
+    </group>
+    <text macro="pinpoint"/>
+    <text macro="court-and-date"/>
+  </macro>
+
+  <macro name="legal-case-cross-reference">
+    <group delimiter=" ">
+      <text macro="cross-reference-cue"/>
+      <group delimiter=", ">
+        <text macro="case-name"/>
+        <choose>
+          <if variable="volume page container-title" match="all">
+            <text macro="reporter-print"/>
+          </if>
+          <else>
+            <text macro="reporter-wl"/>
+          </else>
+        </choose>
+      </group>
+    </group>
+    <text macro="pinpoint"/>
+    <text macro="court-and-date" prefix=", "/>
+    <text macro="weight-parentheticals"/>
+    <text variable="references" prefix=", "/>
+  </macro>
+
+  <macro name="cross-reference-cue">
+    <choose>
+      <if variable="note">
+        <text variable="note" text-case="capitalize-first"/>
+      </if>
+      <else>
+        <text value="See"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="tex-statute">
+    <group delimiter=" ">
+      <text variable="container-title"/>
+      <group delimiter=" ">
+        <text term="section" form="symbol"/>
+        <text variable="section"/>
+      </group>
+    </group>
+  </macro>
+
+  <macro name="tex-constitution">
+    <group delimiter=", ">
+      <group delimiter=" ">
+        <text variable="container-title"/>
+        <group delimiter=" ">
+          <text term="article" form="short"/>
+          <text variable="chapter-number"/>
+        </group>
+      </group>
+      <group delimiter=" ">
+        <text term="section" form="symbol"/>
+        <text variable="section"/>
+      </group>
+    </group>
+  </macro>
+
+  <macro name="tex-admin-code">
+    <group delimiter=" ">
+      <text variable="volume"/>
+      <text variable="container-title"/>
+      <group delimiter=" ">
+        <text term="section" form="symbol"/>
+        <text variable="section"/>
+      </group>
+    </group>
+    <date variable="issued" prefix=" (" suffix=")">
+      <date-part name="year"/>
+    </date>
+    <text variable="authority" prefix=" (" suffix=")"/>
+  </macro>
+
+  <macro name="session-law">
+    <group delimiter=", ">
+      <text variable="title"/>
+      <text variable="collection-number"/>
+      <text variable="number" prefix="ch. "/>
+      <group delimiter=" ">
+        <text term="section" form="symbol"/>
+        <text variable="section"/>
+      </group>
+      <group delimiter=" ">
+        <text variable="volume"/>
+        <text variable="container-title"/>
+        <text variable="page"/>
+      </group>
+    </group>
+  </macro>
+
+  <macro name="ag-opinion">
+    <group delimiter=" ">
+      <text variable="authority"/>
+      <text variable="number" prefix="No. "/>
+    </group>
+    <date variable="issued" prefix=" (" suffix=")">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <macro name="municipal-code">
+    <group delimiter=", ">
+      <text variable="authority"/>
+      <group delimiter=" ">
+        <text variable="container-title"/>
+        <text variable="chapter-number"/>
+        <group delimiter=" ">
+          <text term="section" form="symbol"/>
+          <text variable="section"/>
+        </group>
+      </group>
+    </group>
+    <date variable="issued" prefix=" (" suffix=")">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <macro name="article-journal">
+    <group delimiter=", ">
+      <names variable="author">
+        <name and="text" delimiter=", "/>
+      </names>
+      <text variable="title"/>
+      <group delimiter=" ">
+        <text variable="volume"/>
+        <text variable="container-title"/>
+        <text variable="page"/>
+      </group>
+    </group>
+    <date variable="issued" prefix=" (" suffix=")">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <macro name="book-like">
+    <group delimiter=", ">
+      <names variable="author">
+        <name and="text" delimiter=", " initialize-with=". "/>
+      </names>
+      <text variable="title" font-style="italic"/>
+      <group delimiter=" ">
+        <number variable="volume" form="numeric"/>
+        <text variable="collection-title"/>
+      </group>
+      <date variable="issued">
+        <date-part name="year" prefix="(" suffix=")"/>
+      </date>
+    </group>
+  </macro>
+
+  <macro name="web">
+    <group delimiter=", ">
+      <text variable="title"/>
+      <text variable="container-title"/>
+      <group delimiter=" ">
+        <text term="available at"/>
+        <text variable="URL"/>
+      </group>
+      <group prefix=" (" suffix=")">
+        <text term="accessed" text-case="capitalize-first"/>
+        <date variable="accessed" delimiter=" ">
+          <date-part name="month" form="short"/>
+          <date-part name="day" form="numeric"/>
+          <date-part name="year"/>
+        </date>
+      </group>
+    </group>
+  </macro>
+
+  <citation et-al-min="4" et-al-use-first="3" disambiguate-add-givenname="true" givenname-disambiguation-rule="primary-name">
+    <layout delimiter="; " suffix=".">
+      <choose>
+        <if type="legal_case">
+          <text macro="legal-case"/>
+        </if>
+        <else-if type="legislation">
+          <choose>
+            <if variable="collection-number">
+              <text macro="session-law"/>
+            </if>
+            <else-if variable="genre" match="any">
+              <text macro="tex-constitution"/>
+            </else-if>
+            <else>
+              <text macro="tex-statute"/>
+            </else>
+          </choose>
+        </else-if>
+        <else-if type="regulation">
+          <choose>
+            <if variable="volume">
+              <text macro="tex-admin-code"/>
+            </if>
+            <else>
+              <text macro="municipal-code"/>
+            </else>
+          </choose>
+        </else-if>
+        <else-if type="report">
+          <text macro="ag-opinion"/>
+        </else-if>
+        <else-if type="article-journal">
+          <text macro="article-journal"/>
+        </else-if>
+        <else-if type="book chapter report entry-encyclopedia entry-dictionary">
+          <text macro="book-like"/>
+        </else-if>
+        <else-if type="webpage post-weblog post">
+          <text macro="web"/>
+        </else-if>
+        <else>
+          <group delimiter=", ">
+            <text variable="title"/>
+            <date variable="issued">
+              <date-part name="year"/>
+            </date>
+          </group>
+        </else>
+      </choose>
+    </layout>
+  </citation>
+
+  <bibliography et-al-min="8" et-al-use-first="7" hanging-indent="true">
+    <sort>
+      <key variable="author"/>
+      <key variable="title"/>
+    </sort>
+    <layout suffix=".">
+      <choose>
+        <if type="legal_case">
+          <text macro="legal-case-first"/>
+        </if>
+        <else-if type="legislation">
+          <choose>
+            <if variable="collection-number">
+              <text macro="session-law"/>
+            </if>
+            <else-if variable="genre" match="any">
+              <text macro="tex-constitution"/>
+            </else-if>
+            <else>
+              <text macro="tex-statute"/>
+            </else>
+          </choose>
+        </else-if>
+        <else-if type="regulation">
+          <choose>
+            <if variable="volume">
+              <text macro="tex-admin-code"/>
+            </if>
+            <else>
+              <text macro="municipal-code"/>
+            </else>
+          </choose>
+        </else-if>
+        <else-if type="report">
+          <text macro="ag-opinion"/>
+        </else-if>
+        <else-if type="article-journal">
+          <text macro="article-journal"/>
+        </else-if>
+        <else-if type="book chapter report entry-encyclopedia entry-dictionary">
+          <text macro="book-like"/>
+        </else-if>
+        <else-if type="webpage post-weblog post">
+          <text macro="web"/>
+        </else-if>
+        <else>
+          <group delimiter=", ">
+            <text variable="title"/>
+            <date variable="issued">
+              <date-part name="year"/>
+            </date>
+          </group>
+        </else>
+      </choose>
+    </layout>
+  </bibliography>
+</style>
