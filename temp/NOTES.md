@@ -114,7 +114,7 @@ end bibliography
 | rule | short (`R.`) | Edition + all TOA variants | Rule citations print “Tex. R. Civ. P. 97(d)” without repeating the full word “Rule” (ch. 13 at 61). | Mirrors Appendix H abbreviations; marked here to feed the packaging task. |
 | paragraph | short (`¶`) | Edition only | Slip-opinion instructions require “slip op. ¶ 2” when pagination is absent (ch. 3 at 30). | Only the note style emits paragraph pinpoints today; evaluate TOA demand when unpublished decisions join the table workflow. |
 | ibid | — (`Id.`) | Edition only | Ch. 9.1.1 allows constitutional short forms to use “id.” when appropriate (ch. 9 at 39), matching citeproc’s ibid behavior. | Confirms that the standard `ibid` term can stay mapped to “Id.” for repeated statutes and constitutions. |
-| and | — (`and`) | Edition only | Chapter 1’s typography discussion spells out “LARGE AND SMALL CAPITALS,” reinforcing the manual’s preference for written conjunctions over ampersands in rule text (ch. 1 at 3). | No Texas-specific alternative surfaced; override retained and flagged for later verification when the shared locale is assembled. |
+| and | — (`and`) | Edition only | Chapter 1’s typography discussion spells out “LARGE AND SMALL CAPITALS,” reinforcing the manual’s preference for written conjunctions over ampersands in rule text (ch. 1 at 3).【d3b9e8†L1-L15】 | Verified the stock `en-US` locale already emits the spelled-out conjunction, so the edition now defers to the default term instead of carrying a redundant override.【6f5683†L1-L35】 |
 
 ## Memo Opinion Indicator Audit (2025-03-27)
 - `texas-greenbook-15th-edition.csl` routes every case through `case-parenthetical-stack`, which simply echoes `genre` and `medium` via `weight-parentheticals` with no conditional gating (ll. 144–158). Memorandum, per curiam, and rehearing parentheticals therefore appear only when translators populate `genre`/`medium`.
@@ -507,14 +507,17 @@ Authority-Specific Supporting Macros
 ### Stock Locale Comparison (locales-en-US.xml)
 | Term | Draft 3 Value | Stock en-US Value | Override Needed? |
 | --- | --- | --- | --- |
-| `rule` (short) | `R.` | `r.` (Oxford legal abbreviations)【4ef913†L1-L9】 | Yes – enforce capital R per Greenbook |
-| `chapter` (short) | `ch.` | `chap.`【f7239e†L1-L6】 | Yes – match Greenbook contraction |
-| `article` (short) | `art.` | _not defined_ (only long form present)【118bc8†L1-L2】 | Yes – add short form |
-| `paragraph` (short) | `¶` | `para.`【4d2547†L1-L6】 | Yes – use pilcrow symbol |
-| `section` (symbol) | `§` | `§`【b3a0ce†L21-L28】 | Optional – identical to stock |
-| `and` | `and` | `and`【7c627c†L1-L3】 | Optional – identical to stock |
+| `rule` (short) | `R.` | _not defined_ (no stock short form present)【b2a116†L1-L5】 | Yes – enforce capital R per Greenbook |
+| `chapter` (short) | `ch.` | `chap.`【c09823†L1-L10】 | Yes – match Greenbook contraction |
+| `article` (short) | `art.` | _not defined_ (only long form present)【4dfcb3†L1-L5】 | Yes – add short form |
+| `paragraph` (short) | `¶` | `para.`【a44ccd†L1-L8】 | Yes – use pilcrow symbol |
+| `section` (symbol) | `§` | `§`【1b3e9d†L1-L8】 | Optional – identical to stock |
+| `and` | `and` | `and`【6f5683†L1-L35】 | Optional – identical to stock |
 
 ### Override Placement Recommendation
 - Multiple in-progress drafts (Draft 3 and the table-of-authorities variants) repeat the same custom abbreviations for `article`, `chapter`, `rule`, and `section`/`paragraph`, which makes drift likely if each file hand-maintains overrides.【F:temp/texas-greenbook-15th-draft3.csl†L422-L428】【69b6f5†L3-L16】
 - Creating a shared custom locale (e.g., `locales/locales-en-US-texas-greenbook.xml`) centralizes the Greenbook-specific abbreviations while letting each draft include it with `<locale>` references, ensuring that future drafts (Draft 4, TOA leaders) inherit updates automatically.
 - The inline `<locale>` block can then shrink to only truly draft-specific terms (if any emerge), simplifying the style diff and keeping the main CSL focus on citation structure rather than terminology management.
+- Drafted the shared locale shell at `temp/locales/locales-en-US-texas-greenbook.xml` so the abbreviations can migrate out of individual styles once integration tasks are scheduled.【F:temp/locales/locales-en-US-texas-greenbook.xml†L1-L18】
+- Documented follow-up integration steps: styles will import the shared locale via the CSL `<locale href="…"/>` mechanism after we update citeproc test harnesses to expose the new directory, and TOA fixtures will need regeneration once the terms move out of inline `<locale>` blocks.【F:temp/locales/locales-en-US-texas-greenbook.xml†L1-L18】
+- Validated the locale XML using `lxml` (system `xmllint` unavailable) to confirm the structure parses before wiring it into the styles.【b4834c†L1-L6】

@@ -25,7 +25,6 @@
   <locale xml:lang="en-US">
     <terms>
       <term name="section" form="symbol">§</term>
-      <term name="and">and</term>
       <term name="chapter" form="short">ch.</term>
       <term name="article" form="short">art.</term>
       <term name="rule" form="short">R.</term>
