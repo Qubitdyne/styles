@@ -84,9 +84,9 @@ ion of the conflicting behavior.
       - [x] Implement the `short-pinpoint-year` helper for short-form macros so missing years no longer leave trailing delimiters.
   - [ ] Implement short-form macros for statutes, rules, and administrative materials in the main style.
     - [ ] Create dedicated macros (e.g., `tex-statute-short`, `tex-rule-short`, `tex-administrative-short`) that mirror the long-form structure while applying the short-form requirements documented in `NOTES.md`.
-      - [ ] Review the existing long-form macros to list the elements that must persist in short form and highlight pieces to omit.
-      - [ ] Draft pseudo-code for each short-form macro, mapping inputs to outputs alongside the corresponding Greenbook citations.
-      - [ ] Implement macro shells in the CSL file, copying structural boilerplate (comments, indentation) from comparable case short forms.
+      - [x] Review the existing long-form macros to list the elements that must persist in short form and highlight pieces to omit.
+      - [x] Draft pseudo-code for each short-form macro, mapping inputs to outputs alongside the corresponding Greenbook citations.
+      - [x] Implement macro shells in the CSL file, copying structural boilerplate (comments, indentation) from comparable case short forms.
       - [ ] Run citeproc on a minimal JSON dataset to confirm each macro compiles before layering conditional logic.
       - [ ] Annotate the new macro definitions with inline comments referencing the requirement matrix row or `NOTES.md` anchor for quick audits.
     - [ ] Add `choose` blocks to differentiate between first-reference short cites, cross-references, and `Id.` scenarios, ensuring jurisdictional fallbacks work for both Texas and non-Texas authorities.
