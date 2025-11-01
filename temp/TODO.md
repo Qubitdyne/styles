@@ -110,21 +110,21 @@ ion of the conflicting behavior.
       - [x] Identify any new metadata fields and document them for addition to data schemas or documentation.
       - [x] Gather example values from the Greenbook to populate realistic citation information.
       - [x] Queue fixtures for the Chapter 10–13 short-form gaps logged on 2025-11-04 (multi-section code cites, supplement parentheticals, amendment/repeal statuses, historical notes, judicial administration repeats, TRAP criminal appendix rules, and local court rules).
-    - [ ] Add fixture entries incrementally, verifying JSON schema compatibility via `run_tests.py --list-tests`.
-      - [ ] Insert one scenario at a time into `tests.json`, running the command after each addition to isolate syntax issues.
-      - [ ] Capture command output logs and store them in `temp/test-logs/` for traceability.
-      - [ ] Fix validation errors immediately, noting the resolutions in `NOTES.md`.
-      - [ ] Keep versioned backups of `tests.json` during the expansion to recover from accidental formatting errors.
-    - [ ] Annotate each new test case with Greenbook citations inside `tests.json` comments or in `NOTES.md`.
-      - [ ] Reference the relevant page numbers and rule identifiers next to each fixture entry.
-      - [ ] Include brief descriptions explaining the purpose of the test (e.g., `tests Id. short form`).
-      - [ ] Cross-link the annotations with the requirement matrix for consolidated documentation.
-      - [ ] Review annotations for clarity to assist future maintainers.
-    - [ ] Ensure both positive and negative cases exist to exercise fallback logic and `substitute` behavior.
-      - [ ] Design positive cases that confirm correct formatting when all metadata is present.
-      - [ ] Create negative cases that omit or alter key fields to trigger fallback logic, ensuring citeproc handles them gracefully.
-      - [ ] Document expected failure or fallback behavior next to each negative case.
-      - [ ] Verify that test coverage spans statutes, rules, and administrative materials equally.
+    - [x] Add fixture entries incrementally, verifying JSON schema compatibility via `run_tests.py --list-tests`.
+      - [x] Insert one scenario at a time into `tests.json`, running the command after each addition to isolate syntax issues.
+      - [x] Capture command output logs and store them in `temp/test-logs/` for traceability.
+      - [x] Fix validation errors immediately, noting the resolutions in `NOTES.md`.
+      - [x] Keep versioned backups of `tests.json` during the expansion to recover from accidental formatting errors.
+    - [x] Annotate each new test case with Greenbook citations inside `tests.json` comments or in `NOTES.md`.
+      - [x] Reference the relevant page numbers and rule identifiers next to each fixture entry.
+      - [x] Include brief descriptions explaining the purpose of the test (e.g., `tests Id. short form`).
+      - [x] Cross-link the annotations with the requirement matrix for consolidated documentation.
+      - [x] Review annotations for clarity to assist future maintainers.
+    - [x] Ensure both positive and negative cases exist to exercise fallback logic and `substitute` behavior.
+      - [x] Design positive cases that confirm correct formatting when all metadata is present.
+      - [x] Create negative cases that omit or alter key fields to trigger fallback logic, ensuring citeproc handles them gracefully.
+      - [x] Document expected failure or fallback behavior next to each negative case.
+      - [x] Verify that test coverage spans statutes, rules, and administrative materials equally.
   - [ ] Implement the shared short-form logic (including `substitute` fallbacks) within the style macros and mirror the changes into each TOA variant where applicable.
     - [ ] Prototype shared helper macros for repeated short-form behaviors before wiring them into case-specific blocks.
       - [ ] Draft macro skeletons that accept standardized parameters and return formatted strings.

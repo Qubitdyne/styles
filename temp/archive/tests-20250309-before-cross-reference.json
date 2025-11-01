@@ -215,25 +215,6 @@
     "section": "§ 2(a)"
   },
   {
-    "id": "stat_tax_code_repeat",
-    "type": "legislation",
-    "container-title": "Tex. Tax Code Ann.",
-    "collection-title": "tit. 2",
-    "section": "26.06(a)",
-    "note": "Supp. 2024"
-  },
-  {
-    "_cite": "stat_tax_code_repeat",
-    "label": "section",
-    "locator": "26.06(b)"
-  },
-  {
-    "id": "stat_tax_code_missing_section",
-    "type": "legislation",
-    "container-title": "Tex. Tax Code Ann.",
-    "note": "Supp. 2024"
-  },
-  {
     "id": "constitution_art_sec",
     "type": "legislation",
     "genre": "constitution",
@@ -289,40 +270,6 @@
     "note": "to be codified at 22 Tex. Admin. Code § 367.14"
   },
   {
-    "id": "tac_volume_16",
-    "type": "regulation",
-    "volume": "16",
-    "container-title": "Tex. Admin. Code",
-    "section": "25.101",
-    "issued": {
-      "date-parts": [
-        [
-          2022
-        ]
-      ]
-    },
-    "authority": "Tex. Comm’n on Env’t Quality, Emission Standards Division"
-  },
-  {
-    "_cite": "tac_volume_16",
-    "label": "section",
-    "locator": "25.102"
-  },
-  {
-    "id": "tac_volume_16_missing_section",
-    "type": "regulation",
-    "volume": "16",
-    "container-title": "Tex. Admin. Code",
-    "issued": {
-      "date-parts": [
-        [
-          2022
-        ]
-      ]
-    },
-    "authority": "Tex. Comm’n on Env’t Quality"
-  },
-  {
     "id": "rule_civp",
     "type": "legislation",
     "container-title": "Tex. R. Civ. P.",
@@ -346,25 +293,6 @@
     "type": "legislation",
     "container-title": "Tex. R. Evid.",
     "section": "405(b)",
-    "genre": "court rule"
-  },
-  {
-    "id": "rule_jud_admin_reprint",
-    "type": "legislation",
-    "container-title": "Tex. R. Jud. Admin.",
-    "section": "5",
-    "genre": "court rule",
-    "note": "reprinted in Tex. Gov’t Code Ann., tit. 2, subtit. F app."
-  },
-  {
-    "_cite": "rule_jud_admin_reprint",
-    "label": "rule",
-    "locator": "5"
-  },
-  {
-    "id": "rule_jud_admin_missing",
-    "type": "legislation",
-    "container-title": "Tex. R. Jud. Admin.",
     "genre": "court rule"
   },
   {
@@ -446,22 +374,6 @@
       ]
     },
     "abstract": "noise ordinance"
-  },
-  {
-    "_cite": "stat_tax_code_repeat",
-    "label": "section",
-    "locator": "26.06(c)"
-  },
-  {
-    "_cite": "rule_jud_admin_reprint",
-    "label": "rule",
-    "locator": "7",
-    "prefix": "See"
-  },
-  {
-    "_cite": "tac_volume_16",
-    "label": "section",
-    "locator": "25.110"
   },
   {
     "id": "treatise_practice",
