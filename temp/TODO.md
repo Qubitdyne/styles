@@ -132,8 +132,8 @@ ion of the conflicting behavior.
     - [ ] Update the `cross-reference-cue` macro so that blank `note` fields trigger “See also” outputs for non-Texas authorities while preserving existing case handling.
       - [x] Trace current `cross-reference-cue` execution paths to confirm where the note value is evaluated.
       - [x] Add conditional checks for statute, rule, and administrative authority types, reusing existing jurisdiction helpers when possible.
-      - [ ] Verify that the macro still returns empty output when `note` contains substantive text, avoiding redundant cues.
-      - [ ] Run citeproc scenarios with mixed Texas and non-Texas authorities to confirm the cue renders only in the expected cases.
+      - [x] Verify that the macro still returns empty output when `note` contains substantive text, avoiding redundant cues.
+      - [x] Run citeproc scenarios with mixed Texas and non-Texas authorities to confirm the cue renders only in the expected cases.
       - [x] Update inline comments or `NOTES.md` to document the new logic with Greenbook references.
     - [ ] Ensure statute/rule short forms properly interpret `ibid`-style references, respecting Greenbook triggers for when `Id.` is permitted.
       - [ ] Review the CSL `ibid` handling configuration to understand current processor behavior for statutes and rules.
@@ -168,11 +168,11 @@ ion of the conflicting behavior.
       - [x] Include summary headers in each log noting the related TODO item and data set exercised.
       - [x] Cross-reference the log filenames within `NOTES.md` so reviewers can locate them quickly.
       - [x] Periodically prune superseded logs to prevent confusion, archiving critical milestones as needed.
-    - [ ] Note fixture provenance and rule citations in `NOTES.md` to keep the regression inventory auditable.
-      - [ ] Update the fixture matrix with new entries, capturing authority type, purpose, and Greenbook citation.
-      - [ ] Highlight any fixtures that rely on assumptions or inferred data, noting the justification.
-      - [ ] Document reviewer sign-offs or pending approvals for fixtures derived from ambiguous guidance.
-      - [ ] Link to any external resources (e.g., PDFs, spreadsheets) that house additional context for the test data.
+    - [x] Note fixture provenance and rule citations in `NOTES.md` to keep the regression inventory auditable.
+      - [x] Update the fixture matrix with new entries, capturing authority type, purpose, and Greenbook citation.
+      - [x] Highlight any fixtures that rely on assumptions or inferred data, noting the justification.
+      - [x] Document reviewer sign-offs or pending approvals for fixtures derived from ambiguous guidance.
+      - [x] Link to any external resources (e.g., PDFs, spreadsheets) that house additional context for the test data.
   - [ ] Refresh documentation after implementation completes.
     - [ ] Update `README.md` Known Limitations to reflect the closure of statute/rule short-form gaps.
       - [ ] Draft revised language removing the limitation and briefly describing the implemented solution.
