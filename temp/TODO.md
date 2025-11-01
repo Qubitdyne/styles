@@ -209,11 +209,11 @@ ion of the conflicting behavior.
       - [x] Assess the effort required to merge each duplicated segment into a helper macro.
       - [x] Note dependencies (tests, documentation) that will need updates when duplication is removed.
       - [x] Prioritize hotspots according to frequency of use in the test suite or production citations.
-    - [ ] Verify current behavior against existing fixtures to understand baseline expectations.
-      - [ ] Run the parenthetical-related tests and store outputs for side-by-side comparison.
-      - [ ] Check fixture expectations for coverage completeness and annotate any missing scenarios.
-      - [ ] Document baseline quirks or known deviations that should persist after refactoring.
-      - [ ] Share results with collaborators to establish consensus on the current state.
+    - [x] Verify current behavior against existing fixtures to understand baseline expectations.
+      - [x] Run the parenthetical-related tests and store outputs for side-by-side comparison.
+      - [x] Check fixture expectations for coverage completeness and annotate any missing scenarios.
+      - [x] Document baseline quirks or known deviations that should persist after refactoring.
+      - [x] Share results with collaborators to establish consensus on the current state.
   - [ ] Design shared helper macros (e.g., `parenthetical-slip-op`, `parenthetical-procedural-status`, `parenthetical-docket`) that can be reused by case, mandamus, and habeas branches.
     - [ ] Draft pseudo-code for each helper detailing inputs, optional parameters, and output ordering.
       - [ ] Specify how each helper will handle absent metadata (e.g., omit text vs. insert placeholder).
@@ -241,6 +241,7 @@ ion of the conflicting behavior.
       - [ ] Source realistic case names and docket details from the Greenbook or other authoritative references.
       - [ ] Populate JSON entries with both typical and edge-case data (e.g., consolidated cases, per curiam opinions).
       - [ ] Document each entry's intent and coverage area in `NOTES.md` or inline comments.
+      - [ ] Add a memorandum opinion example that includes the Chapter 4 `(not designated for publication)` parenthetical (PDF p. 17) so weight-parenthetical logic captures that variant.
     - [ ] Ensure each fixture tests both note and bibliography contexts where applicable.
       - [ ] Duplicate scenarios across note and bibliography outputs if behavior should align.
       - [ ] Validate that citeproc renders both contexts without error messages or missing data.
