@@ -599,10 +599,10 @@ ion of the conflicting behavior.
     - [x] Prioritize discrepancies affecting authoritative compliance before cosmetic issues.
   - [ ] Implement web citation punctuation adjustments in CSL macros and locale terms.
     - [x] Draft a change plan noting which macros (`web`, `web-short`, access-date helpers) need updates and the expected output transformations.
-      - [ ] Inventory the specific punctuation issues identified during analysis and map them to the macros responsible.
-      - [ ] Outline proposed modifications (e.g., new `if` conditions, locale term updates) in a short design note stored in `NOTES.md`.
+      - [x] Inventory the specific punctuation issues identified during analysis and map them to the macros responsible.
+      - [x] Outline proposed modifications (e.g., new `if` conditions, locale term updates) in a short design note stored in `NOTES.md`.
       - [ ] Circulate or self-review the plan to ensure it covers both note and bibliography contexts before editing XML.
-      - [ ] Capture potential risks (such as interactions with print periodical macros) and plan mitigation steps.
+      - [x] Capture potential risks (such as interactions with print periodical macros) and plan mitigation steps.
     - [ ] Update CSL conditional logic to handle quoted titles, trailing punctuation, and URL formatting per the documented requirements.
       - [ ] Implement the planned changes incrementally, committing after each macro update to keep diffs focused.
       - [ ] Introduce guard clauses for missing metadata (e.g., absent access date) to avoid dangling punctuation.
