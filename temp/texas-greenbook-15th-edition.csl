@@ -61,7 +61,7 @@
     </group>
   </macro>
 
-  <macro name="docket-parenthetical">
+  <macro name="parenthetical-docket">
     <choose>
       <if variable="number collection-number" match="any">
         <group delimiter=", ">
@@ -73,7 +73,7 @@
   </macro>
 
   <macro name="reporter-wl">
-    <text macro="docket-parenthetical"/>
+    <text macro="parenthetical-docket"/>
   </macro>
 
   <macro name="pinpoint">
@@ -124,7 +124,7 @@
     </choose>
   </macro>
 
-  <macro name="procedural-note">
+  <macro name="parenthetical-procedural-note">
     <choose>
       <if variable="note references" match="all">
         <!-- Skip cross-reference cues stored in note when subsequent history is present. -->
@@ -135,12 +135,12 @@
     </choose>
   </macro>
 
-  <macro name="procedural-parenthetical">
+  <macro name="parenthetical-procedural-status">
     <choose>
       <if variable="status note" match="any">
         <group delimiter=", ">
           <text variable="status"/>
-          <text macro="procedural-note"/>
+          <text macro="parenthetical-procedural-note"/>
         </group>
       </if>
     </choose>
@@ -154,7 +154,7 @@
           <date variable="issued" prefix=" ">
             <date-part name="year"/>
           </date>
-          <text macro="procedural-parenthetical" prefix=", "/>
+          <text macro="parenthetical-procedural-status" prefix=", "/>
         </group>
       </if>
       <else>
@@ -165,13 +165,13 @@
             <date-part name="day" form="numeric" suffix=", "/>
             <date-part name="year"/>
           </date>
-          <text macro="procedural-parenthetical" prefix=", "/>
+          <text macro="parenthetical-procedural-status" prefix=", "/>
         </group>
       </else>
     </choose>
   </macro>
 
-  <macro name="weight-parentheticals">
+  <macro name="parenthetical-slip-op">
     <choose>
       <if variable="genre medium" match="any">
         <group delimiter="">
@@ -183,8 +183,26 @@
   </macro>
 
   <macro name="case-parenthetical-stack">
-    <text macro="weight-parentheticals"/>
+    <text macro="parenthetical-slip-op"/>
     <text macro="explanatory-parenthetical"/>
+  </macro>
+
+  <macro name="slip-opinion-availability">
+    <choose>
+      <if variable="URL">
+        <choose>
+          <if variable="volume page container-title" match="any">
+            <!-- Print reporters omit the slip-opinion URL clause. -->
+          </if>
+          <else>
+            <group prefix=", " delimiter=" ">
+              <text term="available at"/>
+              <text variable="URL"/>
+            </group>
+          </else>
+        </choose>
+      </if>
+    </choose>
   </macro>
 
   <macro name="explanatory-parenthetical">
@@ -298,6 +316,7 @@
     <text macro="pinpoint"/>
     <text macro="court-and-date"/>
     <text macro="case-parenthetical-stack"/>
+    <text macro="slip-opinion-availability"/>
     <text macro="related-proceedings"/>
     <text macro="subsequent-history"/>
   </macro>
@@ -324,6 +343,7 @@
     <text macro="pinpoint"/>
     <text macro="court-and-date"/>
     <text macro="case-parenthetical-stack"/>
+    <text macro="slip-opinion-availability"/>
     <text macro="related-proceedings"/>
   </macro>
 
@@ -345,6 +365,7 @@
     <text macro="pinpoint"/>
     <text macro="court-and-date"/>
     <text macro="case-parenthetical-stack"/>
+    <text macro="slip-opinion-availability"/>
     <text macro="related-proceedings"/>
     <text macro="subsequent-history"/>
   </macro>

@@ -1,0 +1,161 @@
+[
+  {
+    "id": "case_slip_opinion",
+    "type": "legal_case",
+    "title": "In re Academy, Ltd.",
+    "title-short": "Academy",
+    "authority": "Tex.",
+    "number": "21-0993",
+    "collection-number": "2024 WL 1234567",
+    "issued": {
+      "date-parts": [
+        [
+          2024,
+          3,
+          8
+        ]
+      ]
+    },
+    "medium": "slip op.",
+    "genre": "per curiam",
+    "locator": "5",
+    "status": "orig. proceeding",
+    "note": "mand. conditionally granted",
+    "URL": "https://search.txcourts.gov/Case.aspx?cn=21-0993&coa=cossup",
+    "references": "mand. dismissed, No. 22-0150, 2025 WL 987654, at *2 (Tex. 2025) (per curiam)"
+  },
+  {
+    "_cite": "case_slip_opinion",
+    "locator": "5"
+  },
+  {
+    "id": "case_slip_jenkins",
+    "type": "legal_case",
+    "title": "Jenkins v. State",
+    "title-short": "Jenkins",
+    "authority": "Tex. App.—Austin",
+    "number": "03-13-0632-CR",
+    "collection-number": "2013 WL 5567890",
+    "issued": {
+      "date-parts": [
+        [
+          2013,
+          10,
+          25
+        ]
+      ]
+    },
+    "medium": "mem. op., not designated for publication",
+    "locator": "2",
+    "status": "no pet. h.",
+    "URL": "http://www.search.txcourts.gov/SearchMedia.aspx?MediaVersionID=9a9e6403-aac0-45ac-8e31-27c4d2fd8a33&MediaID=a0ea946d-bccf-4336-9228-581bd0b046c5&coa=%22%20+%20this.CurrentWebState.CurrentCourt%20+%20@%22&DT=Opinion"
+  },
+  {
+    "_cite": "case_slip_jenkins",
+    "locator": "2"
+  },
+  {
+    "id": "case_mandamus_pending",
+    "type": "legal_case",
+    "title": "In re Luna",
+    "title-short": "Luna",
+    "authority": "Tex. App.—Houston [1st Dist.]",
+    "number": "01-03-01055-CV",
+    "collection-number": "2004 WL 2005935",
+    "issued": {
+      "date-parts": [
+        [
+          2004,
+          9,
+          9
+        ]
+      ]
+    },
+    "status": "orig. proceeding [mand. pending]",
+    "locator": "1"
+  },
+  {
+    "id": "case_habeas_massoth",
+    "type": "legal_case",
+    "title": "Massoth v. State",
+    "title-short": "Massoth",
+    "authority": "Tex. App.—Houston [14th Dist.]",
+    "number": "14-03-00605-CR",
+    "collection-number": "2004 WL 1381027",
+    "issued": {
+      "date-parts": [
+        [
+          2004,
+          6,
+          22
+        ]
+      ]
+    },
+    "status": "pet. ref'd",
+    "medium": "mem. op., not designated for publication",
+    "locator": "1",
+    "references": "habeas corpus granted in part sub nom. Ex parte Massoth, No. AP-75215, 2005 WL 1774115, at *1 (Tex. Crim. App. July 27, 2005) (per curiam) (not designated for publication)"
+  },
+  {
+    "id": "case_mandamus_history",
+    "type": "legal_case",
+    "title": "Gen. Motors Corp. v. Gayle",
+    "title-short": "General Motors",
+    "container-title": "S.W.2d",
+    "volume": "924",
+    "page": "222",
+    "authority": "Tex. App.—Houston [14th Dist.]",
+    "issued": {
+      "date-parts": [
+        [
+          1996
+        ]
+      ]
+    },
+    "locator": "224",
+    "status": "orig. proceeding",
+    "references": "leave granted, mand. denied, 940 S.W.2d 598, 599 (Tex. 1997) (per curiam)",
+    "related": [
+      "case_mandamus_history_leave",
+      "case_mandamus_history_supreme"
+    ]
+  },
+  {
+    "_cite": "case_mandamus_history",
+    "locator": "224"
+  },
+  {
+    "id": "case_mandamus_history_leave",
+    "type": "legal_case",
+    "title": "In re Gen. Motors Corp.",
+    "container-title": "S.W.2d",
+    "volume": "940",
+    "page": "598",
+    "authority": "Tex.",
+    "issued": {
+      "date-parts": [
+        [
+          1997
+        ]
+      ]
+    },
+    "status": "leave granted"
+  },
+  {
+    "id": "case_mandamus_history_supreme",
+    "type": "legal_case",
+    "title": "In re Gen. Motors Corp.",
+    "container-title": "S.W.2d",
+    "volume": "940",
+    "page": "599",
+    "authority": "Tex.",
+    "issued": {
+      "date-parts": [
+        [
+          1997
+        ]
+      ]
+    },
+    "status": "mand. denied"
+  }
+]

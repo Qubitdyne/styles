@@ -66,8 +66,26 @@
 
   <!-- Case formatting -->
   <macro name="case-name"><text variable="title" font-style="italic"/></macro>
-  <macro name="reporter-print"><group delimiter=" "><text variable="volume"/><text variable="container-title"/><text variable="page"/></group></macro>
-  <macro name="reporter-wl"><group delimiter=", "><text variable="number" prefix="No. "/><text variable="collection-number"/></group></macro>
+  <macro name="reporter-print">
+    <group delimiter=" ">
+      <text variable="volume"/>
+      <text variable="container-title"/>
+      <text variable="page"/>
+    </group>
+  </macro>
+  <macro name="parenthetical-docket">
+    <choose>
+      <if variable="number collection-number" match="any">
+        <group delimiter=", ">
+          <text variable="number" prefix="No. "/>
+          <text variable="collection-number"/>
+        </group>
+      </if>
+    </choose>
+  </macro>
+  <macro name="reporter-wl">
+    <text macro="parenthetical-docket"/>
+  </macro>
   <macro name="pinpoint">
     <choose>
       <if variable="volume page container-title" match="all"><text variable="locator" prefix=", "/></if>
@@ -91,13 +109,34 @@
       </else>
     </choose>
   </macro>
+  <macro name="parenthetical-procedural-note">
+    <choose>
+      <if variable="note references" match="all">
+      </if>
+      <else-if variable="note">
+        <text variable="note"/>
+      </else-if>
+    </choose>
+  </macro>
+  <macro name="parenthetical-procedural-status">
+    <choose>
+      <if variable="status note" match="any">
+        <group delimiter=", ">
+          <text variable="status"/>
+          <text macro="parenthetical-procedural-note"/>
+        </group>
+      </if>
+    </choose>
+  </macro>
   <macro name="court-and-date">
     <choose>
       <if variable="volume page container-title" match="all">
         <group prefix=" (" suffix=")">
           <text variable="authority"/>
-          <date variable="issued" prefix=" "><date-part name="year"/></date>
-          <text variable="status" prefix=", "/>
+          <date variable="issued" prefix=" ">
+            <date-part name="year"/>
+          </date>
+          <text macro="parenthetical-procedural-status" prefix=", "/>
         </group>
       </if>
       <else>
@@ -108,14 +147,31 @@
             <date-part name="day" form="numeric" suffix=", "/>
             <date-part name="year"/>
           </date>
-          <text variable="status" prefix=", "/>
+          <text macro="parenthetical-procedural-status" prefix=", "/>
         </group>
       </else>
     </choose>
   </macro>
-  <macro name="weight-parentheticals">
-    <choose><if variable="genre"><text variable="genre" font-style="normal" prefix=" (" suffix=")"/></if></choose>
-    <choose><if variable="medium"><text variable="medium" font-style="normal" prefix=" (" suffix=")"/></if></choose>
+  <macro name="parenthetical-slip-op">
+    <choose>
+      <if variable="genre medium" match="any">
+        <group delimiter="">
+          <text variable="genre" font-style="normal" prefix=" (" suffix=")"/>
+          <text variable="medium" font-style="normal" prefix=" (" suffix=")"/>
+        </group>
+      </if>
+    </choose>
+  </macro>
+  <macro name="explanatory-parenthetical">
+    <choose>
+      <if variable="abstract">
+        <text variable="abstract" prefix=" (" suffix=")"/>
+      </if>
+    </choose>
+  </macro>
+  <macro name="case-parenthetical-stack">
+    <text macro="parenthetical-slip-op"/>
+    <text macro="explanatory-parenthetical"/>
   </macro>
   <macro name="legal-case">
     <group delimiter=", ">
@@ -127,7 +183,7 @@
     </group>
     <text macro="pinpoint"/>
     <text macro="court-and-date"/>
-    <text macro="weight-parentheticals"/>
+    <text macro="case-parenthetical-stack"/>
   </macro>
 
   <!-- Statutes / Constitution / TAC / Session law / Rules / Municipal / AG -->

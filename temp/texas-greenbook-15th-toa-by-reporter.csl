@@ -25,12 +25,46 @@
 
   
   <ns0:macro name="case-name"><ns0:text variable="title" font-style="italic" /></ns0:macro>
-  <ns0:macro name="reporter-print"><ns0:group delimiter=" "><ns0:text variable="volume" /><ns0:text variable="container-title" /><ns0:text variable="page" /></ns0:group></ns0:macro>
-  <ns0:macro name="reporter-wl"><ns0:group delimiter=", "><ns0:text variable="number" prefix="No. " /><ns0:text variable="collection-number" /></ns0:group></ns0:macro>
+  <ns0:macro name="reporter-print">
+    <ns0:group delimiter=" ">
+      <ns0:text variable="volume" />
+      <ns0:text variable="container-title" />
+      <ns0:text variable="page" />
+    </ns0:group>
+  </ns0:macro>
+  <ns0:macro name="parenthetical-docket">
+    <ns0:choose>
+      <ns0:if variable="number collection-number" match="any">
+        <ns0:group delimiter=", ">
+          <ns0:text variable="number" prefix="No. " />
+          <ns0:text variable="collection-number" />
+        </ns0:group>
+      </ns0:if>
+    </ns0:choose>
+  </ns0:macro>
+  <ns0:macro name="reporter-wl">
+    <ns0:text macro="parenthetical-docket" />
+  </ns0:macro>
   <ns0:macro name="pinpoint">
     <ns0:choose>
       <ns0:if variable="volume page container-title" match="all"><ns0:text variable="locator" prefix=", " /></ns0:if>
       <ns0:else-if variable="collection-number locator" match="all"><ns0:text variable="locator" prefix=", at *" /></ns0:else-if>
+    </ns0:choose>
+  </ns0:macro>
+  <ns0:macro name="parenthetical-procedural-note">
+    <ns0:choose>
+      <ns0:if variable="note references" match="all" />
+      <ns0:else-if variable="note"><ns0:text variable="note" /></ns0:else-if>
+    </ns0:choose>
+  </ns0:macro>
+  <ns0:macro name="parenthetical-procedural-status">
+    <ns0:choose>
+      <ns0:if variable="status note" match="any">
+        <ns0:group delimiter=", ">
+          <ns0:text variable="status" />
+          <ns0:text macro="parenthetical-procedural-note" />
+        </ns0:group>
+      </ns0:if>
     </ns0:choose>
   </ns0:macro>
   <ns0:macro name="court-and-date">
@@ -39,21 +73,36 @@
         <ns0:group prefix=" (" suffix=")">
           <ns0:text variable="authority" />
           <ns0:date variable="issued" prefix=" "><ns0:date-part name="year" /></ns0:date>
-          <ns0:text variable="status" prefix=", " />
+          <ns0:text macro="parenthetical-procedural-status" prefix=", " />
         </ns0:group>
       </ns0:if>
       <ns0:else>
         <ns0:group prefix=" (" suffix=")">
           <ns0:text variable="authority" />
           <ns0:date variable="issued" form="text" prefix=" " />
-          <ns0:text variable="status" prefix=", " />
+          <ns0:text macro="parenthetical-procedural-status" prefix=", " />
         </ns0:group>
       </ns0:else>
     </ns0:choose>
   </ns0:macro>
-  <ns0:macro name="weight-parentheticals">
-    <ns0:choose><ns0:if variable="genre"><ns0:text variable="genre" font-style="normal" prefix=" (" suffix=")" /></ns0:if></ns0:choose>
-    <ns0:choose><ns0:if variable="medium"><ns0:text variable="medium" font-style="normal" prefix=" (" suffix=")" /></ns0:if></ns0:choose>
+  <ns0:macro name="parenthetical-slip-op">
+    <ns0:choose>
+      <ns0:if variable="genre medium" match="any">
+        <ns0:group delimiter="">
+          <ns0:text variable="genre" font-style="normal" prefix=" (" suffix=")" />
+          <ns0:text variable="medium" font-style="normal" prefix=" (" suffix=")" />
+        </ns0:group>
+      </ns0:if>
+    </ns0:choose>
+  </ns0:macro>
+  <ns0:macro name="explanatory-parenthetical">
+    <ns0:choose>
+      <ns0:if variable="abstract"><ns0:text variable="abstract" prefix=" (" suffix=")" /></ns0:if>
+    </ns0:choose>
+  </ns0:macro>
+  <ns0:macro name="case-parenthetical-stack">
+    <ns0:text macro="parenthetical-slip-op" />
+    <ns0:text macro="explanatory-parenthetical" />
   </ns0:macro>
   <ns0:macro name="legal-case">
     <ns0:group delimiter=", ">
@@ -65,7 +114,7 @@
       <ns0:text macro="pinpoint" />
     </ns0:group>
     <ns0:text macro="court-and-date" />
-    <ns0:text macro="weight-parentheticals" />
+    <ns0:text macro="case-parenthetical-stack" />
   </ns0:macro>
 
   
