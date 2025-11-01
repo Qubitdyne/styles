@@ -95,6 +95,54 @@
     </choose>
   </macro>
 
+  <macro name="secondary-pinpoint">
+    <choose>
+      <if variable="locator">
+        <choose>
+          <if locator="page">
+            <text variable="locator" prefix="at "/>
+          </if>
+          <else>
+            <group delimiter=" ">
+              <label variable="locator" form="symbol"/>
+              <text variable="locator"/>
+            </group>
+          </else>
+        </choose>
+      </if>
+    </choose>
+  </macro>
+
+  <macro name="edition-publisher-year">
+    <choose>
+      <if variable="edition publisher publisher-place issued status medium" match="any">
+        <group prefix="(" suffix=")" delimiter="; ">
+          <group delimiter=" ">
+            <number variable="edition" form="ordinal"/>
+            <text term="edition" form="short"/>
+          </group>
+          <group delimiter=", ">
+            <text variable="publisher"/>
+            <text variable="publisher-place"/>
+          </group>
+          <choose>
+            <if variable="issued">
+              <date variable="issued">
+                <date-part name="year"/>
+              </date>
+            </if>
+            <else-if variable="status">
+              <text variable="status"/>
+            </else-if>
+            <else-if variable="medium">
+              <text variable="medium"/>
+            </else-if>
+          </choose>
+        </group>
+      </if>
+    </choose>
+  </macro>
+
   <macro name="subsequent-history">
     <text variable="references" prefix=", "/>
   </macro>
@@ -264,54 +312,397 @@
     </date>
   </macro>
 
-  <macro name="article-journal">
+  <macro name="book-like">
+    <choose>
+      <if position="first">
+        <text macro="book-like-first"/>
+      </if>
+      <else-if variable="references">
+        <text macro="book-like-cross-reference"/>
+      </else-if>
+      <else>
+        <text macro="book-like-short"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="book-like-first">
     <group delimiter=", ">
       <names variable="author">
         <name and="text" delimiter=", "/>
       </names>
-      <text variable="title"/>
-      <group delimiter=" ">
-        <text variable="volume"/>
-        <text variable="container-title"/>
-        <text variable="page"/>
-      </group>
-    </group>
-    <date variable="issued" prefix=" (" suffix=")">
-      <date-part name="year"/>
-    </date>
-  </macro>
-
-  <macro name="book-like">
-    <group delimiter=", ">
-      <names variable="author">
-        <name and="text" delimiter=", " initialize-with=". "/>
-      </names>
-      <text variable="title" font-style="italic"/>
       <group delimiter=" ">
         <number variable="volume" form="numeric"/>
-        <text variable="collection-title"/>
+        <text variable="title" font-style="italic"/>
       </group>
+      <text macro="secondary-pinpoint"/>
+      <text macro="edition-publisher-year"/>
+    </group>
+  </macro>
+
+  <macro name="book-like-short">
+    <group delimiter=", ">
+      <text variable="title" font-style="italic"/>
+      <text macro="secondary-pinpoint"/>
       <date variable="issued">
-        <date-part name="year" prefix="(" suffix=")"/>
+        <date-part name="year"/>
       </date>
     </group>
   </macro>
 
+  <macro name="book-like-cross-reference">
+    <group delimiter=" ">
+      <text macro="cross-reference-cue"/>
+      <group delimiter=", ">
+        <text variable="title" font-style="italic"/>
+        <text macro="secondary-pinpoint"/>
+        <text macro="edition-publisher-year"/>
+      </group>
+    </group>
+    <text variable="references" prefix=", "/>
+  </macro>
+
+  <macro name="book-like-bibliography">
+    <group delimiter=". ">
+      <names variable="author">
+        <name name-as-sort-order="all" sort-separator=", " delimiter=", " and="text"/>
+      </names>
+      <group delimiter=", ">
+        <group delimiter=" ">
+          <number variable="volume" form="numeric"/>
+          <text variable="title" font-style="italic"/>
+        </group>
+        <group delimiter=" ">
+          <text variable="collection-title" font-style="italic"/>
+        </group>
+        <text macro="edition-publisher-year"/>
+      </group>
+    </group>
+  </macro>
+
+  <macro name="article-journal">
+    <choose>
+      <if position="first">
+        <text macro="article-journal-first"/>
+      </if>
+      <else-if variable="references">
+        <text macro="article-journal-cross-reference"/>
+      </else-if>
+      <else>
+        <text macro="article-journal-short"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="article-journal-first">
+    <group delimiter=", ">
+      <names variable="author">
+        <name and="text" delimiter=", "/>
+      </names>
+      <text variable="title" quotes="true"/>
+      <group delimiter=" ">
+        <text variable="volume"/>
+        <text variable="container-title" font-style="italic"/>
+        <choose>
+          <if variable="page-first">
+            <text variable="page-first"/>
+          </if>
+          <else>
+            <text variable="page"/>
+          </else>
+        </choose>
+      </group>
+      <text macro="secondary-pinpoint"/>
+    </group>
+    <text macro="article-date-or-status" prefix=" "/>
+    <text macro="article-availability"/>
+  </macro>
+
+  <macro name="article-journal-short">
+    <group delimiter=", ">
+      <names variable="author">
+        <name and="text" delimiter=", "/>
+      </names>
+      <text variable="title" quotes="true"/>
+      <text macro="secondary-pinpoint"/>
+    </group>
+  </macro>
+
+  <macro name="article-journal-cross-reference">
+    <group delimiter=" ">
+      <text macro="cross-reference-cue"/>
+      <group delimiter=", ">
+        <text variable="title" quotes="true"/>
+        <text macro="secondary-pinpoint"/>
+      </group>
+    </group>
+    <text macro="article-date-or-status" prefix=" "/>
+    <text macro="article-availability"/>
+    <text variable="references" prefix=", "/>
+  </macro>
+
+  <macro name="article-journal-bibliography">
+    <group delimiter=". ">
+      <names variable="author">
+        <name name-as-sort-order="all" sort-separator=", " delimiter=", " and="text"/>
+      </names>
+      <text variable="title" quotes="true"/>
+      <group delimiter=", ">
+        <group delimiter=" ">
+          <text variable="volume"/>
+          <text variable="container-title" font-style="italic"/>
+        </group>
+        <choose>
+          <if variable="page-first">
+            <text variable="page-first"/>
+          </if>
+          <else>
+            <text variable="page"/>
+          </else>
+        </choose>
+      </group>
+      <group>
+        <text macro="article-year-or-status"/>
+        <text macro="article-availability"/>
+      </group>
+    </group>
+  </macro>
+
+  <macro name="article-date-or-status">
+    <choose>
+      <if variable="issued">
+        <date variable="issued">
+          <date-part name="year" prefix="(" suffix=")"/>
+        </date>
+      </if>
+      <else-if variable="status">
+        <text variable="status" prefix="(" suffix=")"/>
+      </else-if>
+    </choose>
+  </macro>
+
+  <macro name="article-year-or-status">
+    <choose>
+      <if variable="issued">
+        <date variable="issued">
+          <date-part name="year"/>
+        </date>
+      </if>
+      <else-if variable="status">
+        <text variable="status"/>
+      </else-if>
+    </choose>
+  </macro>
+
+  <macro name="article-availability">
+    <choose>
+      <if variable="URL DOI accessed" match="any">
+        <group delimiter=", " prefix=", ">
+          <choose>
+            <if variable="URL">
+              <group delimiter=" ">
+                <text term="available at"/>
+                <text variable="URL"/>
+              </group>
+            </if>
+            <else-if variable="DOI">
+              <group delimiter=" ">
+                <text term="available at"/>
+                <text variable="DOI" prefix="https://doi.org/"/>
+              </group>
+            </else-if>
+          </choose>
+          <choose>
+            <if variable="accessed">
+              <group prefix="(" suffix=")">
+                <text term="accessed" text-case="capitalize-first" suffix=" "/>
+                <date variable="accessed" delimiter=" ">
+                  <date-part name="month" form="short"/>
+                  <date-part name="day" form="numeric" suffix=","/>
+                  <date-part name="year"/>
+                </date>
+              </group>
+            </if>
+          </choose>
+        </group>
+      </if>
+    </choose>
+  </macro>
+
   <macro name="web">
+    <choose>
+      <if position="first">
+        <text macro="web-first"/>
+      </if>
+      <else-if variable="references">
+        <text macro="web-cross-reference"/>
+      </else-if>
+      <else>
+        <text macro="web-short"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="web-first">
     <group delimiter=", ">
       <text variable="title"/>
       <text variable="container-title"/>
+      <choose>
+        <if variable="issued">
+          <date variable="issued">
+            <date-part name="year"/>
+          </date>
+        </if>
+        <else-if variable="status">
+          <text variable="status"/>
+        </else-if>
+      </choose>
       <group delimiter=" ">
         <text term="available at"/>
         <text variable="URL"/>
       </group>
-      <group prefix=" (" suffix=")">
-        <text term="accessed" text-case="capitalize-first"/>
+      <group prefix="(" suffix=")">
+        <text term="accessed" text-case="capitalize-first" suffix=" "/>
         <date variable="accessed" delimiter=" ">
           <date-part name="month" form="short"/>
-          <date-part name="day" form="numeric"/>
+          <date-part name="day" form="numeric" suffix=","/>
           <date-part name="year"/>
         </date>
+      </group>
+    </group>
+  </macro>
+
+  <macro name="web-short">
+    <group delimiter=", ">
+      <text variable="title"/>
+      <text variable="URL"/>
+    </group>
+  </macro>
+
+  <macro name="web-cross-reference">
+    <group delimiter=" ">
+      <text macro="cross-reference-cue"/>
+      <text variable="title"/>
+    </group>
+    <text variable="URL" prefix=", "/>
+    <text variable="references" prefix=", "/>
+  </macro>
+
+  <macro name="web-bibliography">
+    <group delimiter=". ">
+      <text variable="title"/>
+      <text variable="container-title"/>
+      <group delimiter=", ">
+        <choose>
+          <if variable="issued">
+            <date variable="issued">
+              <date-part name="year"/>
+            </date>
+          </if>
+          <else-if variable="status">
+            <text variable="status"/>
+          </else-if>
+        </choose>
+        <group delimiter=" ">
+          <text term="available at"/>
+          <text variable="URL"/>
+        </group>
+        <group prefix="(" suffix=")">
+          <text term="accessed" text-case="capitalize-first" suffix=" "/>
+        <date variable="accessed" delimiter=" ">
+          <date-part name="month" form="short"/>
+          <date-part name="day" form="numeric" suffix=","/>
+          <date-part name="year"/>
+        </date>
+        </group>
+      </group>
+    </group>
+  </macro>
+
+  <macro name="unpublished">
+    <choose>
+      <if position="first">
+        <text macro="unpublished-first"/>
+      </if>
+      <else-if variable="references">
+        <text macro="unpublished-cross-reference"/>
+      </else-if>
+      <else>
+        <text macro="unpublished-short"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="unpublished-first">
+    <group delimiter=", ">
+      <names variable="author">
+        <name and="text" delimiter=", "/>
+      </names>
+      <text variable="title" quotes="true"/>
+      <text macro="secondary-pinpoint"/>
+      <text variable="genre"/>
+      <choose>
+        <if variable="issued">
+          <date variable="issued">
+            <date-part name="year" prefix="(" suffix=")"/>
+          </date>
+        </if>
+        <else-if variable="status">
+          <text variable="status" prefix="(" suffix=")"/>
+        </else-if>
+        <else-if variable="medium">
+          <text variable="medium" prefix="(" suffix=")"/>
+        </else-if>
+      </choose>
+    </group>
+  </macro>
+
+  <macro name="unpublished-short">
+    <group delimiter=", ">
+      <text variable="title" quotes="true"/>
+      <text macro="secondary-pinpoint"/>
+      <text variable="genre"/>
+    </group>
+  </macro>
+
+  <macro name="unpublished-cross-reference">
+    <group delimiter=" ">
+      <text macro="cross-reference-cue"/>
+      <group delimiter=", ">
+        <text variable="title" quotes="true"/>
+        <text macro="secondary-pinpoint"/>
+        <text variable="genre"/>
+      </group>
+    </group>
+    <choose>
+      <if variable="status">
+        <text variable="status" prefix=", "/>
+      </if>
+    </choose>
+    <text variable="references" prefix=", "/>
+  </macro>
+
+  <macro name="unpublished-bibliography">
+    <group delimiter=". ">
+      <names variable="author">
+        <name name-as-sort-order="all" sort-separator=", " delimiter=", " and="text"/>
+      </names>
+      <text variable="title" quotes="true"/>
+      <group delimiter=", ">
+        <text variable="genre"/>
+        <choose>
+          <if variable="issued">
+            <date variable="issued">
+              <date-part name="year"/>
+            </date>
+          </if>
+          <else-if variable="status">
+            <text variable="status"/>
+          </else-if>
+          <else-if variable="medium">
+            <text variable="medium"/>
+          </else-if>
+        </choose>
       </group>
     </group>
   </macro>
@@ -351,11 +742,14 @@
         <else-if type="article-journal">
           <text macro="article-journal"/>
         </else-if>
-        <else-if type="book chapter report entry-encyclopedia entry-dictionary">
+        <else-if type="book chapter report entry-encyclopedia entry-dictionary" match="any">
           <text macro="book-like"/>
         </else-if>
-        <else-if type="webpage post-weblog post">
+        <else-if type="webpage post-weblog post" match="any">
           <text macro="web"/>
+        </else-if>
+        <else-if type="manuscript thesis" match="any">
+          <text macro="unpublished"/>
         </else-if>
         <else>
           <group delimiter=", ">
@@ -406,13 +800,16 @@
           <text macro="ag-opinion"/>
         </else-if>
         <else-if type="article-journal">
-          <text macro="article-journal"/>
+          <text macro="article-journal-bibliography"/>
         </else-if>
-        <else-if type="book chapter report entry-encyclopedia entry-dictionary">
-          <text macro="book-like"/>
+        <else-if type="book chapter report entry-encyclopedia entry-dictionary" match="any">
+          <text macro="book-like-bibliography"/>
         </else-if>
-        <else-if type="webpage post-weblog post">
-          <text macro="web"/>
+        <else-if type="webpage post-weblog post" match="any">
+          <text macro="web-bibliography"/>
+        </else-if>
+        <else-if type="manuscript thesis" match="any">
+          <text macro="unpublished-bibliography"/>
         </else-if>
         <else>
           <group delimiter=", ">
