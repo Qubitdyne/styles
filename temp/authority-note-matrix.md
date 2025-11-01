@@ -24,6 +24,10 @@ The `cross-reference-cue` macro now centralizes the internal vs. external author
 - When `jurisdiction="us:tx"` (Texas authority) the cue defaults to “See.”
 - All other jurisdictions default to “See also,” flagging external authorities.
 
+## Publication/status terminology audit (2025-11-04)
+- Ran the publication/status string scan (`rg "Supp\\.|Supp|session|effective" temp -n --glob '*.csl'`) while cataloguing the `session-law` macro duplication across the edition and TOA variants. Active styles currently rely solely on metadata fields (`note`, `collection-number`, `volume`) without emitting explicit `Supp.`/`R.S.`/`Tex. Reg.` strings.
+- No new abbreviations surfaced beyond those already tracked in the requirement matrix and locale inventory (chs. 10–13, pp. 42–65), so the matrix rows for statutes, session laws, and agency materials remain accurate. Future helper work should inject the Greenbook-mandated parentheticals once the shared publication/status macros are built.
+
 ## Differentiating Internal vs. External Authorities
 
 - Case, statute, and administrative macros call `cross-reference-cue`, which evaluates `jurisdiction` to distinguish Texas authorities from external ones.

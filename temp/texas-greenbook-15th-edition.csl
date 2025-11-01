@@ -190,6 +190,23 @@
     </choose>
   </macro>
 
+  <macro name="short-pinpoint-year">
+    <choose>
+      <if variable="locator issued" match="any">
+        <group delimiter=" ">
+          <text macro="secondary-pinpoint"/>
+          <choose>
+            <if variable="issued">
+              <date variable="issued">
+                <date-part name="year"/>
+              </date>
+            </if>
+          </choose>
+        </group>
+      </if>
+    </choose>
+  </macro>
+
   <macro name="edition-publisher-year">
     <choose>
       <if variable="edition publisher publisher-place issued status medium" match="any">
@@ -309,20 +326,36 @@
       <if variable="note">
         <text variable="note" text-case="capitalize-first"/>
       </if>
+      <else-if jurisdiction="us:tx">
+        <text value="See"/>
+      </else-if>
+      <else-if variable="jurisdiction">
+        <text value="See also"/>
+      </else-if>
       <else>
         <text value="See"/>
       </else>
     </choose>
   </macro>
 
-  <macro name="tex-statute">
+  <macro name="tex-code-section">
     <group delimiter=" ">
       <text variable="container-title"/>
       <choose>
         <if variable="chapter-number">
           <group delimiter=" ">
             <text variable="chapter-number"/>
-            <text variable="section"/>
+            <choose>
+              <if type="regulation">
+                <group delimiter=" ">
+                  <text term="section" form="symbol"/>
+                  <text variable="section"/>
+                </group>
+              </if>
+              <else>
+                <text variable="section"/>
+              </else>
+            </choose>
           </group>
         </if>
         <else-if variable="genre" match="any">
@@ -336,6 +369,10 @@
         </else>
       </choose>
     </group>
+  </macro>
+
+  <macro name="tex-statute">
+    <text macro="tex-code-section"/>
   </macro>
 
   <macro name="tex-constitution">
@@ -355,7 +392,7 @@
     <text variable="status" prefix=" (" suffix=")"/>
   </macro>
 
-  <macro name="tex-admin-code">
+  <macro name="tex-admin-core">
     <choose>
       <if variable="section">
         <group delimiter=" ">
@@ -368,12 +405,23 @@
         </group>
       </if>
       <else>
+        <group delimiter=" ">
+          <text variable="volume"/>
+          <text variable="container-title"/>
+          <text variable="page"/>
+        </group>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="tex-admin-code">
+    <choose>
+      <if variable="section">
+        <text macro="tex-admin-core"/>
+      </if>
+      <else>
         <group delimiter=", ">
-          <group delimiter=" ">
-            <text variable="volume"/>
-            <text variable="container-title"/>
-            <text variable="page"/>
-          </group>
+          <text macro="tex-admin-core"/>
           <text variable="locator"/>
         </group>
       </else>
@@ -421,14 +469,7 @@
   <macro name="municipal-code">
     <group delimiter=", ">
       <text variable="authority"/>
-      <group delimiter=" ">
-        <text variable="container-title"/>
-        <text variable="chapter-number"/>
-        <group delimiter=" ">
-          <text term="section" form="symbol"/>
-          <text variable="section"/>
-        </group>
-      </group>
+      <text macro="tex-code-section"/>
     </group>
     <date variable="issued" prefix=" (" suffix=")">
       <date-part name="year"/>
@@ -473,12 +514,7 @@
   <macro name="book-like-short">
     <group delimiter=", ">
       <text variable="title" font-style="italic"/>
-      <group delimiter=" ">
-        <text macro="secondary-pinpoint"/>
-        <date variable="issued">
-          <date-part name="year"/>
-        </date>
-      </group>
+      <text macro="short-pinpoint-year"/>
     </group>
     <text macro="explanatory-parenthetical"/>
   </macro>

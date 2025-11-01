@@ -78,9 +78,10 @@ ion of the conflicting behavior.
       - [x] Determine whether the duplicated logic is best centralized as a macro, a conditional block, or a locale term.
       - [x] Estimate the implementation effort for each extraction candidate to aid later scheduling.
       - [x] Link each marked segment to the tests that currently cover or miss the associated behavior.
-    - [ ] Restore jurisdiction-aware branching in `cross-reference-cue` so statutes, rules, and agencies can emit “See also” for non-Texas authorities when `note` is empty (flagged in 2025-11-03 audit).
-    - [ ] Draft shared helpers for the code-section string and administrative core identified in the 2025-11-03 audit before wiring new short-form macros.
-    - [ ] Add undated treatise and CLE fixtures to `tests.json` once the year-fallback helper lands, ensuring the guard logic is regression-tested.
+    - [x] Restore jurisdiction-aware branching in `cross-reference-cue` so statutes, rules, and agencies can emit “See also” for non-Texas authorities when `note` is empty (flagged in 2025-11-03 audit).
+    - [x] Draft shared helpers for the code-section string and administrative core identified in the 2025-11-03 audit before wiring new short-form macros.
+    - [x] Add undated treatise and CLE fixtures to `tests.json` once the year-fallback helper lands, ensuring the guard logic is regression-tested.
+      - [x] Implement the `short-pinpoint-year` helper for short-form macros so missing years no longer leave trailing delimiters.
   - [ ] Outline Greenbook Chapter 10–13 short-form triggers (sections, chapters, and rule ranges) with page citations in `NOTES.md` to confirm requirements and edge cases.
     - [ ] Read the relevant PDF sections and list each trigger verbatim with pinpoint page numbers.
       - [ ] Use a PDF reader with search to locate discussions of short-form triggers within Chapters 10–13.
@@ -281,21 +282,21 @@ ion of the conflicting behavior.
       - [ ] Create a spreadsheet noting file names, macro contexts, and sample outputs for each string found.
       - [ ] Differentiate between main style and TOA usages to understand contextual differences.
       - [ ] Record whether each string is governed by locale terms or inline text.
-    - [ ] Use `rg` to list instances of publication-related strings (e.g., “Supp.”, “session”) within the CSL files.
-      - [ ] Capture command outputs and archive them in `temp/reports/` for future reference.
-      - [ ] Highlight potential false positives (e.g., comments or documentation) in the results.
-      - [ ] Annotate each match in `NOTES.md` with its authority type.
-      - [ ] Update the requirement matrix with any newly discovered terminology variations.
-    - [ ] Map each occurrence to the authority types it serves, noting duplication or inconsistent phrasing.
-      - [ ] Build a table linking macros to authority categories (statute, administrative, rule).
-      - [ ] Identify inconsistent capitalization or abbreviation usage between occurrences.
-      - [ ] Prioritize areas with the highest duplication for early helper implementation.
-      - [ ] Document inconsistencies requiring legal review or clarification.
-    - [ ] Record findings in `NOTES.md`, grouping by authority category for clarity.
-      - [ ] Summarize insights per category, including example citations and file references.
-      - [ ] Include screenshots or text snippets where helpful to illustrate context.
-      - [ ] Note cross-cutting themes (e.g., session law parentheticals sharing similar structure).
-      - [ ] Track outstanding questions or assumptions per category for follow-up.
+    - [x] Use `rg` to list instances of publication-related strings (e.g., “Supp.”, “session”) within the CSL files.
+      - [x] Capture command outputs and archive them in `temp/reports/` for future reference.
+      - [x] Highlight potential false positives (e.g., comments or documentation) in the results.
+      - [x] Annotate each match in `NOTES.md` with its authority type.
+      - [x] Update the requirement matrix with any newly discovered terminology variations.
+    - [x] Map each occurrence to the authority types it serves, noting duplication or inconsistent phrasing.
+      - [x] Build a table linking macros to authority categories (statute, administrative, rule).
+      - [x] Identify inconsistent capitalization or abbreviation usage between occurrences.
+      - [x] Prioritize areas with the highest duplication for early helper implementation.
+      - [x] Document inconsistencies requiring legal review or clarification.
+    - [x] Record findings in `NOTES.md`, grouping by authority category for clarity.
+      - [x] Summarize insights per category, including example citations and file references.
+      - [x] Include screenshots or text snippets where helpful to illustrate context.
+      - [x] Note cross-cutting themes (e.g., session law parentheticals sharing similar structure).
+      - [x] Track outstanding questions or assumptions per category for follow-up.
     - [ ] Identify opportunities to consolidate similar strings before drafting helpers.
       - [ ] Suggest candidate helper names and describe their intended responsibilities.
       - [ ] Validate that consolidation will not break existing fixtures or edge cases.

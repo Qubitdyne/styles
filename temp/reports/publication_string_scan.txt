@@ -1,0 +1,27 @@
+temp/texas-greenbook-15th-toa-grouped.csl:149:  <macro name="session-law">
+temp/texas-greenbook-15th-toa-grouped.csl:254:            <if variable="title"><text macro="session-law"/></if>
+temp/texas-greenbook-15th-toa-grouped.csl:288:            <if variable="title"><text macro="session-law"/></if>
+temp/texas-greenbook-15th-toa-leaders.csl:141:  <ns0:macro name="session-law">
+temp/texas-greenbook-15th-toa-leaders.csl:235:            <ns0:if variable="title"><ns0:text macro="session-law" /></ns0:if>
+temp/texas-greenbook-15th-toa-leaders.csl:269:            <ns0:if variable="title"><ns0:text macro="session-law" /></ns0:if>
+temp/texas-greenbook-15th-toa-by-reporter.csl:85:  <ns0:macro name="session-law">
+temp/texas-greenbook-15th-toa-by-reporter.csl:158:            <ns0:if variable="title"><ns0:text macro="session-law" /></ns0:if>
+temp/texas-greenbook-15th-toa-by-reporter.csl:183:            <ns0:if variable="title"><ns0:text macro="session-law" /></ns0:if>
+temp/archive/texas-greenbook-15th-draft1.csl:92:    <!-- optional parenthetical, feed e.g. "Supp." or edition via `note` -->
+temp/archive/texas-greenbook-15th-draft3.csl:387:  <macro name="session-law">
+temp/archive/texas-greenbook-15th-draft3.csl:843:              <text macro="session-law"/>
+temp/archive/texas-greenbook-15th-draft3.csl:942:              <text macro="session-law"/>
+temp/archive/texas-greenbook-15th-draft2.csl:18:    <summary>Texas-specific note style implementing The Greenbook (Texas Rules of Form), 15th ed., for cases, statutes, TAC, constitution, session laws, AG opinions, and key secondary sources.</summary>
+temp/archive/texas-greenbook-15th-draft2.csl:141:  <macro name="session-law">
+temp/archive/texas-greenbook-15th-draft2.csl:276:              <text macro="session-law"/>
+temp/archive/texas-greenbook-15th-draft2.csl:329:              <text macro="session-law"/>
+temp/texas-greenbook-15th-toa.csl:115:  <!-- Statutes, constitution, TAC, rules, session laws, municipal code, AG opinions (same as master) -->
+temp/texas-greenbook-15th-toa.csl:148:  <macro name="session-law">
+temp/texas-greenbook-15th-toa.csl:253:            <if variable="title"><text macro="session-law"/></if>
+temp/texas-greenbook-15th-toa.csl:287:            <if variable="title"><text macro="session-law"/></if>
+temp/texas-greenbook-15th-edition.csl:440:  <macro name="session-law">
+temp/texas-greenbook-15th-edition.csl:884:              <text macro="session-law"/>
+temp/texas-greenbook-15th-edition.csl:983:              <text macro="session-law"/>
+temp/texas-greenbook-15th-toa-grouped-leaders.csl:111:  <ns0:macro name="session-law">
+temp/texas-greenbook-15th-toa-grouped-leaders.csl:246:            <ns0:if variable="title"><ns0:text macro="session-law" /></ns0:if>
+temp/texas-greenbook-15th-toa-grouped-leaders.csl:280:            <ns0:if variable="title"><ns0:text macro="session-law" /></ns0:if>

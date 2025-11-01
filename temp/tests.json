@@ -566,5 +566,99 @@
         ]
       ]
     }
+  },
+  {
+    "id": "case_tex_cross",
+    "type": "legal_case",
+    "title": "State v. Morales",
+    "title-short": "Morales",
+    "container-title": "S.W.3d",
+    "volume": "975",
+    "page": "415",
+    "authority": "Tex. App.—Austin",
+    "issued": {
+      "date-parts": [
+        [
+          2002
+        ]
+      ]
+    },
+    "jurisdiction": "us:tx",
+    "references": "review denied, 81 S.W.3d 755 (Tex. 2002)",
+    "locator": "418"
+  },
+  {
+    "_cite": "case_tex_cross",
+    "locator": "420"
+  },
+  {
+    "id": "case_nontex_cross",
+    "type": "legal_case",
+    "title": "People v. Duran",
+    "title-short": "Duran",
+    "container-title": "P.3d",
+    "volume": "42",
+    "page": "327",
+    "authority": "Cal.",
+    "issued": {
+      "date-parts": [
+        [
+          2002
+        ]
+      ]
+    },
+    "jurisdiction": "us:ca",
+    "references": "cert. denied, 540 U.S. 923 (2003)",
+    "locator": "330"
+  },
+  {
+    "_cite": "case_nontex_cross",
+    "locator": "332"
+  },
+  {
+    "id": "treatise_undated",
+    "type": "book",
+    "author": [
+      {
+        "family": "Hawkins",
+        "given": "Lena R."
+      }
+    ],
+    "title": "Texas Injunction Practice",
+    "volume": "2",
+    "collection-title": "Texas Practice Series",
+    "edition": "6",
+    "publisher": "Texas Legal Press",
+    "publisher-place": "Dallas",
+    "label": "section",
+    "locator": "8.3",
+    "abstract": "analyzing injunction practice"
+  },
+  {
+    "_cite": "treatise_undated",
+    "label": "section",
+    "locator": "8.5"
+  },
+  {
+    "id": "cle_undated",
+    "type": "manuscript",
+    "author": [
+      {
+        "family": "Nguyen",
+        "given": "Avery M."
+      }
+    ],
+    "title": "Ethics Update for Trial Lawyers",
+    "genre": "CLE paper",
+    "label": "page",
+    "locator": "12",
+    "medium": "State Bar of Tex. CLE",
+    "status": "Advanced Trial Strategies Institute, Dallas, Tex.",
+    "abstract": "summarizing recent disciplinary opinions"
+  },
+  {
+    "_cite": "cle_undated",
+    "label": "page",
+    "locator": "15"
   }
 ]
