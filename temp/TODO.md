@@ -84,29 +84,115 @@ ion of the conflicting behavior.
       - [x] Implement the `short-pinpoint-year` helper for short-form macros so missing years no longer leave trailing delimiters.
   - [ ] Implement short-form macros for statutes, rules, and administrative materials in the main style.
     - [ ] Create dedicated macros (e.g., `tex-statute-short`, `tex-rule-short`, `tex-administrative-short`) that mirror the long-form structure while applying the short-form requirements documented in `NOTES.md`.
+      - [ ] Review the existing long-form macros to list the elements that must persist in short form and highlight pieces to omit.
+      - [ ] Draft pseudo-code for each short-form macro, mapping inputs to outputs alongside the corresponding Greenbook citations.
+      - [ ] Implement macro shells in the CSL file, copying structural boilerplate (comments, indentation) from comparable case short forms.
+      - [ ] Run citeproc on a minimal JSON dataset to confirm each macro compiles before layering conditional logic.
+      - [ ] Annotate the new macro definitions with inline comments referencing the requirement matrix row or `NOTES.md` anchor for quick audits.
     - [ ] Add `choose` blocks to differentiate between first-reference short cites, cross-references, and `Id.` scenarios, ensuring jurisdictional fallbacks work for both Texas and non-Texas authorities.
+      - [ ] Enumerate the triggering conditions for each branch (first short cite, cross-reference, `Id.`) and link them to metadata fields (e.g., `first-reference-note-number`, `ibid`).
+      - [ ] Encode the branching logic within the macros, double-checking that `jurisdiction` and `authority` comparisons align with existing helper conventions.
+      - [ ] Test each branch using targeted JSON fixtures that force the macro into the intended path.
+      - [ ] Verify punctuation and spacing for every branch against the PDF examples, adjusting delimiters or affixes as needed.
+      - [ ] Document unresolved edge cases (e.g., missing sections, unusual jurisdiction abbreviations) in `NOTES.md` for future refinement.
     - [ ] Integrate the new macros into existing routing (e.g., `legal-reference-note`, `statute-reference`) without regressing current case or secondary short-form behavior.
+      - [ ] Identify all invocation points for statute, rule, and administrative authorities and replace placeholder calls with the new short-form macros.
+      - [ ] Ensure helper macros supplying shared strings (e.g., `code-section-string`) are reused instead of duplicating literal text.
+      - [ ] Run the full note test suite after each integration pass to catch regressions early.
+      - [ ] Compare outputs with pre-change expectations, noting intentional differences tied to the short-form rollout.
+      - [ ] Stage incremental commits or stash checkpoints so regressions can be isolated if encountered.
     - [ ] Capture interim outputs and logic decisions in `NOTES.md`, citing relevant Greenbook pages for each branch.
+      - [ ] Log the rationale for each conditional structure, including page citations and paraphrased rule text.
+      - [ ] Save representative citeproc outputs (before and after adjustments) in `temp/test-logs/` and cross-reference them from the notes.
+      - [ ] Summarize gaps discovered during implementation and flag them as follow-up TODO items if they fall outside the current scope.
+      - [ ] Record open questions that require legal review, tagging them with owners or target review dates if applicable.
+      - [ ] Update the citation requirement matrix to reflect any additional metadata dependencies uncovered during coding.
   - [ ] Mirror the short-form implementation into TOA variants and shared helpers.
     - [ ] Add corresponding macros or conditional blocks to each `texas-greenbook-15th-toa*.csl` file, maintaining consistent terminology with the main style.
+      - [ ] Copy the finalized short-form macro structure into each TOA file, renaming identifiers only when necessary for style isolation.
+      - [ ] Align TOA macro ordering with the note style to simplify future diffs and reviews.
+      - [ ] Confirm that TOA variants call the same helper macros as the primary style rather than duplicating logic inline.
+      - [ ] Record any TOA-only deviations (e.g., omission of italics) directly in the file comments for reviewer context.
     - [ ] Verify that TOA grouping and dotted leader alignment remain intact after introducing short-form routing.
+      - [ ] Run TOA-specific citeproc tests for each variant and inspect the generated leaders for spacing shifts.
+      - [ ] Compare outputs to baseline `expected_toa*.txt` files to ensure categories remain in the correct order.
+      - [ ] Adjust macro placements if the new short-form calls interfere with leader generation or indentation.
+      - [ ] Capture before/after screenshots or text snippets in `temp/test-logs/` to document the alignment check.
     - [ ] Update any shared helper macros so TOA and note styles reuse the same short-form formatting strings.
+      - [ ] Review helper definitions (e.g., `short-form-body`, `code-section-string`) to confirm they accept both note and TOA contexts.
+      - [ ] Add parameters or conditional switches when TOA output needs alternate punctuation.
+      - [ ] Re-run both note and TOA tests after helper modifications to ensure compatibility.
+      - [ ] Summarize helper updates in `NOTES.md`, noting any new dependencies or assumptions introduced.
     - [ ] Document TOA-specific adjustments (e.g., leader punctuation) in `NOTES.md` with citations to Appendix B requirements.
+      - [ ] Link each documented adjustment to the relevant Appendix B page number and style file line range.
+      - [ ] Highlight any deviations from Appendix examples and justify the CSL implementation choices.
+      - [ ] Flag open questions about TOA formatting (if any) for later review in the Release Preparation phase.
+      - [ ] Update the TOA section of the requirement matrix to reflect the finalized short-form behavior.
   - [ ] Extend cross-reference cue logic for statutes, rules, and agencies.
     - [ ] Update the `cross-reference-cue` macro so that blank `note` fields trigger “See also” outputs for non-Texas authorities while preserving existing case handling.
+      - [ ] Trace current `cross-reference-cue` execution paths to confirm where the note value is evaluated.
+      - [ ] Add conditional checks for statute, rule, and administrative authority types, reusing existing jurisdiction helpers when possible.
+      - [ ] Verify that the macro still returns empty output when `note` contains substantive text, avoiding redundant cues.
+      - [ ] Run citeproc scenarios with mixed Texas and non-Texas authorities to confirm the cue renders only in the expected cases.
+      - [ ] Update inline comments or `NOTES.md` to document the new logic with Greenbook references.
     - [ ] Ensure statute/rule short forms properly interpret `ibid`-style references, respecting Greenbook triggers for when `Id.` is permitted.
+      - [ ] Review the CSL `ibid` handling configuration to understand current processor behavior for statutes and rules.
+      - [ ] Add conditional guards within the short-form macros that suppress `Id.` when the Greenbook disallows it (e.g., cross-title citations).
+      - [ ] Test with sequential citations that should and should not produce `Id.` to validate the guard logic.
+      - [ ] Document exceptions (such as session law sequences) that require future enhancements beyond the initial implementation.
+      - [ ] Capture example outputs demonstrating compliant `Id.` usage and archive them with test logs.
     - [ ] Add regression tests covering cross-jurisdiction references and `Id.` fallbacks.
+      - [ ] Expand `tests.json` with pairs of citations representing Texas vs. non-Texas authorities to trigger the new cue behavior.
+      - [ ] Include note sequences that alternate between eligible and ineligible `Id.` contexts to exercise the guards.
+      - [ ] Generate updated `expected*.txt` outputs and verify that cues and `Id.` usage match Greenbook expectations.
+      - [ ] Store the corresponding citeproc commands and outputs in `temp/test-logs/` for reproducibility.
     - [ ] Record any limitations or open questions in `NOTES.md` for follow-up review.
+      - [ ] Summarize edge cases deferred from the current sprint (e.g., multi-jurisdiction compound cites).
+      - [ ] Tag questions with the responsible owner or review milestone if collaboration is anticipated.
+      - [ ] Reference the specific CSL line numbers where ambiguity remains to expedite future debugging.
+      - [ ] Update the TODO backlog with newly identified follow-up tasks to keep planning aligned.
   - [ ] Update fixtures and expectations to exercise the new short-form logic.
     - [ ] Add representative statute, rule, and administrative authorities to `tests.json` and `tests_toa.json`, including scenarios with and without available years.
+      - [ ] Gather example citations from the Greenbook and supplemental manuals to ensure realistic metadata coverage.
+      - [ ] Populate JSON entries with explicit notes on which macro branch they are intended to exercise (cross-reference, `Id.`, non-Texas).
+      - [ ] Validate each new entry with `python temp/run_tests.py --list-tests` to confirm schema compliance before committing.
+      - [ ] Track additions in a change log table within `NOTES.md`, linking each fixture to a PDF page reference.
     - [ ] Regenerate `expected.txt`, `expected_secondary.txt`, and TOA counterparts using `run_tests.py --write-expected`, reviewing diffs for alignment with the Greenbook examples.
+      - [ ] Run the write-expected command separately for note and TOA suites to isolate any anomalies.
+      - [ ] Review generated diffs line-by-line, annotating intentional changes vs. unexpected variations.
+      - [ ] Re-run citeproc after addressing anomalies to confirm stable expectations.
+      - [ ] Record the command invocations and timestamps in `temp/test-logs/` for reproducibility.
     - [ ] Store citeproc command outputs in `temp/test-logs/` to document verification.
+      - [ ] Save raw command output files using descriptive filenames (e.g., `2025-11-20-short-form-write-expected.txt`).
+      - [ ] Include summary headers in each log noting the related TODO item and data set exercised.
+      - [ ] Cross-reference the log filenames within `NOTES.md` so reviewers can locate them quickly.
+      - [ ] Periodically prune superseded logs to prevent confusion, archiving critical milestones as needed.
     - [ ] Note fixture provenance and rule citations in `NOTES.md` to keep the regression inventory auditable.
+      - [ ] Update the fixture matrix with new entries, capturing authority type, purpose, and Greenbook citation.
+      - [ ] Highlight any fixtures that rely on assumptions or inferred data, noting the justification.
+      - [ ] Document reviewer sign-offs or pending approvals for fixtures derived from ambiguous guidance.
+      - [ ] Link to any external resources (e.g., PDFs, spreadsheets) that house additional context for the test data.
   - [ ] Refresh documentation after implementation completes.
     - [ ] Update `README.md` Known Limitations to reflect the closure of statute/rule short-form gaps.
+      - [ ] Draft revised language removing the limitation and briefly describing the implemented solution.
+      - [ ] Insert citations to the relevant Greenbook sections supporting the implemented behavior.
+      - [ ] Proofread the updated section for tone and clarity, ensuring it matches the rest of the README.
+      - [ ] Capture before/after snippets in `NOTES.md` to document the documentation change.
     - [ ] Summarize macro additions and test coverage changes in `NOTES.md` with Greenbook citations.
+      - [ ] Create a changelog entry listing new macros, helpers, and associated file paths.
+      - [ ] Reference specific Greenbook rules for each addition to maintain traceability.
+      - [ ] Highlight new or updated fixtures and include links to their test log evidence.
+      - [ ] Note any follow-up actions or pending questions related to the short-form work.
     - [ ] Revise `TODO.md` to mark completed subtasks and capture any deferred edge cases for future work.
+      - [ ] Check off completed checkboxes and adjust task descriptions to reflect the latest status.
+      - [ ] Add new unchecked bullets for edge cases deferred during implementation, referencing `NOTES.md` anchors.
+      - [ ] Reorder items if necessary to keep chronological or priority flow intuitive.
+      - [ ] Commit the updated TODO with a descriptive message summarizing the changes.
     - [ ] Ensure `temp/PR_DRAFT.md` references the new short-form support for eventual submission notes.
+      - [ ] Insert a summary paragraph in the PR draft highlighting the short-form implementation and test coverage.
+      - [ ] Add bullet points linking to relevant documentation or test logs for reviewers.
+      - [ ] Review the draft against CSL submission guidelines to confirm tone and required metadata.
+      - [ ] Schedule a final proofread during Release Preparation to capture any late-breaking updates.
   - [x] Outline Greenbook Chapter 10–13 short-form triggers (sections, chapters, and rule ranges) with page citations in `NOTES.md` to confirm requirements and edge cases.
     - [x] Read the relevant PDF sections and list each trigger verbatim with pinpoint page numbers.
       - [x] Use a PDF reader with search to locate discussions of short-form triggers within Chapters 10–13.
@@ -508,19 +594,63 @@ ion of the conflicting behavior.
     - [x] Prioritize discrepancies affecting authoritative compliance before cosmetic issues.
   - [ ] Implement web citation punctuation adjustments in CSL macros and locale terms.
     - [ ] Draft a change plan noting which macros (`web`, `web-short`, access-date helpers) need updates and the expected output transformations.
+      - [ ] Inventory the specific punctuation issues identified during analysis and map them to the macros responsible.
+      - [ ] Outline proposed modifications (e.g., new `if` conditions, locale term updates) in a short design note stored in `NOTES.md`.
+      - [ ] Circulate or self-review the plan to ensure it covers both note and bibliography contexts before editing XML.
+      - [ ] Capture potential risks (such as interactions with print periodical macros) and plan mitigation steps.
     - [ ] Update CSL conditional logic to handle quoted titles, trailing punctuation, and URL formatting per the documented requirements.
+      - [ ] Implement the planned changes incrementally, committing after each macro update to keep diffs focused.
+      - [ ] Introduce guard clauses for missing metadata (e.g., absent access date) to avoid dangling punctuation.
+      - [ ] Ensure locale terms supply repeated strings (such as “available at”) instead of hard-coding text.
+      - [ ] Run targeted citeproc commands after each modification to confirm output evolution aligns with expectations.
     - [ ] Verify that modifications apply consistently across note, bibliography, and TOA contexts, adjusting shared helpers if necessary.
+      - [ ] Execute regression tests for all web-related fixtures in both note and bibliography modes.
+      - [ ] Inspect TOA outputs to confirm leader alignment is unaffected by punctuation changes.
+      - [ ] Update or create shared helpers if duplicate logic is observed across contexts.
+      - [ ] Document any intentional contextual differences (e.g., omission of accessed dates in TOA) for reviewer awareness.
     - [ ] Record implementation notes in `NOTES.md`, including any compromises or open questions for reviewer feedback.
+      - [ ] Summarize the final macro adjustments with file paths and line references.
+      - [ ] Log outstanding ambiguities that could not be resolved (such as inconsistent PDF punctuation) for later research.
+      - [ ] Attach snippets of before/after citeproc output to illustrate the improvements.
+      - [ ] Tag the entry with the completion date and related TODO checklist items to maintain traceability.
   - [ ] Create new fixture entries in `tests.json` that capture the nuanced web citation formats (e.g., with publication dates, access dates, and quoted titles).
     - [x] Enumerate required metadata fields for each format variant (e.g., missing author, corporate author).
     - [ ] Encode fixtures ensuring JSON validity and alignment with citeproc expectations.
+      - [ ] Base new entries on the existing fixture schema to maintain consistent field ordering and naming.
+      - [ ] Populate optional fields (publisher, authority) when required to drive punctuation behavior.
+      - [ ] Run `python temp/run_tests.py --list-tests` after each addition to catch syntax issues early.
+      - [ ] Commit fixtures separately from expectation updates to ease review.
     - [ ] Include commentary or IDs linking each fixture back to the source citation in `NOTES.md`.
+      - [ ] Add `comment` or `id` fields within the JSON when appropriate to cross-reference documentation.
+      - [ ] Update the web citation section of `NOTES.md` with a table summarizing fixture IDs and source URLs.
+      - [ ] Note any assumptions (e.g., inferred publication dates) required to complete metadata.
+      - [ ] Flag fixtures requiring future updates once new OCR clarifications arrive.
     - [ ] Validate fixture coverage by simulating citeproc runs prior to updating expected outputs.
+      - [ ] Execute targeted runs (note, bibliography, TOA if applicable) focusing solely on the new fixtures.
+      - [ ] Compare outputs to the cleaned OCR examples to ensure punctuation matches precisely.
+      - [ ] Adjust fixture metadata or macro logic until outputs align, repeating tests as needed.
+      - [ ] Store the validation commands and outputs in `temp/test-logs/` for audit purposes.
   - [ ] Update `expected_secondary.txt` (and related outputs) based on citeproc runs, verifying each change against the authoritative examples.
     - [ ] Regenerate expected outputs using `run_tests.py --write-expected` and confirm only targeted sections change.
+      - [ ] Run the write-expected command with filtering options to limit scope to web fixtures when possible.
+      - [ ] Review git diffs to confirm unrelated citation classes remain untouched.
+      - [ ] Capture screenshots or text excerpts of updated outputs for quick reviewer reference.
+      - [ ] Re-run the command after any additional tweaks to ensure expectations stay synchronized.
     - [ ] Inspect punctuation and capitalization carefully, referencing Greenbook examples for each case.
+      - [ ] Annotate the diff with inline comments (if using a review tool) citing the supporting PDF pages.
+      - [ ] Double-check capitalization rules for government website names and abbreviations.
+      - [ ] Verify the placement of commas and periods relative to quotation marks per Chapter 16 guidance.
+      - [ ] Note any discrepancies that require legal clarification before final sign-off.
     - [ ] Address any regressions introduced elsewhere in the fixtures before committing updates.
+      - [ ] Run the full regression suite to detect unexpected changes in non-web outputs.
+      - [ ] Investigate and resolve any failing tests or formatting shifts triggered by shared helper updates.
+      - [ ] Document fixes or rationale for acceptable deviations in `NOTES.md`.
+      - [ ] Ensure follow-up TODO entries capture remaining regressions that cannot be resolved immediately.
     - [ ] Document verification steps and outcomes in `NOTES.md` for reviewer transparency.
+      - [ ] Summarize the testing approach, including commands executed and fixtures covered.
+      - [ ] Provide links or references to stored test logs for independent verification.
+      - [ ] Highlight remaining risks or areas requiring future monitoring (e.g., new web authority types).
+      - [ ] Update the documentation timeline or changelog to reflect completion of the web citation improvements.
   - [ ] Refresh documentation to close out the web citation limitation.
     - [ ] Update `README.md` Known Limitations once validation confirms the punctuation issues are resolved.
     - [ ] Summarize fixture additions and macro edits in `NOTES.md` with precise Greenbook page citations.
