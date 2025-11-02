@@ -592,11 +592,11 @@ ion of the conflicting behavior.
   - [x] Extract Appendix B tables outlining category names and ordering requirements.
   - [x] Translate grouping labels into CSL term equivalents or new locale entries if necessary.
   - [x] Identify dependencies on jurisdiction metadata fields to support grouping logic.
-  - [ ] OCR Appendix B Table of Authorities pages to capture searchable text for future citation cross-references.
-    - [ ] Document any unresolved mapping issues for follow-up research.
+  - [x] OCR Appendix B Table of Authorities pages to capture searchable text for future citation cross-references.
+    - [x] Document any unresolved mapping issues for follow-up research.
   - [x] Determine the minimal set of sample citations (cases, statutes, administrative materials) needed to exercise each new grouping and leader combination.
-    - [ ] List representative authorities for each category, ensuring coverage of unique edge cases (e.g., consolidated cases).
-    - [ ] Specify required metadata attributes for each sample to ensure accurate sorting.
+    - [x] List representative authorities for each category, ensuring coverage of unique edge cases (e.g., consolidated cases).
+    - [x] Specify required metadata attributes for each sample to ensure accurate sorting.
     - [x] Check for overlap with existing fixtures to avoid redundancy while preserving coverage.
     - [x] Record rationale for sample selection in `NOTES.md` with Appendix citations.
   - [x] Add the new authorities to `tests_toa.json`, including jurisdiction metadata necessary for correct sorting and grouping.
@@ -614,7 +614,11 @@ ion of the conflicting behavior.
     - [x] Note remaining deficiencies and create new TODO entries or GitHub issues as appropriate.
     - [x] Share insights on testing gaps to inform future fixture expansions.
     - [x] Update the task checklist status reflecting completed and pending actions.
-    - [ ] Coordinate with the statute/rule short-form rollout so fixture expectations remain stable during parallel work.
+  - [ ] Add a Federal Register example to `tests_toa.json` once metadata requirements are finalized in `NOTES.md`.
+    - [ ] Select the Appendix B Federal Register citation and document codification notes in `NOTES.md`.
+    - [ ] Encode the JSON fixture with `container-title="Fed. Reg."`, `volume`, `page`, `issued`, and codification `note`, then regenerate TOA expectations.
+    - [ ] Reference the new entry in the representative-authorities table to keep documentation synchronized.
+  - [ ] Coordinate with the statute/rule short-form rollout so fixture expectations remain stable during parallel work.
       - [x] Compare planned short-form fixture updates with TOA additions to avoid conflicting diffs.
       - [x] Sequence commits or feature branches to keep regression baselines reviewable.
       - [x] Capture coordination notes and scheduling decisions in `NOTES.md` for future contributors.
