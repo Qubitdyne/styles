@@ -86,6 +86,12 @@ notes = []
 def _should_auto_see_also(metadata: Mapping[str, Any]) -> bool:
     """Return True when the item merits an automatic “See also” cue."""
 
+    # Bibliography/TOA renders should never receive automatic signals. The
+    # Appendix B fixtures exercise grouped headings where cross-reference cues
+    # would be inappropriate, so limit the automation to note-mode runs.
+    if mode != "notes":
+        return False
+
     item_type = metadata.get("type")
     if item_type not in {"legal_case", "legislation", "regulation"}:
         return False
