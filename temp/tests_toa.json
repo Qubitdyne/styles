@@ -286,6 +286,26 @@
     "grouping": "Code of Federal Regulations"
   },
   {
+    "id": "toa_federal_register_80_fr_56577",
+    "type": "regulation",
+    "volume": "80",
+    "container-title": "Fed. Reg.",
+    "page": "56577, 56624",
+    "issued": {
+      "date-parts": [
+        [
+          2015,
+          9,
+          29
+        ]
+      ]
+    },
+    "note": "to be codified at 12 C.F.R. pt. 1026",
+    "authority": "Consumer Financial Protection Bureau",
+    "comment": "Appendix B Table of Authorities – Federal Register heading (Greenbook pp. 247–248).",
+    "grouping": "Federal Register"
+  },
+  {
     "id": "toa_session_law",
     "type": "legislation",
     "title": "Act of May 30, 2005",
