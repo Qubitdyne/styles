@@ -17,6 +17,59 @@
     "locator": "646"
   },
   {
+    "id": "toa_case_us_supreme",
+    "type": "legal_case",
+    "title": "Brown v. Board of Education",
+    "container-title": "U.S.",
+    "volume": "347",
+    "page": "483",
+    "authority": "U.S.",
+    "issued": {
+      "date-parts": [
+        [
+          1954
+        ]
+      ]
+    },
+    "locator": "495"
+  },
+  {
+    "id": "toa_case_federal_appellate",
+    "type": "legal_case",
+    "title": "Texaco Inc. v. Louisiana Land & Exploration Co.",
+    "container-title": "F.3d",
+    "volume": "995",
+    "page": "43",
+    "authority": "5th Cir.",
+    "issued": {
+      "date-parts": [
+        [
+          1993
+        ]
+      ]
+    },
+    "locator": "48"
+  },
+  {
+    "id": "toa_case_federal_district",
+    "type": "legal_case",
+    "title": "Texas v. United States",
+    "number": "1:18-cv-00068",
+    "collection-number": "2019 WL 1553639",
+    "authority": "S.D. Tex.",
+    "issued": {
+      "date-parts": [
+        [
+          2019,
+          4,
+          19
+        ]
+      ]
+    },
+    "locator": "14",
+    "comment": "Appendix B Table of Authorities – Federal district court grouping (Greenbook pp. 239–240)."
+  },
+  {
     "id": "toa_case_app_mem",
     "type": "legal_case",
     "title": "Richardson v. Kays",
@@ -80,6 +133,14 @@
     "section": "5(a)"
   },
   {
+    "id": "toa_constitution_us",
+    "type": "legislation",
+    "container-title": "U.S. Const.",
+    "chapter-number": "art. VI",
+    "section": "cl. 2",
+    "comment": "Appendix B Table of Authorities – United States Constitution heading (Greenbook pp. 244–245)."
+  },
+  {
     "id": "toa_statute",
     "type": "legislation",
     "container-title": "Tex. Tax Code Ann.",
@@ -92,6 +153,14 @@
     "section": "311.021(1)",
     "note": "West 2023",
     "comment": "Greenbook ch. 10 p. 48 – construction statute interpretive presumption."
+  },
+  {
+    "id": "toa_statute_us_code",
+    "type": "legislation",
+    "container-title": "28 U.S.C.",
+    "section": "1332(a)(1)",
+    "note": "Supp. 2024",
+    "comment": "Appendix B Table of Authorities – United States Code heading (Greenbook pp. 245–246)."
   },
   {
     "id": "toa_rule",
@@ -107,6 +176,14 @@
     "section": "21",
     "genre": "court rule",
     "comment": "Greenbook ch. 13 p. 62 – service and filing rule short cite."
+  },
+  {
+    "id": "toa_rule_federal",
+    "type": "legislation",
+    "container-title": "Fed. R. Civ. P.",
+    "section": "4(k)(2)",
+    "genre": "court rule",
+    "comment": "Appendix B Table of Authorities – Federal Rules heading (Greenbook pp. 246–247)."
   },
   {
     "id": "toa_admin_code",
@@ -165,6 +242,22 @@
     },
     "note": "to be codified at 22 Tex. Admin. Code § 367.14",
     "authority": "Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings"
+  },
+  {
+    "id": "toa_regulation_cfr",
+    "type": "regulation",
+    "volume": "17",
+    "container-title": "C.F.R.",
+    "section": "240.10b-5",
+    "issued": {
+      "date-parts": [
+        [
+          2023
+        ]
+      ]
+    },
+    "authority": "U.S. Sec. & Exch. Comm’n",
+    "comment": "Appendix B Table of Authorities – Code of Federal Regulations heading (Greenbook pp. 247–248)."
   },
   {
     "id": "toa_session_law",

@@ -588,17 +588,17 @@ ion of the conflicting behavior.
 
 ### Testing & Coverage
 - [ ] **Expand Table of Authorities fixtures.** Introduce federal authorities and additional jurisdictional groupings to `tests_toa.json` and `expected_toa_*.txt` once the macro support exists.
-  - [ ] Map the federal authority categories and grouping labels required by Appendix B, citing page numbers in `NOTES.md` for traceability.
+  - [x] Map the federal authority categories and grouping labels required by Appendix B, citing page numbers in `NOTES.md` for traceability.
     - [ ] Extract Appendix B tables outlining category names and ordering requirements.
     - [ ] Translate grouping labels into CSL term equivalents or new locale entries if necessary.
     - [ ] Identify dependencies on jurisdiction metadata fields to support grouping logic.
     - [ ] Document any unresolved mapping issues for follow-up research.
-  - [ ] Determine the minimal set of sample citations (cases, statutes, administrative materials) needed to exercise each new grouping and leader combination.
+  - [x] Determine the minimal set of sample citations (cases, statutes, administrative materials) needed to exercise each new grouping and leader combination.
     - [ ] List representative authorities for each category, ensuring coverage of unique edge cases (e.g., consolidated cases).
     - [ ] Specify required metadata attributes for each sample to ensure accurate sorting.
     - [ ] Check for overlap with existing fixtures to avoid redundancy while preserving coverage.
     - [ ] Record rationale for sample selection in `NOTES.md` with Appendix citations.
-  - [ ] Add the new authorities to `tests_toa.json`, including jurisdiction metadata necessary for correct sorting and grouping.
+  - [x] Add the new authorities to `tests_toa.json`, including jurisdiction metadata necessary for correct sorting and grouping.
     - [ ] Encode each sample authority in JSON, validating field names against existing schema.
     - [ ] Include grouping hints or categories in the test data to drive TOA leader formatting.
     - [ ] Run targeted TOA tests to confirm grouping behavior and adjust metadata as needed.
