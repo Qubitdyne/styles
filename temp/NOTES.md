@@ -52,6 +52,84 @@
 - Verified the restored dataset against the legacy expectation file—`python temp/run_tests.py ... --expected temp/expected_toa_grouped_leaders.txt --mode bibliography`—and captured a passing log confirming that every line now matches and the warning about missing citations has cleared.【F:temp/test-logs/2025-12-08_toa_grouped_leaders_post-fixture.txt†L1-L58】
 - Regenerated every TOA expectation file with the new `--write-expected` flag to keep the fixtures in sync across grouped, leaders, by-reporter, and base variants; all writes were idempotent, so no diffs appeared, and the console transcripts are stored for future audits.【F:temp/run_tests.py†L27-L120】【F:temp/test-logs/2025-12-08_toa_grouped_leaders_write-expected.txt†L13-L17】【F:temp/test-logs/2025-12-08_toa_grouped_write-expected.txt†L13-L17】【F:temp/test-logs/2025-12-08_toa_leaders_write-expected.txt†L13-L17】【F:temp/test-logs/2025-12-08_toa_by-reporter_write-expected.txt†L13-L17】【F:temp/test-logs/2025-12-08_toa_write-expected.txt†L13-L17】
 
+## Statute and rule abbreviation inventory (2025-12-09)
+- **Scope.** Re-read Greenbook Chapters 10–13 and Appendix A to log every abbreviation that the Format Guides and narrative rules require for statutes, session laws, municipal ordinances, procedural rules, and historical reporters. This pass focused on variations tied to jurisdiction (Texas statewide vs. municipal vs. historical) and publication timing (pamphlet editions, supplements, repealed material).
+- **Output.** The tables below consolidate the authoritative abbreviations, the conditions that change their form, and pinpoint citations so future helper and locale work can reference a single inventory.【F:temp/Greenbook_15thEdition.pdf†L2866-L3145】【F:temp/Greenbook_15thEdition.pdf†L3193-L3364】【F:temp/Greenbook_15thEdition.pdf†L3415-L3511】【F:temp/Greenbook_15thEdition.pdf†L3505-L3668】【F:temp/Greenbook_15thEdition.pdf†L4150-L4372】【F:temp/Greenbook_15thEdition.pdf†L5118-L5199】
+
+| Category | Abbreviation / term | Variation & jurisdiction notes | Source (Greenbook) | Example |
+| --- | --- | --- | --- | --- |
+| Subject matter code citation | `Tex. [Code] Code Ann.` | Abbreviate the subject label per Appendix H; omit `Ann.` for unannotated reprints; include `(pamphlet)` for pre-2014 Estates Code printings. | Ch. 10 Format Guide, p. 42; Ch. 10.2.1–10.2.2(e), pp. 46–47; Appendix H.1, p. 116. | `Tex. Tax Code Ann. § 26.06(a)`; `Tex. Est. Code Ann. § 201.001 (pamphlet).` |
+| Uncodiﬁed statutes | `Tex. Rev. Civ. Stat. Ann.` plus `art.`/`arts.` | Use `art.`/`arts.` for numbered articles; retain section symbol inside the article string when citing subsections. | Ch. 10 Format Guide, p. 42; Ch. 10.1.4, p. 45; Ch. 10.2.3, p. 47. | `Tex. Rev. Civ. Stat. Ann. art. 5415e-4, § 2(a).` |
+| Independent code citation | `Tex. Code Crim. Proc. Ann.` et al. | Confirm provision still in force; Business Corporation Act and Probate Code remain valid only for pre-recodification transactions. | Ch. 10.2.4, p. 48; Appendix H.2, p. 117. | `Tex. Code Crim. Proc. Ann. art. 13.25(a).` |
+| Auxiliary laws pamphlets | `Tex. [Code] Aux. Laws` | Append bracketed session law for non-general statutes; omit brackets for general/permanent water laws that stay in the pamphlet. | Ch. 10.2.5, p. 48. | `Tex. Educ. Aux. Laws art. 2668b [Act of Mar. 28, 1963, 58th Leg., R.S., ch. 39, 1963 Tex. Gen. Laws 59].` |
+| Session laws | `Act of [date], [Leg.], [session], ch. [chapter], §/sec. […]` with `Tex. Gen. Laws` or `Tex. Sess. Law Serv.` | Use `R.S.` for regular sessions and ordinal + `C.S.` for called sessions; add `(to be codiﬁed at …)` or `(current version at …)` where required. Appendix I supplies historic session labels (`Adj. S.`, `Prov. S.`). | Ch. 10.3.1–10.3.5, pp. 49–51; Appendix I, p. 118. | `Act of May 30, 2005, 79th Leg., R.S., ch. 268, § 1.06, 2005 Tex. Gen. Laws 621, 623 (codiﬁed at Tex. Fam. Code § 107.013(c)).` |
+| Municipal codes | `[City], Tex., [Code name]` | Include full municipality plus state; cite chapter/article/section; add year parenthetical for codified sets and ordinance number plus adoption date for uncodified laws. | Ch. 10.6.1–10.6.2, pp. 52–53. | `Hous., Tex., Code of Ordinances ch. 20, art. IV, § 20-216 (1968)`; `Plano, Tex., Temporary Signs Ordinance (Nov. 14, 2005).` |
+| Interpretive comments | `cmt.`, `revisor’s note`, `historical note`, `U.C.C. cmt.` | Keep descriptor lowercase; historical notes require bracketed session-law provenance; retain publisher year (e.g., `West 1982`). | Ch. 12 Format Guide, p. 58; Ch. 12.1–12.2, pp. 58–59. | `Tex. Agric. Code Ann. § 14.123 revisor’s note (West 1982)`; `Tex. Nat. Res. Code Ann. § 52.024 historical note (West Supp. 1997) […].` |
+| Procedural rules | `Tex. R. Civ. P.`, `Tex. R. App. P.`, `Tex. R. Jud. Admin.`, `Tex. R. Evid.` | Append parenthetical with promulgating court and amendment year when citing source publications; TOA variants rely on same abbreviations. | Ch. 13 Format Guide, p. 61; Ch. 13.2, p. 63; Appendix H.3, p. 117. | `Tex. R. App. P. 9, 49 Tex. B.J. 561 (Tex. & Tex. Crim. App. 1986, amended 1997).` |
+| Local court rules | `Loc. R.` with court and county list | Prepend court name plus `(Tex.)`; include county parenthetical when rule spans multiple counties. | Ch. 13.4, p. 65. | `220th (Tex.) Dist. Ct. Loc. R. 1.6 (Bosque, Comanche, and Hamilton Counties).` |
+| Historical case reporters | `Tex.`, `Tex. Supp.`, `Robards`, `Dallam`, `Texas L. Rev.` reprints | Use Texas Reports citation alone for 1846–1886 cases; supply term-year when no year is printed; parallel cite Civil War conscript cases to Robards; cite Republic decisions to Dallam or the 1986 Texas Law Review reprint. | Appendix A, pp. 98–99. | `Fox v. Woods, 35 Tex. 220, 220 (1870–1871)`; `Ex parte Coupland, 26 Tex. 386, 387, Robards 5, 6 (1862)`; `Lamar v. Houston (Tex. 1845), 65 Tex. L. Rev. 382, 383 (Paulsen rep. 1986).` |
+
+### Appendix H subject-matter code crosswalk (p. 116)
+
+| Code | Abbreviation | Notes |
+| --- | --- | --- |
+| Agriculture | Tex. Agric. Code Ann. | Texas statewide subject-matter code; drop `Ann.` for unannotated printings. |
+| Alcoholic Beverage | Tex. Alco. Bev. Code Ann. | Same statewide abbreviation used in fixtures and macros. |
+| Business and Commerce | Tex. Bus. & Com. Code Ann. | Retain ampersand per Appendix H; unannotated reprints omit `Ann.`. |
+| Business Organizations | Tex. Bus. Orgs. Code Ann. | Applies post-2010 to all entities; cite pamphlet pre-2010 if encountered. |
+| Civil Practice and Remedies | Tex. Civ. Prac. & Rem. Code Ann. | Maintain `&` conjunction; helper must account for long abbreviation width. |
+| Education | Tex. Educ. Code Ann. | No jurisdictional variants noted. |
+| Election | Tex. Elec. Code Ann. | Cite supplemental pamphlets with year parenthetical when applicable. |
+| Estates | Tex. Est. Code Ann. | Became effective 2014; cite `(pamphlet)` when using the 2013 advance printing. |
+| Family | Tex. Fam. Code Ann. | — |
+| Finance | Tex. Fin. Code Ann. | — |
+| Government | Tex. Gov’t Code Ann. | Apostrophe placement mirrors Appendix H. |
+| Health and Safety | Tex. Health & Safety Code Ann. | Retain ampersand per official table. |
+| Human Resources | Tex. Hum. Res. Code Ann. | — |
+| Insurance | Tex. Ins. Code Ann. | Title 1 still uncodified; confirm part reference when citing pre-revision provisions. |
+| Labor | Tex. Lab. Code Ann. | — |
+| Local Government | Tex. Loc. Gov’t Code Ann. | Apostrophe-s retained; necessary for locale entry. |
+| Natural Resources | Tex. Nat. Res. Code Ann. | — |
+| Occupations | Tex. Occ. Code Ann. | — |
+| Parks and Wildlife | Tex. Parks & Wild. Code Ann. | Abbreviation shortens “Wildlife” to “Wild.” |
+| Penal | Tex. Penal Code Ann. | Unannotated printings drop `Ann.` per Ch. 10.2.1. |
+| Property | Tex. Prop. Code Ann. | — |
+| Special District Local Laws | Tex. Spec. Dist. Code Ann. | Codification ongoing; verify district placement before citing. |
+| Tax | Tex. Tax Code Ann. | — |
+| Transportation | Tex. Transp. Code Ann. | — |
+| Utilities | Tex. Util. Code Ann. | — |
+| Water | Tex. Water Code Ann. | Auxiliary pamphlet may supplement per Ch. 10.2.5. |
+
+### Appendix H independent codes (p. 117)
+
+| Code | Abbreviation | Notes |
+| --- | --- | --- |
+| Criminal Procedure | Tex. Code Crim. Proc. Ann. | Remains the operative reference until the Criminal Procedure Code recodification is enacted. |
+| Insurance (Title 1) | Tex. Ins. Code Ann. | Shared with subject-matter list; ensure Title 1 context is clear in parentheticals. |
+| Probate | Tex. Prob. Code Ann. | Historical; cite only for pre-2014 matters, otherwise prefer Estates Code. |
+| Business Corporations | Tex. Bus. Corp. Act Ann. | Legacy corporate filings; include applicability year if material predates 2010 Business Organizations migration. |
+
+### Appendix H current rules (p. 117)
+
+| Ruleset | Abbreviation | Notes |
+| --- | --- | --- |
+| Rules of Civil Procedure | Tex. R. Civ. P. | Matches Format Guide example; supplements carry amendment year parenthetical. |
+| Rules of Judicial Administration | Tex. R. Jud. Admin. | Include reprint parenthetical when citing Gov’t Code appendix. |
+| Rules of Appellate Procedure | Tex. R. App. P. | Appendix for criminal cases requires additional label (e.g., `Tex. R. App. P. Crim. app.`). |
+| Rules of Evidence | Tex. R. Evid. | Pre-1998 variants handled via Appendix K guidance. |
+| State Bar Rules | Tex. State Bar R. | Cite location within Gov’t Code appendix for first reference. |
+| Disciplinary Rules of Professional Conduct | Tex. Disciplinary Rules Prof’l Conduct | Maintain apostrophe placement; cite promulgation year when relevant. |
+| Rules of Disciplinary Procedure | Tex. Rules Disciplinary P. | Use when referencing Board of Disciplinary Appeals procedures. |
+| Code of Judicial Conduct | Tex. Code Jud. Conduct | Applicable to statewide judiciary; cite amendment year if supplied. |
+| Rules for the Removal or Retirement of Judges | Tex. Rules Rem’l/Ret. Judg. | Confirm tribunal context in parenthetical when citing proceedings. |
+| Rules Governing Admission to the Bar | Tex. Rules Govern. Bar Adm’n | Include article/section plus adoption date where relevant. |
+
+### Appendix A reporter abbreviations (pp. 98–99)
+
+- Texas Reports citations omit parallel reporters before 1886; supply the term-year when the bound volume lacks a printed year (e.g., `1870–1871`).
+- Civil War conscript decisions receive parallel cites to Robards’s *Synopses* when the Texas Reports volume omits them; uncodified opinions that never appeared in the Texas Reports must be cited to Robards alone.
+- Republic-era cases use Dallam’s Digest (1845 printing) and, for 1845 term opinions, the 1986 *Texas Law Review* Sesquicentennial reprint credited to Paulsen.【F:temp/Greenbook_15thEdition.pdf†L5126-L5199】
+
 ## Legacy Draft 3 Update – Parenthetical Metadata Helpers (2025-03-24)
 - **Slip opinions and original proceedings.** Added a shared `parenthetical-docket` block and `parenthetical-procedural-status` chain so Greenbook slip citations now surface cause numbers, Westlaw/Lexis identifiers, and procedural posture straight from Zotero’s `number`, `collection-number`, `status`, and `note` fields (Greenbook ch. 2 at 7 & ch. 6 at 31–33). The helper skips `note` values that double as cross-reference cues, keeping `See also` triggers confined to the `cross-reference-cue` macro.
 - **Memorandum and rehearing designations.** Normalized weight parentheticals to pull `genre` and `medium` in a consistent order, which allows memorandum opinions and rehearing dispositions to mirror chapter 4 examples without duplicating logic inside the case, mandamus, and trial-court macros (Greenbook ch. 4 at 24–25).

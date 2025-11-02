@@ -497,12 +497,12 @@ ion of the conflicting behavior.
       - [x] Capture risk assessments (e.g., potential regressions) in `NOTES.md`.
   - [ ] Extract common terminology requirements from Chapters 10–13 and Appendix A of the Greenbook, logging authoritative abbreviations in `NOTES.md`.
     - [x] Read the specified chapters focusing on publication parentheticals and session law terminology.
-      - [ ] Take detailed notes on required abbreviations, including variations by jurisdiction or publication year.
+      - [x] Take detailed notes on required abbreviations, including variations by jurisdiction or publication year.
       - [ ] Compare textual guidance with examples to confirm consistent messaging.
       - [ ] Identify references to external manuals or appendices that may influence terminology.
-      - [ ] Record page numbers and subheadings for each key term discovered.
+      - [x] Record page numbers and subheadings for each key term discovered.
     - [x] Create a table of required abbreviations, including singular/plural and capitalization nuances.
-      - [ ] Use a spreadsheet or Markdown table for clarity and ease of updates.
+      - [x] Use a spreadsheet or Markdown table for clarity and ease of updates.
       - [ ] Indicate whether each abbreviation already exists in CSL locale files.
       - [ ] Highlight terms requiring conditional pluralization or gendered forms.
       - [ ] Track relationships between abbreviations and the authorities they modify.
