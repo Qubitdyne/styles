@@ -533,16 +533,16 @@ ion of the conflicting behavior.
       - [x] Run citeproc on the prototypes with sample JSON data to validate output.
       - [x] Iterate on the prototypes until they handle all targeted cases.
       - [x] Archive successful prototypes in `temp/prototypes/` for future reference.
-    - [ ] Ensure helpers gracefully handle missing data using CSL conditional structures.
-      - [ ] Test helper prototypes with intentionally incomplete metadata to confirm fallback behavior.
-      - [ ] Document how each helper signals omitted information (e.g., blank output vs. placeholder text).
-      - [ ] Update requirement matrices to reflect fallback strategies.
-      - [ ] Capture lessons learned in `NOTES.md` for future helper development.
-    - [ ] Prepare inline comments or `NOTES.md` explanations for complex conditional flows.
-      - [ ] Draft concise comments summarizing each helper's decision tree.
-      - [ ] Review comments for clarity and adherence to repository standards.
-      - [ ] Maintain a changelog section within `NOTES.md` tracking revisions to helper logic.
-      - [ ] Coordinate with reviewers to ensure explanations address anticipated questions.
+    - [x] Ensure helpers gracefully handle missing data using CSL conditional structures.
+      - [x] Test helper prototypes with intentionally incomplete metadata to confirm fallback behavior.
+      - [x] Document how each helper signals omitted information (e.g., blank output vs. placeholder text).
+      - [x] Update requirement matrices to reflect fallback strategies.
+      - [x] Capture lessons learned in `NOTES.md` for future helper development.
+    - [x] Prepare inline comments or `NOTES.md` explanations for complex conditional flows.
+      - [x] Draft concise comments summarizing each helper's decision tree.
+      - [x] Review comments for clarity and adherence to repository standards.
+      - [x] Maintain a changelog section within `NOTES.md` tracking revisions to helper logic.
+      - [x] Coordinate with reviewers to ensure explanations address anticipated questions.
   - [ ] Update style code to call the new helpers in all relevant branches, ensuring no duplication remains and TOA variants reference the same logic.
     - [ ] Replace hard-coded strings with helper invocations across main and TOA styles.
       - [ ] Perform replacements incrementally, running targeted tests after each batch to ensure stability.

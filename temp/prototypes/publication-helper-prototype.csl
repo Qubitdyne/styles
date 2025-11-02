@@ -11,10 +11,11 @@
     <summary>Sandbox style for exercising publication/status helper macros.</summary>
   </info>
 
+  <!-- Format publisher/year parenthetical, skipping output when all inputs are empty. -->
   <macro name="publication-parenthetical">
     <choose>
       <if variable="publisher note issued" match="any">
-        <group prefix=" (" suffix=")" delimiter=" ">
+        <group prefix="(" suffix=")" delimiter=" ">
           <choose>
             <if variable="publisher">
               <text variable="publisher"/>
@@ -35,19 +36,28 @@
     </choose>
   </macro>
 
+  <!-- Assemble act/session metadata with optional chapter, section, and locator data. -->
   <macro name="session-law-metadata">
     <group delimiter=", ">
       <text variable="title"/>
       <text variable="collection-number"/>
-      <group delimiter=", ">
-        <text variable="number" prefix="ch. "/>
-        <text variable="section"/>
-      </group>
-      <group delimiter=" ">
-        <text variable="volume"/>
-        <text variable="container-title"/>
-        <text variable="page"/>
-      </group>
+      <choose>
+        <if variable="number section" match="any">
+          <group delimiter=", ">
+            <text variable="number" prefix="ch. "/>
+            <text variable="section"/>
+          </group>
+        </if>
+      </choose>
+      <choose>
+        <if variable="volume container-title page" match="any">
+          <group delimiter=" ">
+            <text variable="volume"/>
+            <text variable="container-title"/>
+            <text variable="page"/>
+          </group>
+        </if>
+      </choose>
       <text variable="locator"/>
     </group>
     <choose>
@@ -57,10 +67,11 @@
     </choose>
   </macro>
 
+  <!-- Render agency status, register cites, and explanatory parentheticals in one group. -->
   <macro name="administrative-status">
     <choose>
       <if variable="status note volume container-title page issued" match="any">
-        <group prefix=" (" suffix=")" delimiter="; ">
+        <group prefix="(" suffix=")" delimiter="; ">
           <choose>
             <if variable="authority status issued" match="any">
               <group delimiter=", ">
@@ -99,6 +110,7 @@
     </choose>
   </macro>
 
+  <!-- Dispatch helper behavior across legislation (session law), regulation, and default code cites. -->
   <macro name="render-entry">
     <choose>
       <if type="legislation" variable="title collection-number" match="all">
@@ -113,10 +125,14 @@
       <else>
         <group delimiter=" ">
           <text variable="container-title"/>
-          <group delimiter=" ">
-            <text term="section" form="symbol"/>
-            <text variable="section"/>
-          </group>
+          <choose>
+            <if variable="section">
+              <group delimiter=" ">
+                <text term="section" form="symbol"/>
+                <text variable="section"/>
+              </group>
+            </if>
+          </choose>
           <text macro="publication-parenthetical"/>
         </group>
       </else>

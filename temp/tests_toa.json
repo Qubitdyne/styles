@@ -31,7 +31,8 @@
         ]
       ]
     },
-    "locator": "495"
+    "locator": "495",
+    "comment": "Appendix B Table of Authorities – U.S. Supreme Court heading (Greenbook pp. 239–240)."
   },
   {
     "id": "toa_case_federal_appellate",
@@ -48,7 +49,8 @@
         ]
       ]
     },
-    "locator": "48"
+    "locator": "48",
+    "comment": "Appendix B Table of Authorities – Federal courts of appeals heading (Greenbook pp. 239–240)."
   },
   {
     "id": "toa_case_federal_district",

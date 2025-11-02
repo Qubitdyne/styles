@@ -74,5 +74,30 @@
     "volume": "39",
     "container-title": "Tex. Reg.",
     "page": "573"
+  },
+  {
+    "id": "tex_code_without_section",
+    "type": "legislation",
+    "container-title": "Tex. Fin. Code Ann.",
+    "note": "Supp. 2023",
+    "issued": {
+      "date-parts": [
+        [
+          2023
+        ]
+      ]
+    }
+  },
+  {
+    "id": "session_law_partial",
+    "type": "legislation",
+    "title": "Act of May 11, 1907",
+    "collection-number": "30th Leg., R.S."
+  },
+  {
+    "id": "tac_notice_with_note",
+    "type": "regulation",
+    "title": "1 Tex. Admin. Code § 3.5",
+    "note": "proposal withdrawn 2015"
   }
 ]
