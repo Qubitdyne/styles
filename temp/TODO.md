@@ -564,16 +564,19 @@ ion of the conflicting behavior.
       - [ ] Use search-and-replace tools carefully to avoid altering unrelated text.
       - [ ] Keep a checklist mapping each replaced string to its new helper usage.
       - [ ] Record before-and-after examples to demonstrate improvements.
+      - [ ] Confirm the following macros are migrated: `tex-statute`, `tex-session-law`, `tex-administrative`, `tex-rule`, and the parallel helpers in each `texas-greenbook-15th-toa*.csl` file; tick each macro off the checklist as edits land.【F:temp/texas-greenbook-15th-edition.csl†L418-L758】【F:temp/texas-greenbook-15th-toa.csl†L65-L244】
     - [ ] Verify that helper calls respect existing variable scoping and citeproc evaluation order.
       - [ ] Review CSL documentation on variable precedence to avoid evaluation surprises.
       - [ ] Test scenarios where variables may be absent or overridden to ensure helpers behave correctly.
       - [ ] Adjust helper calls or macro structures if evaluation order causes regressions.
       - [ ] Document any quirks encountered for future maintainers.
+      - [ ] Double-check that TOA bibliography contexts still render publication/status strings after helper insertion by spot-testing `texas-greenbook-15th-toa-grouped-leaders.csl`.
     - [ ] Conduct spot tests on affected citation types to validate parenthetical output and formatting.
       - [ ] Run citeproc with representative JSON entries for statutes, session laws, and administrative decisions.
       - [ ] Compare outputs to authoritative examples, noting any mismatches.
       - [ ] Iterate on helper logic until outputs align with expectations.
       - [ ] Archive test logs and diff results alongside commit messages.
+      - [ ] Execute `python temp/run_tests.py --tests temp/tests_short-form_smoke.json --expected temp/expected_short-form_smoke.txt` and the TOA grouped-leaders suite after each helper pass to ensure regression coverage remains stable.
     - [ ] Remove obsolete macros or strings and document the refactor in `NOTES.md`.
       - [ ] Identify macros superseded by the new helpers and plan their removal carefully.
       - [ ] Update references throughout the CSL files to prevent dangling calls.
@@ -585,21 +588,25 @@ ion of the conflicting behavior.
       - [ ] Ensure coverage includes multiple jurisdictions and time periods.
       - [ ] Annotate each entry with its intended validation focus (e.g., session year range).
       - [ ] Store supporting references in `NOTES.md` for traceability.
+      - [ ] Mirror prototype entries from `temp/prototypes/publication-helper-prototype.json` into production fixtures once helper behavior is locked, keeping the prototype file as an archival reference.【F:temp/prototypes/publication-helper-prototype.json†L1-L72】
     - [ ] Run citeproc to generate provisional outputs and review for adherence to Greenbook standards.
       - [ ] Execute `python run_tests.py --filter publication` (or similar) to evaluate the new fixtures.
       - [ ] Examine outputs for punctuation, abbreviation, and ordering accuracy.
       - [ ] Capture discrepancies along with recommended fixes.
       - [ ] Re-run tests after adjustments to confirm resolution.
+      - [ ] When `--filter` support is unavailable, fall back to `python temp/run_tests.py --tests temp/tests.json --expected temp/expected.txt` and focus on the new fixture IDs in the diff output.
     - [ ] Update `expected.txt` and relevant TOA fixtures, noting verification results with PDF citations.
       - [ ] Regenerate expectations using `run_tests.py --write-expected` once outputs are correct.
       - [ ] Compare the new expectations with PDF rules to ensure alignment.
       - [ ] Document verification steps and page citations in `NOTES.md`.
       - [ ] Store regenerated files under version control with descriptive commit messages.
+      - [ ] Capture before/after excerpts in `temp/test-logs/` (e.g., `YYYYMMDD_publication-helper.txt`) so reviewers can audit the transformed output quickly.
     - [ ] Summarize new coverage areas and outstanding questions in `NOTES.md`.
       - [ ] Highlight which publication scenarios are now fully supported.
       - [ ] List remaining edge cases requiring future work.
       - [ ] Include references to updated fixtures and helper macros.
       - [ ] Share the summary with collaborators for feedback.
+      - [ ] Note whether any helper still relies on inline strings that should migrate into the shared locale file and open follow-up tasks if needed.
 
 ### Testing & Coverage
 - [x] **Expand Table of Authorities fixtures.** Introduce federal authorities and additional jurisdictional groupings to `tests_toa.json` and `expected_toa_*.txt` once the macro support exists. (See `NOTES.md` coordination entries dated 2025-12-20.)
@@ -767,6 +774,11 @@ ion of the conflicting behavior.
   - [x] Audit existing macros in `texas-greenbook-15th-toa*.csl` to pinpoint Texas-specific assumptions (group headings, jurisdiction filters, abbreviation helpers) that must be generalized for federal entries. (See “TOA macro audit for federal readiness (2025-11-02)” in `NOTES.md` for findings.)
   - [x] Design grouping and sorting rules for federal authorities—decide whether to interleave with Texas sections or create dedicated headings—and record the plan in `NOTES.md` and this TODO entry. (Plan captured in “Grouping and sorting plan for mixed jurisdictions (2025-11-02)” and ready for implementation follow-up.)
   - [ ] Extend the TOA macros (and any shared helpers in the main style) to recognize federal jurisdictions, ensuring locale abbreviations cover new reporters or code titles.
+    - [ ] Identify which TOA macros gate jurisdictional grouping (`texas-greenbook-15th-toa-grouped.csl` `authority-heading`, `sort-key`, etc.) and list the changes required to admit federal categories before editing.【F:temp/texas-greenbook-15th-toa-grouped.csl†L53-L180】
+    - [ ] Add conditional branches (or helper parameters) so federal cases fall under headings like “Federal Cases”/“Federal Statutes” while preserving Texas ordering.
+    - [ ] Update locale terms or create new ones for U.S. reporters and code abbreviations if existing entries do not cover them; document additions in `locales-en-US-x-texas-greenbook.xml` notes.
+    - [ ] Run `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt` and confirm federal fixtures render under the expected headings before regenerating outputs.
+    - [ ] Capture diffs and annotate outcomes in `NOTES.md`, including any deviations from Appendix B until tests stabilize.
   - [x] Add citeproc fixtures for federal authorities to `tests_toa.json` and generate corresponding expectations (`expected_toa_grouped*.txt`). Include notes about authoritative examples from the Greenbook.
   - [x] Execute the TOA regression suite to validate the new coverage and archive logs. If upstream locale additions are needed, capture follow-up tasks referencing the custom locale file.
   - [x] Update README Known Limitations and `NOTES.md` once federal coverage is in place, documenting any remaining out-of-scope categories.
@@ -829,6 +841,8 @@ ion of the conflicting behavior.
 ## Release Preparation
 - [ ] **Finalize submission checklist.** Once logic gaps close, run `run_tests.py` suites, refresh documentation, and prepare the PR narrative referencing key Greenbook sections.
   - [ ] Confirm that all Active Development tasks are checked off and corresponding tests/fixtures are current.
+    - [ ] Cross-reference each unchecked TODO item with NOTES to determine whether the work should move to a later milestone or be completed now; update statuses accordingly.
+    - [ ] Review `git status` to ensure no stray prototype edits remain before starting the final regression run.
   - [x] Review each Active Development checklist item for completion status and update boxes accordingly, adding dated notes in `NOTES.md` for any deferrals.
   - [x] Verify test fixtures reflect latest logic changes by diffing against previous baselines and capturing representative diffs in `temp/reports/`.
   - [x] Note outstanding dependencies preventing closure (e.g., locale approvals, upstream reviews) and escalate if needed by creating new TODO entries or external issues.
@@ -839,6 +853,9 @@ ion of the conflicting behavior.
     - [x] Store command outputs in `temp/test-logs/` or reference location for PR documentation.
     - [x] Summarize notable test coverage notes in `NOTES.md`.
   - [ ] Push regenerated fixtures and supporting documentation to a feature branch after the release checklist passes, referencing the `20251209` logs for provenance.
+    - [ ] Tag the branch name in `PR_DRAFT.md` once created so reviewers can find it quickly.
+    - [ ] Include the most recent regression log filenames in the PR draft “Testing” section before opening the upstream PR.
+    - [ ] Verify `make_pr` output mirrors the curated PR draft language before sharing the branch link.
   - [x] Sweep documentation (`README.md`, `NOTES.md`, `TODO.md`) to ensure they reflect the completed work, Greenbook citations, and outstanding questions.
     - [x] Perform a structured read-through of each document, updating sections for accuracy and completeness.
     - [x] Insert new Greenbook page references where additional rules were implemented.
