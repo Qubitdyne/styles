@@ -22,9 +22,24 @@ def _ensure_citeproc_available() -> None:
 
 _ensure_citeproc_available()
 
+# Keep citeproc's unsupported Reference argument warning quiet for metadata
+# fields we intentionally preserve in the fixtures (e.g., provenance
+# annotations). The message can list one or multiple arguments separated by
+# commas, so build a regular expression that tolerates any combination of the
+# known keys.
+_REFERENCE_WARNING_FIELDS = (
+    "comment",
+    "label",
+    "reviewed_title",
+    "grouping",
+    "related",
+)
+
 warnings.filterwarnings(
     "ignore",
-    message=r"The following arguments for Reference are unsupported: (?:comment|label|reviewed_title|grouping)",
+    message=r"The following arguments for Reference are unsupported: "
+    r"(?:" + r"|".join(_REFERENCE_WARNING_FIELDS) + r")"
+    r"(?:, (?:" + r"|".join(_REFERENCE_WARNING_FIELDS) + r"))*",
     category=UserWarning,
 )
 warnings.filterwarnings(
