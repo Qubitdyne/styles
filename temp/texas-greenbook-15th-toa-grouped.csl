@@ -129,7 +129,7 @@
   </macro>
   <macro name="parenthetical-procedural-note">
     <choose>
-      <if variable="note references" match="all">
+      <if variable="note annote" match="all">
       </if>
       <else-if variable="note">
         <text variable="note"/>
@@ -141,7 +141,20 @@
       <if variable="status note" match="any">
         <group delimiter=", ">
           <text variable="status"/>
-          <text macro="parenthetical-procedural-note"/>
+          <choose>
+            <if variable="status">
+              <text macro="parenthetical-procedural-note"/>
+            </if>
+            <else-if variable="note">
+              <choose>
+                <if variable="references">
+                </if>
+                <else>
+                  <text macro="parenthetical-procedural-note"/>
+                </else>
+              </choose>
+            </else-if>
+          </choose>
         </group>
       </if>
     </choose>

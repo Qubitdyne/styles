@@ -282,7 +282,7 @@ ion of the conflicting behavior.
     - [x] Restore the non-Texas “See also” cue once a jurisdiction-aware preprocessing hook is available.
       - [x] Prototype a filter that injects `note` metadata enabling the `cross-reference-cue` macro to distinguish out-of-state authorities (see `NOTES.md` “Short-form fixture verification (2025-12-09)” log).
       - [x] Update `expected.txt` line 74 and associated tests after the cue is reinstated, documenting the change and rerunning the localized citeproc suite.
-- [ ] **Finish explanatory parentheticals.** Add shared helpers for slip-opinion pinpoints, procedural parentheticals, and docket metadata so case and mandamus citations emit relief/status consistently before promoting the next edition revision.
+- [x] **Finish explanatory parentheticals.** Add shared helpers for slip-opinion pinpoints, procedural parentheticals, and docket metadata so case and mandamus citations emit relief/status consistently before promoting the next edition revision.
     - [x] Compile the list of required explanatory parentheticals (slip opinion, procedural posture, relief granted, docket disposition) with page references from Chapters 2, 4, and 6 in `NOTES.md`.
       - [x] Read the specified chapters sequentially and bookmark sections discussing explanatory parentheticals.
       - [x] Extract verbatim language, noting whether examples differ between authority types.
@@ -308,6 +308,7 @@ ion of the conflicting behavior.
       - [x] Tag each ambiguity with its potential impact on implementation timelines.
       - [x] Reference related external resources (e.g., Uniform Format Manual) that might clarify the ambiguity.
       - [x] Schedule review meetings or consultation sessions if external expertise is needed.
+    - [x] Regenerated the parenthetical fixtures (`expected_parentheticals_notes.txt`, bibliography counterpart) and confirmed relief/status cues via the updated CSL tests; logged coverage with Chapter 6 citations in `NOTES.md` (2025-12-19).
 
 ### Test Harness & Infrastructure
 - [x] **Package the citeproc dependency.** Add a lightweight requirements file or update `run_tests.py` with a dependency check so new environments surface an actionable install message instead of raising `ModuleNotFoundError` (see 2025-11-18 QA audit).【bfbf00†L1-L6】【temp/run_tests.py†L1-L60】
@@ -363,10 +364,10 @@ ion of the conflicting behavior.
   - [x] Update `warnings.filterwarnings` in `temp/run_tests.py` (or equivalent guard) to match the expanded argument list, ensuring the regex still covers existing fields like `comment` and `label`.
   - [x] Rerun the three suites to confirm the warning no longer appears and that the filter does not hide unrelated errors; archive the before/after outputs in `temp/test-logs/` for traceability.
   - [x] Note the change in `temp/NOTES.md` with command references and add a reminder to revisit suppression whenever citeproc-py is upgraded.
-- [ ] **Align locator-symbol diagnostic expectations.** Update the optional `tests_locator_symbol.json` regression so its expectation reflects the two rendered citations and documents the intended locator-label behavior before the release checklist closes.
-  - [ ] Review `test-logs/20251102_082017_full-regression_locator_symbol.txt` to confirm the extra repeat cite and identify whether fixture metadata or the expectation should change.
-  - [ ] Decide whether to adjust the fixture (suppress the repeat cite) or expand `expected_locator_symbol.txt` to cover both outputs; document the rationale with Greenbook Chapter 13 citations in `NOTES.md`.
-  - [ ] Implement the chosen fix, rerun the diagnostic, and archive the passing log alongside an updated expectation file.
+- [x] **Align locator-symbol diagnostic expectations.** Update the optional `tests_locator_symbol.json` regression so its expectation reflects the two rendered citations and documents the intended locator-label behavior before the release checklist closes.
+  - [x] Review `test-logs/20251102_082017_full-regression_locator_symbol.txt` to confirm the extra repeat cite and identify whether fixture metadata or the expectation should change.
+  - [x] Decide whether to adjust the fixture (suppress the repeat cite) or expand `expected_locator_symbol.txt` to cover both outputs; document the rationale with Greenbook Chapter 13 citations in `NOTES.md`.
+  - [x] Implement the chosen fix, rerun the diagnostic, and archive the passing log alongside an updated expectation file (captured in the 2025-12-19 regression commands).
 - [x] **Realign README test guidance with current warning behavior.** Once suppression is fixed, revise the documentation to reflect the new coverage so contributors know what to expect from the harness output.
   - [x] Draft updated language in `temp/README.md` describing the warning filter scope (including `related`) and clarify how to restore warnings via `PYTHONWARNINGS` when needed.
   - [x] Verify other README sections referencing quiet logs or warning suppression remain accurate after the wording change.
@@ -757,10 +758,10 @@ ion of the conflicting behavior.
     - [x] Expand `tests.json` and `tests_short-form_smoke.json` with representative statute, rule, and administrative short-form scenarios, covering Texas and non-Texas authorities plus `Id.` transitions. Add corresponding expectations to `expected.txt` and `expected_short-form_smoke.txt` with inline comments referencing the PDF.
     - [x] Run `python temp/run_tests.py` for the affected fixtures, regenerate expected outputs with `--write-expected` once formatting is correct, and archive the test logs in `temp/test-logs/` with timestamps for PR evidence.
     - [x] Summarize implementation decisions, lingering edge cases, and any deviations from the Greenbook in `NOTES.md`, then update this TODO entry to reflect completion status.
-- [ ] **Follow-up:** Revisit CFR short-form locators so repeated sections (`40 C.F.R. § 1502.9(c), 1502.9(d).`) convert to `Id.` once helper refactors land, updating fixtures and documentation accordingly.
-  - [ ] Confirm desired behavior with Chapter 16 examples and capture the citation string in `NOTES.md` before making changes.
-  - [ ] Adjust `tex-short-form-base` (and TOA counterparts) to respect `position="ibid"` for federal regulations without duplicating the base section string.
-  - [ ] Regenerate `expected_short-form_smoke.txt` and `expected.txt`, preserving Greenbook page comments.
+- [x] **Follow-up:** Revisit CFR short-form locators so repeated sections (`40 C.F.R. § 1502.9(c), 1502.9(d).`) convert to `Id.` once helper refactors land, updating fixtures and documentation accordingly.
+  - [x] Confirm desired behavior with Chapter 16 examples and capture the citation string in `NOTES.md` before making changes.
+  - [x] Adjust `tex-short-form-base` (and TOA counterparts) to respect `position="ibid"` for federal regulations without duplicating the base section string.
+  - [x] Regenerate `expected_short-form_smoke.txt` and `expected.txt`, preserving Greenbook page comments and documenting the passing run (2025-12-19).
 - [ ] **Add federal authority coverage to TOA fixtures and macros.** Introduce multi-jurisdiction handling so TOA exports can list federal cases and statutes alongside Texas authorities as described in Appendix B.
   - [x] Confirm which federal authority categories (e.g., U.S. Supreme Court, Fifth Circuit, federal statutes) require TOA representation and document the scope decision in `NOTES.md` with Appendix B page citations. (Logged under “Federal category verification (2025-11-02)” with Appendix B citations and fixture cross-checks.)
   - [x] Audit existing macros in `texas-greenbook-15th-toa*.csl` to pinpoint Texas-specific assumptions (group headings, jurisdiction filters, abbreviation helpers) that must be generalized for federal entries. (See “TOA macro audit for federal readiness (2025-11-02)” in `NOTES.md` for findings.)

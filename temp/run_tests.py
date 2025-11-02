@@ -141,8 +141,12 @@ for entry in test_items:
         locator = entry_copy.get("locator")
         label = entry_copy.get("label")
 
-        if _should_auto_see_also(entry_copy) and "note" not in entry_copy:
-            entry_copy["note"] = "See also"
+        if (
+            _should_auto_see_also(entry_copy)
+            and "annote" not in entry_copy
+            and not entry_copy.get("references")
+        ):
+            entry_copy["annote"] = "See also"
 
         items_for_source.append(entry_copy)
         items_by_id[entry_copy["id"]] = entry_copy
@@ -170,7 +174,11 @@ for entry in test_items:
             citation_kwargs["suffix"] = suffix
 
         metadata = items_by_id[cite_id]
-        if _should_auto_see_also(metadata):
+        if (
+            _should_auto_see_also(metadata)
+            and "annote" not in metadata
+            and not metadata.get("references")
+        ):
             citation_kwargs["note"] = "See also"
 
         notes.append(Citation([CitationItem(cite_id, **citation_kwargs)]))
