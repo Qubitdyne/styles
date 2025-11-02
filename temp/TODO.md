@@ -363,6 +363,10 @@ ion of the conflicting behavior.
   - [x] Update `warnings.filterwarnings` in `temp/run_tests.py` (or equivalent guard) to match the expanded argument list, ensuring the regex still covers existing fields like `comment` and `label`.
   - [x] Rerun the three suites to confirm the warning no longer appears and that the filter does not hide unrelated errors; archive the before/after outputs in `temp/test-logs/` for traceability.
   - [x] Note the change in `temp/NOTES.md` with command references and add a reminder to revisit suppression whenever citeproc-py is upgraded.
+- [ ] **Align locator-symbol diagnostic expectations.** Update the optional `tests_locator_symbol.json` regression so its expectation reflects the two rendered citations and documents the intended locator-label behavior before the release checklist closes.
+  - [ ] Review `test-logs/20251102_082017_full-regression_locator_symbol.txt` to confirm the extra repeat cite and identify whether fixture metadata or the expectation should change.
+  - [ ] Decide whether to adjust the fixture (suppress the repeat cite) or expand `expected_locator_symbol.txt` to cover both outputs; document the rationale with Greenbook Chapter 13 citations in `NOTES.md`.
+  - [ ] Implement the chosen fix, rerun the diagnostic, and archive the passing log alongside an updated expectation file.
 - [x] **Realign README test guidance with current warning behavior.** Once suppression is fixed, revise the documentation to reflect the new coverage so contributors know what to expect from the harness output.
   - [x] Draft updated language in `temp/README.md` describing the warning filter scope (including `related`) and clarify how to restore warnings via `PYTHONWARNINGS` when needed.
   - [x] Verify other README sections referencing quiet logs or warning suppression remain accurate after the wording change.
@@ -827,12 +831,12 @@ ion of the conflicting behavior.
   - [x] Review each Active Development checklist item for completion status and update boxes accordingly, adding dated notes in `NOTES.md` for any deferrals.
   - [x] Verify test fixtures reflect latest logic changes by diffing against previous baselines and capturing representative diffs in `temp/reports/`.
   - [x] Note outstanding dependencies preventing closure (e.g., locale approvals, upstream reviews) and escalate if needed by creating new TODO entries or external issues.
-    - [ ] Document completion evidence (commit hashes, test logs, fixture diff summaries) in `NOTES.md`.
-  - [ ] Execute the full battery of regression tests for both note and TOA styles, capturing command output for inclusion in the eventual PR summary.
-    - [ ] Run `python run_tests.py --all` (or equivalent) and capture logs with timestamps.
-    - [ ] Re-run failing suites after addressing issues to confirm stability.
-    - [ ] Store command outputs in `temp/test-logs/` or reference location for PR documentation.
-    - [ ] Summarize notable test coverage notes in `NOTES.md`.
+    - [x] Document completion evidence (commit hashes, test logs, fixture diff summaries) in `NOTES.md`.
+  - [x] Execute the full battery of regression tests for both note and TOA styles, capturing command output for inclusion in the eventual PR summary.
+    - [x] Run `python run_tests.py --all` (or equivalent) and capture logs with timestamps.
+    - [x] Re-run failing suites after addressing issues to confirm stability. (No failures surfaced during this run; optional locator-symbol diagnostic logged separately for follow-up.)
+    - [x] Store command outputs in `temp/test-logs/` or reference location for PR documentation.
+    - [x] Summarize notable test coverage notes in `NOTES.md`.
   - [ ] Push regenerated fixtures and supporting documentation to a feature branch after the release checklist passes, referencing the `20251209` logs for provenance.
   - [x] Sweep documentation (`README.md`, `NOTES.md`, `TODO.md`) to ensure they reflect the completed work, Greenbook citations, and outstanding questions.
     - [x] Perform a structured read-through of each document, updating sections for accuracy and completeness.
