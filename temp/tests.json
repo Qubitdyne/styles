@@ -312,6 +312,28 @@
     "status": "mand. denied"
   },
   {
+    "id": "case_mandamus_mem_per_curiam",
+    "type": "legal_case",
+    "title": "In re Int\u2019l Profit Assocs., Inc.",
+    "title-short": "Int\u2019l Profit Assocs.",
+    "container-title": "S.W.3d",
+    "volume": "274",
+    "page": "696",
+    "authority": "Tex. App.\u2014Corpus Christi",
+    "issued": {
+      "date-parts": [
+        [
+          2008
+        ]
+      ]
+    },
+    "locator": "697",
+    "status": "orig. proceeding",
+    "genre": "per curiam",
+    "medium": "mem. op.",
+    "references": "mand. granted, 274 S.W.3d 672, 680 (Tex. 2009) (per curiam)"
+  },
+  {
     "id": "case_mem_rehearing",
     "type": "legal_case",
     "title": "Johnson v. Davis",

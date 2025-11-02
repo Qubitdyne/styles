@@ -383,7 +383,7 @@ ion of the conflicting behavior.
     - [x] Summarize the fixture restoration in `temp/NOTES.md`, including the command outputs and Greenbook citations.
     - [x] Update `temp/README.md` test instructions if additional flags or dataset notes emerge during regeneration. (No changes required—existing guidance already documents the `--write-expected` flag and TOA invocation.)
     - [x] Flag any external documentation (e.g., PR draft, release checklist) that references the TOA suite so reviewers know the expectations were rebuilt.
-  - [ ] Review existing macros handling parentheticals to identify duplicated logic between case notes and TOA outputs.
+  - [x] Review existing macros handling parentheticals to identify duplicated logic between case notes and TOA outputs.
     - [x] Trace all macro invocations that append parenthetical content using CSL search tools.
       - [x] Search for keywords like “parenthetical” or specific strings (e.g., “slip op.”) within the CSL files using `rg`.
       - [x] Document each macro invocation path, including upstream macros and dependent outputs.
@@ -425,7 +425,7 @@ ion of the conflicting behavior.
       - [x] Request feedback from stakeholders and incorporate revisions.
       - [x] Track version history of the interface description for future reference.
       - [x] Note dependencies on other tasks (e.g., locale file creation) that may affect helper design.
-  - [ ] Add targeted fixtures in `tests.json` and `expected.txt` for each parenthetical scenario, including combinations with petition history.
+  - [x] Add targeted fixtures in `tests.json` and `expected.txt` for each parenthetical scenario, including combinations with petition history.
     - [x] Create fixture entries covering slip opinions, mandamus relief, and habeas procedural notes with varied metadata.
       - [x] Determine the minimal metadata required for each scenario and confirm availability within existing schemas.
       - [x] Source realistic case names and docket details from the Greenbook or other authoritative references.
@@ -497,7 +497,7 @@ ion of the conflicting behavior.
       - [x] Validate that consolidation will not break existing fixtures or edge cases.
       - [x] Estimate time required for consolidation work to inform scheduling.
       - [x] Capture risk assessments (e.g., potential regressions) in `NOTES.md`.
-  - [ ] Extract common terminology requirements from Chapters 10–13 and Appendix A of the Greenbook, logging authoritative abbreviations in `NOTES.md`.
+  - [x] Extract common terminology requirements from Chapters 10–13 and Appendix A of the Greenbook, logging authoritative abbreviations in `NOTES.md`.
     - [x] Read the specified chapters focusing on publication parentheticals and session law terminology.
       - [x] Take detailed notes on required abbreviations, including variations by jurisdiction or publication year.
       - [x] Compare textual guidance with examples to confirm consistent messaging.
