@@ -7,6 +7,7 @@
     "volume": "235",
     "page": "627",
     "authority": "Tex.",
+    "jurisdiction": "us:tx",
     "issued": {
       "date-parts": [
         [
@@ -25,6 +26,7 @@
     "volume": "347",
     "page": "483",
     "authority": "U.S.",
+    "jurisdiction": "us",
     "issued": {
       "date-parts": [
         [
@@ -44,6 +46,7 @@
     "volume": "995",
     "page": "43",
     "authority": "5th Cir.",
+    "jurisdiction": "us",
     "issued": {
       "date-parts": [
         [
@@ -62,6 +65,7 @@
     "number": "1:18-cv-00068",
     "collection-number": "2019 WL 1553639",
     "authority": "S.D. Tex.",
+    "jurisdiction": "us",
     "issued": {
       "date-parts": [
         [
@@ -82,6 +86,7 @@
     "number": "02-03-241-CV",
     "collection-number": "2003 WL 22457054",
     "authority": "Tex. App.—Fort Worth",
+    "jurisdiction": "us:tx",
     "issued": {
       "date-parts": [
         [
@@ -105,6 +110,7 @@
     "volume": "939",
     "page": "627",
     "authority": "Tex. Crim. App.",
+    "jurisdiction": "us:tx",
     "issued": {
       "date-parts": [
         [
@@ -120,6 +126,7 @@
     "type": "legal_case",
     "title": "State v. Auguillard",
     "authority": "338th Dist. Ct., Harris County, Tex.",
+    "jurisdiction": "us:tx",
     "number": "139002101010",
     "issued": {
       "date-parts": [
@@ -140,6 +147,7 @@
     "container-title": "Tex. Const.",
     "chapter-number": "III",
     "section": "5(a)",
+    "jurisdiction": "us:tx",
     "grouping": "Texas Constitution"
   },
   {
@@ -148,6 +156,7 @@
     "container-title": "U.S. Const.",
     "chapter-number": "VI",
     "section": "cl. 2",
+    "jurisdiction": "us",
     "comment": "Appendix B Table of Authorities – United States Constitution heading (Greenbook pp. 244–245).",
     "grouping": "United States Constitution"
   },
@@ -156,6 +165,7 @@
     "type": "legislation",
     "container-title": "Tex. Tax Code Ann.",
     "section": "26.06(a)",
+    "jurisdiction": "us:tx",
     "comment": "Greenbook ch. 10 pp. 44–45 – tax rate election notice requirement.",
     "grouping": "Texas Statutes"
   },
@@ -165,6 +175,7 @@
     "container-title": "Tex. Gov’t Code Ann.",
     "section": "311.021(1)",
     "note": "West 2023",
+    "jurisdiction": "us:tx",
     "comment": "Greenbook ch. 10 p. 48 – construction statute interpretive presumption.",
     "grouping": "Texas Statutes"
   },
@@ -174,6 +185,7 @@
     "container-title": "28 U.S.C.",
     "section": "1332(a)(1)",
     "note": "Supp. 2024",
+    "jurisdiction": "us",
     "comment": "Appendix B Table of Authorities – United States Code heading (Greenbook pp. 245–246).",
     "grouping": "United States Code"
   },
@@ -183,6 +195,7 @@
     "container-title": "Tex. R. Civ. P.",
     "section": "97(d)",
     "genre": "court rule",
+    "jurisdiction": "us:tx",
     "comment": "Greenbook ch. 13 p. 64 – counterclaim pleading rule.",
     "grouping": "Texas Rules"
   },
@@ -192,6 +205,7 @@
     "container-title": "Tex. R. Civ. P.",
     "section": "21",
     "genre": "court rule",
+    "jurisdiction": "us:tx",
     "comment": "Greenbook ch. 13 p. 62 – service and filing rule short cite.",
     "grouping": "Texas Rules"
   },
@@ -201,6 +215,7 @@
     "container-title": "Fed. R. Civ. P.",
     "section": "4(k)(2)",
     "genre": "court rule",
+    "jurisdiction": "us",
     "comment": "Appendix B Table of Authorities – Federal Rules heading (Greenbook pp. 246–247).",
     "grouping": "Federal Rules"
   },
@@ -218,6 +233,7 @@
       ]
     },
     "authority": "Tex. Dep’t of Agric., Seed Sampling Procedures",
+    "jurisdiction": "us:tx",
     "comment": "Greenbook ch. 16 p. 78 – agricultural seed sampling procedures rule.",
     "grouping": "Texas Administrative Code"
   },
@@ -236,6 +252,7 @@
     },
     "note": "emergency adoption",
     "authority": "Tex. Comm’n on Env’t Quality, Electric Reliability Council Division",
+    "jurisdiction": "us:tx",
     "comment": "Greenbook ch. 16 p. 81 – ERCOT emergency reliability rule.",
     "grouping": "Texas Administrative Code"
   },
@@ -247,6 +264,7 @@
     "section": "3.5",
     "note": "adopted 1993",
     "authority": "Tex. Ethics Comm’n",
+    "jurisdiction": "us:tx",
     "comment": "Greenbook ch. 16 p. 82 – ethics commission disclosure rule.",
     "grouping": "Texas Administrative Code"
   },
@@ -265,6 +283,7 @@
     },
     "note": "to be codified at 22 Tex. Admin. Code § 367.14",
     "authority": "Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings",
+    "jurisdiction": "us:tx",
     "comment": "Greenbook ch. 16 p. 83 – Texas Register contested case notice heading.",
     "grouping": "Texas Register"
   },
@@ -282,6 +301,7 @@
       ]
     },
     "authority": "U.S. Sec. & Exch. Comm’n",
+    "jurisdiction": "us",
     "comment": "Appendix B Table of Authorities – Code of Federal Regulations heading (Greenbook pp. 247–248).",
     "grouping": "Code of Federal Regulations"
   },
@@ -302,6 +322,7 @@
     },
     "note": "to be codified at 12 C.F.R. pt. 1026",
     "authority": "Consumer Financial Protection Bureau",
+    "jurisdiction": "us",
     "comment": "Appendix B Table of Authorities – Federal Register heading (Greenbook pp. 247–248).",
     "grouping": "Federal Register"
   },
@@ -315,6 +336,7 @@
     "container-title": "Tex. Gen. Laws",
     "volume": "2005",
     "page": "621",
+    "jurisdiction": "us:tx",
     "grouping": "Session Laws"
   },
   {
@@ -329,6 +351,7 @@
         ]
       ]
     },
+    "jurisdiction": "us:tx",
     "grouping": "Attorney General Opinions"
   },
   {
@@ -345,6 +368,7 @@
         ]
       ]
     },
+    "jurisdiction": "us:tx",
     "grouping": "Municipal Ordinances"
   },
   {

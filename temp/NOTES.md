@@ -1315,6 +1315,10 @@ Authority-Specific Supporting Macros
 | Municipal Ordinances | Hous., Tex., Code of Ordinances ch. 20, art. IV, § 20-216 (1968) | Keeps municipal heading paired with chapter/article metadata. | `type="regulation"`, `authority`, `container-title`, `chapter-number`, `section`, `issued` | `toa_municipal` present【F:temp/tests_toa.json†L320-L338】 |
 | Secondary Authorities | William V. Dorsaneo, *Texas Litigation Guide* § 5.2 (Tex. Practice Series 2024) | Provides series + section label for secondary heading. | `type="book"`, `author`, `title`, `volume`, `collection-title`, `issued`, `label`, `locator` | `toa_secondary` present【F:temp/tests_toa.json†L339-L361】 |
 
+### Jurisdiction metadata alignment (2025-11-02)
+- Added `jurisdiction` codes to every Appendix B Table of Authorities fixture so upcoming heading macros can distinguish Texas and federal authorities without parsing reporter strings.【F:temp/tests_toa.json†L1-L338】
+- Re-ran all TOA variants after the metadata update; logs confirm expectations remain stable across the main, leaders, grouped, grouped-leader, and by-reporter styles.【F:temp/test-logs/20251102_toa_regression_main.txt†L1-L100】【F:temp/test-logs/20251102_toa_regression_leaders.txt†L1-L100】【F:temp/test-logs/20251102_toa_regression_grouped.txt†L1-L100】【F:temp/test-logs/20251102_toa_regression_grouped_leaders.txt†L1-L100】【F:temp/test-logs/20251102_toa_regression_by-reporter.txt†L1-L100】
+
 ### Verification log (2026-02-15)
 - Added the Federal Register entry from Appendix B (80 Fed. Reg. 56577, 56624 (2015)) to `tests_toa.json`, confirmed the codification note renders through the new helper stack, and regenerated all TOA expectation variants to capture the CFPB agency parenthetical alongside existing Texas Register coverage.【F:temp/tests_toa.json†L260-L288】【F:temp/expected_toa.txt†L19-L24】【F:temp/expected_toa_grouped_leaders.txt†L1-L34】【F:temp/expected_toa_leaders.txt†L17-L24】
 - Re-ran the TOA suites for every variant (`texas-greenbook-15th-toa*.csl`) with the expanded 24-authority dataset to confirm the
