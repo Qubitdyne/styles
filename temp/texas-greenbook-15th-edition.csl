@@ -126,8 +126,8 @@
 
   <macro name="parenthetical-procedural-note">
     <choose>
-      <if variable="note references" match="all">
-        <!-- Skip cross-reference cues stored in note when subsequent history is present. -->
+      <if variable="note annote" match="all">
+        <!-- Skip note when a prefatory signal already carries the same text. -->
       </if>
       <else-if variable="note">
         <text variable="note"/>
@@ -140,7 +140,21 @@
       <if variable="status note" match="any">
         <group delimiter=", ">
           <text variable="status"/>
-          <text macro="parenthetical-procedural-note"/>
+          <choose>
+            <if variable="status">
+              <text macro="parenthetical-procedural-note"/>
+            </if>
+            <else-if variable="note">
+              <choose>
+                <if variable="references">
+                  <!-- Skip note-only parentheticals when subsequent history will follow. -->
+                </if>
+                <else>
+                  <text macro="parenthetical-procedural-note"/>
+                </else>
+              </choose>
+            </else-if>
+          </choose>
         </group>
       </if>
     </choose>
@@ -372,16 +386,12 @@
 
   <macro name="cross-reference-cue">
     <choose>
-      <if variable="annote note" match="any">
-        <choose>
-          <if variable="annote">
-            <text variable="annote" text-case="capitalize-first"/>
-          </if>
-          <else>
-            <text variable="note" text-case="capitalize-first"/>
-          </else>
-        </choose>
+      <if variable="annote">
+        <text value=""/>
       </if>
+      <else-if variable="note">
+        <text variable="note" text-case="capitalize-first"/>
+      </else-if>
       <else-if type="legal_case">
         <choose>
           <if variable="jurisdiction" value="us:tx" match="any">
@@ -1256,11 +1266,11 @@
   <citation et-al-min="4" et-al-use-first="3" disambiguate-add-givenname="true" givenname-disambiguation-rule="primary-name">
     <layout delimiter="; " suffix=".">
       <choose>
-        <if position="ibid-with-locator">
-          <choose>
-            <if variable="annote note references" match="any">
-              <text macro="note-body"/>
-            </if>
+      <if position="ibid-with-locator">
+        <choose>
+          <if variable="references">
+            <text macro="note-body"/>
+          </if>
             <else-if type="legislation" match="any">
               <choose>
                 <if variable="genre" value="constitution">
@@ -1299,7 +1309,7 @@
         </if>
         <else-if position="ibid">
           <choose>
-            <if variable="annote note references" match="any">
+            <if variable="references">
               <text macro="note-body"/>
             </if>
             <else-if type="legislation" match="any">
