@@ -24,7 +24,7 @@ _ensure_citeproc_available()
 
 warnings.filterwarnings(
     "ignore",
-    message=r"The following arguments for Reference are unsupported: (?:comment|label|reviewed_title)",
+    message=r"The following arguments for Reference are unsupported: (?:comment|label|reviewed_title|grouping)",
     category=UserWarning,
 )
 warnings.filterwarnings(

@@ -82,7 +82,7 @@ ion of the conflicting behavior.
     - [x] Draft shared helpers for the code-section string and administrative core identified in the 2025-11-03 audit before wiring new short-form macros.
     - [x] Add undated treatise and CLE fixtures to `tests.json` once the year-fallback helper lands, ensuring the guard logic is regression-tested.
       - [x] Implement the `short-pinpoint-year` helper for short-form macros so missing years no longer leave trailing delimiters.
-  - [ ] Implement short-form macros for statutes, rules, and administrative materials in the main style.
+  - [x] Implement short-form macros for statutes, rules, and administrative materials in the main style.
     - [x] Create dedicated macros (e.g., `tex-statute-short`, `tex-rule-short`, `tex-administrative-short`) that mirror the long-form structure while applying the short-form requirements documented in `NOTES.md`.
       - [x] Review the existing long-form macros to list the elements that must persist in short form and highlight pieces to omit.
       - [x] Draft pseudo-code for each short-form macro, mapping inputs to outputs alongside the corresponding Greenbook citations.
@@ -597,11 +597,11 @@ ion of the conflicting behavior.
   - [x] Determine the minimal set of sample citations (cases, statutes, administrative materials) needed to exercise each new grouping and leader combination.
     - [ ] List representative authorities for each category, ensuring coverage of unique edge cases (e.g., consolidated cases).
     - [ ] Specify required metadata attributes for each sample to ensure accurate sorting.
-    - [ ] Check for overlap with existing fixtures to avoid redundancy while preserving coverage.
+    - [x] Check for overlap with existing fixtures to avoid redundancy while preserving coverage.
     - [ ] Record rationale for sample selection in `NOTES.md` with Appendix citations.
   - [x] Add the new authorities to `tests_toa.json`, including jurisdiction metadata necessary for correct sorting and grouping.
     - [ ] Encode each sample authority in JSON, validating field names against existing schema.
-    - [ ] Include grouping hints or categories in the test data to drive TOA leader formatting.
+    - [x] Include grouping hints or categories in the test data to drive TOA leader formatting.
     - [ ] Run targeted TOA tests to confirm grouping behavior and adjust metadata as needed.
     - [ ] Annotate each JSON entry with references to the corresponding Greenbook guidance.
   - [ ] Update each `expected_toa*.txt` fixture to reflect the new authorities, running the TOA-specific styles to confirm alignment.
