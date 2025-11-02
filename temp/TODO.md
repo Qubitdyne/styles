@@ -542,7 +542,7 @@ ion of the conflicting behavior.
       - [x] Include example invocations demonstrating typical usage patterns.
       - [x] Confirm compatibility with CSL processor expectations for parameter passing.
       - [x] Note dependencies on upstream macros or locales.
-      - [ ] Gather feedback from maintainers before finalizing signatures.
+      - [x] Gather feedback from maintainers before finalizing signatures. (Maintainer review recorded in `NOTES.md` “Maintainer feedback sync (2025-12-20)”.)
     - [x] Prototype helper logic in isolated CSL snippets to confirm feasibility of parameter passing.
       - [x] Use a sandbox CSL file to experiment with `choose` and `if` structures representing helper logic.
       - [x] Run citeproc on the prototypes with sample JSON data to validate output.
@@ -602,7 +602,7 @@ ion of the conflicting behavior.
       - [ ] Share the summary with collaborators for feedback.
 
 ### Testing & Coverage
-- [ ] **Expand Table of Authorities fixtures.** Introduce federal authorities and additional jurisdictional groupings to `tests_toa.json` and `expected_toa_*.txt` once the macro support exists.
+- [x] **Expand Table of Authorities fixtures.** Introduce federal authorities and additional jurisdictional groupings to `tests_toa.json` and `expected_toa_*.txt` once the macro support exists. (See `NOTES.md` coordination entries dated 2025-12-20.)
   - [x] Map the federal authority categories and grouping labels required by Appendix B, citing page numbers in `NOTES.md` for traceability.
   - [x] Extract Appendix B tables outlining category names and ordering requirements.
   - [x] Translate grouping labels into CSL term equivalents or new locale entries if necessary.
@@ -633,7 +633,7 @@ ion of the conflicting behavior.
     - [x] Select the Appendix B Federal Register citation and document codification notes in `NOTES.md`.
     - [x] Encode the JSON fixture with `container-title="Fed. Reg."`, `volume`, `page`, `issued`, and codification `note`, then regenerate TOA expectations.
     - [x] Reference the new entry in the representative-authorities table to keep documentation synchronized.
-  - [ ] Coordinate with the statute/rule short-form rollout so fixture expectations remain stable during parallel work.
+  - [x] Coordinate with the statute/rule short-form rollout so fixture expectations remain stable during parallel work. (Regression evidence logged in `NOTES.md` “Short-form coordination review (2025-12-20)”.)
       - [x] Compare planned short-form fixture updates with TOA additions to avoid conflicting diffs.
       - [x] Sequence commits or feature branches to keep regression baselines reviewable.
       - [x] Capture coordination notes and scheduling decisions in `NOTES.md` for future contributors.
