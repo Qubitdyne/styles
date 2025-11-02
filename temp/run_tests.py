@@ -41,6 +41,11 @@ parser.add_argument("--style", default=DEFAULT_STYLE_PATH, help="Path to the CSL
 parser.add_argument("--tests", default=DEFAULT_TESTS_PATH, help="JSON fixture containing citeproc items and citations.")
 parser.add_argument("--expected", default=DEFAULT_EXPECTED_PATH, help="Text file with expected cite strings (one per line).")
 parser.add_argument(
+    "--write-expected",
+    default=None,
+    help="Optional path for overwriting the expected-output fixture with the rendered cite strings.",
+)
+parser.add_argument(
     "--mode",
     choices=["notes", "bibliography"],
     default=None,
@@ -144,3 +149,15 @@ for index, (expected, actual) in enumerate(zip(expected_lines, rendered), start=
 
 if len(expected_lines) != len(rendered):
     print(f"Warning: expected {len(expected_lines)} lines but rendered {len(rendered)} citations.")
+
+if args.write_expected:
+    max_len = max(len(rendered), len(expected_comments))
+    with open(args.write_expected, "w", encoding="utf-8") as f:
+        for i in range(max_len):
+            actual = rendered[i] if i < len(rendered) else ""
+            comment = expected_comments[i] if i < len(expected_comments) else ""
+            if comment:
+                f.write(f"{actual} // {comment}\n")
+            else:
+                f.write(f"{actual}\n")
+    print(f"Wrote {len(rendered)} citations to {args.write_expected}")

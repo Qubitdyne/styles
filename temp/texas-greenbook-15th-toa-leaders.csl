@@ -204,9 +204,12 @@
           <ns0:group delimiter=" ">
             <ns0:text variable="chapter-number" />
             <ns0:choose>
-              <ns0:if type="regulation">
-                <ns0:group delimiter=" "><ns0:text term="section" form="symbol" /><ns0:text variable="section" /></ns0:group>
+              <ns0:if variable="locator">
+                <ns0:text macro="tex-labeled-locator" />
               </ns0:if>
+              <ns0:else-if type="regulation">
+                <ns0:group delimiter=" "><ns0:text term="section" form="symbol" /><ns0:text variable="section" /></ns0:group>
+              </ns0:else-if>
               <ns0:else>
                 <ns0:text variable="section" />
               </ns0:else>
@@ -214,10 +217,24 @@
           </ns0:group>
         </ns0:if>
         <ns0:else-if variable="genre" match="any">
-          <ns0:text variable="section" />
+          <ns0:choose>
+            <ns0:if variable="locator">
+              <ns0:text variable="locator" />
+            </ns0:if>
+            <ns0:else>
+              <ns0:text variable="section" />
+            </ns0:else>
+          </ns0:choose>
         </ns0:else-if>
         <ns0:else>
-          <ns0:group delimiter=" "><ns0:label variable="section" form="symbol" /><ns0:text variable="section" /></ns0:group>
+          <ns0:choose>
+            <ns0:if variable="locator">
+              <ns0:text variable="locator" />
+            </ns0:if>
+            <ns0:else>
+              <ns0:group delimiter=" "><ns0:label variable="section" form="symbol" /><ns0:text variable="section" /></ns0:group>
+            </ns0:else>
+          </ns0:choose>
         </ns0:else>
       </ns0:choose>
     </ns0:group>
@@ -397,13 +414,32 @@
           <ns0:group delimiter=" ">
             <ns0:text variable="chapter-number" />
             <ns0:choose>
-              <ns0:if type="regulation"><ns0:group delimiter=" "><ns0:text term="section" form="symbol" /><ns0:text variable="section" /></ns0:group></ns0:if>
+              <ns0:if variable="locator">
+                <ns0:text macro="tex-labeled-locator" />
+              </ns0:if>
+              <ns0:else-if type="regulation">
+                <ns0:group delimiter=" "><ns0:text term="section" form="symbol" /><ns0:text variable="section" /></ns0:group>
+              </ns0:else-if>
               <ns0:else><ns0:text variable="section" /></ns0:else>
             </ns0:choose>
           </ns0:group>
         </ns0:if>
-        <ns0:else-if variable="genre" match="any"><ns0:text variable="section" /></ns0:else-if>
-        <ns0:else><ns0:group delimiter=" "><ns0:label variable="section" form="symbol" /><ns0:text variable="section" /></ns0:group></ns0:else>
+        <ns0:else-if variable="genre" match="any">
+          <ns0:choose>
+            <ns0:if variable="locator">
+              <ns0:text variable="locator" />
+            </ns0:if>
+            <ns0:else><ns0:text variable="section" /></ns0:else>
+          </ns0:choose>
+        </ns0:else-if>
+        <ns0:else>
+          <ns0:choose>
+            <ns0:if variable="locator">
+              <ns0:text variable="locator" />
+            </ns0:if>
+            <ns0:else><ns0:group delimiter=" "><ns0:label variable="section" form="symbol" /><ns0:text variable="section" /></ns0:group></ns0:else>
+          </ns0:choose>
+        </ns0:else>
       </ns0:choose>
     </ns0:group>
   </ns0:macro>

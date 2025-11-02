@@ -7,7 +7,13 @@
     "volume": "235",
     "page": "627",
     "authority": "Tex.",
-    "issued": {"date-parts": [[2007]]},
+    "issued": {
+      "date-parts": [
+        [
+          2007
+        ]
+      ]
+    },
     "locator": "646"
   },
   {
@@ -17,7 +23,15 @@
     "number": "02-03-241-CV",
     "collection-number": "2003 WL 22457054",
     "authority": "Tex. App.—Fort Worth",
-    "issued": {"date-parts": [[2003, 10, 30]]},
+    "issued": {
+      "date-parts": [
+        [
+          2003,
+          10,
+          30
+        ]
+      ]
+    },
     "status": "no pet.",
     "genre": "per curiam",
     "medium": "mem. op.",
@@ -31,7 +45,13 @@
     "volume": "939",
     "page": "627",
     "authority": "Tex. Crim. App.",
-    "issued": {"date-parts": [[1997]]},
+    "issued": {
+      "date-parts": [
+        [
+          1997
+        ]
+      ]
+    },
     "locator": "631"
   },
   {
@@ -40,7 +60,15 @@
     "title": "State v. Auguillard",
     "authority": "338th Dist. Ct., Harris County, Tex.",
     "number": "139002101010",
-    "issued": {"date-parts": [[2013, 10, 21]]},
+    "issued": {
+      "date-parts": [
+        [
+          2013,
+          10,
+          21
+        ]
+      ]
+    },
     "locator": "42"
   },
   {
@@ -49,23 +77,36 @@
     "genre": "constitution",
     "container-title": "Tex. Const.",
     "chapter-number": "III",
-    "section": "5(a)",
-    "locator": "48"
+    "section": "5(a)"
   },
   {
     "id": "toa_statute",
     "type": "legislation",
     "container-title": "Tex. Tax Code Ann.",
-    "section": "26.06(a)",
-    "locator": "52"
+    "section": "26.06(a)"
+  },
+  {
+    "id": "toa_statute_govt_code",
+    "type": "legislation",
+    "container-title": "Tex. Gov’t Code Ann.",
+    "section": "311.021(1)",
+    "note": "West 2023",
+    "comment": "Greenbook ch. 10 p. 48 – construction statute interpretive presumption."
   },
   {
     "id": "toa_rule",
     "type": "legislation",
     "container-title": "Tex. R. Civ. P.",
     "section": "97(d)",
+    "genre": "court rule"
+  },
+  {
+    "id": "toa_rule_trcp_21",
+    "type": "legislation",
+    "container-title": "Tex. R. Civ. P.",
+    "section": "21",
     "genre": "court rule",
-    "locator": "57"
+    "comment": "Greenbook ch. 13 p. 62 – service and filing rule short cite."
   },
   {
     "id": "toa_admin_code",
@@ -73,9 +114,41 @@
     "volume": "4",
     "container-title": "Tex. Admin. Code",
     "section": "9.12",
-    "issued": {"date-parts": [[2013]]},
-    "authority": "Tex. Dep’t of Agric., Seed Sampling Procedures",
-    "locator": "63"
+    "issued": {
+      "date-parts": [
+        [
+          2013
+        ]
+      ]
+    },
+    "authority": "Tex. Dep’t of Agric., Seed Sampling Procedures"
+  },
+  {
+    "id": "toa_admin_code_25_101",
+    "type": "regulation",
+    "volume": "16",
+    "container-title": "Tex. Admin. Code",
+    "section": "25.101",
+    "issued": {
+      "date-parts": [
+        [
+          2022
+        ]
+      ]
+    },
+    "note": "emergency adoption",
+    "authority": "Tex. Comm’n on Env’t Quality, Electric Reliability Council Division",
+    "comment": "Greenbook ch. 16 p. 81 – ERCOT emergency reliability rule."
+  },
+  {
+    "id": "toa_admin_code_3_5",
+    "type": "regulation",
+    "volume": "1",
+    "container-title": "Tex. Admin. Code",
+    "section": "3.5",
+    "note": "adopted 1993",
+    "authority": "Tex. Ethics Comm’n",
+    "comment": "Greenbook ch. 16 p. 82 – ethics commission disclosure rule."
   },
   {
     "id": "toa_register",
@@ -83,10 +156,15 @@
     "volume": "39",
     "container-title": "Tex. Reg.",
     "page": "573, 574",
-    "issued": {"date-parts": [[2014]]},
+    "issued": {
+      "date-parts": [
+        [
+          2014
+        ]
+      ]
+    },
     "note": "to be codified at 22 Tex. Admin. Code § 367.14",
-    "authority": "Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings",
-    "locator": "64"
+    "authority": "Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings"
   },
   {
     "id": "toa_session_law",
@@ -97,16 +175,20 @@
     "section": "1.06",
     "container-title": "Tex. Gen. Laws",
     "volume": "2005",
-    "page": "621",
-    "locator": "70"
+    "page": "621"
   },
   {
     "id": "toa_ag_opinion",
     "type": "report",
     "authority": "Tex. Att’y Gen. Op.",
     "number": "GA-0002",
-    "issued": {"date-parts": [[2002]]},
-    "locator": "75"
+    "issued": {
+      "date-parts": [
+        [
+          2002
+        ]
+      ]
+    }
   },
   {
     "id": "toa_municipal",
@@ -115,17 +197,33 @@
     "container-title": "Code of Ordinances",
     "chapter-number": "ch. 20, art. IV,",
     "section": "20-216",
-    "issued": {"date-parts": [[1968]]},
-    "locator": "80"
+    "issued": {
+      "date-parts": [
+        [
+          1968
+        ]
+      ]
+    }
   },
   {
     "id": "toa_secondary",
     "type": "book",
-    "author": [{"family": "Dorsaneo", "given": "William V."}],
+    "author": [
+      {
+        "family": "Dorsaneo",
+        "given": "William V."
+      }
+    ],
     "title": "Texas Litigation Guide",
     "volume": "1",
     "collection-title": "Texas Practice Series",
-    "issued": {"date-parts": [[2024]]},
+    "issued": {
+      "date-parts": [
+        [
+          2024
+        ]
+      ]
+    },
     "label": "section",
     "locator": "5.2",
     "abstract": "secondary authority entry"
