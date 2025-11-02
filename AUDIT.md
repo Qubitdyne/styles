@@ -43,3 +43,26 @@
 
 ## Next Steps
 - Restore the four missing TOA fixtures, regenerate all `expected_toa*.txt` baselines, and archive fresh grouped-leader logs before rerunning this audit checklist.【F:temp/TODO.md†L359-L375】
+
+# Texas Greenbook CSL Audit — 2025-12-19
+
+## Scope & Materials Reviewed
+- Verified current guidance in `temp/README.md`, `temp/TODO.md`, and `temp/NOTES.md` to confirm backlog structure, outstanding tasks, and prior QA notes remain accurate before executing checks.【F:temp/README.md†L1-L120】【F:temp/TODO.md†L1-L120】【F:temp/NOTES.md†L1-L40】
+- Attempted to exercise the test harness aggregate flag to confirm available CLI options, documenting the `--all` rejection for follow-up backlog work.【291d2b†L1-L4】
+- Reviewed the latest entries under `temp/test-logs/` to ensure the most recent regression artifacts remain accessible for comparison during this audit pass.【563fda†L1-L32】
+
+## QA Activities
+- Ran the primary note regression suite against `texas-greenbook-15th-edition.csl` to verify 89 fixtures still match `expected.txt` after recent backlog triage.【ff6d67†L1-L188】
+- Executed the focused parenthetical suites in both note and bibliography modes to confirm slip-opinion URL placement and mandamus history continue to align with expectations.【3cd12f†L1-L36】【2fb238†L1-L28】
+- Validated the grouped-leaders Table of Authorities run to confirm dotted leaders and restored fixture inventory remain synchronized with `expected_toa_grouped_leaders.txt`.【8c3d03†L1-L52】
+
+## Findings & Root Causes
+1. **Citeproc warning suppression incomplete:** Despite earlier guardrails, the harness still emits `UserWarning` messages for the `related` field during regression runs. The current filter only suppresses `comment`, `label`, `reviewed_title`, and `grouping`, leaving `related` unhandled.【ff6d67†L1-L10】【F:temp/run_tests.py†L25-L34】 This contradicts the README’s promise of a clean log stream.
+2. **Documentation drift on warning behavior:** `temp/README.md` states that benign citeproc warnings are suppressed by default, which is now inaccurate given the persisting `related` notices observed in all three suites executed during this audit.【ff6d67†L1-L10】【F:temp/README.md†L47-L63】 The guidance must be updated once the harness filter is expanded.
+
+## Housekeeping & Documentation Updates
+- Logged a 2025-12-19 QA spot-check in `temp/NOTES.md` summarizing the executed test commands, the resurfaced `related` warnings, and the need to extend suppression coverage.【F:temp/NOTES.md†L26-L31】
+- Expanded `temp/TODO.md` with new infrastructure tasks covering the warning filter enhancement and documentation correction so future work packages can address the drift systematically.【F:temp/TODO.md†L361-L370】
+
+## Next Steps
+- Extend the warning suppression filter in `run_tests.py` to include `related`, rerun the regression suites to confirm clean logs, and update README guidance accordingly once resolved.【F:temp/TODO.md†L361-L370】
