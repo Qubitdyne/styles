@@ -329,42 +329,14 @@
   </ns0:macro>
 
   <ns0:macro name="tex-statute-short">
-    <ns0:group delimiter=" ">
-      <ns0:text macro="tex-code-section-short" />
-      <ns0:choose>
-        <ns0:if variable="note">
-          <ns0:choose>
-            <ns0:if variable="genre">
-              <ns0:text />
-            </ns0:if>
-            <ns0:else>
-              <ns0:text variable="note" prefix="(" suffix=")" />
-            </ns0:else>
-          </ns0:choose>
-        </ns0:if>
-      </ns0:choose>
-    </ns0:group>
+    <ns0:text macro="tex-short-form-base" />
   </ns0:macro>
 
   <ns0:macro name="tex-statute-cross-reference">
     <ns0:group delimiter=" ">
       <ns0:text macro="cross-reference-cue" />
       <ns0:group delimiter=", ">
-        <ns0:group delimiter=" ">
-          <ns0:text macro="tex-code-section-short" />
-          <ns0:choose>
-            <ns0:if variable="note">
-              <ns0:choose>
-                <ns0:if variable="genre">
-                  <ns0:text />
-                </ns0:if>
-                <ns0:else>
-                  <ns0:text variable="note" prefix="(" suffix=")" />
-                </ns0:else>
-              </ns0:choose>
-            </ns0:if>
-          </ns0:choose>
-        </ns0:group>
+        <ns0:text macro="tex-short-form-cross-base" />
         <ns0:text variable="references" />
       </ns0:group>
     </ns0:group>
@@ -392,14 +364,14 @@
   </ns0:macro>
 
   <ns0:macro name="tex-rule-short">
-    <ns0:text macro="tex-code-section-short" />
+    <ns0:text macro="tex-short-form-base" />
   </ns0:macro>
 
   <ns0:macro name="tex-rule-cross-reference">
     <ns0:group delimiter=" ">
       <ns0:text macro="cross-reference-cue" />
       <ns0:group delimiter=", ">
-        <ns0:text macro="tex-code-section-short" />
+        <ns0:text macro="tex-short-form-cross-base" />
         <ns0:text variable="references" />
       </ns0:group>
     </ns0:group>
@@ -497,15 +469,82 @@
     </ns0:group>
   </ns0:macro>
 
+  <ns0:macro name="tex-short-form-base">
+    <ns0:choose>
+      <ns0:if type="regulation">
+        <ns0:text macro="tex-admin-code-short-string" />
+      </ns0:if>
+      <ns0:else>
+        <ns0:group delimiter=" ">
+          <ns0:text macro="tex-code-section-short" />
+          <ns0:choose>
+            <ns0:if variable="note">
+              <ns0:choose>
+                <ns0:if variable="genre">
+                  <ns0:text />
+                </ns0:if>
+                <ns0:else>
+                  <ns0:text variable="note" prefix="(" suffix=")" />
+                </ns0:else>
+              </ns0:choose>
+            </ns0:if>
+          </ns0:choose>
+        </ns0:group>
+      </ns0:else>
+    </ns0:choose>
+  </ns0:macro>
+
+  <ns0:macro name="tex-short-form-cross-base">
+    <ns0:choose>
+      <ns0:if type="regulation">
+        <ns0:text macro="tex-admin-code-short-string" />
+      </ns0:if>
+      <ns0:else>
+        <ns0:group delimiter=" ">
+          <ns0:text macro="tex-code-section-short" />
+          <ns0:choose>
+            <ns0:if variable="note">
+              <ns0:choose>
+                <ns0:if variable="genre">
+                  <ns0:text />
+                </ns0:if>
+                <ns0:else>
+                  <ns0:text variable="note" prefix="(" suffix=")" />
+                </ns0:else>
+              </ns0:choose>
+            </ns0:if>
+          </ns0:choose>
+        </ns0:group>
+      </ns0:else>
+    </ns0:choose>
+  </ns0:macro>
+
+  <ns0:macro name="tex-short-form-output">
+    <ns0:choose>
+      <ns0:if variable="references">
+        <ns0:group delimiter=" ">
+          <ns0:text macro="cross-reference-cue" />
+          <ns0:group delimiter=", ">
+            <ns0:text macro="tex-short-form-cross-base" />
+            <ns0:text variable="references" />
+          </ns0:group>
+        </ns0:group>
+      </ns0:if>
+      <ns0:else>
+        <ns0:text macro="tex-short-form-base" />
+      </ns0:else>
+    </ns0:choose>
+  </ns0:macro>
+
   <ns0:macro name="tex-admin-code-short">
-    <ns0:text macro="tex-admin-code-short-string" />
+    <ns0:text macro="tex-short-form-base" />
   </ns0:macro>
 
   <ns0:macro name="tex-admin-code-cross-reference">
     <ns0:group delimiter=" ">
       <ns0:text macro="cross-reference-cue" />
       <ns0:group delimiter=", ">
-        <ns0:text macro="tex-admin-code-short-string" />
+        <ns0:text macro="tex-short-form-cross-base" />
         <ns0:text variable="references" />
       </ns0:group>
     </ns0:group>

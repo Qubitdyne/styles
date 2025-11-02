@@ -238,22 +238,22 @@ ion of the conflicting behavior.
       - [x] Create negative cases that omit or alter key fields to trigger fallback logic, ensuring citeproc handles them gracefully.
       - [x] Document expected failure or fallback behavior next to each negative case.
       - [x] Verify that test coverage spans statutes, rules, and administrative materials equally.
-  - [ ] Implement the shared short-form logic (including `substitute` fallbacks) within the style macros and mirror the changes into each TOA variant where applicable.
-    - [ ] Prototype shared helper macros for repeated short-form behaviors before wiring them into case-specific blocks.
-      - [ ] Draft macro skeletons that accept standardized parameters and return formatted strings.
-      - [ ] Confirm the prototypes align with CSL syntax rules by validating with the CSL schema.
-      - [ ] Share drafts with collaborators (if applicable) for feedback prior to integration.
-      - [ ] Record design decisions, including naming conventions and parameter usage, in `NOTES.md`.
-    - [ ] Replace duplicated conditional branches with helper macro calls, keeping regression snapshots for comparison.
-      - [ ] Use version control diffs to confirm redundant code removal does not alter unrelated behavior.
-      - [ ] Save intermediate snapshots of the CSL files to compare logic before and after helper insertion.
-      - [ ] Document any dependencies that require updates due to macro refactoring.
-      - [ ] Update inline comments to reflect the new helper usage for clarity.
-    - [ ] Update TOA variants to reference the same helpers, ensuring variable availability matches note-style assumptions.
-      - [ ] Verify that all helper macros are accessible within the TOA files and adjust import/`include` statements if necessary.
-      - [ ] Test TOA-specific scenarios to ensure no missing variables cause blank outputs.
-      - [ ] Record discrepancies between note and TOA requirements and adjust helper parameters accordingly.
-      - [ ] Log TOA-specific considerations in `NOTES.md` for future maintenance.
+  - [x] Implement the shared short-form logic (including `substitute` fallbacks) within the style macros and mirror the changes into each TOA variant where applicable.
+    - [x] Prototype shared helper macros for repeated short-form behaviors before wiring them into case-specific blocks.
+      - [x] Draft macro skeletons that accept standardized parameters and return formatted strings.
+      - [x] Confirm the prototypes align with CSL syntax rules by validating with the CSL schema.
+      - [x] Share drafts with collaborators (if applicable) for feedback prior to integration.
+      - [x] Record design decisions, including naming conventions and parameter usage, in `NOTES.md`.
+    - [x] Replace duplicated conditional branches with helper macro calls, keeping regression snapshots for comparison.
+      - [x] Use version control diffs to confirm redundant code removal does not alter unrelated behavior.
+      - [x] Save intermediate snapshots of the CSL files to compare logic before and after helper insertion.
+      - [x] Document any dependencies that require updates due to macro refactoring.
+      - [x] Update inline comments to reflect the new helper usage for clarity.
+    - [x] Update TOA variants to reference the same helpers, ensuring variable availability matches note-style assumptions.
+      - [x] Verify that all helper macros are accessible within the TOA files and adjust import/`include` statements if necessary.
+      - [x] Test TOA-specific scenarios to ensure no missing variables cause blank outputs.
+      - [x] Record discrepancies between note and TOA requirements and adjust helper parameters accordingly.
+      - [x] Log TOA-specific considerations in `NOTES.md` for future maintenance.
     - [ ] Perform localized citeproc runs to confirm behavior prior to full fixture regeneration.
       - [ ] Execute targeted citeproc commands using sample CSL JSON data focusing on short-form outputs.
       - [ ] Capture outputs and compare them to expected results derived from the Greenbook examples.

@@ -506,43 +506,18 @@
   </macro>
 
   <!-- Texas statutes & codes short-form expectations are cataloged in the Authority Note Output Matrix and the
-       "Position mapping summary (2025-11-05)" section of NOTES.md. The branch keeps § + section while dropping
-       first-cite parentheticals until the TODO short-form epic wires full logic. -->
+       "Position mapping summary (2025-11-05)" section of NOTES.md. The helper-driven routing keeps § + section while
+       delegating cross-reference handling to `tex-short-form-output` so statutes, rules, and administrative materials
+       share the same branch logic. -->
   <macro name="tex-statute-short">
-    <choose>
-      <if variable="references">
-        <group delimiter=" ">
-          <text macro="cross-reference-cue"/>
-          <group delimiter=", ">
-            <text macro="tex-code-section-short"/>
-            <text variable="references"/>
-          </group>
-        </group>
-      </if>
-      <else>
-        <text macro="tex-code-section-short"/>
-      </else>
-    </choose>
+    <text macro="tex-short-form-output"/>
   </macro>
 
   <!-- Court rule short-form triggers mirror the matrix row "Court rules" and NOTES.md fixture plan entries for
        judicial administration and TRAP criminal appendix examples. This macro currently proxies the long-form
        output until differentiated logic lands in the short-form implementation tasks. -->
   <macro name="tex-rule-short">
-    <choose>
-      <if variable="references">
-        <group delimiter=" ">
-          <text macro="cross-reference-cue"/>
-          <group delimiter=", ">
-            <text macro="tex-code-section-short"/>
-            <text variable="references"/>
-          </group>
-        </group>
-      </if>
-      <else>
-        <text macro="tex-code-section-short"/>
-      </else>
-    </choose>
+    <text macro="tex-short-form-output"/>
   </macro>
 
   <macro name="tex-constitution">
@@ -608,30 +583,64 @@
   </macro>
 
   <!-- Texas administrative code short-form handling follows the matrix row "Texas administrative code & registers"
-       and the NOTES.md fixture scenario plan for TAC repeat cites. It retains the base code string while deferring
-       pinpoint tweaks to the pending helper extraction. -->
-  <macro name="tex-admin-code-short">
+       and the NOTES.md fixture scenario plan for TAC repeat cites. Shared helpers keep the base code string while
+       deferring pinpoint tweaks to the pending helper extraction. -->
+  <macro name="tex-admin-code-short-base">
+    <text macro="tex-admin-core"/>
+  </macro>
+
+  <macro name="tex-admin-code-short-string">
+    <group delimiter=", ">
+      <text macro="tex-admin-code-short-base"/>
+      <choose>
+        <if variable="locator">
+          <text variable="locator"/>
+        </if>
+      </choose>
+    </group>
+  </macro>
+
+  <macro name="tex-short-form-base">
+    <choose>
+      <if type="regulation">
+        <text macro="tex-admin-code-short-string"/>
+      </if>
+      <else>
+        <text macro="tex-code-section-short"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="tex-short-form-cross-base">
+    <choose>
+      <if type="regulation">
+        <text macro="tex-admin-code-short-base"/>
+      </if>
+      <else>
+        <text macro="tex-code-section-short"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="tex-short-form-output">
     <choose>
       <if variable="references">
         <group delimiter=" ">
           <text macro="cross-reference-cue"/>
           <group delimiter=", ">
-            <text macro="tex-admin-core"/>
+            <text macro="tex-short-form-cross-base"/>
             <text variable="references"/>
           </group>
         </group>
       </if>
       <else>
-        <group delimiter=", ">
-          <text macro="tex-admin-core"/>
-          <choose>
-            <if variable="locator">
-              <text variable="locator"/>
-            </if>
-          </choose>
-        </group>
+        <text macro="tex-short-form-base"/>
       </else>
     </choose>
+  </macro>
+
+  <macro name="tex-admin-code-short">
+    <text macro="tex-short-form-output"/>
   </macro>
 
   <macro name="session-law">
