@@ -66,3 +66,27 @@
 
 ## Next Steps
 - Extend the warning suppression filter in `run_tests.py` to include `related`, rerun the regression suites to confirm clean logs, and update README guidance accordingly once resolved.【F:temp/TODO.md†L361-L370】
+
+# Texas Greenbook CSL Audit — 2025-12-21
+
+## Scope & Materials Reviewed
+- Walked the refreshed `temp/README.md` inventory and subdirectory spot-check to verify every artifact (archive drafts, prototypes, reports, logs) is documented for future contributors.【F:temp/README.md†L19-L77】
+- Inspected the publication helper prototypes and expectations to confirm in-flight work remains captured in the sandbox directory for later integration.【F:temp/prototypes/publication-helper-prototype.csl†L1-L200】【F:temp/prototypes/publication-helper-prototype.json†L1-L72】【F:temp/prototypes/publication-helper-expected.txt†L1-L32】
+- Reviewed the top-level TODO triage and outstanding sections to ensure remaining work is visible and cross-referenced with detailed checklists.【F:temp/TODO.md†L1-L23】【F:temp/TODO.md†L489-L609】【F:temp/TODO.md†L772-L858】
+
+## QA Activities
+- Executed the full note regression suite against `texas-greenbook-15th-edition.csl`; all 89 fixtures matched their expectations.【0d0224†L1-L210】
+- Ran the focused parenthetical note suite to confirm explanatory parenthetical logic remains stable.【851bd2†L1-L31】
+- Validated the grouped-leader TOA harness with `texas-greenbook-15th-toa-grouped-leaders.csl`; outputs aligned with `expected_toa_grouped_leaders.txt`.【419e4b†L1-L83】
+
+## Findings & Root Causes
+1. **Publication/status helper work parked but unfinished:** The helper prototypes and exhaustive checklist remain outstanding; without wiring these helpers into the main and TOA styles, publication parentheticals must still be maintained manually in multiple places.【F:temp/prototypes/publication-helper-prototype.csl†L1-L200】【F:temp/TODO.md†L489-L609】 The open task is captured in the Outstanding Work triage for prioritization.【F:temp/TODO.md†L9-L15】
+2. **Federal TOA support still pending:** Although fixtures exist, the TOA macros have not yet been extended to emit federal headings; this remains a blocker for Appendix B parity until the outlined tasks are implemented.【F:temp/tests_toa.json†L1-L338】【F:temp/TODO.md†L772-L781】
+
+## Housekeeping & Documentation Updates
+- Updated `temp/README.md` with a 2025-12-21 inventory refresh and subdirectory annotations so future agents can locate prototypes, reports, and regression logs quickly.【F:temp/README.md†L19-L77】
+- Added an Outstanding Work triage section to `temp/TODO.md` and expanded the release checklist subtasks to guide the final submission sequence.【F:temp/TODO.md†L1-L23】【F:temp/TODO.md†L828-L858】
+- Logged this audit and helper handoff guidance in `temp/NOTES.md` for continuity across agents.【F:temp/NOTES.md†L1-L9】
+
+## Next Steps
+- Prioritize the publication/status helper integration, then resume the federal TOA macro work before tackling the final submission checklist to keep the Outstanding Work section short-lived.【F:temp/TODO.md†L9-L23】【F:temp/TODO.md†L489-L609】【F:temp/TODO.md†L772-L858】

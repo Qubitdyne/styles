@@ -19,7 +19,7 @@ This document summarizes the scope, capabilities, and maintenance guidance for t
 | `tests_parentheticals.json`, `expected_parentheticals_notes.txt`, `expected_parentheticals_bibliography.txt` | Focused fixtures validating slip-opinion URLs and mandamus history ordering in both note and bibliography contexts. |
 | `NOTES.md`, `TODO.md` | Research trail, design decisions, and prioritized implementation backlog. |
 
-### Detailed Temp Directory Inventory (2025-12-20 audit)
+### Detailed Temp Directory Inventory (2025-12-21 audit)
 
 | Path | Category | Notes |
 | --- | --- | --- |
@@ -34,7 +34,7 @@ This document summarizes the scope, capabilities, and maintenance guidance for t
 | `Uniform-Format-Manual-07012010.pdf` | Reference | Comparative citation manual used for cross-checking terminology. |
 | `actual_toa.txt` | Fixture output | Historical TOA render captured prior to grouped/leader refinements. |
 | `appendix_b_toa.txt` | Research artifact | Direct transcription of Appendix B TOA examples for comparison. |
-| `archive/` | History | Contains superseded CSL drafts (`draft0`–`draft3`) and related snapshots. |
+| `archive/` | History | Contains superseded CSL drafts (`draft0`–`draft3`), the archival README, and the 2025-03-09 pre-cross-reference fixture snapshot. |
 | `authority-note-matrix.md` | Documentation | Matrix mapping authority classes to note/bibliography expectations. |
 | `ch16.txt` | Research artifact | Extracted Chapter 16 reference text highlighting web citation nuances. |
 | `expected.txt` | Fixture output | Baseline expectations for `tests.json` note renderings. |
@@ -48,13 +48,13 @@ This document summarizes the scope, capabilities, and maintenance guidance for t
 | `expected_toa_grouped.txt` | Fixture output | Category-grouped TOA expectations without dotted leaders. |
 | `expected_toa_grouped_leaders.txt` | Fixture output | Grouped TOA expectations with dotted leaders enabled. |
 | `expected_toa_leaders.txt` | Fixture output | Ungrouped TOA expectations with dotted leaders. |
-| `locales/` | Locale assets | Contains `locales-en-US-x-texas-greenbook.xml` and related metadata for shared terms. |
-| `prototypes/` | Sandbox | Experimental CSL and JSON prototypes for publication/status helper development. |
-| `reports/` | Analysis | Command outputs, scans, and CSV inventories created during research spikes. |
+| `locales/` | Locale assets | Contains `locales-en-US-x-texas-greenbook.xml` with consolidated abbreviation overrides. |
+| `prototypes/` | Sandbox | Experimental CSL (`publication-helper-prototype.csl`), JSON fixtures, and expectation text for publication/status helper development. |
+| `reports/` | Analysis | Command outputs, scans, and CSV inventories created during research spikes (e.g., publication string scans, fixture diff reviews). |
 | `requirements.txt` | Tooling | Minimal dependency pin set (currently citeproc-py) for regression runs. |
 | `run_tests.py` | Tooling | Custom regression harness with mode inference and warning suppression. |
 | `technology-standards.pdf` | Reference | Supplemental standards manual referenced for administrative citation context. |
-| `test-logs/` | Verification logs | Timestamped citeproc outputs documenting regression runs and diagnostics. |
+| `test-logs/` | Verification logs | Timestamped citeproc outputs from 2025-03-17 through 2025-12-20 covering regression milestones and diagnostics. |
 | `tests.json` | Fixture input | Primary citeproc dataset covering cases, statutes, and secondary sources. |
 | `tests_locator_symbol.json` | Fixture input | Focused dataset exercising locator symbol fallbacks. |
 | `tests_parentheticals.json` | Fixture input | Parenthetical-focused dataset for slip opinions and mandamus history. |
@@ -70,6 +70,13 @@ This document summarizes the scope, capabilities, and maintenance guidance for t
 | `texas-rules-of-appellate-procedure.pdf` | Reference | Rule text for appellate procedure citations. |
 | `texas-rules-of-civil-procedure-august-31-2025.pdf` | Reference | Latest civil procedure rule set for abbreviation checks. |
 | `texas-rules-of-evidence-effective-912025.pdf` | Reference | Evidence rules consulted for citation requirements. |
+
+#### Subdirectory Contents (2025-12-21 spot-check)
+
+- `archive/`: `README.md`, `texas-greenbook-15th-draft0.csl` through `texas-greenbook-15th-draft3.csl`, and `tests-20250309-before-cross-reference.json` preserve the pre-short-form macro lineage for reference during regressions.
+- `prototypes/`: `publication-helper-prototype.csl`, `publication-helper-prototype.json`, and `publication-helper-expected.txt` capture the in-flight publication/status helper experiments so future agents can resume without recreating scaffolding.
+- `reports/`: Inventory artifacts such as `publication_status_inventory.csv`, publication string ripgrep dumps, and the 2025-11-02 fixture diff review remain available for auditing helper coverage progress.
+- `test-logs/`: Historical regression outputs (e.g., 2025-03-09 short-form smoke checks, 2025-12-09 helper verification runs, 2025-12-20 short-form coordination) confirm which datasets backed each milestone and help diagnose unexpected diffs.
 
 ## Supported Citation Types
 

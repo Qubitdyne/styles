@@ -6,6 +6,11 @@
 - Nested checklists enumerate the full subtask inventory required to complete each parent entry, so clearing a parent task requ
 ires checking off every indented child.
 
+## Outstanding Work (2025-12-21 triage)
+- [ ] **Build shared publication/status helpers.** See detailed checklist under Active Development → Citation Logic Gaps for the full integration plan.
+- [ ] **Add federal authority coverage to TOA fixtures and macros.** Detailed tasks remain in the Active Development section under Testing & Coverage.
+- [ ] **Finalize submission checklist.** Pending wrap-up tasks appear in the Release Preparation section.
+
 ## Completed Work
 - [x] **Familiarized with source material.** Cataloged rule coverage, appendices, and page citations from the Greenbook PDF and logged them in `NOTES.md` for traceability.
   - [x] Read the entire Greenbook PDF, bookmarking chapters with unresolved CSL implications for later reference.
@@ -843,6 +848,7 @@ ion of the conflicting behavior.
   - [ ] Confirm that all Active Development tasks are checked off and corresponding tests/fixtures are current.
     - [ ] Cross-reference each unchecked TODO item with NOTES to determine whether the work should move to a later milestone or be completed now; update statuses accordingly.
     - [ ] Review `git status` to ensure no stray prototype edits remain before starting the final regression run.
+    - [ ] Verify that the Outstanding Work triage list at the top of this document reflects the final scope (close items that shipped and move deferred work to a post-release backlog section).
   - [x] Review each Active Development checklist item for completion status and update boxes accordingly, adding dated notes in `NOTES.md` for any deferrals.
   - [x] Verify test fixtures reflect latest logic changes by diffing against previous baselines and capturing representative diffs in `temp/reports/`.
   - [x] Note outstanding dependencies preventing closure (e.g., locale approvals, upstream reviews) and escalate if needed by creating new TODO entries or external issues.
@@ -856,6 +862,7 @@ ion of the conflicting behavior.
     - [ ] Tag the branch name in `PR_DRAFT.md` once created so reviewers can find it quickly.
     - [ ] Include the most recent regression log filenames in the PR draft “Testing” section before opening the upstream PR.
     - [ ] Verify `make_pr` output mirrors the curated PR draft language before sharing the branch link.
+    - [ ] Capture final regression command invocations and link to their outputs in `NOTES.md` so reviewers can trace evidence without digging through console history.
   - [x] Sweep documentation (`README.md`, `NOTES.md`, `TODO.md`) to ensure they reflect the completed work, Greenbook citations, and outstanding questions.
     - [x] Perform a structured read-through of each document, updating sections for accuracy and completeness.
     - [x] Insert new Greenbook page references where additional rules were implemented.
