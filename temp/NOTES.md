@@ -708,6 +708,26 @@ tex-admin-code-short
     - Example invocation: `<text macro="administrative-status"/>` appended after `tex-admin-code`’s register block, with TOA variants calling a trimmed wrapper (`administrative-status-tail`) when the agency name already appears in the leader text.
 - *Trade-offs.* Because agencies often supply bespoke wording (`adopted`, `amended`, `emergency rule`), the helper records the original `note` string verbatim when translators provide it, falling back to locale-controlled verbs only when `note` is empty. This keeps the macro flexible enough for federal authorities once they join the backlog.
 
+
+### Publication helper fallback validation (2025-12-10)
+- *Scope.* Exercised the publication/status prototype helpers against intentionally incomplete metadata to confirm that parentheses, delimiters, and section symbols disappear when inputs are absent. Coverage focuses on Chapter 10 statute supplements, Chapter 11 session laws, and Chapter 16 administrative notices.【F:temp/prototypes/publication-helper-prototype.json†L1-L94】【F:temp/Greenbook_15thEdition.pdf†L170-L212】【F:temp/Greenbook_15thEdition.pdf†L232-L318】
+- *Test run.* `python temp/run_tests.py --style temp/prototypes/publication-helper-prototype.csl --tests temp/prototypes/publication-helper-prototype.json --expected temp/prototypes/publication-helper-expected.txt` (2025-12-10) now renders nine scenarios, including:
+  - `tex_code_without_section` → `Tex. Fin. Code Ann. (Supp. 2023)` (no stray section symbol when § data is missing).【F:temp/prototypes/publication-helper-expected.txt†L7-L9】【ac0ae3†L21-L28】
+  - `session_law_partial` → `Act of May 11, 1907, 30th Leg., R.S.` (chapter/section group suppressed cleanly).【F:temp/prototypes/publication-helper-expected.txt†L8-L9】【ac0ae3†L29-L32】
+  - `tac_notice_with_note` → `1 Tex. Admin. Code § 3.5 (proposal withdrawn 2015)` (note-only status parenthetical with no extra semicolons).【F:temp/prototypes/publication-helper-expected.txt†L9-L10】【ac0ae3†L33-L36】
+- *Behavior notes.*
+  - `publication-parenthetical` no longer prefixes a hard-coded space, so single authorities produce `(...)` strings without double padding while retaining publisher + note order from Rule 10.1.5.【F:temp/prototypes/publication-helper-prototype.csl†L11-L36】【F:temp/Greenbook_15thEdition.pdf†L190-L200】
+  - `session-law-metadata` wraps the chapter/section and reporter groups in `match="any"` guards, ensuring Greenbook Rule 11.1 exemplars with missing sections still read naturally.【F:temp/prototypes/publication-helper-prototype.csl†L38-L66】【F:temp/Greenbook_15thEdition.pdf†L204-L212】
+  - `administrative-status` now trims its parentheses and semicolons when only note metadata survives, matching the agency notice examples on pp. 76–83.【F:temp/prototypes/publication-helper-prototype.csl†L68-L103】【F:temp/Greenbook_15thEdition.pdf†L452-L479】
+- *Reviewer guidance.* The prototype fixture list (IDs above) is archived under `temp/prototypes/` so future reviewers can replay the fallbacks quickly. Additions emphasize questions raised in TODO §Build shared publication/status helpers about incomplete metadata and should unblock integration into the main CSL files.
+
+#### Publication helper changelog (2025-12-10)
+- Added inline comments to `publication-parenthetical`, `session-law-metadata`, `administrative-status`, and `render-entry` summarizing decision trees for reviewer orientation.【F:temp/prototypes/publication-helper-prototype.csl†L11-L113】
+- Updated prototype JSON with `tex_code_without_section`, `session_law_partial`, and `tac_notice_with_note` fixtures to cover missing section symbols, absent chapter/section data, and note-only agency updates.【F:temp/prototypes/publication-helper-prototype.json†L58-L94】
+- Regenerated `publication-helper-expected.txt` after the fallback fixes; citeproc regression log archived in `ac0ae3` confirms all nine scenarios render as intended.【F:temp/prototypes/publication-helper-expected.txt†L1-L10】【ac0ae3†L1-L36】
+- Documented the Appendix B TOA references surfaced while annotating federal fixtures so grouped headings stay aligned with Greenbook pp. 239–248.【F:temp/tests_toa.json†L1-L200】【F:temp/Greenbook_15thEdition.pdf†L612-L676】
+
+
 - **Prototype verification (2025-02-15).** Created `temp/prototypes/publication-helper-prototype.csl` plus matching JSON fixtures to confirm the helper interfaces can be expressed with standard CSL constructs. The sandbox renders supplements, session laws, and administrative notices using the macros above and records output diffs in `temp/test-logs/20250215_publication-helper-prototype.txt` for future comparison.【F:temp/prototypes/publication-helper-prototype.csl†L1-L152】【F:temp/prototypes/publication-helper-prototype.json†L1-L78】【F:temp/test-logs/20250215_publication-helper-prototype.txt†L1-L28】 Trimming the issued-year branch when a supplement note is present prevented duplicate years in the parenthetical, and the prototype surfaced the trailing-space quirk that the production macros should collapse by tightening `group` delimiters before wiring helpers into the main style.
 
 

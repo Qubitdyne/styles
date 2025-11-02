@@ -44,3 +44,9 @@ The `cross-reference-cue` macro now centralizes the internal vs. external author
 - Otherwise → short-form macro (`*-short`).
 
 This structure explicitly ties the requested outputs to CSL logic, allowing validation against the JSON test fixtures in `temp/`.
+
+## Publication helper fallback coverage (2025-12-10)
+- Exercised the prototype helper style (`temp/prototypes/publication-helper-prototype.csl`) against incomplete metadata to ensure the eventual shared helpers can drop section symbols, commas, and register semicolons cleanly.【F:temp/prototypes/publication-helper-prototype.csl†L11-L113】【F:temp/prototypes/publication-helper-prototype.json†L58-L94】
+- New fixtures `tex_code_without_section`, `session_law_partial`, and `tac_notice_with_note` confirm the macros emit bare code titles, abbreviated session strings, and note-only parentheticals without double spaces, matching Greenbook Chapters 10–11 guidance.【F:temp/prototypes/publication-helper-expected.txt†L7-L10】【F:temp/Greenbook_15thEdition.pdf†L170-L212】
+- Regression run `python temp/run_tests.py --style temp/prototypes/publication-helper-prototype.csl --tests temp/prototypes/publication-helper-prototype.json --expected temp/prototypes/publication-helper-expected.txt` documents nine passing scenarios and serves as the smoke test for integrating the helpers into the production styles.【ac0ae3†L1-L36】
+- Annotated the TOA federal fixtures with Appendix B references so the helper rollout keeps grouped headings aligned with the Greenbook table layout.【F:temp/tests_toa.json†L1-L200】【F:temp/Greenbook_15thEdition.pdf†L612-L676】
