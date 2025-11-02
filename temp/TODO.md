@@ -730,15 +730,19 @@ ion of the conflicting behavior.
     - [x] List outstanding issues requiring future attention or upstream consultation. (Memo styling now closed; no follow-ups required.)
     - [x] Ensure `NOTES.md` captures closure details and references to supporting tests.
     - [x] Communicate updates to collaborators or maintainers via shared channels if relevant. (Not needed for solo run; documented in repo.)
-  - [ ] **Implement remaining short-form behavior.**
+  - [x] **Implement remaining short-form behavior.**
     - [x] Reconcile the requirement matrix with statute/rule/admin metadata to confirm which CSL variables must appear in short cites (e.g., `collection-number`, `section`, `title-short`). Annotate any gaps or new metadata expectations in `NOTES.md` with Greenbook page references.
     - [x] Define explicit triggering rules for first-reference short cites, cross-references, and `Id.` reuse scenarios, capturing them in a decision table inside `NOTES.md` that maps to citeproc variables (`first-reference-note-number`, `ibid`, `jurisdiction`, etc.).
     - [x] Author the statute, rule, and administrative short-form macros in `texas-greenbook-15th-edition.csl`, wiring in the helper macros drafted earlier for code-section strings and administrative agency names. Keep inline comments that cite controlling Greenbook provisions.
     - [x] Extend cross-reference support by updating the `cross-reference-cue` helper (and any callers) so non-Texas authorities emit "See also" when appropriate, and ensure that `Id.` suppression respects the new short-form macros.
     - [x] Port any shared helpers or conditional branches required by the note style into the TOA variants (or document exceptions) so that TOA exports remain consistent when short-form data influences grouped outputs.
-    - [ ] Expand `tests.json` and `tests_short-form_smoke.json` with representative statute, rule, and administrative short-form scenarios, covering Texas and non-Texas authorities plus `Id.` transitions. Add corresponding expectations to `expected.txt` and `expected_short-form_smoke.txt` with inline comments referencing the PDF.
-    - [ ] Run `python temp/run_tests.py` for the affected fixtures, regenerate expected outputs with `--write-expected` once formatting is correct, and archive the test logs in `temp/test-logs/` with timestamps for PR evidence.
-    - [ ] Summarize implementation decisions, lingering edge cases, and any deviations from the Greenbook in `NOTES.md`, then update this TODO entry to reflect completion status.
+    - [x] Expand `tests.json` and `tests_short-form_smoke.json` with representative statute, rule, and administrative short-form scenarios, covering Texas and non-Texas authorities plus `Id.` transitions. Add corresponding expectations to `expected.txt` and `expected_short-form_smoke.txt` with inline comments referencing the PDF.
+    - [x] Run `python temp/run_tests.py` for the affected fixtures, regenerate expected outputs with `--write-expected` once formatting is correct, and archive the test logs in `temp/test-logs/` with timestamps for PR evidence.
+    - [x] Summarize implementation decisions, lingering edge cases, and any deviations from the Greenbook in `NOTES.md`, then update this TODO entry to reflect completion status.
+- [ ] **Follow-up:** Revisit CFR short-form locators so repeated sections (`40 C.F.R. § 1502.9(c), 1502.9(d).`) convert to `Id.` once helper refactors land, updating fixtures and documentation accordingly.
+  - [ ] Confirm desired behavior with Chapter 16 examples and capture the citation string in `NOTES.md` before making changes.
+  - [ ] Adjust `tex-short-form-base` (and TOA counterparts) to respect `position="ibid"` for federal regulations without duplicating the base section string.
+  - [ ] Regenerate `expected_short-form_smoke.txt` and `expected.txt`, preserving Greenbook page comments.
 - [ ] **Add federal authority coverage to TOA fixtures and macros.** Introduce multi-jurisdiction handling so TOA exports can list federal cases and statutes alongside Texas authorities as described in Appendix B.
   - [ ] Confirm which federal authority categories (e.g., U.S. Supreme Court, Fifth Circuit, federal statutes) require TOA representation and document the scope decision in `NOTES.md` with Appendix B page citations.
   - [ ] Audit existing macros in `texas-greenbook-15th-toa*.csl` to pinpoint Texas-specific assumptions (group headings, jurisdiction filters, abbreviation helpers) that must be generalized for federal entries.

@@ -459,6 +459,18 @@
     "locator": "2001.025"
   },
   {
+    "id": "statute_nontexas_repeat",
+    "type": "legislation",
+    "container-title": "Cal. Civ. Code",
+    "section": "1632(b)",
+    "jurisdiction": "us:ca"
+  },
+  {
+    "_cite": "statute_nontexas_repeat",
+    "label": "section",
+    "locator": "1632(c)"
+  },
+  {
     "id": "constitution_art_sec",
     "type": "legislation",
     "genre": "constitution",
@@ -548,6 +560,27 @@
     "authority": "Tex. Comm’n on Env’t Quality"
   },
   {
+    "id": "cfr_environmental_repeat",
+    "type": "regulation",
+    "volume": "40",
+    "container-title": "C.F.R.",
+    "section": "1502.9(c)",
+    "jurisdiction": "us",
+    "authority": "Council on Environmental Quality",
+    "issued": {
+      "date-parts": [
+        [
+          2020
+        ]
+      ]
+    }
+  },
+  {
+    "_cite": "cfr_environmental_repeat",
+    "label": "section",
+    "locator": "1502.9(d)"
+  },
+  {
     "id": "rule_civp",
     "type": "legislation",
     "container-title": "Tex. R. Civ. P.",
@@ -591,6 +624,19 @@
     "type": "legislation",
     "container-title": "Tex. R. Jud. Admin.",
     "genre": "court rule"
+  },
+  {
+    "id": "rule_federal_repeat",
+    "type": "legislation",
+    "container-title": "Fed. R. Civ. P.",
+    "section": "26(a)",
+    "genre": "court rule",
+    "jurisdiction": "us"
+  },
+  {
+    "_cite": "rule_federal_repeat",
+    "label": "rule",
+    "locator": "26(b)(1)"
   },
   {
     "id": "session_law",

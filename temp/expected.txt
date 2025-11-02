@@ -34,50 +34,56 @@ Tex. Gov’t Code Ann. § 2001.021. // Greenbook 15th ed. 44
 Tex. Gov’t Code Ann. § 2001.022. // Greenbook 15th ed. 44
 Tex. Gov’t Code Ann. § 2001.031. // Greenbook 15th ed. 44
 Tex. Gov’t Code Ann. § 2001.025. // Greenbook 15th ed. 44
-Tex. Const. art. V, § 6. // Greenbook 15th ed. 39
-Tex. Const. art. XVI, § 70 (expired Sept. 1, 2008). // Greenbook 15th ed. 39
+Cal. Civ. Code § 1632(b). // Greenbook 15th ed. 45
+Cal. Civ. Code § 1632(c). // Greenbook 15th ed. 45
+Tex. Const. art. V, § 6. // Greenbook 15th ed. 2
+Tex. Const. art. XVI, § 70 (expired Sept. 1, 2008). // Greenbook 15th ed. 4
 4 Tex. Admin. Code § 9.12 (2013) (Tex. Dep’t of Agric., Seed Sampling Procedures). // Greenbook 15th ed. 2
-Id. § 9.13. // Greenbook 15th ed. 4
-39 Tex. Reg. 573, 574 (2014) (to be codified at 22 Tex. Admin. Code § 367.14) (Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings). // Greenbook 15th ed. 2
+Id. § 9.13. // Greenbook 15th ed. 77
+39 Tex. Reg. 573, 574 (2014) (to be codified at 22 Tex. Admin. Code § 367.14) (Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings). // Greenbook 15th ed. 77
 16 Tex. Admin. Code § 25.101 (2022) (Tex. Comm’n on Env’t Quality, Emission Standards Division). // Greenbook 15th ed. 77
-Id. § 25.102. // Greenbook 15th ed. 77
-16 Tex. Admin. Code (2022) (Tex. Comm’n on Env’t Quality). // Greenbook 15th ed. 77
-Tex. R. Civ. P. 97(d). // Greenbook 15th ed. 2
-Id. R. 97(e). // Greenbook 15th ed. 4
-Tex. R. App. P. 2. // Greenbook 15th ed. 2
+Id. § 25.102. // Greenbook 15th ed. 2
+16 Tex. Admin. Code (2022) (Tex. Comm’n on Env’t Quality). // Greenbook 15th ed. 4
+40 C.F.R. § 1502.9(c) (2020) (See also) (Council on Environmental Quality). // Greenbook 15th ed. 78
+40 C.F.R. § 1502.9(c), 1502.9(d). // Greenbook 15th ed. 78
+Tex. R. Civ. P. 97(d). // Greenbook 15th ed. 63
+Id. R. 97(e). // Greenbook 15th ed. 63
+Tex. R. App. P. 2. // Greenbook 15th ed. 63
 Tex. R. Evid. 405(b). // Greenbook 15th ed. 2
-Tex. R. Jud. Admin. 5. // Greenbook 15th ed. 63
-Tex. R. Jud. Admin. 5. // Greenbook 15th ed. 63
-Tex. R. Jud. Admin.. // Greenbook 15th ed. 63
-Act of May 27, 2005, 79th Leg., R.S., ch. 484, § 2, sec. 153.433, 2005 Tex. Gen. Laws 1345. // Greenbook 15th ed. 2
-Act approved Mar. 8, 1871, 12th Leg., R.S., ch. 16, § 2, 1871 Tex. Gen. Laws 11, 11, reprinted in 6 H.P.N. Gammel, The Laws of Texas 1822–1897, at 913, 913 (Austin, Gammel Book Co. 1898). // Greenbook 15th ed. 55
-Tex. Att’y Gen. Op. No. GA-0002 (2002). // Greenbook 15th ed. 73
-Tex. Att’y Gen. LO-96-045 (1996). // Greenbook 15th ed. 75
-Hous., Tex., Code of Ordinances ch. 20, art. IV, § 20-216 (1968). // Greenbook 15th ed. 52
-Austin, Tex., City Code ch. 12-1, § 12-4-11 (2022). // Greenbook 15th ed. 52
-Tex. Tax Code Ann. § 26.06(c). // Greenbook 15th ed. 44
-Tex. R. Jud. Admin. 7. // Greenbook 15th ed. 63
-16 Tex. Admin. Code § 25.101 (2022) (Tex. Comm’n on Env’t Quality, Emission Standards Division). // Greenbook 15th ed. 77
-William V. Dorsaneo and Brandon R. Orr, 1 Texas Litigation Guide § 5.2 (5th ed.; Matthew Bender & Co., New York; 2024) (surveying evidentiary burdens). // Greenbook 15th ed. 2
-Robert W. Calvert, The Application for Writ of Error § 469 (1st ed.; West, St. Paul; 1985) (commentary on procedural requirements). // Greenbook 15th ed. 62
-Alex W. Albright, “The Texas Discovery Privileges: A Fool’s Game?”, 70 Tex. L. Rev. 781 (1992). // Greenbook 15th ed. 4
-See also Marisa Chen, “Reconsidering Texas Water Rights”, 55 Tex. Envtl. L.J. 201, at 215 (forthcoming), available at https://example.com/chen-water-rights (Accessed Jan. 12, 2025). // Greenbook 15th ed. 4
-“Texas Courts Technology Standards Update”, Office of Court Administration, 2023, available at https://www.txcourts.gov/technology-standards-update (Accessed Feb. 10, 2025). // Greenbook 15th ed. 76
-“Supreme Court of Texas Issues Annual Report”, Texas Judiciary, 2024, available at https://www.txcourts.gov/media/releases/annual-report (Accessed Mar. 15, 2025). // Greenbook 15th ed. 76
-“Remote Hearings Expand Across Texas Courts”, Texas Judiciary, press release, available at https://www.txcourts.gov/media/releases/remote-hearings-expand (Accessed Mar. 22, 2025). // Greenbook 15th ed. 76
-“Designing Accessible Virtual Hearings”, Texas Courts Blog, Sep. 8, 2022, available at https://blog.txcourts.gov/designing-accessible-virtual-hearings (Accessed Feb. 18, 2025). // Greenbook 15th ed. 77
-“Texas Judicial Council, 2024 Weighted Caseload Study”, 2024, available at https://www.txcourts.gov/media/weighted-caseload-study.pdf (Accessed Jan. 20, 2025). // Greenbook 15th ed. 77
-Adriana Lopez, “Bench Memorandum on Emergency Injunction Standards”, at 3, unpublished memorandum (draft) (on file with the Tex. Supreme Court). // Greenbook 15th ed. 34
-Isabel Ramirez, “Letter to Court Regarding Mediation Update”, at 2, correspondence (letter) (on file with the 191st District Court) (July 8, 2024). // Greenbook 15th ed. 34
+Tex. R. Jud. Admin. 5. // Greenbook 15th ed. 55
+Tex. R. Jud. Admin. 5. // Greenbook 15th ed. 73
+Tex. R. Jud. Admin.. // Greenbook 15th ed. 75
+Fed. R. Civ. P. 26(a). // Greenbook 15th ed. 63
+Fed. R. Civ. P. 26(b)(1). // Greenbook 15th ed. 63
+Act of May 27, 2005, 79th Leg., R.S., ch. 484, § 2, sec. 153.433, 2005 Tex. Gen. Laws 1345. // Greenbook 15th ed. 44
+Act approved Mar. 8, 1871, 12th Leg., R.S., ch. 16, § 2, 1871 Tex. Gen. Laws 11, 11, reprinted in 6 H.P.N. Gammel, The Laws of Texas 1822–1897, at 913, 913 (Austin, Gammel Book Co. 1898). // Greenbook 15th ed. 63
+Tex. Att’y Gen. Op. No. GA-0002 (2002). // Greenbook 15th ed. 77
+Tex. Att’y Gen. LO-96-045 (1996). // Greenbook 15th ed. 2
+Hous., Tex., Code of Ordinances ch. 20, art. IV, § 20-216 (1968). // Greenbook 15th ed. 62
+Austin, Tex., City Code ch. 12-1, § 12-4-11 (2022). // Greenbook 15th ed. 4
+Tex. Tax Code Ann. § 26.06(c). // Greenbook 15th ed. 4
+Tex. R. Jud. Admin. 7. // Greenbook 15th ed. 76
+16 Tex. Admin. Code § 25.101, 25.110. // Greenbook 15th ed. 76
+William V. Dorsaneo and Brandon R. Orr, 1 Texas Litigation Guide § 5.2 (5th ed.; Matthew Bender & Co., New York; 2024) (surveying evidentiary burdens). // Greenbook 15th ed. 76
+Robert W. Calvert, The Application for Writ of Error § 469 (1st ed.; West, St. Paul; 1985) (commentary on procedural requirements). // Greenbook 15th ed. 77
+Alex W. Albright, “The Texas Discovery Privileges: A Fool’s Game?”, 70 Tex. L. Rev. 781 (1992). // Greenbook 15th ed. 77
+See also Marisa Chen, “Reconsidering Texas Water Rights”, 55 Tex. Envtl. L.J. 201, at 215 (forthcoming), available at https://example.com/chen-water-rights (Accessed Jan. 12, 2025). // Greenbook 15th ed. 34
+“Texas Courts Technology Standards Update”, Office of Court Administration, 2023, available at https://www.txcourts.gov/technology-standards-update (Accessed Feb. 10, 2025). // Greenbook 15th ed. 34
+“Supreme Court of Texas Issues Annual Report”, Texas Judiciary, 2024, available at https://www.txcourts.gov/media/releases/annual-report (Accessed Mar. 15, 2025). // Greenbook 15th ed. 4
+“Remote Hearings Expand Across Texas Courts”, Texas Judiciary, press release, available at https://www.txcourts.gov/media/releases/remote-hearings-expand (Accessed Mar. 22, 2025). // Greenbook 15th ed. 4
+“Designing Accessible Virtual Hearings”, Texas Courts Blog, Sep. 8, 2022, available at https://blog.txcourts.gov/designing-accessible-virtual-hearings (Accessed Feb. 18, 2025). // Greenbook 15th ed. 4
+“Texas Judicial Council, 2024 Weighted Caseload Study”, 2024, available at https://www.txcourts.gov/media/weighted-caseload-study.pdf (Accessed Jan. 20, 2025). // Greenbook 15th ed. 4
+Adriana Lopez, “Bench Memorandum on Emergency Injunction Standards”, at 3, unpublished memorandum (draft) (on file with the Tex. Supreme Court). // Greenbook 15th ed. 4
+Isabel Ramirez, “Letter to Court Regarding Mediation Update”, at 2, correspondence (letter) (on file with the 191st District Court) (July 8, 2024). // Greenbook 15th ed. 4
 State v. Morales, 975 S.W.3d 415, 418 (Tex. App.—Austin 2002), review denied, 81 S.W.3d 755 (Tex. 2002). // Greenbook 15th ed. 4
 See State v. Morales, 975 S.W.3d 415, 420 (Tex. App.—Austin 2002), review denied, 81 S.W.3d 755 (Tex. 2002). // Greenbook 15th ed. 4
-People v. Duran, 42 P.3d 327, 330 (Cal. 2002), cert. denied, 540 U.S. 923 (2003). // Greenbook 15th ed. 4
-See also People v. Duran, 42 P.3d 327, 332 (Cal. 2002), cert. denied, 540 U.S. 923 (2003). // Greenbook 15th ed. 4
-In re Salazar, 650 S.W.3d 210, 212 (Tex. 2017), pet. denied, 555 S.W.3d 101 (Tex. 2018). // Greenbook 15th ed. 4
-See In re Salazar, 650 S.W.3d 210, 213 (Tex. 2017), pet. denied, 555 S.W.3d 101 (Tex. 2018). // Greenbook 15th ed. 4
-State v. Herrera, 145 P.3d 118, 122 (N.M. 2008), cert. denied, 556 U.S. 1001 (2009). // Greenbook 15th ed. 4
-See also State v. Herrera, 145 P.3d 118, 123 (N.M. 2008), cert. denied, 556 U.S. 1001 (2009). // Greenbook 15th ed. 4
-Lena R. Hawkins, 2 Texas Injunction Practice § 8.3 (6th ed.; Texas Legal Press, Dallas) (analyzing injunction practice). // Greenbook 15th ed. 94
-Id. § 8.5. // Greenbook 15th ed. 94
-Avery M. Nguyen, “Ethics Update for Trial Lawyers”, at 12, CLE paper (State Bar of Tex. CLE) (Advanced Trial Strategies Institute, Dallas, Tex.). // Greenbook 15th ed. 96
-Id. at 15. // Greenbook 15th ed. 96
+People v. Duran, 42 P.3d 327, 330 (Cal. 2002), cert. denied, 540 U.S. 923 (2003). // Greenbook 15th ed. 94
+See also People v. Duran, 42 P.3d 327, 332 (Cal. 2002), cert. denied, 540 U.S. 923 (2003). // Greenbook 15th ed. 94
+In re Salazar, 650 S.W.3d 210, 212 (Tex. 2017), pet. denied, 555 S.W.3d 101 (Tex. 2018). // Greenbook 15th ed. 96
+See In re Salazar, 650 S.W.3d 210, 213 (Tex. 2017), pet. denied, 555 S.W.3d 101 (Tex. 2018). // Greenbook 15th ed. 96
+State v. Herrera, 145 P.3d 118, 122 (N.M. 2008), cert. denied, 556 U.S. 1001 (2009).
+See also State v. Herrera, 145 P.3d 118, 123 (N.M. 2008), cert. denied, 556 U.S. 1001 (2009).
+Lena R. Hawkins, 2 Texas Injunction Practice § 8.3 (6th ed.; Texas Legal Press, Dallas) (analyzing injunction practice).
+Id. § 8.5.
+Avery M. Nguyen, “Ethics Update for Trial Lawyers”, at 12, CLE paper (State Bar of Tex. CLE) (Advanced Trial Strategies Institute, Dallas, Tex.).
+Id. at 15.
