@@ -152,14 +152,15 @@
     "grouping": "United States Constitution"
   },
   {
-    "id": "toa_statute",
+    "id": "toa_statute_tax_code_2606a",
     "type": "legislation",
     "container-title": "Tex. Tax Code Ann.",
     "section": "26.06(a)",
+    "comment": "Greenbook ch. 10 pp. 44–45 – tax rate election notice requirement.",
     "grouping": "Texas Statutes"
   },
   {
-    "id": "toa_statute_govt_code",
+    "id": "toa_statute_govt_code_3110211",
     "type": "legislation",
     "container-title": "Tex. Gov’t Code Ann.",
     "section": "311.021(1)",
@@ -177,11 +178,12 @@
     "grouping": "United States Code"
   },
   {
-    "id": "toa_rule",
+    "id": "toa_rule_trcp_97d",
     "type": "legislation",
     "container-title": "Tex. R. Civ. P.",
     "section": "97(d)",
     "genre": "court rule",
+    "comment": "Greenbook ch. 13 p. 64 – counterclaim pleading rule.",
     "grouping": "Texas Rules"
   },
   {
@@ -203,7 +205,7 @@
     "grouping": "Federal Rules"
   },
   {
-    "id": "toa_admin_code",
+    "id": "toa_admin_code_9_12",
     "type": "regulation",
     "volume": "4",
     "container-title": "Tex. Admin. Code",
@@ -216,6 +218,7 @@
       ]
     },
     "authority": "Tex. Dep’t of Agric., Seed Sampling Procedures",
+    "comment": "Greenbook ch. 16 p. 78 – agricultural seed sampling procedures rule.",
     "grouping": "Texas Administrative Code"
   },
   {
@@ -248,7 +251,7 @@
     "grouping": "Texas Administrative Code"
   },
   {
-    "id": "toa_register",
+    "id": "toa_register_39_tex_reg_573",
     "type": "regulation",
     "volume": "39",
     "container-title": "Tex. Reg.",
@@ -262,6 +265,7 @@
     },
     "note": "to be codified at 22 Tex. Admin. Code § 367.14",
     "authority": "Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings",
+    "comment": "Greenbook ch. 16 p. 83 – Texas Register contested case notice heading.",
     "grouping": "Texas Register"
   },
   {

@@ -598,12 +598,12 @@ ion of the conflicting behavior.
     - [ ] List representative authorities for each category, ensuring coverage of unique edge cases (e.g., consolidated cases).
     - [ ] Specify required metadata attributes for each sample to ensure accurate sorting.
     - [x] Check for overlap with existing fixtures to avoid redundancy while preserving coverage.
-    - [ ] Record rationale for sample selection in `NOTES.md` with Appendix citations.
+    - [x] Record rationale for sample selection in `NOTES.md` with Appendix citations.
   - [x] Add the new authorities to `tests_toa.json`, including jurisdiction metadata necessary for correct sorting and grouping.
-    - [ ] Encode each sample authority in JSON, validating field names against existing schema.
+    - [x] Encode each sample authority in JSON, validating field names against existing schema.
     - [x] Include grouping hints or categories in the test data to drive TOA leader formatting.
     - [ ] Run targeted TOA tests to confirm grouping behavior and adjust metadata as needed.
-    - [ ] Annotate each JSON entry with references to the corresponding Greenbook guidance.
+    - [x] Annotate each JSON entry with references to the corresponding Greenbook guidance.
   - [ ] Update each `expected_toa*.txt` fixture to reflect the new authorities, running the TOA-specific styles to confirm alignment.
     - [ ] Execute `run_tests.py --write-expected --toa` (or equivalent) and review diff outputs for accuracy.
     - [ ] Compare generated grouping headers and indentation against Appendix B exemplars.
