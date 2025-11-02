@@ -350,42 +350,14 @@
   </macro>
 
   <macro name="tex-statute-short">
-    <group delimiter=" ">
-      <text macro="tex-code-section-short"/>
-      <choose>
-        <if variable="note">
-          <choose>
-            <if variable="genre">
-              <text/>
-            </if>
-            <else>
-              <text variable="note" prefix="(" suffix=")"/>
-            </else>
-          </choose>
-        </if>
-      </choose>
-    </group>
+    <text macro="tex-short-form-base"/>
   </macro>
 
   <macro name="tex-statute-cross-reference">
     <group delimiter=" ">
       <text macro="cross-reference-cue"/>
       <group delimiter=", ">
-        <group delimiter=" ">
-          <text macro="tex-code-section-short"/>
-          <choose>
-            <if variable="note">
-              <choose>
-                <if variable="genre">
-                  <text/>
-                </if>
-                <else>
-                  <text variable="note" prefix="(" suffix=")"/>
-                </else>
-              </choose>
-            </if>
-          </choose>
-        </group>
+        <text macro="tex-short-form-cross-base"/>
         <text variable="references"/>
       </group>
     </group>
@@ -413,14 +385,14 @@
   </macro>
 
   <macro name="tex-rule-short">
-    <text macro="tex-code-section-short"/>
+    <text macro="tex-short-form-base"/>
   </macro>
 
   <macro name="tex-rule-cross-reference">
     <group delimiter=" ">
       <text macro="cross-reference-cue"/>
       <group delimiter=", ">
-        <text macro="tex-code-section-short"/>
+        <text macro="tex-short-form-cross-base"/>
         <text variable="references"/>
       </group>
     </group>
@@ -534,15 +506,82 @@
     </group>
   </macro>
 
+  <macro name="tex-short-form-base">
+    <choose>
+      <if type="regulation">
+        <text macro="tex-admin-code-short-string"/>
+      </if>
+      <else>
+        <group delimiter=" ">
+          <text macro="tex-code-section-short"/>
+          <choose>
+            <if variable="note">
+              <choose>
+                <if variable="genre">
+                  <text/>
+                </if>
+                <else>
+                  <text variable="note" prefix="(" suffix=")"/>
+                </else>
+              </choose>
+            </if>
+          </choose>
+        </group>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="tex-short-form-cross-base">
+    <choose>
+      <if type="regulation">
+        <text macro="tex-admin-code-short-string"/>
+      </if>
+      <else>
+        <group delimiter=" ">
+          <text macro="tex-code-section-short"/>
+          <choose>
+            <if variable="note">
+              <choose>
+                <if variable="genre">
+                  <text/>
+                </if>
+                <else>
+                  <text variable="note" prefix="(" suffix=")"/>
+                </else>
+              </choose>
+            </if>
+          </choose>
+        </group>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="tex-short-form-output">
+    <choose>
+      <if variable="references">
+        <group delimiter=" ">
+          <text macro="cross-reference-cue"/>
+          <group delimiter=", ">
+            <text macro="tex-short-form-cross-base"/>
+            <text variable="references"/>
+          </group>
+        </group>
+      </if>
+      <else>
+        <text macro="tex-short-form-base"/>
+      </else>
+    </choose>
+  </macro>
+
   <macro name="tex-admin-code-short">
-    <text macro="tex-admin-code-short-string"/>
+    <text macro="tex-short-form-base"/>
   </macro>
 
   <macro name="tex-admin-code-cross-reference">
     <group delimiter=" ">
       <text macro="cross-reference-cue"/>
       <group delimiter=", ">
-        <text macro="tex-admin-code-short-string"/>
+        <text macro="tex-short-form-cross-base"/>
         <text variable="references"/>
       </group>
     </group>

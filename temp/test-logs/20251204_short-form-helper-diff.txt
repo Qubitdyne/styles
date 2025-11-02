@@ -1,0 +1,899 @@
+diff --git a/temp/NOTES.md b/temp/NOTES.md
+index 9055d72..a75a2f2 100644
+--- a/temp/NOTES.md
++++ b/temp/NOTES.md
+@@ -449,6 +449,7 @@ tex-admin-code-short
+ - **Cross-reference cue verification (2025-11-30).** Replayed the full regression suite and confirmed the jurisdiction-aware cue emits “See” for Texas authorities (`case_tex_cross`) and “See also” for out-of-state counterparts (`case_nontex_cross`). The comparison log (`test-logs/2025-11-30_full-suite.txt`) records matching expectations on lines 17 and 274–275, cited against Greenbook Chapter 1 (p. 4) for signal language.【F:temp/test-logs/2025-11-30_full-suite.txt†L73-L88】【F:temp/test-logs/2025-11-30_full-suite.txt†L272-L275】【F:temp/Greenbook_15thEdition.pdf†L18-L26】
+ - **Regression fixtures.** Added statute (`statute_cross_reference`), rule (`rule_cross_reference`), and administrative (`tac_cross_reference`, `tac_no_year_short`) scenarios to `tests.json` plus TOA counterparts so cross-reference and no-year administrative cites now exercise the short-form branches described in chs. 10, 13, and 16.【F:temp/tests.json†L409-L460】【F:temp/tests_toa.json†L25-L66】【F:temp/Greenbook_15thEdition.pdf†L2841-L2878】【F:temp/Greenbook_15thEdition.pdf†L3193-L3234】
+ - **Test log capture.** Stored before/after citeproc runs at `temp/test-logs/20250505_statute_rule_before.txt` and `temp/test-logs/20250505_statute_rule_after.txt`, with TOA companions dated 2025-05-05, to document the short-form integration diffs for future audits.
++- **Helper consolidation (2025-12-04).** Introduced shared `tex-short-form-base`, `tex-short-form-cross-base`, and `tex-short-form-output` helpers in the main style and TOA variants so statutes, court rules, and Texas administrative materials now reuse a single cross-reference branch while preserving TOA-specific parenthetical requirements (statute notes; TAC agency identifiers). This aligns the repeat-cite formatting with Greenbook ch. 10 §§10.1–10.3 (pp. 42–46), ch. 13 §13.3 (p. 63), and ch. 16 §16.1 (pp. 76–78).【F:temp/texas-greenbook-15th-edition.csl†L504-L568】【F:temp/texas-greenbook-15th-toa.csl†L500-L556】【F:temp/texas-greenbook-15th-toa-grouped.csl†L517-L573】【F:temp/texas-greenbook-15th-toa-grouped-leaders.csl†L404-L470】【F:temp/texas-greenbook-15th-toa-by-reporter.csl†L460-L526】【F:temp/texas-greenbook-15th-toa-leaders.csl†L462-L528】【F:temp/Greenbook_15thEdition.pdf†L2841-L2878】【F:temp/Greenbook_15thEdition.pdf†L3193-L3234】
+ - **Requirement matrix refresh.** Extended the matrix rows for statutes, administrative code, and court rules to call out the `container-title-short`, `note`, and `annote` dependencies surfaced by the new fixtures so translators know which metadata to supply.【F:temp/authority-note-matrix.md†L8-L14】
+ - **Gap review.** Reconfirmed that suppressing agency parentheticals in `tex-admin-code-short` remains an Appendix B follow-up task; no new TODO entries were opened while this pass focused on note-mode routing and regression coverage.【F:temp/TODO.md†L98-L149】
+ 
+diff --git a/temp/texas-greenbook-15th-edition.csl b/temp/texas-greenbook-15th-edition.csl
+index 7c8796f..863865d 100644
+--- a/temp/texas-greenbook-15th-edition.csl
++++ b/temp/texas-greenbook-15th-edition.csl
+@@ -506,43 +506,18 @@
+   </macro>
+ 
+   <!-- Texas statutes & codes short-form expectations are cataloged in the Authority Note Output Matrix and the
+-       "Position mapping summary (2025-11-05)" section of NOTES.md. The branch keeps § + section while dropping
+-       first-cite parentheticals until the TODO short-form epic wires full logic. -->
++       "Position mapping summary (2025-11-05)" section of NOTES.md. The helper-driven routing keeps § + section while
++       delegating cross-reference handling to `tex-short-form-output` so statutes, rules, and administrative materials
++       share the same branch logic. -->
+   <macro name="tex-statute-short">
+-    <choose>
+-      <if variable="references">
+-        <group delimiter=" ">
+-          <text macro="cross-reference-cue"/>
+-          <group delimiter=", ">
+-            <text macro="tex-code-section-short"/>
+-            <text variable="references"/>
+-          </group>
+-        </group>
+-      </if>
+-      <else>
+-        <text macro="tex-code-section-short"/>
+-      </else>
+-    </choose>
++    <text macro="tex-short-form-output"/>
+   </macro>
+ 
+   <!-- Court rule short-form triggers mirror the matrix row "Court rules" and NOTES.md fixture plan entries for
+        judicial administration and TRAP criminal appendix examples. This macro currently proxies the long-form
+        output until differentiated logic lands in the short-form implementation tasks. -->
+   <macro name="tex-rule-short">
+-    <choose>
+-      <if variable="references">
+-        <group delimiter=" ">
+-          <text macro="cross-reference-cue"/>
+-          <group delimiter=", ">
+-            <text macro="tex-code-section-short"/>
+-            <text variable="references"/>
+-          </group>
+-        </group>
+-      </if>
+-      <else>
+-        <text macro="tex-code-section-short"/>
+-      </else>
+-    </choose>
++    <text macro="tex-short-form-output"/>
+   </macro>
+ 
+   <macro name="tex-constitution">
+@@ -608,32 +583,66 @@
+   </macro>
+ 
+   <!-- Texas administrative code short-form handling follows the matrix row "Texas administrative code & registers"
+-       and the NOTES.md fixture scenario plan for TAC repeat cites. It retains the base code string while deferring
+-       pinpoint tweaks to the pending helper extraction. -->
+-  <macro name="tex-admin-code-short">
++       and the NOTES.md fixture scenario plan for TAC repeat cites. Shared helpers keep the base code string while
++       deferring pinpoint tweaks to the pending helper extraction. -->
++  <macro name="tex-admin-code-short-base">
++    <text macro="tex-admin-core"/>
++  </macro>
++
++  <macro name="tex-admin-code-short-string">
++    <group delimiter=", ">
++      <text macro="tex-admin-code-short-base"/>
++      <choose>
++        <if variable="locator">
++          <text variable="locator"/>
++        </if>
++      </choose>
++    </group>
++  </macro>
++
++  <macro name="tex-short-form-base">
++    <choose>
++      <if type="regulation">
++        <text macro="tex-admin-code-short-string"/>
++      </if>
++      <else>
++        <text macro="tex-code-section-short"/>
++      </else>
++    </choose>
++  </macro>
++
++  <macro name="tex-short-form-cross-base">
++    <choose>
++      <if type="regulation">
++        <text macro="tex-admin-code-short-base"/>
++      </if>
++      <else>
++        <text macro="tex-code-section-short"/>
++      </else>
++    </choose>
++  </macro>
++
++  <macro name="tex-short-form-output">
+     <choose>
+       <if variable="references">
+         <group delimiter=" ">
+           <text macro="cross-reference-cue"/>
+           <group delimiter=", ">
+-            <text macro="tex-admin-core"/>
++            <text macro="tex-short-form-cross-base"/>
+             <text variable="references"/>
+           </group>
+         </group>
+       </if>
+       <else>
+-        <group delimiter=", ">
+-          <text macro="tex-admin-core"/>
+-          <choose>
+-            <if variable="locator">
+-              <text variable="locator"/>
+-            </if>
+-          </choose>
+-        </group>
++        <text macro="tex-short-form-base"/>
+       </else>
+     </choose>
+   </macro>
+ 
++  <macro name="tex-admin-code-short">
++    <text macro="tex-short-form-output"/>
++  </macro>
++
+   <macro name="session-law">
+     <group delimiter=", ">
+       <text variable="title"/>
+diff --git a/temp/texas-greenbook-15th-toa-by-reporter.csl b/temp/texas-greenbook-15th-toa-by-reporter.csl
+index e6717fd..28ed4d4 100644
+--- a/temp/texas-greenbook-15th-toa-by-reporter.csl
++++ b/temp/texas-greenbook-15th-toa-by-reporter.csl
+@@ -329,42 +329,14 @@
+   </ns0:macro>
+ 
+   <ns0:macro name="tex-statute-short">
+-    <ns0:group delimiter=" ">
+-      <ns0:text macro="tex-code-section-short" />
+-      <ns0:choose>
+-        <ns0:if variable="note">
+-          <ns0:choose>
+-            <ns0:if variable="genre">
+-              <ns0:text />
+-            </ns0:if>
+-            <ns0:else>
+-              <ns0:text variable="note" prefix="(" suffix=")" />
+-            </ns0:else>
+-          </ns0:choose>
+-        </ns0:if>
+-      </ns0:choose>
+-    </ns0:group>
++    <ns0:text macro="tex-short-form-base" />
+   </ns0:macro>
+ 
+   <ns0:macro name="tex-statute-cross-reference">
+     <ns0:group delimiter=" ">
+       <ns0:text macro="cross-reference-cue" />
+       <ns0:group delimiter=", ">
+-        <ns0:group delimiter=" ">
+-          <ns0:text macro="tex-code-section-short" />
+-          <ns0:choose>
+-            <ns0:if variable="note">
+-              <ns0:choose>
+-                <ns0:if variable="genre">
+-                  <ns0:text />
+-                </ns0:if>
+-                <ns0:else>
+-                  <ns0:text variable="note" prefix="(" suffix=")" />
+-                </ns0:else>
+-              </ns0:choose>
+-            </ns0:if>
+-          </ns0:choose>
+-        </ns0:group>
++        <ns0:text macro="tex-short-form-cross-base" />
+         <ns0:text variable="references" />
+       </ns0:group>
+     </ns0:group>
+@@ -392,14 +364,14 @@
+   </ns0:macro>
+ 
+   <ns0:macro name="tex-rule-short">
+-    <ns0:text macro="tex-code-section-short" />
++    <ns0:text macro="tex-short-form-base" />
+   </ns0:macro>
+ 
+   <ns0:macro name="tex-rule-cross-reference">
+     <ns0:group delimiter=" ">
+       <ns0:text macro="cross-reference-cue" />
+       <ns0:group delimiter=", ">
+-        <ns0:text macro="tex-code-section-short" />
++        <ns0:text macro="tex-short-form-cross-base" />
+         <ns0:text variable="references" />
+       </ns0:group>
+     </ns0:group>
+@@ -497,15 +469,82 @@
+     </ns0:group>
+   </ns0:macro>
+ 
++  <ns0:macro name="tex-short-form-base">
++    <ns0:choose>
++      <ns0:if type="regulation">
++        <ns0:text macro="tex-admin-code-short-string" />
++      </ns0:if>
++      <ns0:else>
++        <ns0:group delimiter=" ">
++          <ns0:text macro="tex-code-section-short" />
++          <ns0:choose>
++            <ns0:if variable="note">
++              <ns0:choose>
++                <ns0:if variable="genre">
++                  <ns0:text />
++                </ns0:if>
++                <ns0:else>
++                  <ns0:text variable="note" prefix="(" suffix=")" />
++                </ns0:else>
++              </ns0:choose>
++            </ns0:if>
++          </ns0:choose>
++        </ns0:group>
++      </ns0:else>
++    </ns0:choose>
++  </ns0:macro>
++
++  <ns0:macro name="tex-short-form-cross-base">
++    <ns0:choose>
++      <ns0:if type="regulation">
++        <ns0:text macro="tex-admin-code-short-string" />
++      </ns0:if>
++      <ns0:else>
++        <ns0:group delimiter=" ">
++          <ns0:text macro="tex-code-section-short" />
++          <ns0:choose>
++            <ns0:if variable="note">
++              <ns0:choose>
++                <ns0:if variable="genre">
++                  <ns0:text />
++                </ns0:if>
++                <ns0:else>
++                  <ns0:text variable="note" prefix="(" suffix=")" />
++                </ns0:else>
++              </ns0:choose>
++            </ns0:if>
++          </ns0:choose>
++        </ns0:group>
++      </ns0:else>
++    </ns0:choose>
++  </ns0:macro>
++
++  <ns0:macro name="tex-short-form-output">
++    <ns0:choose>
++      <ns0:if variable="references">
++        <ns0:group delimiter=" ">
++          <ns0:text macro="cross-reference-cue" />
++          <ns0:group delimiter=", ">
++            <ns0:text macro="tex-short-form-cross-base" />
++            <ns0:text variable="references" />
++          </ns0:group>
++        </ns0:group>
++      </ns0:if>
++      <ns0:else>
++        <ns0:text macro="tex-short-form-base" />
++      </ns0:else>
++    </ns0:choose>
++  </ns0:macro>
++
+   <ns0:macro name="tex-admin-code-short">
+-    <ns0:text macro="tex-admin-code-short-string" />
++    <ns0:text macro="tex-short-form-base" />
+   </ns0:macro>
+ 
+   <ns0:macro name="tex-admin-code-cross-reference">
+     <ns0:group delimiter=" ">
+       <ns0:text macro="cross-reference-cue" />
+       <ns0:group delimiter=", ">
+-        <ns0:text macro="tex-admin-code-short-string" />
++        <ns0:text macro="tex-short-form-cross-base" />
+         <ns0:text variable="references" />
+       </ns0:group>
+     </ns0:group>
+diff --git a/temp/texas-greenbook-15th-toa-grouped-leaders.csl b/temp/texas-greenbook-15th-toa-grouped-leaders.csl
+index fb26aef..96dfa7e 100644
+--- a/temp/texas-greenbook-15th-toa-grouped-leaders.csl
++++ b/temp/texas-greenbook-15th-toa-grouped-leaders.csl
+@@ -290,42 +290,14 @@
+   </ns0:macro>
+ 
+   <ns0:macro name="tex-statute-short">
+-    <ns0:group delimiter=" ">
+-      <ns0:text macro="tex-code-section-short" />
+-      <ns0:choose>
+-        <ns0:if variable="note">
+-          <ns0:choose>
+-            <ns0:if variable="genre">
+-              <ns0:text />
+-            </ns0:if>
+-            <ns0:else>
+-              <ns0:text variable="note" prefix="(" suffix=")" />
+-            </ns0:else>
+-          </ns0:choose>
+-        </ns0:if>
+-      </ns0:choose>
+-    </ns0:group>
++    <ns0:text macro="tex-short-form-base" />
+   </ns0:macro>
+ 
+   <ns0:macro name="tex-statute-cross-reference">
+     <ns0:group delimiter=" ">
+       <ns0:text macro="cross-reference-cue" />
+       <ns0:group delimiter=", ">
+-        <ns0:group delimiter=" ">
+-          <ns0:text macro="tex-code-section-short" />
+-          <ns0:choose>
+-            <ns0:if variable="note">
+-              <ns0:choose>
+-                <ns0:if variable="genre">
+-                  <ns0:text />
+-                </ns0:if>
+-                <ns0:else>
+-                  <ns0:text variable="note" prefix="(" suffix=")" />
+-                </ns0:else>
+-              </ns0:choose>
+-            </ns0:if>
+-          </ns0:choose>
+-        </ns0:group>
++        <ns0:text macro="tex-short-form-cross-base" />
+         <ns0:text variable="references" />
+       </ns0:group>
+     </ns0:group>
+@@ -353,14 +325,14 @@
+   </ns0:macro>
+ 
+   <ns0:macro name="tex-rule-short">
+-    <ns0:text macro="tex-code-section-short" />
++    <ns0:text macro="tex-short-form-base" />
+   </ns0:macro>
+ 
+   <ns0:macro name="tex-rule-cross-reference">
+     <ns0:group delimiter=" ">
+       <ns0:text macro="cross-reference-cue" />
+       <ns0:group delimiter=", ">
+-        <ns0:text macro="tex-code-section-short" />
++        <ns0:text macro="tex-short-form-cross-base" />
+         <ns0:text variable="references" />
+       </ns0:group>
+     </ns0:group>
+@@ -441,15 +413,82 @@
+     </ns0:group>
+   </ns0:macro>
+ 
++  <ns0:macro name="tex-short-form-base">
++    <ns0:choose>
++      <ns0:if type="regulation">
++        <ns0:text macro="tex-admin-code-short-string" />
++      </ns0:if>
++      <ns0:else>
++        <ns0:group delimiter=" ">
++          <ns0:text macro="tex-code-section-short" />
++          <ns0:choose>
++            <ns0:if variable="note">
++              <ns0:choose>
++                <ns0:if variable="genre">
++                  <ns0:text />
++                </ns0:if>
++                <ns0:else>
++                  <ns0:text variable="note" prefix="(" suffix=")" />
++                </ns0:else>
++              </ns0:choose>
++            </ns0:if>
++          </ns0:choose>
++        </ns0:group>
++      </ns0:else>
++    </ns0:choose>
++  </ns0:macro>
++
++  <ns0:macro name="tex-short-form-cross-base">
++    <ns0:choose>
++      <ns0:if type="regulation">
++        <ns0:text macro="tex-admin-code-short-string" />
++      </ns0:if>
++      <ns0:else>
++        <ns0:group delimiter=" ">
++          <ns0:text macro="tex-code-section-short" />
++          <ns0:choose>
++            <ns0:if variable="note">
++              <ns0:choose>
++                <ns0:if variable="genre">
++                  <ns0:text />
++                </ns0:if>
++                <ns0:else>
++                  <ns0:text variable="note" prefix="(" suffix=")" />
++                </ns0:else>
++              </ns0:choose>
++            </ns0:if>
++          </ns0:choose>
++        </ns0:group>
++      </ns0:else>
++    </ns0:choose>
++  </ns0:macro>
++
++  <ns0:macro name="tex-short-form-output">
++    <ns0:choose>
++      <ns0:if variable="references">
++        <ns0:group delimiter=" ">
++          <ns0:text macro="cross-reference-cue" />
++          <ns0:group delimiter=", ">
++            <ns0:text macro="tex-short-form-cross-base" />
++            <ns0:text variable="references" />
++          </ns0:group>
++        </ns0:group>
++      </ns0:if>
++      <ns0:else>
++        <ns0:text macro="tex-short-form-base" />
++      </ns0:else>
++    </ns0:choose>
++  </ns0:macro>
++
+   <ns0:macro name="tex-admin-code-short">
+-    <ns0:text macro="tex-admin-code-short-string" />
++    <ns0:text macro="tex-short-form-base" />
+   </ns0:macro>
+ 
+   <ns0:macro name="tex-admin-code-cross-reference">
+     <ns0:group delimiter=" ">
+       <ns0:text macro="cross-reference-cue" />
+       <ns0:group delimiter=", ">
+-        <ns0:text macro="tex-admin-code-short-string" />
++        <ns0:text macro="tex-short-form-cross-base" />
+         <ns0:text variable="references" />
+       </ns0:group>
+     </ns0:group>
+diff --git a/temp/texas-greenbook-15th-toa-grouped.csl b/temp/texas-greenbook-15th-toa-grouped.csl
+index fd92fd2..830a4ef 100644
+--- a/temp/texas-greenbook-15th-toa-grouped.csl
++++ b/temp/texas-greenbook-15th-toa-grouped.csl
+@@ -350,42 +350,14 @@
+   </macro>
+ 
+   <macro name="tex-statute-short">
+-    <group delimiter=" ">
+-      <text macro="tex-code-section-short"/>
+-      <choose>
+-        <if variable="note">
+-          <choose>
+-            <if variable="genre">
+-              <text/>
+-            </if>
+-            <else>
+-              <text variable="note" prefix="(" suffix=")"/>
+-            </else>
+-          </choose>
+-        </if>
+-      </choose>
+-    </group>
++    <text macro="tex-short-form-base"/>
+   </macro>
+ 
+   <macro name="tex-statute-cross-reference">
+     <group delimiter=" ">
+       <text macro="cross-reference-cue"/>
+       <group delimiter=", ">
+-        <group delimiter=" ">
+-          <text macro="tex-code-section-short"/>
+-          <choose>
+-            <if variable="note">
+-              <choose>
+-                <if variable="genre">
+-                  <text/>
+-                </if>
+-                <else>
+-                  <text variable="note" prefix="(" suffix=")"/>
+-                </else>
+-              </choose>
+-            </if>
+-          </choose>
+-        </group>
++        <text macro="tex-short-form-cross-base"/>
+         <text variable="references"/>
+       </group>
+     </group>
+@@ -413,14 +385,14 @@
+   </macro>
+ 
+   <macro name="tex-rule-short">
+-    <text macro="tex-code-section-short"/>
++    <text macro="tex-short-form-base"/>
+   </macro>
+ 
+   <macro name="tex-rule-cross-reference">
+     <group delimiter=" ">
+       <text macro="cross-reference-cue"/>
+       <group delimiter=", ">
+-        <text macro="tex-code-section-short"/>
++        <text macro="tex-short-form-cross-base"/>
+         <text variable="references"/>
+       </group>
+     </group>
+@@ -534,15 +506,82 @@
+     </group>
+   </macro>
+ 
++  <macro name="tex-short-form-base">
++    <choose>
++      <if type="regulation">
++        <text macro="tex-admin-code-short-string"/>
++      </if>
++      <else>
++        <group delimiter=" ">
++          <text macro="tex-code-section-short"/>
++          <choose>
++            <if variable="note">
++              <choose>
++                <if variable="genre">
++                  <text/>
++                </if>
++                <else>
++                  <text variable="note" prefix="(" suffix=")"/>
++                </else>
++              </choose>
++            </if>
++          </choose>
++        </group>
++      </else>
++    </choose>
++  </macro>
++
++  <macro name="tex-short-form-cross-base">
++    <choose>
++      <if type="regulation">
++        <text macro="tex-admin-code-short-string"/>
++      </if>
++      <else>
++        <group delimiter=" ">
++          <text macro="tex-code-section-short"/>
++          <choose>
++            <if variable="note">
++              <choose>
++                <if variable="genre">
++                  <text/>
++                </if>
++                <else>
++                  <text variable="note" prefix="(" suffix=")"/>
++                </else>
++              </choose>
++            </if>
++          </choose>
++        </group>
++      </else>
++    </choose>
++  </macro>
++
++  <macro name="tex-short-form-output">
++    <choose>
++      <if variable="references">
++        <group delimiter=" ">
++          <text macro="cross-reference-cue"/>
++          <group delimiter=", ">
++            <text macro="tex-short-form-cross-base"/>
++            <text variable="references"/>
++          </group>
++        </group>
++      </if>
++      <else>
++        <text macro="tex-short-form-base"/>
++      </else>
++    </choose>
++  </macro>
++
+   <macro name="tex-admin-code-short">
+-    <text macro="tex-admin-code-short-string"/>
++    <text macro="tex-short-form-base"/>
+   </macro>
+ 
+   <macro name="tex-admin-code-cross-reference">
+     <group delimiter=" ">
+       <text macro="cross-reference-cue"/>
+       <group delimiter=", ">
+-        <text macro="tex-admin-code-short-string"/>
++        <text macro="tex-short-form-cross-base"/>
+         <text variable="references"/>
+       </group>
+     </group>
+diff --git a/temp/texas-greenbook-15th-toa-leaders.csl b/temp/texas-greenbook-15th-toa-leaders.csl
+index eff7898..f140a93 100644
+--- a/temp/texas-greenbook-15th-toa-leaders.csl
++++ b/temp/texas-greenbook-15th-toa-leaders.csl
+@@ -312,42 +312,14 @@
+   </ns0:macro>
+ 
+   <ns0:macro name="tex-statute-short">
+-    <ns0:group delimiter=" ">
+-      <ns0:text macro="tex-code-section-short" />
+-      <ns0:choose>
+-        <ns0:if variable="note">
+-          <ns0:choose>
+-            <ns0:if variable="genre">
+-              <ns0:text />
+-            </ns0:if>
+-            <ns0:else>
+-              <ns0:text variable="note" prefix="(" suffix=")" />
+-            </ns0:else>
+-          </ns0:choose>
+-        </ns0:if>
+-      </ns0:choose>
+-    </ns0:group>
++    <ns0:text macro="tex-short-form-base" />
+   </ns0:macro>
+ 
+   <ns0:macro name="tex-statute-cross-reference">
+     <ns0:group delimiter=" ">
+       <ns0:text macro="cross-reference-cue" />
+       <ns0:group delimiter=", ">
+-        <ns0:group delimiter=" ">
+-          <ns0:text macro="tex-code-section-short" />
+-          <ns0:choose>
+-            <ns0:if variable="note">
+-              <ns0:choose>
+-                <ns0:if variable="genre">
+-                  <ns0:text />
+-                </ns0:if>
+-                <ns0:else>
+-                  <ns0:text variable="note" prefix="(" suffix=")" />
+-                </ns0:else>
+-              </ns0:choose>
+-            </ns0:if>
+-          </ns0:choose>
+-        </ns0:group>
++        <ns0:text macro="tex-short-form-cross-base" />
+         <ns0:text variable="references" />
+       </ns0:group>
+     </ns0:group>
+@@ -375,14 +347,14 @@
+   </ns0:macro>
+ 
+   <ns0:macro name="tex-rule-short">
+-    <ns0:text macro="tex-code-section-short" />
++    <ns0:text macro="tex-short-form-base" />
+   </ns0:macro>
+ 
+   <ns0:macro name="tex-rule-cross-reference">
+     <ns0:group delimiter=" ">
+       <ns0:text macro="cross-reference-cue" />
+       <ns0:group delimiter=", ">
+-        <ns0:text macro="tex-code-section-short" />
++        <ns0:text macro="tex-short-form-cross-base" />
+         <ns0:text variable="references" />
+       </ns0:group>
+     </ns0:group>
+@@ -499,15 +471,82 @@
+     </ns0:group>
+   </ns0:macro>
+ 
++  <ns0:macro name="tex-short-form-base">
++    <ns0:choose>
++      <ns0:if type="regulation">
++        <ns0:text macro="tex-admin-code-short-string" />
++      </ns0:if>
++      <ns0:else>
++        <ns0:group delimiter=" ">
++          <ns0:text macro="tex-code-section-short" />
++          <ns0:choose>
++            <ns0:if variable="note">
++              <ns0:choose>
++                <ns0:if variable="genre">
++                  <ns0:text />
++                </ns0:if>
++                <ns0:else>
++                  <ns0:text variable="note" prefix="(" suffix=")" />
++                </ns0:else>
++              </ns0:choose>
++            </ns0:if>
++          </ns0:choose>
++        </ns0:group>
++      </ns0:else>
++    </ns0:choose>
++  </ns0:macro>
++
++  <ns0:macro name="tex-short-form-cross-base">
++    <ns0:choose>
++      <ns0:if type="regulation">
++        <ns0:text macro="tex-admin-code-short-string" />
++      </ns0:if>
++      <ns0:else>
++        <ns0:group delimiter=" ">
++          <ns0:text macro="tex-code-section-short" />
++          <ns0:choose>
++            <ns0:if variable="note">
++              <ns0:choose>
++                <ns0:if variable="genre">
++                  <ns0:text />
++                </ns0:if>
++                <ns0:else>
++                  <ns0:text variable="note" prefix="(" suffix=")" />
++                </ns0:else>
++              </ns0:choose>
++            </ns0:if>
++          </ns0:choose>
++        </ns0:group>
++      </ns0:else>
++    </ns0:choose>
++  </ns0:macro>
++
++  <ns0:macro name="tex-short-form-output">
++    <ns0:choose>
++      <ns0:if variable="references">
++        <ns0:group delimiter=" ">
++          <ns0:text macro="cross-reference-cue" />
++          <ns0:group delimiter=", ">
++            <ns0:text macro="tex-short-form-cross-base" />
++            <ns0:text variable="references" />
++          </ns0:group>
++        </ns0:group>
++      </ns0:if>
++      <ns0:else>
++        <ns0:text macro="tex-short-form-base" />
++      </ns0:else>
++    </ns0:choose>
++  </ns0:macro>
++
+   <ns0:macro name="tex-admin-code-short">
+-    <ns0:text macro="tex-admin-code-short-string" />
++    <ns0:text macro="tex-short-form-base" />
+   </ns0:macro>
+ 
+   <ns0:macro name="tex-admin-code-cross-reference">
+     <ns0:group delimiter=" ">
+       <ns0:text macro="cross-reference-cue" />
+       <ns0:group delimiter=", ">
+-        <ns0:text macro="tex-admin-code-short-string" />
++        <ns0:text macro="tex-short-form-cross-base" />
+         <ns0:text variable="references" />
+       </ns0:group>
+     </ns0:group>
+diff --git a/temp/texas-greenbook-15th-toa.csl b/temp/texas-greenbook-15th-toa.csl
+index 4648a3e..3dc4c6f 100644
+--- a/temp/texas-greenbook-15th-toa.csl
++++ b/temp/texas-greenbook-15th-toa.csl
+@@ -350,42 +350,14 @@
+   </macro>
+ 
+   <macro name="tex-statute-short">
+-    <group delimiter=" ">
+-      <text macro="tex-code-section-short"/>
+-      <choose>
+-        <if variable="note">
+-          <choose>
+-            <if variable="genre">
+-              <text/>
+-            </if>
+-            <else>
+-              <text variable="note" prefix="(" suffix=")"/>
+-            </else>
+-          </choose>
+-        </if>
+-      </choose>
+-    </group>
++    <text macro="tex-short-form-base"/>
+   </macro>
+ 
+   <macro name="tex-statute-cross-reference">
+     <group delimiter=" ">
+       <text macro="cross-reference-cue"/>
+       <group delimiter=", ">
+-        <group delimiter=" ">
+-          <text macro="tex-code-section-short"/>
+-          <choose>
+-            <if variable="note">
+-              <choose>
+-                <if variable="genre">
+-                  <text/>
+-                </if>
+-                <else>
+-                  <text variable="note" prefix="(" suffix=")"/>
+-                </else>
+-              </choose>
+-            </if>
+-          </choose>
+-        </group>
++        <text macro="tex-short-form-cross-base"/>
+         <text variable="references"/>
+       </group>
+     </group>
+@@ -413,14 +385,14 @@
+   </macro>
+ 
+   <macro name="tex-rule-short">
+-    <text macro="tex-code-section-short"/>
++    <text macro="tex-short-form-base"/>
+   </macro>
+ 
+   <macro name="tex-rule-cross-reference">
+     <group delimiter=" ">
+       <text macro="cross-reference-cue"/>
+       <group delimiter=", ">
+-        <text macro="tex-code-section-short"/>
++        <text macro="tex-short-form-cross-base"/>
+         <text variable="references"/>
+       </group>
+     </group>
+@@ -534,15 +506,82 @@
+     </group>
+   </macro>
+ 
++  <macro name="tex-short-form-base">
++    <choose>
++      <if type="regulation">
++        <text macro="tex-admin-code-short-string"/>
++      </if>
++      <else>
++        <group delimiter=" ">
++          <text macro="tex-code-section-short"/>
++          <choose>
++            <if variable="note">
++              <choose>
++                <if variable="genre">
++                  <text/>
++                </if>
++                <else>
++                  <text variable="note" prefix="(" suffix=")"/>
++                </else>
++              </choose>
++            </if>
++          </choose>
++        </group>
++      </else>
++    </choose>
++  </macro>
++
++  <macro name="tex-short-form-cross-base">
++    <choose>
++      <if type="regulation">
++        <text macro="tex-admin-code-short-string"/>
++      </if>
++      <else>
++        <group delimiter=" ">
++          <text macro="tex-code-section-short"/>
++          <choose>
++            <if variable="note">
++              <choose>
++                <if variable="genre">
++                  <text/>
++                </if>
++                <else>
++                  <text variable="note" prefix="(" suffix=")"/>
++                </else>
++              </choose>
++            </if>
++          </choose>
++        </group>
++      </else>
++    </choose>
++  </macro>
++
++  <macro name="tex-short-form-output">
++    <choose>
++      <if variable="references">
++        <group delimiter=" ">
++          <text macro="cross-reference-cue"/>
++          <group delimiter=", ">
++            <text macro="tex-short-form-cross-base"/>
++            <text variable="references"/>
++          </group>
++        </group>
++      </if>
++      <else>
++        <text macro="tex-short-form-base"/>
++      </else>
++    </choose>
++  </macro>
++
+   <macro name="tex-admin-code-short">
+-    <text macro="tex-admin-code-short-string"/>
++    <text macro="tex-short-form-base"/>
+   </macro>
+ 
+   <macro name="tex-admin-code-cross-reference">
+     <group delimiter=" ">
+       <text macro="cross-reference-cue"/>
+       <group delimiter=", ">
+-        <text macro="tex-admin-code-short-string"/>
++        <text macro="tex-short-form-cross-base"/>
+         <text variable="references"/>
+       </group>
+     </group>
