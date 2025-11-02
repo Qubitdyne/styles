@@ -1162,6 +1162,38 @@ Authority-Specific Supporting Macros
 - Web citations in Chapter 16 rely on “available at” plus “Accessed” parentheticals. Fresh text extraction from the Format Guide confirmed the examples on printed pp. 76–77, allowing inline comments to cite precise rows rather than the generic chapter reference.【F:temp/Greenbook_15thEdition.pdf†L452-L479】【F:temp/expected_secondary.txt†L5-L12】
 - Table of Authorities tests cover the major groups but still lack examples for federal authorities and multi-level leaders (e.g., nested subentries). Future iterations should add those once the TOA CSL variants support secondary sorting keys.
 
+## Appendix B Table of Authorities – federal coverage roadmap (2025-12-09)
+- *Reference.* Appendix B’s Table of Authorities exemplars (printed pp. 239–252) enumerate headings for both Texas and federal authorities, specifying separate lists for U.S. Supreme Court cases, federal appellate and district decisions, U.S. Constitution provisions, federal statutes, regulations, and procedural rules. The grouped TOA variants already honor the Texas headings; this roadmap documents the federal mapping needed for comprehensive coverage.【F:temp/Greenbook_15thEdition.pdf†L612-L676】
+- *Scope.* The matrix below aligns each Appendix B heading with the metadata requirements already supported by the CSL macros. New federal rows highlight which fixtures (and metadata fields) must be exercised by `tests_toa.json` so grouped/leader variants can emit the proper headings.
+
+### Category mapping (Task 591)
+| TOA group | Appendix B heading | Example table label | Required metadata & notes | Fixture status |
+| --- | --- | --- | --- | --- |
+| Cases | U.S. Supreme Court cases | “United States Supreme Court Cases” | `type="legal_case"`, `authority="U.S."`, reporter cite; note slip-op handling when `medium="slip op."`. | `toa_case_us_supreme` (JSON 2025-12-08) exercises heading; confirm grouped headers after expectation rebuild. |
+| Cases | Federal courts of appeals | “Federal Courts of Appeals Cases” | `type="legal_case"`, `authority` containing circuit (e.g., `5th Cir.`); include pinpoint to drive dotted leaders. | `toa_case_federal_appellate` already added; maintain `locator` for *at* formatting. |
+| Cases | Federal district courts | “Federal District Court Cases” | `type="legal_case"`, `authority` naming district (e.g., `S.D. Tex.`), include docket metadata for slip opinions when available. | **New fixture `toa_case_federal_district` added 2025-12-09** with cause number + WL cite. |
+| Constitution | United States Constitution | “United States Constitution” | `type="legislation"`, `genre="constitution"` omitted; rely on `container-title="U.S. Const."`, `chapter-number` for article, `section` for clause. | **New fixture `toa_constitution_us` added 2025-12-09**; anchors federal constitutional heading. |
+| Statutes | United States Code | “United States Code” | `type="legislation"`, `container-title` `"[Title] U.S.C."`, `section` with subsection; optional `note` for supplement/year. | **New fixture `toa_statute_us_code` added 2025-12-09** includes supplement parenthetical. |
+| Rules | Federal rules of procedure/evidence | “Federal Rules” | `type="legislation"` + `genre="court rule"`, `container-title` `"Fed. R. ..."`, `section` for rule number, optional `locator` for subdivisions. | **New fixture `toa_rule_federal` added 2025-12-09** covers Appendix B’s federal rule row. |
+| Regulations | Code of Federal Regulations | “Code of Federal Regulations” | `type="regulation"`, `volume` `"[Title]"`, `container-title="C.F.R."`, `section`, `issued` year, agency `authority` for parenthetical. | **New fixture `toa_regulation_cfr` added 2025-12-09** provides SEC rule example. |
+| Regulations | Federal Register / agency orders | “Federal Register” | `type="regulation"`, `container-title="Fed. Reg."`, `volume`, `page`, `issued` date, `note` for codification path. | Existing Texas Register fixture covers structure; Appendix B suggests adding a federal analogue later (tracked separately). |
+| Reports | Attorney General opinions | “Attorney General Opinions” | `type="report"`, `authority` + `number`; unchanged from Texas coverage. | Already exercised by `toa_ag_opinion` entry. |
+| Municipal/Other | Municipal codes & secondary authorities | “Municipal Ordinances,” “Secondary Authorities” | Current fixtures sufficient; no federal expansion required. | Existing fixtures remain valid; no change. |
+
+### Fixture coverage plan (Task 596)
+| Fixture ID | Authority type | Target heading | Key metadata fields | Status |
+| --- | --- | --- | --- | --- |
+| `toa_case_us_supreme` | `legal_case` | U.S. Supreme Court | `authority="U.S."`, reporter cite, pinpoint | ✅ Added 2025-12-08; no expectation regen yet. |
+| `toa_case_federal_appellate` | `legal_case` | Federal courts of appeals | `authority="5th Cir."`, reporter cite, pinpoint | ✅ Added 2025-12-08; verify grouping once expected files refresh. |
+| `toa_case_federal_district` | `legal_case` | Federal district courts | `authority="S.D. Tex."`, Westlaw cite via `collection-number`, docket `number`, pinpoint `locator` | ✅ Added 2025-12-09. |
+| `toa_constitution_us` | `legislation` | United States Constitution | `container-title="U.S. Const."`, `chapter-number`, `section` | ✅ Added 2025-12-09. |
+| `toa_statute_us_code` | `legislation` | United States Code | `container-title="28 U.S.C."`, `section`, `note` with supplement/year | ✅ Added 2025-12-09. |
+| `toa_rule_federal` | `legislation` (court rule) | Federal rules | `container-title="Fed. R. Civ. P."`, `section`, `locator` for subdivision | ✅ Added 2025-12-09. |
+| `toa_regulation_cfr` | `regulation` | Code of Federal Regulations | `volume="17"`, `container-title="C.F.R."`, `section`, `issued`, `authority` naming agency | ✅ Added 2025-12-09. |
+| Future federal register entry | `regulation` | Federal Register | `container-title="Fed. Reg."`, `note` for codification path | ☐ Open follow-up; add alongside expectation refresh (tracked in TODO §Expand TOA fixtures). |
+
+- *Next steps.* Regenerate `expected_toa*.txt` after validating grouped-heading output so the new fixtures populate Appendix B’s federal sections. The regeneration remains deferred to the `Expand Table of Authorities fixtures` task family (TODO §606).
+
 #### Chapter 16 Format Guide transcription (2025-11-04)
 - **Method.** Extracted the Chapter 16 Format Guide table (printed p. 76 / PDF pp. 94–95) with `PyPDF2` to bypass the ligature substitutions that previously blocked automated copying. The capture preserves the full example strings so punctuation, spacing, and agency abbreviations can now be audited precisely.【F:temp/ch16.txt†L3-L30】
 - **Verbatim examples.**
