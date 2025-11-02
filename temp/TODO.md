@@ -128,7 +128,7 @@ ion of the conflicting behavior.
       - [x] Highlight any deviations from Appendix examples and justify the CSL implementation choices.
       - [x] Flag open questions about TOA formatting (if any) for later review in the Release Preparation phase.
       - [x] Update the TOA section of the requirement matrix to reflect the finalized short-form behavior.
-  - [ ] Extend cross-reference cue logic for statutes, rules, and agencies.
+- [x] Extend cross-reference cue logic for statutes, rules, and agencies.
     - [x] Update the `cross-reference-cue` macro so that blank `note` fields trigger “See also” outputs for non-Texas authorities while preserving existing case handling.
       - [x] Trace current `cross-reference-cue` execution paths to confirm where the note value is evaluated.
       - [x] Add conditional checks for statute, rule, and administrative authority types, reusing existing jurisdiction helpers when possible.
@@ -152,7 +152,7 @@ ion of the conflicting behavior.
       - [x] Reference the specific CSL line numbers where ambiguity remains to expedite future debugging.
       - [x] Update the TODO backlog with newly identified follow-up tasks to keep planning aligned.
       - [x] **Follow-up:** Investigate citeproc jurisdiction filtering. Confirm whether upgrading citeproc-py or introducing a pre-processing hook can restore `jurisdiction` condition support for `cross-reference-cue`, then re-run the Texas vs. non-Texas fixtures to verify “See also” output.
-      - [ ] **Follow-up:** Route citeproc locators through the forthcoming statute short-form helper so guarded repeats (e.g., `stat_rev_civ` § 2(b)) no longer echo the original section when a locator is supplied (see `NOTES.md` 2025-12-01 update).
+      - [x] **Follow-up:** Route citeproc locators through the forthcoming statute short-form helper so guarded repeats (e.g., `stat_rev_civ` § 2(b)) no longer echo the original section when a locator is supplied (see `NOTES.md` 2025-12-01 update).
   - [x] Update fixtures and expectations to exercise the new short-form logic.
     - [x] Add representative statute, rule, and administrative authorities to `tests.json` and `tests_toa.json`, including scenarios with and without available years.
       - [x] Gather example citations from the Greenbook and supplemental manuals to ensure realistic metadata coverage.
@@ -189,7 +189,7 @@ ion of the conflicting behavior.
       - [x] Check off completed checkboxes and adjust task descriptions to reflect the latest status.
       - [x] Add new unchecked bullets for edge cases deferred during implementation, referencing `NOTES.md` anchors.
       - [x] Reorder items if necessary to keep chronological or priority flow intuitive.
-      - [ ] Commit the updated TODO with a descriptive message summarizing the changes.
+      - [x] Commit the updated TODO with a descriptive message summarizing the changes.
     - [x] Ensure `temp/PR_DRAFT.md` references the new short-form support for eventual submission notes.
       - [x] Insert a summary paragraph in the PR draft highlighting the short-form implementation and test coverage.
       - [x] Add bullet points linking to relevant documentation or test logs for reviewers.
@@ -261,10 +261,10 @@ ion of the conflicting behavior.
       - [ ] Store command outputs in `temp/test-logs/` for reproducibility.
   - [ ] Regenerate `expected.txt` (and any affected TOA fixtures) with `run_tests.py --write-expected`, manually verify outputs against the Greenbook PDF, and document remaining discrepancies in `NOTES.md` if any.
     - [ ] Execute targeted tests for statute/rule citations and review diff outputs for unexpected formatting changes.
-      - [ ] Run `python run_tests.py --filter statutes,rules` (or equivalent) to limit execution to relevant fixtures.
-      - [ ] Inspect generated diffs using `git diff` to ensure only intentional formatting updates appear.
-      - [ ] Capture screenshots or logs of significant diffs to aid later review.
-      - [ ] Re-run tests after adjustments to confirm that unexpected changes are resolved.
+      - [x] Run `python run_tests.py --filter statutes,rules` (or equivalent) to limit execution to relevant fixtures.
+      - [x] Inspect generated diffs using `git diff` to ensure only intentional formatting updates appear.
+      - [x] Capture screenshots or logs of significant diffs to aid later review.
+      - [x] Re-run tests after adjustments to confirm that unexpected changes are resolved.
     - [ ] Cross-check each regenerated citation with the authoritative PDF, noting page confirmations in `NOTES.md`.
       - [ ] Compare each output line with the Greenbook example, verifying abbreviations, spacing, and punctuation.
       - [ ] Note any deviations along with hypotheses for the discrepancy.
@@ -357,22 +357,30 @@ ion of the conflicting behavior.
     - [x] Link to relevant commits, fixture diffs, or script changes so auditors can trace the implementation.
     - [x] Update `TODO.md` statuses accordingly once the warnings are addressed.
 - [ ] **Restore TOA fixture ordering.** Realign `tests_toa.json` with all `expected_toa*.txt` variants so grouped-leader runs render the full 17-authority inventory captured in the historical baselines.
-  - [ ] Capture a fresh grouped-leaders run that highlights the truncated 13-entry output and annotate which authorities disappeared (`Tex. Gov’t Code Ann. § 311.021(1)`, `Tex. R. Civ. P. 21`, etc.).
-    - [ ] Execute `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt --mode bibliography` and save the diff log under `temp/test-logs/` with a timestamped filename.
-    - [ ] Compare the new log against `temp/test-logs/20250506_toa_grouped_leaders.txt` to confirm the four missing authorities and document the gap in `NOTES.md`.
-    - [ ] Update this task with a checklist of the missing IDs so fixture work can be distributed if needed.
-  - [ ] Reintroduce the absent authorities to `tests_toa.json`, mirroring the naming and field structure used by the surviving entries.
-    - [ ] Draft JSON objects for the Government Code, procedural rule, supplementary rule, and administrative statute authorities with accurate `type`, `container-title`, `authority`, and `issued` metadata.
-    - [ ] Validate the edited JSON with `python temp/run_tests.py --tests temp/tests_toa.json --list-tests` after each addition to guard against syntax regressions.
-    - [ ] Annotate each new object with inline comments or `NOTES.md` references citing the Greenbook pages that justify the authority selection.
-  - [ ] Regenerate the TOA expectations once the dataset is complete to restore dotted-leader ordering and spacing.
-    - [ ] Run `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --write-expected temp/expected_toa_grouped_leaders.txt --mode bibliography` and repeat for the other TOA variants.
-    - [ ] Inspect the regenerated files for alignment with the 2025-05-06 baseline, paying close attention to leader characters and grouped headings.
-    - [ ] Capture before/after diffs and archive the regeneration commands in `temp/test-logs/` for traceability.
-  - [ ] Refresh documentation to reflect the restored inventory and prevent the regression from reoccurring.
-    - [ ] Summarize the fixture restoration in `temp/NOTES.md`, including the command outputs and Greenbook citations.
-    - [ ] Update `temp/README.md` test instructions if additional flags or dataset notes emerge during regeneration.
-    - [ ] Flag any external documentation (e.g., PR draft, release checklist) that references the TOA suite so reviewers know the expectations were rebuilt.
+  - [x] Capture a fresh grouped-leaders run that highlights the truncated 13-entry output and annotate which authorities disappeared (`Tex. Gov’t Code Ann. § 311.021(1)`, `Tex. R. Civ. P. 21`, etc.).
+    - [x] Execute `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt --mode bibliography` and save the diff log under `temp/test-logs/` with a timestamped filename.
+    - [x] Compare the new log against `temp/test-logs/20250506_toa_grouped_leaders.txt` to confirm the four missing authorities and document the gap in `NOTES.md`.
+    - [x] Update this task with a checklist of the missing IDs so fixture work can be distributed if needed.
+      - [x] `stat_tax_code_2606a` – Tex. Tax Code Ann. § 26.06(a) (Ch. 10, pp. 44–45)
+      - [x] `stat_govt_code_3110211` – Tex. Gov’t Code Ann. § 311.021(1) (Ch. 10, p. 48)
+      - [x] `rule_trcp_21` – Tex. R. Civ. P. 21 (Ch. 13, p. 62)
+      - [x] `rule_trcp_97d` – Tex. R. Civ. P. 97(d) (Ch. 13, p. 64)
+      - [x] `tac_rule_9_12` – 4 Tex. Admin. Code § 9.12 (Tex. Dep’t of Agric., Seed Sampling Procedures) (Ch. 16, p. 78)
+      - [x] `tac_rule_25_101` – 16 Tex. Admin. Code § 25.101 (Tex. Comm’n on Env’t Quality) (Ch. 16, p. 81)
+      - [x] `tac_rule_3_5` – 1 Tex. Admin. Code § 3.5 (Tex. Ethics Comm’n) (Ch. 16, p. 82)
+      - [x] `tex_register_39_tex_reg_573` – 39 Tex. Reg. 573, 574 (2014) (Ch. 16, p. 83)
+  - [x] Reintroduce the absent authorities to `tests_toa.json`, mirroring the naming and field structure used by the surviving entries.
+    - [x] Draft JSON objects for the Government Code, procedural rule, supplementary rule, and administrative statute authorities with accurate `type`, `container-title`, `authority`, and `issued` metadata.
+    - [x] Validate the edited JSON with `python temp/run_tests.py --tests temp/tests_toa.json --list-tests` after each addition to guard against syntax regressions.
+    - [x] Annotate each new object with inline comments or `NOTES.md` references citing the Greenbook pages that justify the authority selection.
+  - [x] Regenerate the TOA expectations once the dataset is complete to restore dotted-leader ordering and spacing.
+    - [x] Run `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --write-expected temp/expected_toa_grouped_leaders.txt --mode bibliography` and repeat for the other TOA variants.
+    - [x] Inspect the regenerated files for alignment with the 2025-05-06 baseline, paying close attention to leader characters and grouped headings.
+    - [x] Capture before/after diffs and archive the regeneration commands in `temp/test-logs/` for traceability.
+  - [x] Refresh documentation to reflect the restored inventory and prevent the regression from reoccurring.
+    - [x] Summarize the fixture restoration in `temp/NOTES.md`, including the command outputs and Greenbook citations.
+    - [x] Update `temp/README.md` test instructions if additional flags or dataset notes emerge during regeneration. (No changes required—existing guidance already documents the `--write-expected` flag and TOA invocation.)
+    - [x] Flag any external documentation (e.g., PR draft, release checklist) that references the TOA suite so reviewers know the expectations were rebuilt.
   - [ ] Review existing macros handling parentheticals to identify duplicated logic between case notes and TOA outputs.
     - [x] Trace all macro invocations that append parenthetical content using CSL search tools.
       - [x] Search for keywords like “parenthetical” or specific strings (e.g., “slip op.”) within the CSL files using `rg`.

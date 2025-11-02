@@ -25,14 +25,14 @@ Tex. Gov’t Code Ann. § 2001.003(6). // Greenbook 15th ed. 2
 Id. § 2001.003(7). // Greenbook 15th ed. 4
 Tex. Penal Code § 29.02. // Greenbook 15th ed. 46
 Tex. Rev. Civ. Stat. Ann. art. 5415e-4, § 2(a). // Greenbook 15th ed. 47
-Tex. Rev. Civ. Stat. Ann. art. 5415e-4, § 2(a). // Greenbook 15th ed. 47 (short-form Id. guard)
+Tex. Rev. Civ. Stat. Ann. art. 5415e-4, § 2(b). // Greenbook 15th ed. 47 (short-form Id. guard)
 Tex. Tax Code Ann. § 26.06(a). // Greenbook 15th ed. 44
-Tex. Tax Code Ann. § 26.06(a). // Greenbook 15th ed. 44
+Tex. Tax Code Ann. § 26.06(b). // Greenbook 15th ed. 44
 Tex. Tax Code Ann.. // Greenbook 15th ed. 44
 Tex. Gov’t Code Ann. § 2001.021. // Greenbook 15th ed. 44
-Tex. Gov’t Code Ann. § 2001.021. // Greenbook 15th ed. 44
+Tex. Gov’t Code Ann. § 2001.022. // Greenbook 15th ed. 44
 Tex. Gov’t Code Ann. § 2001.031. // Greenbook 15th ed. 44
-Tex. Gov’t Code Ann. § 2001.021. // Greenbook 15th ed. 44
+Tex. Gov’t Code Ann. § 2001.025. // Greenbook 15th ed. 44
 Tex. Const. art. V, § 6. // Greenbook 15th ed. 39
 Tex. Const. art. XVI, § 70 (expired Sept. 1, 2008). // Greenbook 15th ed. 39
 4 Tex. Admin. Code § 9.12 (2013) (Tex. Dep’t of Agric., Seed Sampling Procedures). // Greenbook 15th ed. 2
@@ -54,8 +54,8 @@ Tex. Att’y Gen. Op. No. GA-0002 (2002). // Greenbook 15th ed. 73
 Tex. Att’y Gen. LO-96-045 (1996). // Greenbook 15th ed. 75
 Hous., Tex., Code of Ordinances ch. 20, art. IV, § 20-216 (1968). // Greenbook 15th ed. 52
 Austin, Tex., City Code ch. 12-1, § 12-4-11 (2022). // Greenbook 15th ed. 52
-Tex. Tax Code Ann. § 26.06(a). // Greenbook 15th ed. 44
-Tex. R. Jud. Admin. 5. // Greenbook 15th ed. 63
+Tex. Tax Code Ann. § 26.06(c). // Greenbook 15th ed. 44
+Tex. R. Jud. Admin. 7. // Greenbook 15th ed. 63
 16 Tex. Admin. Code § 25.101 (2022) (Tex. Comm’n on Env’t Quality, Emission Standards Division). // Greenbook 15th ed. 77
 William V. Dorsaneo and Brandon R. Orr, 1 Texas Litigation Guide § 5.2 (5th ed.; Matthew Bender & Co., New York; 2024) (surveying evidentiary burdens). // Greenbook 15th ed. 2
 Robert W. Calvert, The Application for Writ of Error § 469 (1st ed.; West, St. Paul; 1985) (commentary on procedural requirements). // Greenbook 15th ed. 62

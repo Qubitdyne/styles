@@ -409,12 +409,15 @@
           <group delimiter=" ">
             <text variable="chapter-number"/>
             <choose>
-              <if type="regulation">
+              <if variable="locator">
+                <text macro="tex-labeled-locator"/>
+              </if>
+              <else-if type="regulation">
                 <group delimiter=" ">
                   <text term="section" form="symbol"/>
                   <text variable="section"/>
                 </group>
-              </if>
+              </else-if>
               <else>
                 <text variable="section"/>
               </else>
@@ -422,13 +425,77 @@
           </group>
         </if>
         <else-if variable="genre" match="any">
-          <text variable="section"/>
+          <choose>
+            <if variable="locator">
+              <text variable="locator"/>
+            </if>
+            <else>
+              <text variable="section"/>
+            </else>
+          </choose>
         </else-if>
         <else>
+          <choose>
+            <if variable="locator">
+              <text macro="tex-labeled-locator"/>
+            </if>
+            <else>
+              <group delimiter=" ">
+                <label variable="section" form="symbol"/>
+                <text variable="section"/>
+              </group>
+            </else>
+          </choose>
+        </else>
+      </choose>
+    </group>
+  </macro>
+
+  <macro name="tex-code-section-short">
+    <group delimiter=" ">
+      <text variable="container-title"/>
+      <choose>
+        <if variable="chapter-number">
           <group delimiter=" ">
-            <label variable="section" form="symbol"/>
-            <text variable="section"/>
+            <text variable="chapter-number"/>
+            <choose>
+              <if variable="locator">
+                <text macro="tex-labeled-locator"/>
+              </if>
+              <else-if type="regulation">
+                <group delimiter=" ">
+                  <text term="section" form="symbol"/>
+                  <text variable="section"/>
+                </group>
+              </else-if>
+              <else>
+                <text variable="section"/>
+              </else>
+            </choose>
           </group>
+        </if>
+        <else-if variable="genre" match="any">
+          <choose>
+            <if variable="locator">
+              <text variable="locator"/>
+            </if>
+            <else>
+              <text variable="section"/>
+            </else>
+          </choose>
+        </else-if>
+        <else>
+          <choose>
+            <if variable="locator">
+              <text macro="tex-labeled-locator"/>
+            </if>
+            <else>
+              <group delimiter=" ">
+                <label variable="section" form="symbol"/>
+                <text variable="section"/>
+              </group>
+            </else>
+          </choose>
         </else>
       </choose>
     </group>
@@ -447,13 +514,13 @@
         <group delimiter=" ">
           <text macro="cross-reference-cue"/>
           <group delimiter=", ">
-            <text macro="tex-code-section"/>
+            <text macro="tex-code-section-short"/>
             <text variable="references"/>
           </group>
         </group>
       </if>
       <else>
-        <text macro="tex-code-section"/>
+        <text macro="tex-code-section-short"/>
       </else>
     </choose>
   </macro>
@@ -467,13 +534,13 @@
         <group delimiter=" ">
           <text macro="cross-reference-cue"/>
           <group delimiter=", ">
-            <text macro="tex-code-section"/>
+            <text macro="tex-code-section-short"/>
             <text variable="references"/>
           </group>
         </group>
       </if>
       <else>
-        <text macro="tex-code-section"/>
+        <text macro="tex-code-section-short"/>
       </else>
     </choose>
   </macro>
