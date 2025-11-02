@@ -358,17 +358,17 @@ ion of the conflicting behavior.
     - [x] Record any follow-up tasks or monitoring requirements tied to the decision.
     - [x] Link to relevant commits, fixture diffs, or script changes so auditors can trace the implementation.
     - [x] Update `TODO.md` statuses accordingly once the warnings are addressed.
-- [ ] **Extend warning suppression for citeproc `related` metadata.** Restore quiet regression logs by broadening the harness filter to cover the newly surfaced `related` warning and verifying no other arguments regressed.
-  - [ ] Capture fresh baseline output from the note, parenthetical (note/bibliography), and TOA suites highlighting the `related` warning so future work has reproducible context (`python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt`, etc.).
-  - [ ] Update `warnings.filterwarnings` in `temp/run_tests.py` (or equivalent guard) to match the expanded argument list, ensuring the regex still covers existing fields like `comment` and `label`.
-  - [ ] Rerun the three suites to confirm the warning no longer appears and that the filter does not hide unrelated errors; archive the before/after outputs in `temp/test-logs/` for traceability.
-  - [ ] Note the change in `temp/NOTES.md` with command references and add a reminder to revisit suppression whenever citeproc-py is upgraded.
-- [ ] **Realign README test guidance with current warning behavior.** Once suppression is fixed, revise the documentation to reflect the new coverage so contributors know what to expect from the harness output.
-  - [ ] Draft updated language in `temp/README.md` describing the warning filter scope (including `related`) and clarify how to restore warnings via `PYTHONWARNINGS` when needed.
-  - [ ] Verify other README sections referencing quiet logs or warning suppression remain accurate after the wording change.
-  - [ ] Coordinate the documentation edit with the suppression patch so both land in the same commit/PR for reviewer clarity.
-  - [ ] Capture the update in `temp/PR_DRAFT.md` under testing notes to flag reviewers about the refined warning handling.
-- [ ] **Restore TOA fixture ordering.** Realign `tests_toa.json` with all `expected_toa*.txt` variants so grouped-leader runs render the full 17-authority inventory captured in the historical baselines.
+- [x] **Extend warning suppression for citeproc `related` metadata.** Restore quiet regression logs by broadening the harness filter to cover the newly surfaced `related` warning and verifying no other arguments regressed.
+  - [x] Capture fresh baseline output from the note, parenthetical (note/bibliography), and TOA suites highlighting the `related` warning so future work has reproducible context (`python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt`, etc.).
+  - [x] Update `warnings.filterwarnings` in `temp/run_tests.py` (or equivalent guard) to match the expanded argument list, ensuring the regex still covers existing fields like `comment` and `label`.
+  - [x] Rerun the three suites to confirm the warning no longer appears and that the filter does not hide unrelated errors; archive the before/after outputs in `temp/test-logs/` for traceability.
+  - [x] Note the change in `temp/NOTES.md` with command references and add a reminder to revisit suppression whenever citeproc-py is upgraded.
+- [x] **Realign README test guidance with current warning behavior.** Once suppression is fixed, revise the documentation to reflect the new coverage so contributors know what to expect from the harness output.
+  - [x] Draft updated language in `temp/README.md` describing the warning filter scope (including `related`) and clarify how to restore warnings via `PYTHONWARNINGS` when needed.
+  - [x] Verify other README sections referencing quiet logs or warning suppression remain accurate after the wording change.
+  - [x] Coordinate the documentation edit with the suppression patch so both land in the same commit/PR for reviewer clarity.
+  - [x] Capture the update in `temp/PR_DRAFT.md` under testing notes to flag reviewers about the refined warning handling.
+- [x] **Restore TOA fixture ordering.** Realign `tests_toa.json` with all `expected_toa*.txt` variants so grouped-leader runs render the full 17-authority inventory captured in the historical baselines.
   - [x] Capture a fresh grouped-leaders run that highlights the truncated 13-entry output and annotate which authorities disappeared (`Tex. Gov’t Code Ann. § 311.021(1)`, `Tex. R. Civ. P. 21`, etc.).
     - [x] Execute `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt --mode bibliography` and save the diff log under `temp/test-logs/` with a timestamped filename.
     - [x] Compare the new log against `temp/test-logs/20250506_toa_grouped_leaders.txt` to confirm the four missing authorities and document the gap in `NOTES.md`.
