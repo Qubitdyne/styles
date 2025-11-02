@@ -19,6 +19,58 @@ This document summarizes the scope, capabilities, and maintenance guidance for t
 | `tests_parentheticals.json`, `expected_parentheticals_notes.txt`, `expected_parentheticals_bibliography.txt` | Focused fixtures validating slip-opinion URLs and mandamus history ordering in both note and bibliography contexts. |
 | `NOTES.md`, `TODO.md` | Research trail, design decisions, and prioritized implementation backlog. |
 
+### Detailed Temp Directory Inventory (2025-12-20 audit)
+
+| Path | Category | Notes |
+| --- | --- | --- |
+| `AGENTS.md` | Process guardrails | Scope-specific working rules for contributors in `temp/`. |
+| `CSL 1.0.2 Specification — Citation Style Language 1.0.1-dev documentation.html` | Reference | Offline HTML copy of the CSL specification used for schema lookups. |
+| `Greenbook_15thEdition.pdf` | Reference | Authoritative source text for the Texas Greenbook implementation. |
+| `How-Court-Rules-Are-Made.pdf` | Reference | Supplemental rulemaking background cited in NOTES research. |
+| `NOTES.md` | Documentation | Comprehensive research log, decision register, and open questions. |
+| `PR_DRAFT.md` | Documentation | Running draft of the upstream submission narrative and test summary. |
+| `README.md` | Documentation | Working overview and onboarding instructions for the Texas Greenbook CSL. |
+| `TODO.md` | Planning | Hierarchical backlog with completion history and outstanding action items. |
+| `Uniform-Format-Manual-07012010.pdf` | Reference | Comparative citation manual used for cross-checking terminology. |
+| `actual_toa.txt` | Fixture output | Historical TOA render captured prior to grouped/leader refinements. |
+| `appendix_b_toa.txt` | Research artifact | Direct transcription of Appendix B TOA examples for comparison. |
+| `archive/` | History | Contains superseded CSL drafts (`draft0`–`draft3`) and related snapshots. |
+| `authority-note-matrix.md` | Documentation | Matrix mapping authority classes to note/bibliography expectations. |
+| `ch16.txt` | Research artifact | Extracted Chapter 16 reference text highlighting web citation nuances. |
+| `expected.txt` | Fixture output | Baseline expectations for `tests.json` note renderings. |
+| `expected_locator_symbol.txt` | Fixture output | Diagnostic expectations for locator symbol regression tests. |
+| `expected_parentheticals_bibliography.txt` | Fixture output | Bibliography expectations for the parenthetical micro-suite. |
+| `expected_parentheticals_notes.txt` | Fixture output | Note expectations for the parenthetical micro-suite. |
+| `expected_secondary.txt` | Fixture output | Regression baseline for secondary authority outputs. |
+| `expected_short-form_smoke.txt` | Fixture output | Compact expectation set covering short-form cases and statutes. |
+| `expected_toa.txt` | Fixture output | Ungrouped TOA baseline expectations. |
+| `expected_toa_by-reporter.txt` | Fixture output | Reporter-grouped TOA expectations used for Appendix B compliance. |
+| `expected_toa_grouped.txt` | Fixture output | Category-grouped TOA expectations without dotted leaders. |
+| `expected_toa_grouped_leaders.txt` | Fixture output | Grouped TOA expectations with dotted leaders enabled. |
+| `expected_toa_leaders.txt` | Fixture output | Ungrouped TOA expectations with dotted leaders. |
+| `locales/` | Locale assets | Contains `locales-en-US-x-texas-greenbook.xml` and related metadata for shared terms. |
+| `prototypes/` | Sandbox | Experimental CSL and JSON prototypes for publication/status helper development. |
+| `reports/` | Analysis | Command outputs, scans, and CSV inventories created during research spikes. |
+| `requirements.txt` | Tooling | Minimal dependency pin set (currently citeproc-py) for regression runs. |
+| `run_tests.py` | Tooling | Custom regression harness with mode inference and warning suppression. |
+| `technology-standards.pdf` | Reference | Supplemental standards manual referenced for administrative citation context. |
+| `test-logs/` | Verification logs | Timestamped citeproc outputs documenting regression runs and diagnostics. |
+| `tests.json` | Fixture input | Primary citeproc dataset covering cases, statutes, and secondary sources. |
+| `tests_locator_symbol.json` | Fixture input | Focused dataset exercising locator symbol fallbacks. |
+| `tests_parentheticals.json` | Fixture input | Parenthetical-focused dataset for slip opinions and mandamus history. |
+| `tests_short-form_smoke.json` | Fixture input | Abbreviated dataset validating short-form regression coverage. |
+| `tests_toa.json` | Fixture input | Comprehensive TOA dataset for grouped/grouped-leader/by-reporter styles. |
+| `texas-court-rules-history-process.html` | Reference | HTML resource on Texas court rulemaking history. |
+| `texas-greenbook-15th-edition.csl` | CSL style | Primary note/bibliography CSL implementation for the Greenbook. |
+| `texas-greenbook-15th-toa-by-reporter.csl` | CSL style | TOA variant grouped by reporter abbreviations. |
+| `texas-greenbook-15th-toa-grouped-leaders.csl` | CSL style | TOA variant with category headings and dotted leaders. |
+| `texas-greenbook-15th-toa-grouped.csl` | CSL style | TOA variant with category headings and no leaders. |
+| `texas-greenbook-15th-toa-leaders.csl` | CSL style | TOA variant without grouping but with dotted leaders. |
+| `texas-greenbook-15th-toa.csl` | CSL style | Base TOA style aligned with the primary note macros. |
+| `texas-rules-of-appellate-procedure.pdf` | Reference | Rule text for appellate procedure citations. |
+| `texas-rules-of-civil-procedure-august-31-2025.pdf` | Reference | Latest civil procedure rule set for abbreviation checks. |
+| `texas-rules-of-evidence-effective-912025.pdf` | Reference | Evidence rules consulted for citation requirements. |
+
 ## Supported Citation Types
 
 | Authority Class | Implemented Features | Greenbook Reference |
