@@ -4,6 +4,7 @@ import json
 import sys
 import warnings
 from copy import deepcopy
+from typing import Any, Mapping
 
 
 def _ensure_citeproc_available() -> None:
@@ -24,6 +25,11 @@ _ensure_citeproc_available()
 warnings.filterwarnings(
     "ignore",
     message=r"The following arguments for Reference are unsupported: (?:comment|label|reviewed_title)",
+    category=UserWarning,
+)
+warnings.filterwarnings(
+    "ignore",
+    message=r"The following arguments for CitationItem are unsupported: note",
     category=UserWarning,
 )
 
@@ -76,12 +82,46 @@ items_for_source = []
 items_by_id = {}
 notes = []
 
+
+def _should_auto_see_also(metadata: Mapping[str, Any]) -> bool:
+    """Return True when the item merits an automatic “See also” cue."""
+
+    item_type = metadata.get("type")
+    if item_type not in {"legal_case", "legislation", "regulation"}:
+        return False
+
+    # Respect explicit cue metadata already provided in the item record.
+    if metadata.get("note") or metadata.get("annote"):
+        return False
+
+    jurisdiction = metadata.get("jurisdiction")
+    if isinstance(jurisdiction, str) and jurisdiction.lower().startswith("us:tx"):
+        return False
+    if isinstance(jurisdiction, str):
+        return True
+
+    def _has_texas_marker(value: Any) -> bool:
+        return isinstance(value, str) and "tex" in value.lower()
+
+    authority = metadata.get("authority")
+    if _has_texas_marker(authority):
+        return False
+
+    container_title = metadata.get("container-title")
+    if _has_texas_marker(container_title):
+        return False
+
+    return isinstance(authority, str) or isinstance(container_title, str)
+
 for entry in test_items:
     if "id" in entry:
         entry_copy = deepcopy(entry)
         suffix = entry_copy.pop("_citation_suffix", None)
         locator = entry_copy.get("locator")
         label = entry_copy.get("label")
+
+        if _should_auto_see_also(entry_copy) and "note" not in entry_copy:
+            entry_copy["note"] = "See also"
 
         items_for_source.append(entry_copy)
         items_by_id[entry_copy["id"]] = entry_copy
@@ -107,6 +147,10 @@ for entry in test_items:
             citation_kwargs["locator"] = Locator(label or "page", locator)
         if suffix:
             citation_kwargs["suffix"] = suffix
+
+        metadata = items_by_id[cite_id]
+        if _should_auto_see_also(metadata):
+            citation_kwargs["note"] = "See also"
 
         notes.append(Citation([CitationItem(cite_id, **citation_kwargs)]))
     else:

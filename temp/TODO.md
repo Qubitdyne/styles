@@ -279,9 +279,9 @@ ion of the conflicting behavior.
       - [x] Stage fixture and documentation files together to maintain traceability between code and notes.
       - [x] Compose commit messages referencing the specific authorities or macros updated.
       - [x] Verify that no extraneous files are staged prior to committing.
-    - [ ] Restore the non-Texas “See also” cue once a jurisdiction-aware preprocessing hook is available.
-      - [ ] Prototype a filter that injects `note` metadata enabling the `cross-reference-cue` macro to distinguish out-of-state authorities (see `NOTES.md` “Short-form fixture verification (2025-12-09)” log).
-      - [ ] Update `expected.txt` line 74 and associated tests after the cue is reinstated, documenting the change and rerunning the localized citeproc suite.
+    - [x] Restore the non-Texas “See also” cue once a jurisdiction-aware preprocessing hook is available.
+      - [x] Prototype a filter that injects `note` metadata enabling the `cross-reference-cue` macro to distinguish out-of-state authorities (see `NOTES.md` “Short-form fixture verification (2025-12-09)” log).
+      - [x] Update `expected.txt` line 74 and associated tests after the cue is reinstated, documenting the change and rerunning the localized citeproc suite.
 - [ ] **Finish explanatory parentheticals.** Add shared helpers for slip-opinion pinpoints, procedural parentheticals, and docket metadata so case and mandamus citations emit relief/status consistently before promoting the next edition revision.
     - [x] Compile the list of required explanatory parentheticals (slip opinion, procedural posture, relief granted, docket disposition) with page references from Chapters 2, 4, and 6 in `NOTES.md`.
       - [x] Read the specified chapters sequentially and bookmark sections discussing explanatory parentheticals.
@@ -518,21 +518,21 @@ ion of the conflicting behavior.
       - [x] Determine whether existing terms can be reused via `<term form="short">` or similar constructs.
       - [x] Update `NOTES.md` with decisions on reuse vs. new definitions.
       - [x] Plan follow-up actions if upstream locale contributions are necessary.
-    - [ ] Draft shared helper macros (e.g., `publication-parenthetical`, `session-law-metadata`, `administrative-status`) with parameters for date/session ranges and adoption/recodification notes.
-      - [ ] Outline the data inputs required for each helper, referencing the metadata table built earlier.
-      - [ ] Determine default behaviors when optional data is missing.
-      - [ ] Validate that helper outputs can integrate seamlessly with existing citation macros.
-      - [ ] Document design rationales, including trade-offs between flexibility and complexity.
-    - [ ] Define macro signatures and document expected input variables in `NOTES.md` prior to coding.
-      - [ ] Include example invocations demonstrating typical usage patterns.
-      - [ ] Confirm compatibility with CSL processor expectations for parameter passing.
-      - [ ] Note dependencies on upstream macros or locales.
+    - [x] Draft shared helper macros (e.g., `publication-parenthetical`, `session-law-metadata`, `administrative-status`) with parameters for date/session ranges and adoption/recodification notes.
+      - [x] Outline the data inputs required for each helper, referencing the metadata table built earlier.
+      - [x] Determine default behaviors when optional data is missing.
+      - [x] Validate that helper outputs can integrate seamlessly with existing citation macros.
+      - [x] Document design rationales, including trade-offs between flexibility and complexity.
+    - [x] Define macro signatures and document expected input variables in `NOTES.md` prior to coding.
+      - [x] Include example invocations demonstrating typical usage patterns.
+      - [x] Confirm compatibility with CSL processor expectations for parameter passing.
+      - [x] Note dependencies on upstream macros or locales.
       - [ ] Gather feedback from maintainers before finalizing signatures.
-    - [ ] Prototype helper logic in isolated CSL snippets to confirm feasibility of parameter passing.
-      - [ ] Use a sandbox CSL file to experiment with `choose` and `if` structures representing helper logic.
-      - [ ] Run citeproc on the prototypes with sample JSON data to validate output.
-      - [ ] Iterate on the prototypes until they handle all targeted cases.
-      - [ ] Archive successful prototypes in `temp/prototypes/` for future reference.
+    - [x] Prototype helper logic in isolated CSL snippets to confirm feasibility of parameter passing.
+      - [x] Use a sandbox CSL file to experiment with `choose` and `if` structures representing helper logic.
+      - [x] Run citeproc on the prototypes with sample JSON data to validate output.
+      - [x] Iterate on the prototypes until they handle all targeted cases.
+      - [x] Archive successful prototypes in `temp/prototypes/` for future reference.
     - [ ] Ensure helpers gracefully handle missing data using CSL conditional structures.
       - [ ] Test helper prototypes with intentionally incomplete metadata to confirm fallback behavior.
       - [ ] Document how each helper signals omitted information (e.g., blank output vs. placeholder text).

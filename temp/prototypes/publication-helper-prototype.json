@@ -1,0 +1,78 @@
+[
+  {
+    "id": "tex_statute_supplement",
+    "type": "legislation",
+    "container-title": "Tex. Tax Code Ann.",
+    "section": "26.06(a)",
+    "collection-number": "tit. 2",
+    "publisher": "West",
+    "issued": {
+      "date-parts": [
+        [
+          2023
+        ]
+      ]
+    },
+    "note": "Supp. 2024"
+  },
+  {
+    "id": "tex_statute_no_publisher",
+    "type": "legislation",
+    "container-title": "Tex. Penal Code",
+    "section": "29.02"
+  },
+  {
+    "id": "session_law_modern",
+    "type": "legislation",
+    "title": "Act of May 27, 2005",
+    "collection-number": "79th Leg., R.S.",
+    "number": "484",
+    "section": "sec. 153.433",
+    "volume": "2005",
+    "container-title": "Tex. Gen. Laws",
+    "page": "1345",
+    "references": "amended by Act of June 1, 2011"
+  },
+  {
+    "id": "session_law_historical",
+    "type": "legislation",
+    "title": "Act approved Mar. 8, 1871",
+    "collection-number": "12th Leg., R.S.",
+    "number": "16",
+    "section": "§ 2",
+    "volume": "1871",
+    "container-title": "Tex. Gen. Laws",
+    "page": "11",
+    "locator": "913",
+    "references": "reprinted in 6 H.P.N. Gammel, The Laws of Texas 1822–1897, at 913 (Austin, Gammel Book Co. 1898)"
+  },
+  {
+    "id": "tac_rule_status",
+    "type": "regulation",
+    "title": "16 Tex. Admin. Code § 25.101",
+    "authority": "Tex. Comm’n on Env’t Quality",
+    "section": "25.101",
+    "volume": "48",
+    "container-title": "Tex. Reg.",
+    "page": "1123",
+    "issued": {
+      "date-parts": [
+        [
+          2024
+        ]
+      ]
+    },
+    "status": "adopted",
+    "note": "effective Jan. 1, 2024"
+  },
+  {
+    "id": "tac_notice_minimal",
+    "type": "regulation",
+    "title": "4 Tex. Admin. Code § 9.12",
+    "authority": "Tex. Dep’t of Agric.",
+    "section": "9.12",
+    "volume": "39",
+    "container-title": "Tex. Reg.",
+    "page": "573"
+  }
+]
