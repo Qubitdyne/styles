@@ -589,9 +589,10 @@ ion of the conflicting behavior.
 ### Testing & Coverage
 - [ ] **Expand Table of Authorities fixtures.** Introduce federal authorities and additional jurisdictional groupings to `tests_toa.json` and `expected_toa_*.txt` once the macro support exists.
   - [x] Map the federal authority categories and grouping labels required by Appendix B, citing page numbers in `NOTES.md` for traceability.
-    - [ ] Extract Appendix B tables outlining category names and ordering requirements.
-    - [ ] Translate grouping labels into CSL term equivalents or new locale entries if necessary.
-    - [ ] Identify dependencies on jurisdiction metadata fields to support grouping logic.
+  - [x] Extract Appendix B tables outlining category names and ordering requirements.
+  - [x] Translate grouping labels into CSL term equivalents or new locale entries if necessary.
+  - [x] Identify dependencies on jurisdiction metadata fields to support grouping logic.
+  - [ ] OCR Appendix B Table of Authorities pages to capture searchable text for future citation cross-references.
     - [ ] Document any unresolved mapping issues for follow-up research.
   - [x] Determine the minimal set of sample citations (cases, statutes, administrative materials) needed to exercise each new grouping and leader combination.
     - [ ] List representative authorities for each category, ensuring coverage of unique edge cases (e.g., consolidated cases).

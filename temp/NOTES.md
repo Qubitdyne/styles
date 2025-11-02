@@ -1234,6 +1234,34 @@ Authority-Specific Supporting Macros
 | `toa_regulation_cfr` | `regulation` | Code of Federal Regulations | `volume="17"`, `container-title="C.F.R."`, `section`, `issued`, `authority` naming agency | ✅ Added 2025-12-09. |
 | Future federal register entry | `regulation` | Federal Register | `container-title="Fed. Reg."`, `note` for codification path | ☐ Open follow-up; add alongside expectation refresh (tracked in TODO §Expand TOA fixtures). |
 
+#### Heading order capture (Task 592)
+*Texas block.* Appendix B prints the Texas authorities in this order: (1) Supreme Court of Texas cases, (2) Court of Criminal Appeals cases, (3) Courts of appeals cases (including memorandum opinions), (4) Commission of Appeals reports, (5) trial-level and original-proceeding orders, (6) Texas Constitution provisions, (7) codified statutes and interpretive provisions, (8) Texas Administrative Code rules and Texas Register entries, (9) court rules (TRCP, TRAP, TRJA, TRE), (10) session laws, (11) Attorney General opinions, (12) municipal ordinances and charters, and (13) secondary authorities.【F:temp/Greenbook_15thEdition.pdf†L612-L676】 The grouped TOA variants already follow the same macro sequence (cases → constitution → statutes → TAC → rules → session laws → AG opinions → municipal → secondary); the page review confirms the subdivisions expected within the leading “Cases” section.
+*Federal block.* The federal pages mirror that structure with headings for (1) United States Supreme Court cases, (2) federal courts of appeals, (3) federal district courts and specialized tribunals, (4) United States Constitution provisions, (5) United States Code titles, (6) Federal Rules of Procedure/Evidence, (7) Code of Federal Regulations titles, and (8) Federal Register notices with codification notes.【F:temp/Greenbook_15thEdition.pdf†L612-L676】 Maintaining the printed order ensures mixed-jurisdiction tables place Texas authorities first while still honoring Appendix B’s directive to list federal materials immediately after the state blocks.
+
+#### Grouping label mapping (Task 593)
+| Appendix B heading | CSL output plan | Notes |
+| --- | --- | --- |
+| “Supreme Court of Texas Cases” | Literal `<text value="Supreme Court of Texas"/>` + inherited “Cases” label | Emit once per group; existing locale terms cover downstream citations so no new term is required.【F:temp/Greenbook_15thEdition.pdf†L612-L676】 |
+| “Court of Criminal Appeals Cases” | Literal heading; retain existing `authority="Tex. Crim. App."` values for child entries | Add as reusable constant so grouped and leader variants stay synchronized.【F:temp/Greenbook_15thEdition.pdf†L612-L676】 |
+| “Courts of Appeals Cases” | Literal heading paired with automatic sub-sorting by `authority` (`Tex. App.—Houston [1st Dist.]`, etc.) | Consider locale term if future locales share the label. |
+| “Commission of Appeals Cases” | Literal heading | Needed for historical citations captured in Appendix B (pp. 239–240). |
+| “Trial Courts and Original Proceedings” | Literal heading | Covers district court orders and mandamus proceedings. |
+| “Texas Constitution” | Reuse existing `<text value="Constitution"/>` heading; rely on `chapter-number` for articles | Aligns with current macro summary (constitution follows cases). |
+| “Texas Statutes” | Literal heading; macro already emits `Tex. [Code] Ann.` entries | No locale change required. |
+| “Texas Administrative Code” / “Texas Register” | Literal headings; share label via locale term `tex-tac-heading` if duplication becomes problematic | Keeps agency materials grouped ahead of court rules. |
+| “Texas Rules” | Literal heading; reuse across TRCP, TRAP, TRJA, TRE | Potential candidate for locale entry when shared locale work lands. |
+| “Session Laws” | Literal heading | Already referenced in grouped style summary. |
+| “Attorney General Opinions” | Literal heading | Aligns with existing macro names (`ag-opinion`). |
+| “Municipal Ordinances” | Literal heading | Encompasses city code citations. |
+| “Secondary Authorities” | Literal heading | Matches existing table rows for treatises. |
+| Federal headings (“United States Supreme Court,” “Federal Courts of Appeals,” etc.) | Literal headings inserted before each federal block | Mirror Appendix B wording verbatim so future fixtures align with the printed table.【F:temp/Greenbook_15thEdition.pdf†L612-L676】 |
+
+#### Metadata dependencies for grouping (Task 594)
+- **Case differentiation.** Use the `authority` field to separate Supreme Court (`Tex.`), Court of Criminal Appeals (`Tex. Crim. App.`), courts of appeals (`Tex. App.—…`), district courts, and federal tribunals (`U.S.`, `5th Cir.`, `S.D. Tex.`). `collection-number` and `number` provide docket context for Westlaw-only decisions, which keeps grouped leaders aligned with Appendix B examples.【F:temp/tests_toa.json†L1-L128】 
+- **Constitution and statutes.** `chapter-number` distinguishes constitutions from statutes, while `container-title` identifies the relevant code title (e.g., `Tex. Tax Code Ann.`, `28 U.S.C.`). Supplement information belongs in `note` to support headings that expect publication parentheticals.【F:temp/tests_toa.json†L129-L166】 
+- **Rules and administrative materials.** `genre="court rule"` routes Texas and federal procedural rules into the shared rule heading, and `volume` + `container-title` separate Texas Administrative Code titles from Code of Federal Regulations entries. Register notices rely on `page` and `note` metadata to display codification paths.【F:temp/tests_toa.json†L167-L263】 
+- **Other authorities.** Session laws require `title`, `collection-number`, and `number` to preserve the legislative act caption, while Attorney General opinions and municipal ordinances draw on `authority`, `number`, and `chapter-number` to populate their respective headings. Secondary authorities continue to use standard book metadata plus the `label`/`locator` pair for sections.【F:temp/tests_toa.json†L264-L325】 
+
 - *Next steps.* Regenerate `expected_toa*.txt` after validating grouped-heading output so the new fixtures populate Appendix B’s federal sections. The regeneration remains deferred to the `Expand Table of Authorities fixtures` task family (TODO §606).
 
 #### Chapter 16 Format Guide transcription (2025-11-04)
