@@ -50,7 +50,7 @@ ires checking off every indented child.
 
 ## Active Development
 ### Citation Logic Gaps
-- [ ] **Complete statute and rule short-form logic.** Implement cross-reference and `Id.` handling for statutes, rules, and administrative materials, then update `expected.txt` fixtures. (See `README.md` Known Limitations and `NOTES.md` helper sketches.)
+- [x] **Complete statute and rule short-form logic.** Implement cross-reference and `Id.` handling for statutes, rules, and administrative materials, then update `expected.txt` fixtures. (See `README.md` Known Limitations and `NOTES.md` helper sketches.)
   - [x] Audit the existing statute, rule, and administrative `*_short` macros in `texas-greenbook-15th-edition.csl` to catalog current branching and pinpoint missing reuse hooks documented in `NOTES.md`.
     - [x] Locate all `*_short` macros in both the primary style and TOA variants using the CSL editor or `rg` searches.
       - [x] Run `rg "_short" temp -n` to generate an initial list of macro definitions and invocations. (Confirmed command currently only surfaces backlog references because implemented macros are hyphenated; noted follow-up in `NOTES.md`.)
@@ -637,7 +637,7 @@ ion of the conflicting behavior.
   - [x] Confirm which locale term (`rule` long vs. short form) citeproc expects when rendering rule locators and document the finding in `NOTES.md` with reproduction steps.
   - [x] Implement the required locale/style adjustment (e.g., add the missing term or adjust locator handling) and add targeted fixtures to prevent regression.
   - [x] Re-run the full note suite and archive the updated log under `temp/test-logs/` alongside a TODO/README update referencing the fix.
-- [ ] **Broaden web citation verification.** Confirm punctuation and quotation usage for Chapter 16 web examples after OCR cleanup and add targeted fixture cases.
+- [x] **Broaden web citation verification.** Confirm punctuation and quotation usage for Chapter 16 web examples after OCR cleanup and add targeted fixture cases.
   - [x] Complete OCR cleanup for the Chapter 16 examples in the Greenbook PDF and extract verbatim sample citations into `NOTES.md` with page references.
     - [x] Run OCR tools (e.g., `ocrmypdf`) on the relevant PDF pages if not already processed.
     - [x] Manually proofread OCR output to correct typographical errors.
@@ -648,7 +648,7 @@ ion of the conflicting behavior.
     - [x] Perform side-by-side comparisons between citeproc output and extracted examples for each scenario.
     - [x] Catalog discrepancies by type (quotation marks, italics, commas) for targeted fixes.
     - [x] Prioritize discrepancies affecting authoritative compliance before cosmetic issues.
-  - [ ] Implement web citation punctuation adjustments in CSL macros and locale terms.
+  - [x] Implement web citation punctuation adjustments in CSL macros and locale terms.
     - [x] Draft a change plan noting which macros (`web`, `web-short`, access-date helpers) need updates and the expected output transformations.
       - [x] Inventory the specific punctuation issues identified during analysis and map them to the macros responsible.
       - [x] Outline proposed modifications (e.g., new `if` conditions, locale term updates) in a short design note stored in `NOTES.md`.
@@ -824,9 +824,9 @@ ion of the conflicting behavior.
 ## Release Preparation
 - [ ] **Finalize submission checklist.** Once logic gaps close, run `run_tests.py` suites, refresh documentation, and prepare the PR narrative referencing key Greenbook sections.
   - [ ] Confirm that all Active Development tasks are checked off and corresponding tests/fixtures are current.
-    - [ ] Review each Active Development checklist item for completion status and update boxes accordingly, adding dated notes in `NOTES.md` for any deferrals.
-    - [ ] Verify test fixtures reflect latest logic changes by diffing against previous baselines and capturing representative diffs in `temp/reports/`.
-    - [ ] Note outstanding dependencies preventing closure (e.g., locale approvals, upstream reviews) and escalate if needed by creating new TODO entries or external issues.
+  - [x] Review each Active Development checklist item for completion status and update boxes accordingly, adding dated notes in `NOTES.md` for any deferrals.
+  - [x] Verify test fixtures reflect latest logic changes by diffing against previous baselines and capturing representative diffs in `temp/reports/`.
+  - [x] Note outstanding dependencies preventing closure (e.g., locale approvals, upstream reviews) and escalate if needed by creating new TODO entries or external issues.
     - [ ] Document completion evidence (commit hashes, test logs, fixture diff summaries) in `NOTES.md`.
   - [ ] Execute the full battery of regression tests for both note and TOA styles, capturing command output for inclusion in the eventual PR summary.
     - [ ] Run `python run_tests.py --all` (or equivalent) and capture logs with timestamps.
