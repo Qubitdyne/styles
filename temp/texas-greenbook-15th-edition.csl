@@ -382,12 +382,28 @@
           </else>
         </choose>
       </if>
-      <else-if type="legal_case legislation regulation" match="any">
+      <else-if type="legal_case">
         <choose>
           <if variable="jurisdiction" value="us:tx" match="any">
             <text value="See"/>
           </if>
           <else-if variable="jurisdiction">
+            <text value="See also"/>
+          </else-if>
+          <else>
+            <text value="See"/>
+          </else>
+        </choose>
+      </else-if>
+      <else-if type="legislation regulation" match="any">
+        <choose>
+          <if variable="jurisdiction" value="us:tx" match="any">
+            <text value="See"/>
+          </if>
+          <else-if variable="jurisdiction">
+            <text value="See also"/>
+          </else-if>
+          <else-if variable="collection-title" value="non-texas" match="any">
             <text value="See also"/>
           </else-if>
           <else>
@@ -504,38 +520,69 @@
   <macro name="tex-statute">
     <choose>
       <if position="first">
-        <text macro="tex-code-section"/>
+        <text macro="tex-statute-first"/>
       </if>
+      <else-if variable="references">
+        <text macro="tex-statute-cross-reference"/>
+      </else-if>
       <else>
         <text macro="tex-statute-short"/>
       </else>
     </choose>
   </macro>
 
+  <macro name="tex-statute-first">
+    <text macro="tex-code-section"/>
+  </macro>
+
+  <!-- Greenbook ch. 10 (pp. 42–47) short-form: retain the code abbreviation and
+       section string while omitting supplement parentheticals after the first cite. -->
+  <macro name="tex-statute-short">
+    <text macro="tex-short-form-base"/>
+  </macro>
+
+  <macro name="tex-statute-cross-reference">
+    <group delimiter=" ">
+      <text macro="cross-reference-cue"/>
+      <group delimiter=", ">
+        <text macro="tex-short-form-cross-base"/>
+        <text variable="references"/>
+      </group>
+    </group>
+  </macro>
+
   <macro name="tex-rule">
     <choose>
       <if position="first">
-        <text macro="tex-code-section"/>
+        <text macro="tex-rule-first"/>
       </if>
+      <else-if variable="references">
+        <text macro="tex-rule-cross-reference"/>
+      </else-if>
       <else>
         <text macro="tex-rule-short"/>
       </else>
     </choose>
   </macro>
 
-  <!-- Texas statutes & codes short-form expectations are cataloged in the Authority Note Output Matrix and the
-       "Position mapping summary (2025-11-05)" section of NOTES.md. The helper-driven routing keeps § + section while
-       delegating cross-reference handling to `tex-short-form-output` so statutes, rules, and administrative materials
-       share the same branch logic. -->
-  <macro name="tex-statute-short">
-    <text macro="tex-short-form-output"/>
+  <macro name="tex-rule-first">
+    <text macro="tex-code-section"/>
   </macro>
 
-  <!-- Court rule short-form triggers mirror the matrix row "Court rules" and NOTES.md fixture plan entries for
-       judicial administration and TRAP criminal appendix examples. This macro currently proxies the long-form
-       output until differentiated logic lands in the short-form implementation tasks. -->
+  <!-- Greenbook ch. 13 (pp. 61–65) repeat-cite rules reuse the same code string
+       without the promulgation parenthetical after the first reference. -->
   <macro name="tex-rule-short">
-    <text macro="tex-short-form-output"/>
+    <text macro="tex-short-form-base"/>
+  </macro>
+
+  <macro name="tex-rule-cross-reference">
+    <group delimiter=" ">
+      <text macro="cross-reference-cue"/>
+      <group delimiter=", ">
+        <text macro="tex-short-form-cross-base"/>
+        <text variable="references"/>
+      </group>
+    </group>
   </macro>
 
   <macro name="tex-constitution">
@@ -580,31 +627,38 @@
   <macro name="tex-admin-code">
     <choose>
       <if position="first">
-        <choose>
-          <if variable="section">
-            <text macro="tex-admin-core"/>
-          </if>
-          <else>
-            <group delimiter=", ">
-              <text macro="tex-admin-core"/>
-              <text variable="locator"/>
-            </group>
-          </else>
-        </choose>
-        <date variable="issued" prefix=" (" suffix=")">
-          <date-part name="year"/>
-        </date>
-        <choose>
-          <if variable="note">
-            <text variable="note" prefix=" (" suffix=")"/>
-          </if>
-        </choose>
-        <text variable="authority" prefix=" (" suffix=")"/>
+        <text macro="tex-admin-code-first"/>
       </if>
+      <else-if variable="references">
+        <text macro="tex-admin-code-cross-reference"/>
+      </else-if>
       <else>
         <text macro="tex-admin-code-short"/>
       </else>
     </choose>
+  </macro>
+
+  <macro name="tex-admin-code-first">
+    <choose>
+      <if variable="section">
+        <text macro="tex-admin-core"/>
+      </if>
+      <else>
+        <group delimiter=", ">
+          <text macro="tex-admin-core"/>
+          <text variable="locator"/>
+        </group>
+      </else>
+    </choose>
+    <date variable="issued" prefix=" (" suffix=")">
+      <date-part name="year"/>
+    </date>
+    <choose>
+      <if variable="note">
+        <text variable="note" prefix=" (" suffix=")"/>
+      </if>
+    </choose>
+    <text variable="authority" prefix=" (" suffix=")"/>
   </macro>
 
   <!-- Texas administrative code short-form handling follows the matrix row "Texas administrative code & registers"
@@ -647,25 +701,18 @@
     </choose>
   </macro>
 
-  <macro name="tex-short-form-output">
-    <choose>
-      <if variable="references">
-        <group delimiter=" ">
-          <text macro="cross-reference-cue"/>
-          <group delimiter=", ">
-            <text macro="tex-short-form-cross-base"/>
-            <text variable="references"/>
-          </group>
-        </group>
-      </if>
-      <else>
-        <text macro="tex-short-form-base"/>
-      </else>
-    </choose>
+  <macro name="tex-admin-code-short">
+    <text macro="tex-short-form-base"/>
   </macro>
 
-  <macro name="tex-admin-code-short">
-    <text macro="tex-short-form-output"/>
+  <macro name="tex-admin-code-cross-reference">
+    <group delimiter=" ">
+      <text macro="cross-reference-cue"/>
+      <group delimiter=", ">
+        <text macro="tex-short-form-cross-base"/>
+        <text variable="references"/>
+      </group>
+    </group>
   </macro>
 
   <macro name="session-law">
