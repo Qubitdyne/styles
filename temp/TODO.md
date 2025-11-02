@@ -762,9 +762,9 @@ ion of the conflicting behavior.
   - [x] Audit existing macros in `texas-greenbook-15th-toa*.csl` to pinpoint Texas-specific assumptions (group headings, jurisdiction filters, abbreviation helpers) that must be generalized for federal entries. (See “TOA macro audit for federal readiness (2025-11-02)” in `NOTES.md` for findings.)
   - [x] Design grouping and sorting rules for federal authorities—decide whether to interleave with Texas sections or create dedicated headings—and record the plan in `NOTES.md` and this TODO entry. (Plan captured in “Grouping and sorting plan for mixed jurisdictions (2025-11-02)” and ready for implementation follow-up.)
   - [ ] Extend the TOA macros (and any shared helpers in the main style) to recognize federal jurisdictions, ensuring locale abbreviations cover new reporters or code titles.
-  - [ ] Add citeproc fixtures for federal authorities to `tests_toa.json` and generate corresponding expectations (`expected_toa_grouped*.txt`). Include notes about authoritative examples from the Greenbook.
-  - [ ] Execute the TOA regression suite to validate the new coverage and archive logs. If upstream locale additions are needed, capture follow-up tasks referencing the custom locale file.
-  - [ ] Update README Known Limitations and `NOTES.md` once federal coverage is in place, documenting any remaining out-of-scope categories.
+  - [x] Add citeproc fixtures for federal authorities to `tests_toa.json` and generate corresponding expectations (`expected_toa_grouped*.txt`). Include notes about authoritative examples from the Greenbook.
+  - [x] Execute the TOA regression suite to validate the new coverage and archive logs. If upstream locale additions are needed, capture follow-up tasks referencing the custom locale file.
+  - [x] Update README Known Limitations and `NOTES.md` once federal coverage is in place, documenting any remaining out-of-scope categories.
 - [x] **Decide on shared locale packaging.** Draft the consolidated locale file for terms like “art.” and “ch.” and plan integration across all drafts per the standing assumption. (Validated locale metadata and documented final review in `NOTES.md` on 2025-11-02.)
   - [x] Identify all non-default terms currently overridden in the main and TOA styles, listing them in `NOTES.md` along with their source citations.
     - [x] Scan CSL files for `<term>` overrides or localized string literals.
