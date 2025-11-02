@@ -1235,6 +1235,19 @@ Authority-Specific Supporting Macros
 | `toa_regulation_cfr` | `regulation` | Code of Federal Regulations | `volume="17"`, `container-title="C.F.R."`, `section`, `issued`, `authority` naming agency | ✅ Added 2025-12-09. |
 | Future federal register entry | `regulation` | Federal Register | `container-title="Fed. Reg."`, `note` for codification path | ☐ Open follow-up; add alongside expectation refresh (tracked in TODO §Expand TOA fixtures). |
 
+### Verification log (2026-02-15)
+- Re-ran the TOA suites for every variant (`texas-greenbook-15th-toa*.csl`) with the expanded 24-authority dataset to confirm the
+  Appendix B groupings render in the documented order—Texas & U.S. cases → constitutions → statutes → rules → administrative
+  materials → session laws → Attorney General opinions → municipal ordinances → secondary authorities.【F:temp/Greenbook_15thEdition.pdf†L612-L676】【9b83ec†L1-L84】【789a4a†L1-L35】【9c8c81†L1-L37】【5cec79†L1-L35】
+- Limited the automated “See also” preprocessing hook to note-mode runs so bibliography/TOA outputs remain free of signals while
+  preserving the Chapter 1 cross-reference behavior in the primary citation style.【F:temp/run_tests.py†L1-L120】【cec421†L63-L86】
+- Normalized the federal constitution fixture by trimming the redundant `art.` prefix from `chapter-number`, which restores the
+  single “art.” rendering prescribed by Appendix B examples.【F:temp/tests_toa.json†L1-L200】【F:temp/Greenbook_15thEdition.pdf†L612-L676】
+- Regenerated `expected_toa*.txt` and `actual_toa.txt` with the refreshed outputs so future diffs capture the full federal + Texas
+  inventory while keeping dotted-leader spacing intact.【F:temp/expected_toa_grouped_leaders.txt†L1-L30】【F:temp/expected_toa_leaders.txt†L1-L30】【F:temp/expected_toa.txt†L1-L24】【F:temp/actual_toa.txt†L1-L26】
+- No additional TOA macro gaps surfaced during the run; the helper stack handled the new authorities without modification, so no
+  follow-up backlog entries are required at this stage.
+
 ### Sample selection rationale (Task 598)
 - **Tex. Tax Code Ann. § 26.06(a).** Captures the rollback tax-rate election notice that Appendix B uses in the Texas statutes row while aligning with the Chapter 10 illustration of ad valorem tax procedures (pp. 239–240, 44–45).【F:temp/Greenbook_15thEdition.pdf†L612-L676】
 - **Tex. Gov’t Code Ann. § 311.021(1).** Exercises the interpretive-presumption example printed in the same Appendix B statute block and mirrors Chapter 10’s discussion of Code Construction Act canons (pp. 239–240, 48).【F:temp/Greenbook_15thEdition.pdf†L612-L676】

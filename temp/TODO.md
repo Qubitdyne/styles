@@ -602,13 +602,13 @@ ion of the conflicting behavior.
   - [x] Add the new authorities to `tests_toa.json`, including jurisdiction metadata necessary for correct sorting and grouping.
     - [x] Encode each sample authority in JSON, validating field names against existing schema.
     - [x] Include grouping hints or categories in the test data to drive TOA leader formatting.
-    - [ ] Run targeted TOA tests to confirm grouping behavior and adjust metadata as needed.
+    - [x] Run targeted TOA tests to confirm grouping behavior and adjust metadata as needed.
     - [x] Annotate each JSON entry with references to the corresponding Greenbook guidance.
-  - [ ] Update each `expected_toa*.txt` fixture to reflect the new authorities, running the TOA-specific styles to confirm alignment.
-    - [ ] Execute `run_tests.py --write-expected --toa` (or equivalent) and review diff outputs for accuracy.
-    - [ ] Compare generated grouping headers and indentation against Appendix B exemplars.
-    - [ ] Resolve discrepancies by adjusting macros or test data before finalizing fixtures.
-    - [ ] Log verification outcomes and any unresolved issues in `NOTES.md`.
+  - [x] Update each `expected_toa*.txt` fixture to reflect the new authorities, running the TOA-specific styles to confirm alignment.
+    - [x] Execute `run_tests.py --write-expected --toa` (or equivalent) and review diff outputs for accuracy.
+    - [x] Compare generated grouping headers and indentation against Appendix B exemplars.
+    - [x] Resolve discrepancies by adjusting macros or test data before finalizing fixtures.
+    - [x] Log verification outcomes and any unresolved issues in `NOTES.md`.
   - [ ] Record any TOA macro adjustments or uncovered gaps in `NOTES.md` and feed follow-up tasks back into this TODO list if additional development is needed.
     - [ ] Summarize code changes affecting TOA behavior with references to modified macros.
     - [ ] Note remaining deficiencies and create new TODO entries or GitHub issues as appropriate.
