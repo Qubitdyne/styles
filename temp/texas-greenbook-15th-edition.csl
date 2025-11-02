@@ -502,7 +502,25 @@
   </macro>
 
   <macro name="tex-statute">
-    <text macro="tex-code-section"/>
+    <choose>
+      <if position="first">
+        <text macro="tex-code-section"/>
+      </if>
+      <else>
+        <text macro="tex-statute-short"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="tex-rule">
+    <choose>
+      <if position="first">
+        <text macro="tex-code-section"/>
+      </if>
+      <else>
+        <text macro="tex-rule-short"/>
+      </else>
+    </choose>
   </macro>
 
   <!-- Texas statutes & codes short-form expectations are cataloged in the Authority Note Output Matrix and the
@@ -561,25 +579,32 @@
 
   <macro name="tex-admin-code">
     <choose>
-      <if variable="section">
-        <text macro="tex-admin-core"/>
+      <if position="first">
+        <choose>
+          <if variable="section">
+            <text macro="tex-admin-core"/>
+          </if>
+          <else>
+            <group delimiter=", ">
+              <text macro="tex-admin-core"/>
+              <text variable="locator"/>
+            </group>
+          </else>
+        </choose>
+        <date variable="issued" prefix=" (" suffix=")">
+          <date-part name="year"/>
+        </date>
+        <choose>
+          <if variable="note">
+            <text variable="note" prefix=" (" suffix=")"/>
+          </if>
+        </choose>
+        <text variable="authority" prefix=" (" suffix=")"/>
       </if>
       <else>
-        <group delimiter=", ">
-          <text macro="tex-admin-core"/>
-          <text variable="locator"/>
-        </group>
+        <text macro="tex-admin-code-short"/>
       </else>
     </choose>
-    <date variable="issued" prefix=" (" suffix=")">
-      <date-part name="year"/>
-    </date>
-    <choose>
-      <if variable="note">
-        <text variable="note" prefix=" (" suffix=")"/>
-      </if>
-    </choose>
-    <text variable="authority" prefix=" (" suffix=")"/>
   </macro>
 
   <!-- Texas administrative code short-form handling follows the matrix row "Texas administrative code & registers"
@@ -1135,6 +1160,9 @@
             </if>
             <else-if variable="genre chapter-number" match="all">
               <text macro="tex-constitution"/>
+            </else-if>
+            <else-if variable="genre" value="court rule">
+              <text macro="tex-rule"/>
             </else-if>
             <else>
               <text macro="tex-statute"/>

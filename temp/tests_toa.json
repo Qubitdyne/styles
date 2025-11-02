@@ -14,7 +14,8 @@
         ]
       ]
     },
-    "locator": "646"
+    "locator": "646",
+    "grouping": "Supreme Court of Texas Cases"
   },
   {
     "id": "toa_case_us_supreme",
@@ -32,7 +33,8 @@
       ]
     },
     "locator": "495",
-    "comment": "Appendix B Table of Authorities – U.S. Supreme Court heading (Greenbook pp. 239–240)."
+    "comment": "Appendix B Table of Authorities – U.S. Supreme Court heading (Greenbook pp. 239–240).",
+    "grouping": "United States Supreme Court Cases"
   },
   {
     "id": "toa_case_federal_appellate",
@@ -50,7 +52,8 @@
       ]
     },
     "locator": "48",
-    "comment": "Appendix B Table of Authorities – Federal courts of appeals heading (Greenbook pp. 239–240)."
+    "comment": "Appendix B Table of Authorities – Federal courts of appeals heading (Greenbook pp. 239–240).",
+    "grouping": "Federal Courts of Appeals Cases"
   },
   {
     "id": "toa_case_federal_district",
@@ -69,7 +72,8 @@
       ]
     },
     "locator": "14",
-    "comment": "Appendix B Table of Authorities – Federal district court grouping (Greenbook pp. 239–240)."
+    "comment": "Appendix B Table of Authorities – Federal district court grouping (Greenbook pp. 239–240).",
+    "grouping": "Federal District Courts and Specialized Tribunals"
   },
   {
     "id": "toa_case_app_mem",
@@ -90,7 +94,8 @@
     "status": "no pet.",
     "genre": "per curiam",
     "medium": "mem. op.",
-    "locator": "1"
+    "locator": "1",
+    "grouping": "Courts of Appeals Cases"
   },
   {
     "id": "toa_case_crim",
@@ -107,7 +112,8 @@
         ]
       ]
     },
-    "locator": "631"
+    "locator": "631",
+    "grouping": "Court of Criminal Appeals Cases"
   },
   {
     "id": "toa_case_trial",
@@ -124,7 +130,8 @@
         ]
       ]
     },
-    "locator": "42"
+    "locator": "42",
+    "grouping": "Trial Courts and Original Proceedings"
   },
   {
     "id": "toa_constitution",
@@ -132,7 +139,8 @@
     "genre": "constitution",
     "container-title": "Tex. Const.",
     "chapter-number": "III",
-    "section": "5(a)"
+    "section": "5(a)",
+    "grouping": "Texas Constitution"
   },
   {
     "id": "toa_constitution_us",
@@ -140,13 +148,15 @@
     "container-title": "U.S. Const.",
     "chapter-number": "art. VI",
     "section": "cl. 2",
-    "comment": "Appendix B Table of Authorities – United States Constitution heading (Greenbook pp. 244–245)."
+    "comment": "Appendix B Table of Authorities – United States Constitution heading (Greenbook pp. 244–245).",
+    "grouping": "United States Constitution"
   },
   {
     "id": "toa_statute",
     "type": "legislation",
     "container-title": "Tex. Tax Code Ann.",
-    "section": "26.06(a)"
+    "section": "26.06(a)",
+    "grouping": "Texas Statutes"
   },
   {
     "id": "toa_statute_govt_code",
@@ -154,7 +164,8 @@
     "container-title": "Tex. Gov’t Code Ann.",
     "section": "311.021(1)",
     "note": "West 2023",
-    "comment": "Greenbook ch. 10 p. 48 – construction statute interpretive presumption."
+    "comment": "Greenbook ch. 10 p. 48 – construction statute interpretive presumption.",
+    "grouping": "Texas Statutes"
   },
   {
     "id": "toa_statute_us_code",
@@ -162,14 +173,16 @@
     "container-title": "28 U.S.C.",
     "section": "1332(a)(1)",
     "note": "Supp. 2024",
-    "comment": "Appendix B Table of Authorities – United States Code heading (Greenbook pp. 245–246)."
+    "comment": "Appendix B Table of Authorities – United States Code heading (Greenbook pp. 245–246).",
+    "grouping": "United States Code"
   },
   {
     "id": "toa_rule",
     "type": "legislation",
     "container-title": "Tex. R. Civ. P.",
     "section": "97(d)",
-    "genre": "court rule"
+    "genre": "court rule",
+    "grouping": "Texas Rules"
   },
   {
     "id": "toa_rule_trcp_21",
@@ -177,7 +190,8 @@
     "container-title": "Tex. R. Civ. P.",
     "section": "21",
     "genre": "court rule",
-    "comment": "Greenbook ch. 13 p. 62 – service and filing rule short cite."
+    "comment": "Greenbook ch. 13 p. 62 – service and filing rule short cite.",
+    "grouping": "Texas Rules"
   },
   {
     "id": "toa_rule_federal",
@@ -185,7 +199,8 @@
     "container-title": "Fed. R. Civ. P.",
     "section": "4(k)(2)",
     "genre": "court rule",
-    "comment": "Appendix B Table of Authorities – Federal Rules heading (Greenbook pp. 246–247)."
+    "comment": "Appendix B Table of Authorities – Federal Rules heading (Greenbook pp. 246–247).",
+    "grouping": "Federal Rules"
   },
   {
     "id": "toa_admin_code",
@@ -200,7 +215,8 @@
         ]
       ]
     },
-    "authority": "Tex. Dep’t of Agric., Seed Sampling Procedures"
+    "authority": "Tex. Dep’t of Agric., Seed Sampling Procedures",
+    "grouping": "Texas Administrative Code"
   },
   {
     "id": "toa_admin_code_25_101",
@@ -217,7 +233,8 @@
     },
     "note": "emergency adoption",
     "authority": "Tex. Comm’n on Env’t Quality, Electric Reliability Council Division",
-    "comment": "Greenbook ch. 16 p. 81 – ERCOT emergency reliability rule."
+    "comment": "Greenbook ch. 16 p. 81 – ERCOT emergency reliability rule.",
+    "grouping": "Texas Administrative Code"
   },
   {
     "id": "toa_admin_code_3_5",
@@ -227,7 +244,8 @@
     "section": "3.5",
     "note": "adopted 1993",
     "authority": "Tex. Ethics Comm’n",
-    "comment": "Greenbook ch. 16 p. 82 – ethics commission disclosure rule."
+    "comment": "Greenbook ch. 16 p. 82 – ethics commission disclosure rule.",
+    "grouping": "Texas Administrative Code"
   },
   {
     "id": "toa_register",
@@ -243,7 +261,8 @@
       ]
     },
     "note": "to be codified at 22 Tex. Admin. Code § 367.14",
-    "authority": "Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings"
+    "authority": "Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings",
+    "grouping": "Texas Register"
   },
   {
     "id": "toa_regulation_cfr",
@@ -259,7 +278,8 @@
       ]
     },
     "authority": "U.S. Sec. & Exch. Comm’n",
-    "comment": "Appendix B Table of Authorities – Code of Federal Regulations heading (Greenbook pp. 247–248)."
+    "comment": "Appendix B Table of Authorities – Code of Federal Regulations heading (Greenbook pp. 247–248).",
+    "grouping": "Code of Federal Regulations"
   },
   {
     "id": "toa_session_law",
@@ -270,7 +290,8 @@
     "section": "1.06",
     "container-title": "Tex. Gen. Laws",
     "volume": "2005",
-    "page": "621"
+    "page": "621",
+    "grouping": "Session Laws"
   },
   {
     "id": "toa_ag_opinion",
@@ -283,7 +304,8 @@
           2002
         ]
       ]
-    }
+    },
+    "grouping": "Attorney General Opinions"
   },
   {
     "id": "toa_municipal",
@@ -298,7 +320,8 @@
           1968
         ]
       ]
-    }
+    },
+    "grouping": "Municipal Ordinances"
   },
   {
     "id": "toa_secondary",
@@ -321,6 +344,7 @@
     },
     "label": "section",
     "locator": "5.2",
-    "abstract": "secondary authority entry"
+    "abstract": "secondary authority entry",
+    "grouping": "Secondary Authorities"
   }
 ]
