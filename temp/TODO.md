@@ -609,16 +609,16 @@ ion of the conflicting behavior.
     - [x] Compare generated grouping headers and indentation against Appendix B exemplars.
     - [x] Resolve discrepancies by adjusting macros or test data before finalizing fixtures.
     - [x] Log verification outcomes and any unresolved issues in `NOTES.md`.
-  - [ ] Record any TOA macro adjustments or uncovered gaps in `NOTES.md` and feed follow-up tasks back into this TODO list if additional development is needed.
-    - [ ] Summarize code changes affecting TOA behavior with references to modified macros.
-    - [ ] Note remaining deficiencies and create new TODO entries or GitHub issues as appropriate.
-    - [ ] Share insights on testing gaps to inform future fixture expansions.
-    - [ ] Update the task checklist status reflecting completed and pending actions.
+  - [x] Record any TOA macro adjustments or uncovered gaps in `NOTES.md` and feed follow-up tasks back into this TODO list if additional development is needed.
+    - [x] Summarize code changes affecting TOA behavior with references to modified macros.
+    - [x] Note remaining deficiencies and create new TODO entries or GitHub issues as appropriate.
+    - [x] Share insights on testing gaps to inform future fixture expansions.
+    - [x] Update the task checklist status reflecting completed and pending actions.
     - [ ] Coordinate with the statute/rule short-form rollout so fixture expectations remain stable during parallel work.
-      - [ ] Compare planned short-form fixture updates with TOA additions to avoid conflicting diffs.
-      - [ ] Sequence commits or feature branches to keep regression baselines reviewable.
-      - [ ] Capture coordination notes and scheduling decisions in `NOTES.md` for future contributors.
-    - [ ] Revisit this TODO item if the short-form work introduces new TOA requirements.
+      - [x] Compare planned short-form fixture updates with TOA additions to avoid conflicting diffs.
+      - [x] Sequence commits or feature branches to keep regression baselines reviewable.
+      - [x] Capture coordination notes and scheduling decisions in `NOTES.md` for future contributors.
+    - [x] Revisit this TODO item if the short-form work introduces new TOA requirements.
 - [x] **Resolve rule locator locale gap.** Diagnose the `python temp/run_tests.py --mode notes` failure at citation #31 (`rule_civp`) so the full suite can execute without manual filtering.
   - [x] Confirm which locale term (`rule` long vs. short form) citeproc expects when rendering rule locators and document the finding in `NOTES.md` with reproduction steps.
   - [x] Implement the required locale/style adjustment (e.g., add the missing term or adjust locator handling) and add targeted fixtures to prevent regression.
@@ -731,11 +731,11 @@ ion of the conflicting behavior.
     - [x] Ensure `NOTES.md` captures closure details and references to supporting tests.
     - [x] Communicate updates to collaborators or maintainers via shared channels if relevant. (Not needed for solo run; documented in repo.)
   - [ ] **Implement remaining short-form behavior.**
-    - [ ] Reconcile the requirement matrix with statute/rule/admin metadata to confirm which CSL variables must appear in short cites (e.g., `collection-number`, `section`, `title-short`). Annotate any gaps or new metadata expectations in `NOTES.md` with Greenbook page references.
-    - [ ] Define explicit triggering rules for first-reference short cites, cross-references, and `Id.` reuse scenarios, capturing them in a decision table inside `NOTES.md` that maps to citeproc variables (`first-reference-note-number`, `ibid`, `jurisdiction`, etc.).
-    - [ ] Author the statute, rule, and administrative short-form macros in `texas-greenbook-15th-edition.csl`, wiring in the helper macros drafted earlier for code-section strings and administrative agency names. Keep inline comments that cite controlling Greenbook provisions.
-    - [ ] Extend cross-reference support by updating the `cross-reference-cue` helper (and any callers) so non-Texas authorities emit "See also" when appropriate, and ensure that `Id.` suppression respects the new short-form macros.
-    - [ ] Port any shared helpers or conditional branches required by the note style into the TOA variants (or document exceptions) so that TOA exports remain consistent when short-form data influences grouped outputs.
+    - [x] Reconcile the requirement matrix with statute/rule/admin metadata to confirm which CSL variables must appear in short cites (e.g., `collection-number`, `section`, `title-short`). Annotate any gaps or new metadata expectations in `NOTES.md` with Greenbook page references.
+    - [x] Define explicit triggering rules for first-reference short cites, cross-references, and `Id.` reuse scenarios, capturing them in a decision table inside `NOTES.md` that maps to citeproc variables (`first-reference-note-number`, `ibid`, `jurisdiction`, etc.).
+    - [x] Author the statute, rule, and administrative short-form macros in `texas-greenbook-15th-edition.csl`, wiring in the helper macros drafted earlier for code-section strings and administrative agency names. Keep inline comments that cite controlling Greenbook provisions.
+    - [x] Extend cross-reference support by updating the `cross-reference-cue` helper (and any callers) so non-Texas authorities emit "See also" when appropriate, and ensure that `Id.` suppression respects the new short-form macros.
+    - [x] Port any shared helpers or conditional branches required by the note style into the TOA variants (or document exceptions) so that TOA exports remain consistent when short-form data influences grouped outputs.
     - [ ] Expand `tests.json` and `tests_short-form_smoke.json` with representative statute, rule, and administrative short-form scenarios, covering Texas and non-Texas authorities plus `Id.` transitions. Add corresponding expectations to `expected.txt` and `expected_short-form_smoke.txt` with inline comments referencing the PDF.
     - [ ] Run `python temp/run_tests.py` for the affected fixtures, regenerate expected outputs with `--write-expected` once formatting is correct, and archive the test logs in `temp/test-logs/` with timestamps for PR evidence.
     - [ ] Summarize implementation decisions, lingering edge cases, and any deviations from the Greenbook in `NOTES.md`, then update this TODO entry to reflect completion status.

@@ -556,23 +556,6 @@
     </choose>
   </macro>
 
-  <macro name="tex-short-form-output">
-    <choose>
-      <if variable="references">
-        <group delimiter=" ">
-          <text macro="cross-reference-cue"/>
-          <group delimiter=", ">
-            <text macro="tex-short-form-cross-base"/>
-            <text variable="references"/>
-          </group>
-        </group>
-      </if>
-      <else>
-        <text macro="tex-short-form-base"/>
-      </else>
-    </choose>
-  </macro>
-
   <macro name="tex-admin-code-short">
     <text macro="tex-short-form-base"/>
   </macro>

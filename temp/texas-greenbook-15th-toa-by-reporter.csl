@@ -519,23 +519,6 @@
     </ns0:choose>
   </ns0:macro>
 
-  <ns0:macro name="tex-short-form-output">
-    <ns0:choose>
-      <ns0:if variable="references">
-        <ns0:group delimiter=" ">
-          <ns0:text macro="cross-reference-cue" />
-          <ns0:group delimiter=", ">
-            <ns0:text macro="tex-short-form-cross-base" />
-            <ns0:text variable="references" />
-          </ns0:group>
-        </ns0:group>
-      </ns0:if>
-      <ns0:else>
-        <ns0:text macro="tex-short-form-base" />
-      </ns0:else>
-    </ns0:choose>
-  </ns0:macro>
-
   <ns0:macro name="tex-admin-code-short">
     <ns0:text macro="tex-short-form-base" />
   </ns0:macro>
