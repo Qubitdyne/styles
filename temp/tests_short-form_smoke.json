@@ -42,5 +42,50 @@
     "_cite": "statute_note_signal_smoke",
     "label": "section",
     "locator": "82.065"
+  },
+  {
+    "id": "rule_short_smoke",
+    "type": "legislation",
+    "container-title": "Tex. R. Civ. P.",
+    "section": "94",
+    "genre": "court rule"
+  },
+  {
+    "_cite": "rule_short_smoke",
+    "label": "rule",
+    "locator": "95"
+  },
+  {
+    "id": "nontex_statute_short_smoke",
+    "type": "legislation",
+    "container-title": "Cal. Civ. Code",
+    "section": "1632(b)",
+    "jurisdiction": "us:ca"
+  },
+  {
+    "_cite": "nontex_statute_short_smoke",
+    "label": "section",
+    "locator": "1632(c)"
+  },
+  {
+    "id": "federal_admin_short_smoke",
+    "type": "regulation",
+    "volume": "40",
+    "container-title": "C.F.R.",
+    "section": "1502.9(c)",
+    "jurisdiction": "us",
+    "authority": "Council on Environmental Quality",
+    "issued": {
+      "date-parts": [
+        [
+          2020
+        ]
+      ]
+    }
+  },
+  {
+    "_cite": "federal_admin_short_smoke",
+    "label": "section",
+    "locator": "1502.9(d)"
   }
 ]
