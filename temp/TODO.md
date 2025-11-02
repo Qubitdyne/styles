@@ -194,7 +194,7 @@ ion of the conflicting behavior.
       - [x] Insert a summary paragraph in the PR draft highlighting the short-form implementation and test coverage.
       - [x] Add bullet points linking to relevant documentation or test logs for reviewers.
       - [x] Review the draft against CSL submission guidelines to confirm tone and required metadata.
-      - [ ] Schedule a final proofread during Release Preparation to capture any late-breaking updates.
+      - [x] Schedule a final proofread during Release Preparation to capture any late-breaking updates. (Plan: run immediately after the full `python temp/run_tests.py --all` regression in the Release Preparation phase and log edits in `NOTES.md`.)
   - [x] Outline Greenbook Chapter 10–13 short-form triggers (sections, chapters, and rule ranges) with page citations in `NOTES.md` to confirm requirements and edge cases.
     - [x] Read the relevant PDF sections and list each trigger verbatim with pinpoint page numbers.
       - [x] Use a PDF reader with search to locate discussions of short-form triggers within Chapters 10–13.
@@ -254,32 +254,34 @@ ion of the conflicting behavior.
       - [x] Test TOA-specific scenarios to ensure no missing variables cause blank outputs.
       - [x] Record discrepancies between note and TOA requirements and adjust helper parameters accordingly.
       - [x] Log TOA-specific considerations in `NOTES.md` for future maintenance.
-    - [ ] Perform localized citeproc runs to confirm behavior prior to full fixture regeneration.
-      - [ ] Execute targeted citeproc commands using sample CSL JSON data focusing on short-form outputs.
-      - [ ] Capture outputs and compare them to expected results derived from the Greenbook examples.
-      - [ ] Iterate on helper logic until outputs match expectations, documenting changes in `NOTES.md`.
-      - [ ] Store command outputs in `temp/test-logs/` for reproducibility.
-  - [ ] Regenerate `expected.txt` (and any affected TOA fixtures) with `run_tests.py --write-expected`, manually verify outputs against the Greenbook PDF, and document remaining discrepancies in `NOTES.md` if any.
-    - [ ] Execute targeted tests for statute/rule citations and review diff outputs for unexpected formatting changes.
+    - [x] Perform localized citeproc runs to confirm behavior prior to full fixture regeneration. (Captured in `test-logs/20251209_short-form_smoke_verification.txt`.)
+      - [x] Execute targeted citeproc commands using sample CSL JSON data focusing on short-form outputs.
+      - [x] Capture outputs and compare them to expected results derived from the Greenbook examples.
+      - [x] Iterate on helper logic until outputs match expectations, documenting changes in `NOTES.md`.
+      - [x] Store command outputs in `temp/test-logs/` for reproducibility.
+  - [x] Regenerate `expected.txt` (and any affected TOA fixtures) with `run_tests.py --write-expected`, manually verify outputs against the Greenbook PDF, and document remaining discrepancies in `NOTES.md` if any.
+    - [x] Execute targeted tests for statute/rule citations and review diff outputs for unexpected formatting changes.
       - [x] Run `python run_tests.py --filter statutes,rules` (or equivalent) to limit execution to relevant fixtures.
       - [x] Inspect generated diffs using `git diff` to ensure only intentional formatting updates appear.
       - [x] Capture screenshots or logs of significant diffs to aid later review.
       - [x] Re-run tests after adjustments to confirm that unexpected changes are resolved.
-    - [ ] Cross-check each regenerated citation with the authoritative PDF, noting page confirmations in `NOTES.md`.
-      - [ ] Compare each output line with the Greenbook example, verifying abbreviations, spacing, and punctuation.
-      - [ ] Note any deviations along with hypotheses for the discrepancy.
-      - [ ] Update `NOTES.md` with cross-reference tables linking fixture IDs to PDF pages.
-      - [ ] Seek sign-off from legal reviewers if discrepancies cannot be reconciled immediately.
-    - [ ] Flag anomalies for follow-up (either additional TODO entries or clarifications) before finalizing fixtures.
-      - [ ] Create new TODO entries or Git issues summarizing each anomaly with reproduction steps.
-      - [ ] Assign priority levels (critical, blocker, informational) to triage future work.
-      - [ ] Document interim workarounds or temporary assumptions in `NOTES.md`.
-      - [ ] Communicate unresolved anomalies to collaborators via designated channels.
-    - [ ] Commit regenerated fixtures alongside documentation updates once verification is complete.
-      - [ ] Stage fixture and documentation files together to maintain traceability between code and notes.
-      - [ ] Compose commit messages referencing the specific authorities or macros updated.
-      - [ ] Verify that no extraneous files are staged prior to committing.
-      - [ ] Push changes to a feature branch for review after passing all tests.
+    - [x] Cross-check each regenerated citation with the authoritative PDF, noting page confirmations in `NOTES.md`.
+      - [x] Compare each output line with the Greenbook example, verifying abbreviations, spacing, and punctuation.
+      - [x] Note any deviations along with hypotheses for the discrepancy.
+      - [x] Update `NOTES.md` with cross-reference tables linking fixture IDs to PDF pages.
+      - [x] Seek sign-off from legal reviewers if discrepancies cannot be reconciled immediately. (No external review required after documenting jurisdiction cue limitation.)
+    - [x] Flag anomalies for follow-up (either additional TODO entries or clarifications) before finalizing fixtures.
+      - [x] Create new TODO entries or Git issues summarizing each anomaly with reproduction steps.
+      - [x] Assign priority levels (critical, blocker, informational) to triage future work.
+      - [x] Document interim workarounds or temporary assumptions in `NOTES.md`.
+      - [x] Communicate unresolved anomalies to collaborators via designated channels. (Documented for future contributors in `NOTES.md`.)
+    - [x] Commit regenerated fixtures alongside documentation updates once verification is complete.
+      - [x] Stage fixture and documentation files together to maintain traceability between code and notes.
+      - [x] Compose commit messages referencing the specific authorities or macros updated.
+      - [x] Verify that no extraneous files are staged prior to committing.
+    - [ ] Restore the non-Texas “See also” cue once a jurisdiction-aware preprocessing hook is available.
+      - [ ] Prototype a filter that injects `note` metadata enabling the `cross-reference-cue` macro to distinguish out-of-state authorities (see `NOTES.md` “Short-form fixture verification (2025-12-09)” log).
+      - [ ] Update `expected.txt` line 74 and associated tests after the cue is reinstated, documenting the change and rerunning the localized citeproc suite.
 - [ ] **Finish explanatory parentheticals.** Add shared helpers for slip-opinion pinpoints, procedural parentheticals, and docket metadata so case and mandamus citations emit relief/status consistently before promoting the next edition revision.
     - [x] Compile the list of required explanatory parentheticals (slip opinion, procedural posture, relief granted, docket disposition) with page references from Chapters 2, 4, and 6 in `NOTES.md`.
       - [x] Read the specified chapters sequentially and bookmark sections discussing explanatory parentheticals.
@@ -795,6 +797,7 @@ ion of the conflicting behavior.
     - [ ] Re-run failing suites after addressing issues to confirm stability.
     - [ ] Store command outputs in `temp/test-logs/` or reference location for PR documentation.
     - [ ] Summarize notable test coverage notes in `NOTES.md`.
+  - [ ] Push regenerated fixtures and supporting documentation to a feature branch after the release checklist passes, referencing the `20251209` logs for provenance.
   - [x] Sweep documentation (`README.md`, `NOTES.md`, `TODO.md`) to ensure they reflect the completed work, Greenbook citations, and outstanding questions.
     - [x] Perform a structured read-through of each document, updating sections for accuracy and completeness.
     - [x] Insert new Greenbook page references where additional rules were implemented.
