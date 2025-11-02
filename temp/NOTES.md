@@ -1219,6 +1219,67 @@ Authority-Specific Supporting Macros
 - **Integration mechanism.** Once the locale is hosted centrally, the Greenbook styles will replace their inline `<locale xml:lang="en-US">…</locale>` blocks with `<locale xml:lang="en-US" href="locales/locales-en-US-x-texas-greenbook.xml"/>`, allowing citeproc implementations to pull the shared terms without duplicating XML. This approach keeps the styles compliant with the CSL schema while letting us manage abbreviations in one place.【F:texas-greenbook-15th-edition.csl†L1-L32】【F:temp/CSL 1.0.2 Specification — Citation Style Language 1.0.1-dev documentation.html†L874-L904】
 - **Dialect decision.** Adopted the private-use dialect code `en-US-x-texas-greenbook` so the shared locale no longer collides with the stock `en-US` resource, satisfying the CSL requirement that the filename mirror the `xml:lang` value on the `<locale>` root element.【F:temp/locales/locales-en-US-x-texas-greenbook.xml†L1-L18】【F:temp/CSL 1.0.2 Specification — Citation Style Language 1.0.1-dev documentation.html†L874-L914】
 
+## Statute & rule terminology extraction (2025-12-05)
+- **Textual guidance cross-check.** Re-read Chapter 10’s general rules to confirm the narrative instructions (e.g., when to append “Supp.”, how “art.”/“arts.” behave, and when to pivot to session laws) match the worked examples. The prose and exemplars align: Chapter 10.1.3’s description of supplement parentheticals is reflected in the accompanying `Tex. Alco. Bev. Code Ann. § 22.03 (Supp.)` example, and Chapter 10.1.4 explicitly walks through the `art.`/`arts.` alternation used in the sample multi-provision cites.【F:temp/Greenbook_15thEdition.pdf†L1686-L1719】
+- **External references.** Logged the Practice Tip on Texas Legislative Council codification guidance (Drafting Manual and website) so future helper work can reference the council’s effective-date tables as needed.【F:temp/Greenbook_15thEdition.pdf†L1662-L1678】 Appendix H remains the canonical abbreviation table for code titles and rule sets (pp. 116–117); citations below reference both locations for provenance.【F:temp/Greenbook_15thEdition.pdf†L2476-L2512】
+- **Locale audit.** None of the Appendix H abbreviations currently live in `locales-en-US-x-texas-greenbook.xml`; the locale only covers generic terms (`art.`, `ch.`, `§`, `R.`). Code titles and rule abbreviations therefore stay macro-driven for now. Future locale updates would need new `<term>` entries if we decide to move these strings out of CSL logic.【F:temp/locales/locales-en-US-x-texas-greenbook.xml†L1-L33】
+- **Conditional behavior inventory.** Documented when the manual mandates plural forms (`arts.` vs. `art.`, `§§` vs. `§`), when session-law parentheticals must appear (historical fact citations), and when auxiliary pamphlets require bracketed session-law references. No conflicts surfaced that require legal review; all conditions map cleanly to existing metadata (`number-of-pages`, `title`, `issued`) plus the planned publication-status helpers.【F:temp/Greenbook_15thEdition.pdf†L1686-L1777】
+- **Reuse vs. new definitions.** Confirmed that existing locale overrides remain sufficient for paragraph/section/rule contractions. Code-title abbreviations will continue to render via item metadata (e.g., `collection-title-short`) until we decide whether helper macros should centralize them. Recorded the outstanding follow-up to revisit this choice once the publication/status helpers are designed.
+
+### Appendix H abbreviation inventory
+| Authority group | Abbreviation (Greenbook) | Locale coverage | Notes |
+| --- | --- | --- | --- |
+| Agriculture Code | Tex. Agric. Code Ann. | Not in locale | Subject-matter code list, Appendix H.1.【F:temp/Greenbook_15thEdition.pdf†L2476-L2492】 |
+| Alcoholic Beverage Code | Tex. Alco. Bev. Code Ann. | Not in locale | Confirmed Chapter 10 examples mirror this contraction.【F:temp/Greenbook_15thEdition.pdf†L1686-L1710】 |
+| Business & Commerce Code | Tex. Bus. & Com. Code Ann. | Not in locale | Ampersand appears in official abbreviation table; ensure metadata preserves punctuation.【F:temp/Greenbook_15thEdition.pdf†L2476-L2492】 |
+| Business Organizations Code | Tex. Bus. Orgs. Code Ann. | Not in locale | Chapter 10.2.2(b) flags full applicability as of Jan. 1, 2010.【F:temp/Greenbook_15thEdition.pdf†L1720-L1746】 |
+| Civil Practice & Remedies Code | Tex. Civ. Prac. & Rem. Code Ann. | Not in locale | Pluralization handled via `§§` guidance in Chapter 10.1.4(a).【F:temp/Greenbook_15thEdition.pdf†L1686-L1719】 |
+| Education Code | Tex. Educ. Code Ann. | Not in locale | — |
+| Election Code | Tex. Elec. Code Ann. | Not in locale | — |
+| Estates Code | Tex. Est. Code Ann. | Not in locale | Chapter 10.2.2(e) clarifies pamphlet parenthetical until annotated volumes exist.【F:temp/Greenbook_15thEdition.pdf†L1746-L1777】 |
+| Family Code | Tex. Fam. Code Ann. | Not in locale | — |
+| Finance Code | Tex. Fin. Code Ann. | Not in locale | — |
+| Government Code | Tex. Gov’t Code Ann. | Not in locale | — |
+| Health & Safety Code | Tex. Health & Safety Code Ann. | Not in locale | Chapter 10.1.4(a) example leverages §§ pluralization.【F:temp/Greenbook_15thEdition.pdf†L1686-L1719】 |
+| Human Resources Code | Tex. Hum. Res. Code Ann. | Not in locale | — |
+| Insurance Code | Tex. Ins. Code Ann. | Not in locale | Title 1 retains article numbering; requires `art.` toggles per 10.1.1.【F:temp/Greenbook_15thEdition.pdf†L1686-L1719】 |
+| Labor Code | Tex. Lab. Code Ann. | Not in locale | — |
+| Local Government Code | Tex. Loc. Gov’t Code Ann. | Not in locale | — |
+| Natural Resources Code | Tex. Nat. Res. Code Ann. | Not in locale | — |
+| Occupations Code | Tex. Occ. Code Ann. | Not in locale | — |
+| Parks & Wildlife Code | Tex. Parks & Wild. Code Ann. | Not in locale | — |
+| Penal Code | Tex. Penal Code Ann. | Not in locale | Example in Chapter 10.2.1 demonstrates omission of “Ann.” for unannotated reprints.【F:temp/Greenbook_15thEdition.pdf†L1710-L1720】 |
+| Property Code | Tex. Prop. Code Ann. | Not in locale | — |
+| Special District Local Laws Code | Tex. Spec. Dist. Code Ann. | Not in locale | Chapter 10.2.2(c) notes ongoing codification; helper must tolerate legacy session-law fallbacks.【F:temp/Greenbook_15thEdition.pdf†L1720-L1746】 |
+| Tax Code | Tex. Tax Code Ann. | Not in locale | Example `Tex. Tax Code Ann. § 26.06(a)` confirms parentheses placement for subsections.【F:temp/Greenbook_15thEdition.pdf†L1710-L1720】 |
+| Transportation Code | Tex. Transp. Code Ann. | Not in locale | — |
+| Utilities Code | Tex. Util. Code Ann. | Not in locale | — |
+| Water Code | Tex. Water Code Ann. | Not in locale | Auxiliary pamphlets require bracketed session cites when applicable (Chapter 10.2.5).【F:temp/Greenbook_15thEdition.pdf†L1746-L1777】 |
+
+### Independent code abbreviations
+| Code | Abbreviation | Locale coverage | Notes |
+| --- | --- | --- | --- |
+| Code of Criminal Procedure | Tex. Code Crim. Proc. Ann. | Not in locale | Chapter 10.2.2(d) covers tentative renaming to “Tex. Crim. Proc. Code Ann.” once fully codified; retain current form for legacy cites.【F:temp/Greenbook_15thEdition.pdf†L1720-L1746】 |
+| Insurance Code (Title 1 articles) | Tex. Ins. Code Ann. | Not in locale | Shares abbreviation with subject-matter code; rely on article vs. section detection for `art.` toggles.【F:temp/Greenbook_15thEdition.pdf†L1686-L1719】 |
+| Probate Code | Tex. Prob. Code Ann. | Not in locale | Superseded by Estates Code but appears in historical cites; Chapter 10.2.2(e) addresses transition.【F:temp/Greenbook_15thEdition.pdf†L1746-L1777】 |
+| Business Corporations Act | Tex. Bus. Corp. Act Ann. | Not in locale | Legacy reference flagged in Appendix H.2; ensure macros surface historical `art.` numbering when metadata calls for it.【F:temp/Greenbook_15thEdition.pdf†L2492-L2504】 |
+
+### Current rule abbreviations
+| Rule set | Abbreviation | Locale coverage | Notes |
+| --- | --- | --- | --- |
+| Rules of Civil Procedure | Tex. R. Civ. P. | Macro literal (locale provides `rule` short form only) | Chapter 13.1 examples show plural `Tex. R. Civ. P. 21`. Ensure helper inserts pinpoint indicator punctuation before numerals.【F:temp/Greenbook_15thEdition.pdf†L1880-L1935】 |
+| Rules of Judicial Administration | Tex. R. Jud. Admin. | Macro literal | Appendix H.3 entry; watch for capitalization of “Admin.” in TOA grouping headings.【F:temp/Greenbook_15thEdition.pdf†L2492-L2504】 |
+| Rules of Appellate Procedure | Tex. R. App. P. | Macro literal | Already exercised by TOA fixtures; share short-form guard once statute/rule work lands.【F:temp/tests_toa.json†L1-L200】 |
+| Rules of Evidence | Tex. R. Evid. | Macro literal | Chapter 13.3 highlights subdivisions by rule number; ensure `§` is not reused here.【F:temp/Greenbook_15thEdition.pdf†L1936-L1962】 |
+| State Bar Rules | Tex. State Bar R. | Macro literal | Chapter 17.1 short-form relies on rule numbering rather than section references.【F:temp/Greenbook_15thEdition.pdf†L3024-L3050】 |
+| Disciplinary Rules of Professional Conduct | Tex. Disciplinary Rules Prof’l Conduct | Macro literal | Appendix H.3 omits periods inside “Prof’l”; maintain existing abbreviation to match table.【F:temp/Greenbook_15thEdition.pdf†L2492-L2504】 |
+| Rules of Disciplinary Procedure | Tex. Rules Disciplinary P. | Macro literal | Table uses shortened “P.”; no locale support today.【F:temp/Greenbook_15thEdition.pdf†L2492-L2504】 |
+| Code of Judicial Conduct | Tex. Code Jud. Conduct | Macro literal | Chapter 17.5 expects `(Canon 1)` parentheticals; note interplay with future status helpers.【F:temp/Greenbook_15thEdition.pdf†L3070-L3096】 |
+| Rules for the Removal or Retirement of Judges | Tex. Rules Rem’l/Ret. Judg. | Macro literal | Slash needs preservation; consider helper to enforce punctuation when metadata feeds spelled-out phrases.【F:temp/Greenbook_15thEdition.pdf†L2492-L2504】 |
+| Rules Governing Admission to the Bar | Tex. Rules Govern. Bar Adm’n | Macro literal | Abbreviation uses “Govern.” contraction; ensure metadata captures apostrophe location for possessive contexts.【F:temp/Greenbook_15thEdition.pdf†L2492-L2504】 |
+
+- **Context-dependent notes.** The `art.` vs. `arts.` distinction hinges on whether any cited article includes section pinpoints (Chapter 10.1.4(b)); the helper checklist needs to evaluate sibling cites to choose the proper plural. Session-law cites must include bracketed `Act of …` parentheticals when pulled from auxiliary pamphlets (Chapter 10.2.5). Municipal ordinance cites follow the codified/uncodified split in Chapter 10.6; capture jurisdiction metadata so helpers can switch between code titles and ordinance names.【F:temp/Greenbook_15thEdition.pdf†L1686-L1777】【F:temp/Greenbook_15thEdition.pdf†L1778-L1842】 No additional legal review required at this stage; all scenarios map to deterministic metadata checks documented above.
+
 ### Locale Integration Schedule (2025-04-02)
 1. **Refactor inline locale blocks.** Update `texas-greenbook-15th-edition.csl` and all TOA variants (`texas-greenbook-15th-toa*.csl`) to drop their embedded `<locale>` sections in favor of referencing the shared file once citeproc loading is wired up, ensuring each style continues to declare `default-locale="en-US"` for compatibility.【F:texas-greenbook-15th-edition.csl†L1-L32】【F:temp/texas-greenbook-15th-toa.csl†L1-L24】
 2. **Augment the test harness.** Extend `temp/run_tests.py` (or its successor) to point citeproc-py at `temp/locales/` via an explicit locale directory argument or manual locale registration so the regression suite exercises the shared terms instead of the deprecated inline overrides.【F:temp/run_tests.py†L1-L86】

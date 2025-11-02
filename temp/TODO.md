@@ -498,24 +498,24 @@ ion of the conflicting behavior.
   - [ ] Extract common terminology requirements from Chapters 10–13 and Appendix A of the Greenbook, logging authoritative abbreviations in `NOTES.md`.
     - [x] Read the specified chapters focusing on publication parentheticals and session law terminology.
       - [x] Take detailed notes on required abbreviations, including variations by jurisdiction or publication year.
-      - [ ] Compare textual guidance with examples to confirm consistent messaging.
-      - [ ] Identify references to external manuals or appendices that may influence terminology.
+      - [x] Compare textual guidance with examples to confirm consistent messaging.
+      - [x] Identify references to external manuals or appendices that may influence terminology.
       - [x] Record page numbers and subheadings for each key term discovered.
     - [x] Create a table of required abbreviations, including singular/plural and capitalization nuances.
       - [x] Use a spreadsheet or Markdown table for clarity and ease of updates.
-      - [ ] Indicate whether each abbreviation already exists in CSL locale files.
-      - [ ] Highlight terms requiring conditional pluralization or gendered forms.
-      - [ ] Track relationships between abbreviations and the authorities they modify.
-    - [ ] Note any conflicting or context-dependent terms requiring conditional logic.
-      - [ ] Document scenarios where terms change based on session type, historical period, or jurisdiction.
-      - [ ] Propose conditional statements or metadata fields needed to resolve conflicts.
-      - [ ] Flag terms that require legal review to ensure accurate interpretation.
-      - [ ] Record references to supporting materials for each conflict.
-    - [ ] Cross-reference terms with existing locale files to prevent redundancy.
-      - [ ] Review CSL locale repositories for overlapping entries and note differences.
-      - [ ] Determine whether existing terms can be reused via `<term form="short">` or similar constructs.
-      - [ ] Update `NOTES.md` with decisions on reuse vs. new definitions.
-      - [ ] Plan follow-up actions if upstream locale contributions are necessary.
+      - [x] Indicate whether each abbreviation already exists in CSL locale files.
+      - [x] Highlight terms requiring conditional pluralization or gendered forms.
+      - [x] Track relationships between abbreviations and the authorities they modify.
+    - [x] Note any conflicting or context-dependent terms requiring conditional logic.
+      - [x] Document scenarios where terms change based on session type, historical period, or jurisdiction.
+      - [x] Propose conditional statements or metadata fields needed to resolve conflicts.
+      - [x] Flag terms that require legal review to ensure accurate interpretation.
+      - [x] Record references to supporting materials for each conflict.
+    - [x] Cross-reference terms with existing locale files to prevent redundancy.
+      - [x] Review CSL locale repositories for overlapping entries and note differences.
+      - [x] Determine whether existing terms can be reused via `<term form="short">` or similar constructs.
+      - [x] Update `NOTES.md` with decisions on reuse vs. new definitions.
+      - [x] Plan follow-up actions if upstream locale contributions are necessary.
     - [ ] Draft shared helper macros (e.g., `publication-parenthetical`, `session-law-metadata`, `administrative-status`) with parameters for date/session ranges and adoption/recodification notes.
       - [ ] Outline the data inputs required for each helper, referencing the metadata table built earlier.
       - [ ] Determine default behaviors when optional data is missing.
@@ -795,16 +795,16 @@ ion of the conflicting behavior.
     - [ ] Re-run failing suites after addressing issues to confirm stability.
     - [ ] Store command outputs in `temp/test-logs/` or reference location for PR documentation.
     - [ ] Summarize notable test coverage notes in `NOTES.md`.
-  - [ ] Sweep documentation (`README.md`, `NOTES.md`, `TODO.md`) to ensure they reflect the completed work, Greenbook citations, and outstanding questions.
-    - [ ] Perform a structured read-through of each document, updating sections for accuracy and completeness.
-    - [ ] Insert new Greenbook page references where additional rules were implemented.
-    - [ ] Remove outdated information or relocate it to archival sections if still relevant.
-    - [ ] Proofread for clarity and consistency prior to final review.
-  - [ ] Draft the PR narrative aligning with CSL submission requirements (title, summary, documentation links) and note specific Greenbook sections referenced during implementation.
-    - [ ] Outline key feature changes and bug fixes with supporting citations.
-    - [ ] Prepare a checklist of repository requirements (e.g., style validity, tests passing) to include in the PR body.
-    - [ ] Compose draft PR text and store it in `temp/PR_DRAFT.md` for review.
-    - [ ] Solicit feedback from collaborators or run a self-review against CSL contribution guidelines.
+  - [x] Sweep documentation (`README.md`, `NOTES.md`, `TODO.md`) to ensure they reflect the completed work, Greenbook citations, and outstanding questions.
+    - [x] Perform a structured read-through of each document, updating sections for accuracy and completeness.
+    - [x] Insert new Greenbook page references where additional rules were implemented.
+    - [x] Remove outdated information or relocate it to archival sections if still relevant.
+    - [x] Proofread for clarity and consistency prior to final review.
+  - [x] Draft the PR narrative aligning with CSL submission requirements (title, summary, documentation links) and note specific Greenbook sections referenced during implementation.
+    - [x] Outline key feature changes and bug fixes with supporting citations.
+    - [x] Prepare a checklist of repository requirements (e.g., style validity, tests passing) to include in the PR body.
+    - [x] Compose draft PR text and store it in `temp/PR_DRAFT.md` for review.
+    - [x] Solicit feedback from collaborators or run a self-review against CSL contribution guidelines.
   - [x] Review the CSL repository contribution guidelines (`CONTRIBUTING.md`, `STYLE_REQUIREMENTS.md`) to double-check readiness before packaging the submission.
     - [x] Re-read the guidelines and highlight any new or updated requirements since project start.
     - [x] Ensure documentation and style files satisfy formatting, metadata, and licensing expectations.

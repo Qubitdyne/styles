@@ -68,6 +68,7 @@ This document summarizes the scope, capabilities, and maintenance guidance for t
 ## Maintenance & Extension Guidance
 
 - **Abbreviations and locales:** Centralize Greenbook-specific term overrides (e.g., `rule`, `chapter`, `paragraph`) in a dedicated locale file and include it across styles to prevent drift.【F:temp/NOTES.md†L209-L236】
+- **Statute/rule terminology inventory:** Appendix H code and rule abbreviations plus conditional usage notes (e.g., `art.` vs. `arts.`, auxiliary-law brackets) are summarized in `NOTES.md` (2025-12-05) to guide the upcoming publication/status helper work.【F:temp/NOTES.md†L1225-L1294】
 - **New authority types:** Add fixtures to `tests.json`/`tests_toa.json` before implementing macros so expectations remain test-driven; cite the controlling Greenbook pages in inline comments when adding new test cases.【F:temp/tests.json†L1-L166】【F:temp/tests_toa.json†L1-L200】
 - **Macro evolution:** Follow the dispatcher diagram in `NOTES.md` when adding new citation branches to keep note and bibliography routing aligned.【F:temp/NOTES.md†L101-L170】
 - **Web citation coverage:** Chapter 16 web fixtures now exercise undated press releases, quoted blog titles, and standalone PDF downloads; regenerate both `expected.txt` and `expected_secondary.txt` when touching related macros to keep punctuation aligned with pp. 76–77.【F:temp/tests.json†L594-L655】【F:temp/expected_secondary.txt†L5-L15】【F:temp/Greenbook_15thEdition.pdf†L452-L479】
