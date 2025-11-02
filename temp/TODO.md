@@ -730,6 +730,23 @@ ion of the conflicting behavior.
     - [x] List outstanding issues requiring future attention or upstream consultation. (Memo styling now closed; no follow-ups required.)
     - [x] Ensure `NOTES.md` captures closure details and references to supporting tests.
     - [x] Communicate updates to collaborators or maintainers via shared channels if relevant. (Not needed for solo run; documented in repo.)
+  - [ ] **Implement remaining short-form behavior.**
+    - [ ] Reconcile the requirement matrix with statute/rule/admin metadata to confirm which CSL variables must appear in short cites (e.g., `collection-number`, `section`, `title-short`). Annotate any gaps or new metadata expectations in `NOTES.md` with Greenbook page references.
+    - [ ] Define explicit triggering rules for first-reference short cites, cross-references, and `Id.` reuse scenarios, capturing them in a decision table inside `NOTES.md` that maps to citeproc variables (`first-reference-note-number`, `ibid`, `jurisdiction`, etc.).
+    - [ ] Author the statute, rule, and administrative short-form macros in `texas-greenbook-15th-edition.csl`, wiring in the helper macros drafted earlier for code-section strings and administrative agency names. Keep inline comments that cite controlling Greenbook provisions.
+    - [ ] Extend cross-reference support by updating the `cross-reference-cue` helper (and any callers) so non-Texas authorities emit "See also" when appropriate, and ensure that `Id.` suppression respects the new short-form macros.
+    - [ ] Port any shared helpers or conditional branches required by the note style into the TOA variants (or document exceptions) so that TOA exports remain consistent when short-form data influences grouped outputs.
+    - [ ] Expand `tests.json` and `tests_short-form_smoke.json` with representative statute, rule, and administrative short-form scenarios, covering Texas and non-Texas authorities plus `Id.` transitions. Add corresponding expectations to `expected.txt` and `expected_short-form_smoke.txt` with inline comments referencing the PDF.
+    - [ ] Run `python temp/run_tests.py` for the affected fixtures, regenerate expected outputs with `--write-expected` once formatting is correct, and archive the test logs in `temp/test-logs/` with timestamps for PR evidence.
+    - [ ] Summarize implementation decisions, lingering edge cases, and any deviations from the Greenbook in `NOTES.md`, then update this TODO entry to reflect completion status.
+- [ ] **Add federal authority coverage to TOA fixtures and macros.** Introduce multi-jurisdiction handling so TOA exports can list federal cases and statutes alongside Texas authorities as described in Appendix B.
+  - [ ] Confirm which federal authority categories (e.g., U.S. Supreme Court, Fifth Circuit, federal statutes) require TOA representation and document the scope decision in `NOTES.md` with Appendix B page citations.
+  - [ ] Audit existing macros in `texas-greenbook-15th-toa*.csl` to pinpoint Texas-specific assumptions (group headings, jurisdiction filters, abbreviation helpers) that must be generalized for federal entries.
+  - [ ] Design grouping and sorting rules for federal authorities—decide whether to interleave with Texas sections or create dedicated headings—and record the plan in `NOTES.md` and this TODO entry.
+  - [ ] Extend the TOA macros (and any shared helpers in the main style) to recognize federal jurisdictions, ensuring locale abbreviations cover new reporters or code titles.
+  - [ ] Add citeproc fixtures for federal authorities to `tests_toa.json` and generate corresponding expectations (`expected_toa_grouped*.txt`). Include notes about authoritative examples from the Greenbook.
+  - [ ] Execute the TOA regression suite to validate the new coverage and archive logs. If upstream locale additions are needed, capture follow-up tasks referencing the custom locale file.
+  - [ ] Update README Known Limitations and `NOTES.md` once federal coverage is in place, documenting any remaining out-of-scope categories.
 - [x] **Decide on shared locale packaging.** Draft the consolidated locale file for terms like “art.” and “ch.” and plan integration across all drafts per the standing assumption. (Validated locale metadata and documented final review in `NOTES.md` on 2025-11-02.)
   - [x] Identify all non-default terms currently overridden in the main and TOA styles, listing them in `NOTES.md` along with their source citations.
     - [x] Scan CSL files for `<term>` overrides or localized string literals.
@@ -789,10 +806,10 @@ ion of the conflicting behavior.
 ## Release Preparation
 - [ ] **Finalize submission checklist.** Once logic gaps close, run `run_tests.py` suites, refresh documentation, and prepare the PR narrative referencing key Greenbook sections.
   - [ ] Confirm that all Active Development tasks are checked off and corresponding tests/fixtures are current.
-    - [ ] Review each Active Development checklist item for completion status and update boxes accordingly.
-    - [ ] Verify test fixtures reflect latest logic changes by diffing against previous baselines.
-    - [ ] Note outstanding dependencies preventing closure and escalate if needed.
-    - [ ] Document completion evidence (commit hashes, test logs) in `NOTES.md`.
+    - [ ] Review each Active Development checklist item for completion status and update boxes accordingly, adding dated notes in `NOTES.md` for any deferrals.
+    - [ ] Verify test fixtures reflect latest logic changes by diffing against previous baselines and capturing representative diffs in `temp/reports/`.
+    - [ ] Note outstanding dependencies preventing closure (e.g., locale approvals, upstream reviews) and escalate if needed by creating new TODO entries or external issues.
+    - [ ] Document completion evidence (commit hashes, test logs, fixture diff summaries) in `NOTES.md`.
   - [ ] Execute the full battery of regression tests for both note and TOA styles, capturing command output for inclusion in the eventual PR summary.
     - [ ] Run `python run_tests.py --all` (or equivalent) and capture logs with timestamps.
     - [ ] Re-run failing suites after addressing issues to confirm stability.
