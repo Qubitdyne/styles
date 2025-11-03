@@ -90,3 +90,28 @@
 
 ## Next Steps
 - Prioritize the publication/status helper integration, then resume the federal TOA macro work before tackling the final submission checklist to keep the Outstanding Work section short-lived.【F:temp/TODO.md†L9-L23】【F:temp/TODO.md†L489-L609】【F:temp/TODO.md†L772-L858】
+
+# Texas Greenbook CSL Audit — 2025-11-03T00:05Z
+
+## Scope & Materials Reviewed
+- Re-ran all active regression suites (notes, parentheticals, TOA grouped-leaders) with the current CSL drafts to confirm the working baseline.【56ff88†L1-L209】【0b1637†L1-L55】【5c3ba9†L1-L87】
+- Inspected `temp/README.md`, `temp/TODO.md`, `temp/NOTES.md`, and `temp/PR_DRAFT.md` to ensure live documentation aligns with observed harness behavior and backlog priorities.【F:temp/README.md†L1-L80】【F:temp/TODO.md†L1-L60】【F:temp/NOTES.md†L1-L60】【F:temp/PR_DRAFT.md†L1-L36】
+- Reviewed `temp/run_tests.py` and the warning filter configuration to verify citeproc noise suppression now covers the `related` metadata key noted in prior audits.【F:temp/run_tests.py†L1-L80】
+- Enumerated `temp/test-logs/` to confirm historic regression artifacts remain intact for cross-reference during future passes.【3ae9ab†L1-L67】
+
+## QA Activities
+- Executed the main note regression suite; all 89 fixtures matched expectations without warnings.【56ff88†L1-L209】
+- Ran the parenthetical note suite to validate helper-adjacent behaviors; no diffs observed.【0b1637†L1-L55】
+- Validated the grouped-leaders TOA suite in bibliography mode to confirm the restored 25-entry dataset still aligns with expectations.【5c3ba9†L1-L87】
+
+## Findings & Root Causes
+1. **PR draft references stale:** `temp/PR_DRAFT.md` still cites placeholder log filenames (`20250314-related-warning-*`) that do not exist, leaving the submission narrative unverifiable. The root cause is earlier template text that predates the latest log capture cadence; the document must be refreshed once new helper work lands.【F:temp/PR_DRAFT.md†L12-L18】【3ae9ab†L1-L67】
+2. **Backlog lacked actionable subtasks:** The trimmed `temp/TODO.md` no longer captured granular steps for helper integration, TOA expansion, or documentation cleanup, reducing its usefulness for handoffs. Breaking each headline item into explicit subtasks will prevent future drift.【F:temp/TODO.md†L1-L24】
+
+## Housekeeping & Documentation Updates
+- Expanded `temp/TODO.md` with detailed subtask lists for helper work, TOA federal coverage, submission prep, and documentation hygiene, plus a timestamped record of this regression sweep.【F:temp/TODO.md†L5-L45】
+- Logged the 2025-11-03 QA sweep in `temp/NOTES.md`, including the commands run and the outstanding PR draft cleanup need.【F:temp/NOTES.md†L21-L38】
+
+## Next Steps
+- Update `temp/PR_DRAFT.md` to reference real regression logs and incorporate new helper narratives once available, as captured in the documentation hygiene tasks.【F:temp/TODO.md†L37-L45】
+- Capture permanent log files for this regression pass before commencing helper integration work so historical comparisons remain straightforward.【F:temp/TODO.md†L15-L23】
