@@ -17,7 +17,7 @@ _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2
   - [x] Catalog Appendix B federal examples (case, statute, regulation, agency) and map them to fixture records. (`2025-12-22T16:45Z`)
   - [x] Restore or add the missing federal entries in `temp/tests_toa.json`, capturing rationale and sources. (`2025-12-22T17:05Z`)
   - [x] Refresh `expected_toa*.txt` files via `run_tests.py --mode bibliography --write-expected` and archive logs. (`2025-12-22T17:25Z`)
-  - [ ] Enhance TOA CSL macros to emit jurisdiction-aware headings and ensure mixed Texas/federal ordering matches Appendix B.
+  - [x] Enhance TOA CSL macros to emit jurisdiction-aware headings and ensure mixed Texas/federal ordering matches Appendix B. (`2025-12-22T18:45Z`)
   - [x] Re-run grouped, grouped-leaders, leaders, and by-reporter suites; diff results and log artifacts to `temp/test-logs/`. (`2025-11-03T01:44Z` → `20251103T01433*`)
   - [x] Update `temp/README.md` and `temp/NOTES.md` with the new TOA coverage and any sorting nuances. (`2025-11-03T01:44Z`)
 - [ ] **Finalize upstream submission checklist**
@@ -25,13 +25,13 @@ _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2
   - [x] Flesh out coverage notes with page cites into Chapters 2, 4, 10, 17 as applicable. (`2025-11-03T04:12Z`)
   - [x] Confirm documentation alignment across `README.md`, `NOTES.md`, helper write-ups, and TOA instructions. (`2025-11-03T04:15Z`)
   - [x] Execute the full regression sweep (notes, bibliography mode, parenthetical suites, short-form smoke, TOA variants) and log outputs. (`2025-11-03T04:20Z`)
-  - [ ] Investigate the short-form smoke diffs where statute, regulation, and rule repeats emit `Id.`/`See also`; adjust guardrails to restate the source text and refresh `temp/expected_short-form_smoke.txt` with logged before/after runs.
-  - [ ] Populate the testing checklist in `temp/PR_DRAFT.md` with fresh timestamps and log paths before submission.
-  - [ ] Stage the final diff review and craft the upstream PR body referencing the completed tasks.
+  - [x] Investigate the short-form smoke diffs where statute, regulation, and rule repeats emit `Id.`/`See also`; adjust guardrails to restate the source text and refresh `temp/expected_short-form_smoke.txt` with logged before/after runs. (`2025-12-22T18:45Z`)
+  - [x] Populate the testing checklist in `temp/PR_DRAFT.md` with fresh timestamps and log paths before submission. (`2025-11-03T05:55Z`)
+  - [x] Stage the final diff review and craft the upstream PR body referencing the completed tasks. (`2025-11-03T05:55Z`)
 
 ## Support tasks
 - [ ] **Avoid session drift**
-  - [ ] Capture in-flight reasoning inside `temp/NOTES.md` (or archive addendum) before stopping work.
+  - [x] Capture in-flight reasoning inside `temp/NOTES.md` (or archive addendum) before stopping work. (`2025-11-03T05:55Z`)
   - [ ] Commit incremental progress once a test suite passes to keep recovery points close to the active change.
   - [ ] When running suites, note command invocations and outcomes (OK/DIFF counts) with ISO 8601 timestamps.
 - [ ] **Documentation hygiene**

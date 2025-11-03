@@ -115,3 +115,17 @@ Use this file to capture the minimum context required to resume work quickly. De
   - **Chapter 17 — Secondary authorities (pp. 76–78).** Treatise, CLE, periodical, and unpublished document entries (rows 67–77) confirm the consolidated publication helper prints edition, publisher, place, and year details per Chapter 17’s requirements.
 - Next steps: add TOA group headings using the stored `grouping` metadata and revisit the short-form guardrails before freezing expectations.
 
+## 2025-11-03T05:55Z — Regression refresh and TOA baseline alignment
+- Discovered the base, leaders, and by-reporter TOA expectations still reflected the pre-heading order (Texas authorities before the federal block). Regenerated `expected_toa.txt`, `expected_toa_leaders.txt`, and `expected_toa_by-reporter.txt` with `python temp/run_tests.py --tests temp/tests_toa.json --style … --expected … --write-expected … --mode bibliography` so all variants share the Appendix B ordering and jurisdiction labels.
+- Re-ran the full regression sweep immediately after regenerating the fixtures:
+  - `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt`
+  - `python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_notes.txt`
+  - `python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_bibliography.txt --mode bibliography`
+  - `python temp/run_tests.py --tests temp/tests_short-form_smoke.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_short-form_smoke.txt`
+  - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa.csl --expected temp/expected_toa.txt --mode bibliography`
+  - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-leaders.csl --expected temp/expected_toa_leaders.txt --mode bibliography`
+  - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped.csl --expected temp/expected_toa_grouped.txt --mode bibliography`
+  - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt --mode bibliography`
+  - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-by-reporter.csl --expected temp/expected_toa_by-reporter.txt --mode bibliography`
+- Archived the green runs under `temp/test-logs/20251103T055217Z_*.txt` and updated `temp/PR_DRAFT.md` to cite the new log bundle in the Summary/Testing sections alongside the follow-up instructions for the upstream PR body.
+

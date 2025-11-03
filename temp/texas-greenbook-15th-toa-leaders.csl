@@ -153,41 +153,64 @@
   </ns0:macro>
   <ns0:macro name="toa-type-rank">
     <ns0:choose>
-      <ns0:if type="legal_case">
-        <ns0:text value="01" />
+      <ns0:if variable="keyword">
+        <ns0:text variable="keyword" />
       </ns0:if>
-      <ns0:else-if type="legislation">
-        <ns0:choose>
-          <ns0:if variable="chapter-number">
-            <ns0:text value="02" />
-          </ns0:if>
-          <ns0:else-if variable="title">
-            <ns0:text value="06" />
-          </ns0:else-if>
-          <ns0:else>
-            <ns0:text value="03" />
-          </ns0:else>
-        </ns0:choose>
-      </ns0:else-if>
-      <ns0:else-if type="regulation">
-        <ns0:choose>
-          <ns0:if variable="volume">
-            <ns0:text value="04" />
-          </ns0:if>
-          <ns0:else-if variable="authority chapter-number" match="all">
-            <ns0:text value="08" />
-          </ns0:else-if>
-          <ns0:else>
-            <ns0:text value="05" />
-          </ns0:else>
-        </ns0:choose>
-      </ns0:else-if>
-      <ns0:else-if type="report">
-        <ns0:text value="07" />
-      </ns0:else-if>
       <ns0:else>
-        <ns0:text value="09" />
+        <ns0:choose>
+          <ns0:if type="legal_case">
+            <ns0:text value="01" />
+          </ns0:if>
+          <ns0:else-if type="legislation">
+            <ns0:choose>
+              <ns0:if variable="chapter-number">
+                <ns0:text value="02" />
+              </ns0:if>
+              <ns0:else-if variable="title">
+                <ns0:text value="06" />
+              </ns0:else-if>
+              <ns0:else>
+                <ns0:text value="03" />
+              </ns0:else>
+            </ns0:choose>
+          </ns0:else-if>
+          <ns0:else-if type="regulation">
+            <ns0:choose>
+              <ns0:if variable="volume">
+                <ns0:text value="04" />
+              </ns0:if>
+              <ns0:else-if variable="authority chapter-number" match="all">
+                <ns0:text value="08" />
+              </ns0:else-if>
+              <ns0:else>
+                <ns0:text value="05" />
+              </ns0:else>
+            </ns0:choose>
+          </ns0:else-if>
+          <ns0:else-if type="report">
+            <ns0:text value="07" />
+          </ns0:else-if>
+          <ns0:else>
+            <ns0:text value="09" />
+          </ns0:else>
+        </ns0:choose>
       </ns0:else>
+    </ns0:choose>
+  </ns0:macro>
+
+  <ns0:macro name="toa-section-heading">
+    <ns0:choose>
+      <ns0:if variable="call-number">
+        <ns0:text variable="call-number" />
+      </ns0:if>
+    </ns0:choose>
+  </ns0:macro>
+
+  <ns0:macro name="toa-subheading-heading">
+    <ns0:choose>
+      <ns0:if variable="reviewed-title">
+        <ns0:text variable="reviewed-title" />
+      </ns0:if>
     </ns0:choose>
   </ns0:macro>
   <ns0:macro name="legal-case">
