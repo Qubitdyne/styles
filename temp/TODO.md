@@ -20,7 +20,7 @@ _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2
   - [x] Enhance TOA CSL macros to emit jurisdiction-aware headings and ensure mixed Texas/federal ordering matches Appendix B. (`2025-12-22T18:45Z`)
   - [x] Re-run grouped, grouped-leaders, leaders, and by-reporter suites; diff results and log artifacts to `temp/test-logs/`. (`2025-11-03T01:44Z` → `20251103T01433*`)
   - [x] Update `temp/README.md` and `temp/NOTES.md` with the new TOA coverage and any sorting nuances. (`2025-11-03T01:44Z`)
-- [ ] **Finalize upstream submission checklist**
+- [x] **Finalize upstream submission checklist** (`2025-12-22T19:30Z`)
   - [x] Audit `temp/PR_DRAFT.md` against current work to ensure the summary references real fixtures/logs. (`2025-11-03T01:44Z`)
   - [x] Flesh out coverage notes with page cites into Chapters 2, 4, 10, 17 as applicable. (`2025-11-03T04:12Z`)
   - [x] Confirm documentation alignment across `README.md`, `NOTES.md`, helper write-ups, and TOA instructions. (`2025-11-03T04:15Z`)
@@ -32,12 +32,12 @@ _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2
 ## Support tasks
 - [ ] **Avoid session drift**
   - [x] Capture in-flight reasoning inside `temp/NOTES.md` (or archive addendum) before stopping work. (`2025-11-03T05:55Z`)
-  - [ ] Commit incremental progress once a test suite passes to keep recovery points close to the active change.
+  - [x] Commit incremental progress once a test suite passes to keep recovery points close to the active change. (`2025-12-22T19:30Z`)
 - [x] When running suites, note command invocations and outcomes (OK/DIFF counts) with ISO 8601 timestamps. (`2025-11-03T06:04Z` — logged in `temp/NOTES.md`)
 - [ ] **Documentation hygiene**
   - [x] Refresh `temp/PR_DRAFT.md` references to historical logs so they point at actual artifacts and dates. (`2025-11-03T00:08Z`)
   - [x] Review `temp/README.md` language about warning suppression after helper work to ensure it reflects the final harness behavior. (`2025-11-03T01:44Z`)
-  - [ ] Tag any additional markdown drift discovered during audits and file follow-up items here with timestamps.
+  - [x] Tag any additional markdown drift discovered during audits and file follow-up items here with timestamps. (`2025-12-22T19:30Z`)
 
 ## Recently verified (informational)
 - [x] `2025-11-03T00:05Z` — Re-ran note, parenthetical, and TOA grouped-leaders suites; all expectations matched (`run_tests.py` outputs logged in session 56ff88, 0b1637, 5c3ba9).
