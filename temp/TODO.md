@@ -3,7 +3,7 @@
 _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2025-12-21.md`. Keep this file focused on the current execution plan so sessions stay on track._
 
 ## Immediate priorities
-- [ ] **Build shared publication/status helpers**
+- [x] **Build shared publication/status helpers** (`2025-11-03T06:04Z` verification)
   - [x] Inventory `temp/prototypes/` (CSL, JSON, expected output) and note which macros map directly into production styles.
   - [x] Extract controlling rules from *Greenbook* chs. 10–13 (record page citations in `temp/NOTES.md`).
   - [x] Design final helper macro signatures (inputs, outputs, parameter names) and document them in `temp/NOTES.md`.
@@ -13,7 +13,7 @@ _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2
   - [x] Follow up on TOA register notices: suppress duplicate `Tex. Reg.` cites when the base entry already prints the volume and page (e.g., 39 Tex. Reg. 573, 574 in grouped layouts). (`2025-11-03T05:30Z`)
   - [x] Capture fresh regression logs (notes, parentheticals, TOA) under `temp/test-logs/` with timestamped filenames. (`2025-11-03T05:30Z` → `20251103T012201Z_*`)
   - [x] Summarize helper roll-out decisions and citations in `temp/NOTES.md` and confirm documentation sync in `temp/README.md`. (`2025-11-03T05:30Z`)
-- [ ] **Add federal authority coverage to TOA fixtures and macros**
+- [x] **Add federal authority coverage to TOA fixtures and macros** (`2025-11-03T06:04Z` verification)
   - [x] Catalog Appendix B federal examples (case, statute, regulation, agency) and map them to fixture records. (`2025-12-22T16:45Z`)
   - [x] Restore or add the missing federal entries in `temp/tests_toa.json`, capturing rationale and sources. (`2025-12-22T17:05Z`)
   - [x] Refresh `expected_toa*.txt` files via `run_tests.py --mode bibliography --write-expected` and archive logs. (`2025-12-22T17:25Z`)
@@ -33,7 +33,7 @@ _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2
 - [ ] **Avoid session drift**
   - [x] Capture in-flight reasoning inside `temp/NOTES.md` (or archive addendum) before stopping work. (`2025-11-03T05:55Z`)
   - [ ] Commit incremental progress once a test suite passes to keep recovery points close to the active change.
-  - [ ] When running suites, note command invocations and outcomes (OK/DIFF counts) with ISO 8601 timestamps.
+- [x] When running suites, note command invocations and outcomes (OK/DIFF counts) with ISO 8601 timestamps. (`2025-11-03T06:04Z` — logged in `temp/NOTES.md`)
 - [ ] **Documentation hygiene**
   - [x] Refresh `temp/PR_DRAFT.md` references to historical logs so they point at actual artifacts and dates. (`2025-11-03T00:08Z`)
   - [x] Review `temp/README.md` language about warning suppression after helper work to ensure it reflects the final harness behavior. (`2025-11-03T01:44Z`)

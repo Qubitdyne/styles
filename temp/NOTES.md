@@ -129,3 +129,12 @@ Use this file to capture the minimum context required to resume work quickly. De
   - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-by-reporter.csl --expected temp/expected_toa_by-reporter.txt --mode bibliography`
 - Archived the green runs under `temp/test-logs/20251103T055217Z_*.txt` and updated `temp/PR_DRAFT.md` to cite the new log bundle in the Summary/Testing sections alongside the follow-up instructions for the upstream PR body.
 
+## 2025-11-03T06:04Z — Helper parity and federal TOA heading verification
+- Reconfirmed the shared publication/status helper wiring and federal TOA headings remain stable after the last archived sweep; re-ran the focused regression trio with all expectations passing:
+  - `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt` → all 89 rows `OK` (notes helper coverage) (`f03fc9`).
+  - `python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_notes.txt` → 10 `OK` results (parenthetical helper usage) (`f6ef44`).
+  - `python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_bibliography.txt --mode bibliography` → 7 `OK` bibliography entries (publication helper) (`35da61`).
+  - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt --mode bibliography` → 25 grouped-heading entries `OK`, including federal sections (Appendix B alignment) (`50e0ac`).
+  - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa.csl --expected temp/expected_toa.txt --mode bibliography` → 25 base layout entries `OK` (federal ordering retained) (`078f98`).
+- No citeproc warnings surfaced during the sweep; helper macros in the note style and TOA variants remain in sync, so the open backlog items for shared publication/status helpers and federal TOA coverage can be closed after this confirmation run.
+
