@@ -143,6 +143,12 @@ Use this file to capture the minimum context required to resume work quickly. De
 - Seeded the ledger with the short-form smoke run executed while testing the hook: `2025-11-03T09:11:44Z | PASS | 12 OK, 0 DIFF | mode=notes; style=temp/texas-greenbook-15th-edition.csl; tests=temp/tests_short-form_smoke.json; expected=temp/expected_short-form_smoke.txt | /root/.pyenv/versions/3.12.10/bin/python temp/run_tests.py --tests temp/tests_short-form_smoke.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_short-form_smoke.txt`.
 - Updated `README.md` and `PR_DRAFT.md` to point maintainers to the new log stream so they can prove coverage without hunting through individual suite outputs. Logged the completion of the associated TODO subtasks (support-task automation and documentation hygiene) with timestamps in `temp/TODO.md`.
 
+## 2025-11-03T15:24Z — Short-form restatement pass and log capture
+- Implemented the new short-form guardrails in `texas-greenbook-15th-edition.csl` so repeated citations to Texas statutes (Greenbook 15th ed. 24, 34), agency rules and regulations (Greenbook 15th ed. 76–78), and Texas/Federal procedural rules (Greenbook 15th ed. 61–65) now restate the full authority instead of collapsing to `Id.` when the author field is empty.
+- Re-ran the full note suite to confirm the guardrails and archived the passing output at `temp/test-logs/20251103T152401Z_notes_full-suite.txt`.
+- Command for reference: `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt`.
+- Appended the run summary to `temp/test-logs/run-history.log` so the new regression appears alongside earlier short-form smoke investigations.
+
 ## 2025-12-22T19:30Z — Documentation hygiene and submission checklist pass
 - Updated `temp/README.md` recent-update bullets so the regression log references line up with the federal Appendix B sweep and the final 20251103 regression bundle.
 - Reworked the “Active research threads” section above to focus on the remaining Chapter 4 short-form guardrails and PR packaging tasks.
