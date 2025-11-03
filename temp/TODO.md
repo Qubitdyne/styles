@@ -10,9 +10,9 @@ _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2
   - [x] Implement helpers in `texas-greenbook-15th-edition.csl`, replacing duplicated status/publication logic.
   - [x] Update note and parenthetical fixtures to cover helper-driven outputs; regenerate `expected*.txt` with `--write-expected`.
   - [x] Port helpers into every `texas-greenbook-15th-toa*.csl` variant and verify cross-file parity.
-  - [ ] Follow up on TOA register notices: suppress duplicate `Tex. Reg.` cites when the base entry already prints the volume and page (e.g., 39 Tex. Reg. 573, 574 in grouped layouts).
-  - [ ] Capture fresh regression logs (notes, parentheticals, TOA) under `temp/test-logs/` with timestamped filenames.
-  - [ ] Summarize helper roll-out decisions and citations in `temp/NOTES.md` and confirm documentation sync in `temp/README.md`.
+  - [x] Follow up on TOA register notices: suppress duplicate `Tex. Reg.` cites when the base entry already prints the volume and page (e.g., 39 Tex. Reg. 573, 574 in grouped layouts). (`2025-11-03T05:30Z`)
+  - [x] Capture fresh regression logs (notes, parentheticals, TOA) under `temp/test-logs/` with timestamped filenames. (`2025-11-03T05:30Z` → `20251103T012201Z_*`)
+  - [x] Summarize helper roll-out decisions and citations in `temp/NOTES.md` and confirm documentation sync in `temp/README.md`. (`2025-11-03T05:30Z`)
 - [ ] **Add federal authority coverage to TOA fixtures and macros**
   - [ ] Catalog Appendix B federal examples (case, statute, regulation, agency) and map them to fixture records.
   - [ ] Restore or add the missing federal entries in `temp/tests_toa.json`, capturing rationale and sources.

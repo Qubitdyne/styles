@@ -340,11 +340,24 @@
           </choose>
           <choose>
             <if variable="volume container-title page" match="all">
-              <group delimiter=" ">
-                <text variable="volume"/>
-                <text variable="container-title"/>
-                <text variable="page"/>
-              </group>
+              <choose>
+                <if type="regulation" match="none">
+                  <group delimiter=" ">
+                    <text variable="volume"/>
+                    <text variable="container-title"/>
+                    <text variable="page"/>
+                  </group>
+                </if>
+                <else-if type="regulation" match="any">
+                  <if variable="section">
+                    <group delimiter=" ">
+                      <text variable="volume"/>
+                      <text variable="container-title"/>
+                      <text variable="page"/>
+                    </group>
+                  </if>
+                </else-if>
+              </choose>
             </if>
           </choose>
           <choose>

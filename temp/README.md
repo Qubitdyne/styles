@@ -6,6 +6,9 @@ This workspace tracks the in-progress Citation Style Language (CSL) implementati
 - Finish and document the Texas-specific CSL styles (`texas-greenbook-15th-edition.csl` and the TOA variants) so they are ready to propose to the upstream `citation-style-language/styles` repository.
 - Align every change with the Greenbook PDF stored at `temp/Greenbook_15thEdition.pdf` and record supporting page citations in `temp/NOTES.md` when new rules are implemented.
 
+## Recent updates
+- **2025-11-03** — Register parenthetical cleanup: shared `tx-authority-status-parenthetical` logic now suppresses duplicate register cites in TOA layouts, matching the Texas Register guidance in Chapter 16 (Greenbook 15th ed. 83) and the Appendix B federal examples (pp. 247–248). Regression logs capturing the refreshed note, parenthetical, and TOA suites live at `temp/test-logs/20251103T012201Z_*.txt`.
+
 ## Where things live
 | Path | Purpose |
 | --- | --- |
