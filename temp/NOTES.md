@@ -24,3 +24,14 @@ Use this file to capture the minimum context required to resume work quickly. De
   - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt --mode bibliography`
 - All suites matched their expectations with no citeproc warnings; capture permanent logs before the next helper integration pass.
 - PR draft references (`temp/PR_DRAFT.md`) still point to placeholder log filenames (`20250314-related-warning-*`) that do not exist—log an update task before finalizing the submission narrative.
+
+## 2025-11-03T00:08Z — Regression rerun and PR draft cleanup
+- Re-ran the baseline suites and archived logs:
+  - `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt` → `temp/test-logs/20251103T000753Z_notes.txt`
+  - `python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_notes.txt` → `temp/test-logs/20251103T000757Z_parentheticals_notes.txt`
+  - `python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_bibliography.txt --mode bibliography` → `temp/test-logs/20251103T000759Z_parentheticals_bibliography.txt`
+  - `python temp/run_tests.py --tests temp/tests_short-form_smoke.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_short-form_smoke.txt` → `temp/test-logs/20251103T000801Z_short-form_smoke.txt`
+  - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt --mode bibliography` → `temp/test-logs/20251103T000803Z_toa_grouped_leaders.txt`
+- Notes, parentheticals (note & bibliography), and TOA grouped-leaders suites matched expectations with no warnings.
+- The short-form smoke suite surfaced diffs where statutes, regulations, and rules collapse to `Id.`/`See also`; logged a new TODO to restore full-repeat citations before submission.
+- Updated `temp/PR_DRAFT.md` to cite the real log filenames and avoid dangling `20250314` placeholders.

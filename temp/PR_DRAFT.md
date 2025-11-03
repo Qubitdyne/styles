@@ -6,8 +6,8 @@ Keep this draft synchronized with the active TODO so we can file the upstream pu
 - Expanded Chapter 16 web citation fixtures (undated press releases, quoted blog titles, standalone PDF downloads) and refreshed expectations to align with pp. 76–77 of the Texas Greenbook.
 - Added `Id.` guard logic for statute and rule repeats so citations with `collection-title` or `chapter-number` metadata restate the code instead of emitting `Id.`, per Greenbook Chapter 10 (pp. 42–45).
 - Logged the short-form regression run in `temp/test-logs/2025-12-01_full-suite-post-guard-aligned.txt` for reviewer reference.
-- Restored the Table of Authorities fixtures to the full 17-authority baseline and re-enabled `run_tests.py --write-expected` support so grouped/grouped-leaders/by-reporter outputs stay synchronized with Appendix B expectations.
-- Expanded the regression harness warning filter to cover citeproc's `related` metadata, documenting the scope in `README.md` and archiving before/after logs under `temp/test-logs/20250314-related-warning-*.txt`.
+- Restored the Table of Authorities fixtures to the full 17-authority baseline and re-enabled `run_tests.py --write-expected` support so grouped/grouped-leaders/by-reporter outputs stay synchronized with Appendix B expectations; see `temp/test-logs/20251209_full-suite_pre-write.txt` and `temp/test-logs/20251209_full-suite_write-expected.txt`.
+- Expanded the regression harness warning filter to cover citeproc's `related` metadata, documenting the scope in `README.md` and archiving before/after logs under `temp/test-logs/2025-12-19_related-warning-*.txt`.
 - Logged the Appendix H code/rule abbreviation inventory in `NOTES` and cross-referenced it from the documentation to support the upcoming publication/status helper work.
 
 ## Testing
@@ -16,6 +16,13 @@ Keep this draft synchronized with the active TODO so we can file the upstream pu
 - python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_bibliography.txt --mode bibliography
 - python temp/run_tests.py --tests temp/tests_short-form_smoke.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_short-form_smoke.txt
 - python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt --mode bibliography
+
+- Latest confirmation logs:
+  - `temp/test-logs/20251103T000753Z_notes.txt`
+  - `temp/test-logs/20251103T000757Z_parentheticals_notes.txt`
+  - `temp/test-logs/20251103T000759Z_parentheticals_bibliography.txt`
+  - `temp/test-logs/20251103T000801Z_short-form_smoke.txt`
+  - `temp/test-logs/20251103T000803Z_toa_grouped_leaders.txt`
 
 ## Pending before submission
 - Fold the publication/status helpers into the production styles and refresh fixtures.
