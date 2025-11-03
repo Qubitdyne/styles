@@ -248,6 +248,132 @@
     </ns0:group>
   </ns0:macro>
 
+  <ns0:macro name="tx-publication-parenthetical">
+    <ns0:choose>
+      <ns0:if variable="edition publisher publisher-place issued status medium note" match="any">
+        <ns0:group prefix="(" suffix=")" delimiter="; ">
+          <ns0:choose>
+            <ns0:if variable="edition">
+              <ns0:group delimiter=" ">
+                <ns0:number variable="edition" form="ordinal" />
+                <ns0:text term="edition" form="short" />
+              </ns0:group>
+            </ns0:if>
+          </ns0:choose>
+          <ns0:choose>
+            <ns0:if variable="publisher publisher-place note issued status medium" match="any">
+              <ns0:group delimiter=" ">
+                <ns0:choose>
+                  <ns0:if variable="publisher publisher-place" match="any">
+                    <ns0:group delimiter=", ">
+                      <ns0:text variable="publisher" />
+                      <ns0:text variable="publisher-place" />
+                    </ns0:group>
+                  </ns0:if>
+                </ns0:choose>
+                <ns0:choose>
+                  <ns0:if variable="note">
+                    <ns0:text variable="note" />
+                  </ns0:if>
+                  <ns0:else-if variable="issued">
+                    <ns0:date variable="issued"><ns0:date-part name="year" /></ns0:date>
+                  </ns0:else-if>
+                  <ns0:else-if variable="status">
+                    <ns0:text variable="status" />
+                  </ns0:else-if>
+                  <ns0:else-if variable="medium">
+                    <ns0:text variable="medium" />
+                  </ns0:else-if>
+                </ns0:choose>
+              </ns0:group>
+            </ns0:if>
+          </ns0:choose>
+        </ns0:group>
+      </ns0:if>
+    </ns0:choose>
+  </ns0:macro>
+
+  <ns0:macro name="tx-authority-status-parenthetical">
+    <ns0:choose>
+      <ns0:if variable="authority status issued volume container-title page note" match="any">
+        <ns0:group prefix="(" suffix=")" delimiter="; ">
+          <ns0:choose>
+            <ns0:if variable="authority status issued" match="any">
+              <ns0:group delimiter=", ">
+                <ns0:text variable="authority" />
+                <ns0:choose>
+                  <ns0:if variable="status">
+                    <ns0:text variable="status" />
+                  </ns0:if>
+                </ns0:choose>
+                <ns0:choose>
+                  <ns0:if variable="issued">
+                    <ns0:date variable="issued"><ns0:date-part name="year" /></ns0:date>
+                  </ns0:if>
+                </ns0:choose>
+              </ns0:group>
+            </ns0:if>
+          </ns0:choose>
+          <ns0:choose>
+            <ns0:if variable="volume container-title page" match="all">
+              <ns0:group delimiter=" ">
+                <ns0:text variable="volume" />
+                <ns0:text variable="container-title" />
+                <ns0:text variable="page" />
+              </ns0:group>
+            </ns0:if>
+          </ns0:choose>
+          <ns0:choose>
+            <ns0:if variable="note">
+              <ns0:text variable="note" />
+            </ns0:if>
+          </ns0:choose>
+        </ns0:group>
+      </ns0:if>
+    </ns0:choose>
+  </ns0:macro>
+
+  <ns0:macro name="tx-session-law-citation">
+    <ns0:group delimiter=", ">
+      <ns0:text variable="title" />
+      <ns0:text variable="collection-number" />
+      <ns0:choose>
+        <ns0:if variable="number section" match="any">
+          <ns0:group delimiter=", ">
+            <ns0:choose>
+              <ns0:if variable="number">
+                <ns0:text variable="number" prefix="ch. " />
+              </ns0:if>
+            </ns0:choose>
+            <ns0:choose>
+              <ns0:if variable="section">
+                <ns0:group delimiter=" ">
+                  <ns0:text term="section" form="symbol" />
+                  <ns0:text variable="section" />
+                </ns0:group>
+              </ns0:if>
+            </ns0:choose>
+          </ns0:group>
+        </ns0:if>
+      </ns0:choose>
+      <ns0:choose>
+        <ns0:if variable="volume container-title page" match="any">
+          <ns0:group delimiter=" ">
+            <ns0:text variable="volume" />
+            <ns0:text variable="container-title" />
+            <ns0:text variable="page" />
+          </ns0:group>
+        </ns0:if>
+      </ns0:choose>
+      <ns0:text variable="locator" />
+    </ns0:group>
+    <ns0:choose>
+      <ns0:if variable="references">
+        <ns0:text variable="references" prefix=", " />
+      </ns0:if>
+    </ns0:choose>
+  </ns0:macro>
+
   <ns0:macro name="tex-code-section-short">
     <ns0:group delimiter=" ">
       <ns0:choose>
@@ -305,16 +431,12 @@
     <ns0:group delimiter=" ">
       <ns0:text macro="tex-code-section" />
       <ns0:choose>
-        <ns0:if variable="note">
-          <ns0:choose>
-            <ns0:if variable="genre">
-              <ns0:text />
-            </ns0:if>
-            <ns0:else>
-              <ns0:text variable="note" prefix="(" suffix=")" />
-            </ns0:else>
-          </ns0:choose>
+        <ns0:if variable="genre">
+          <ns0:text />
         </ns0:if>
+        <ns0:else>
+          <ns0:text macro="tx-publication-parenthetical" />
+        </ns0:else>
       </ns0:choose>
     </ns0:group>
   </ns0:macro>
@@ -351,7 +473,10 @@
   </ns0:macro>
 
   <ns0:macro name="tex-rule-first">
-    <ns0:text macro="tex-code-section" />
+    <ns0:group delimiter=" ">
+      <ns0:text macro="tex-code-section" />
+      <ns0:text macro="tx-publication-parenthetical" />
+    </ns0:group>
   </ns0:macro>
 
   <ns0:macro name="tex-rule-short">
@@ -376,15 +501,6 @@
       <ns0:group delimiter=" "><ns0:text term="section" form="symbol" /><ns0:text variable="section" /></ns0:group>
     </ns0:group>
     <ns0:text variable="status" prefix=" (" suffix=")" />
-  </ns0:macro>
-  <ns0:macro name="session-law">
-    <ns0:group delimiter=", ">
-      <ns0:text variable="title" />
-      <ns0:text variable="collection-number" />
-      <ns0:text variable="number" prefix="ch. " />
-      <ns0:group delimiter=" "><ns0:text term="section" form="symbol" /><ns0:text variable="section" /></ns0:group>
-      <ns0:group delimiter=" "><ns0:text variable="volume" /><ns0:text variable="container-title" /><ns0:text variable="page" /></ns0:group>
-    </ns0:group>
   </ns0:macro>
   <ns0:macro name="tex-code-section">
     <ns0:group delimiter=" ">
@@ -455,12 +571,10 @@
   </ns0:macro>
 
   <ns0:macro name="tex-admin-code-first">
-    <ns0:text macro="tex-admin-core" />
-    <ns0:date variable="issued" prefix=" (" suffix=")"><ns0:date-part name="year" /></ns0:date>
-    <ns0:choose>
-      <ns0:if variable="note"><ns0:text variable="note" prefix=" (" suffix=")" /></ns0:if>
-    </ns0:choose>
-    <ns0:text variable="authority" prefix=" (" suffix=")" />
+    <ns0:group delimiter=" ">
+      <ns0:text macro="tex-admin-core" />
+      <ns0:text macro="tx-authority-status-parenthetical" />
+    </ns0:group>
   </ns0:macro>
 
   <ns0:macro name="tex-admin-code-short-base">
@@ -583,7 +697,7 @@
         </ns0:else-if>
         <ns0:else-if type="legislation">
           <ns0:choose>
-            <ns0:if variable="title"><ns0:text macro="session-law" /></ns0:if>
+            <ns0:if variable="title"><ns0:text macro="tx-session-law-citation" /></ns0:if>
             <ns0:else-if variable="chapter-number"><ns0:text macro="constitution-core" /></ns0:else-if>
             <ns0:else-if variable="genre" match="any"><ns0:text macro="tex-rule" /></ns0:else-if>
             <ns0:else><ns0:text macro="tex-statute" /></ns0:else>
@@ -618,7 +732,7 @@
         </ns0:else-if>
         <ns0:else-if type="legislation">
           <ns0:choose>
-            <ns0:if variable="title"><ns0:text macro="session-law" /></ns0:if>
+            <ns0:if variable="title"><ns0:text macro="tx-session-law-citation" /></ns0:if>
             <ns0:else-if variable="chapter-number"><ns0:text macro="constitution-core" /></ns0:else-if>
             <ns0:else-if variable="genre" match="any"><ns0:text macro="tex-rule" /></ns0:else-if>
             <ns0:else><ns0:text macro="tex-statute" /></ns0:else>
