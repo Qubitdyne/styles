@@ -20,6 +20,8 @@ Keep this draft synchronized with the active TODO so we can file the upstream pu
 - python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt --mode bibliography
 - python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-by-reporter.csl --expected temp/expected_toa_by-reporter.txt --mode bibliography
 
+- Automation note: each invocation writes a summary line (timestamp, PASS/FAIL, OK/DIFF counts, command) to `temp/test-logs/run-history.log`. Reference this ledger when drafting the final PR narrative or when you need to confirm which suites have already been exercised in a session.
+
 - Latest confirmation logs:
 - `temp/test-logs/20251103T055217Z_notes.txt`
 - `temp/test-logs/20251103T055217Z_parentheticals_notes.txt`

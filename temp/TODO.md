@@ -30,14 +30,17 @@ _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2
   - [x] Stage the final diff review and craft the upstream PR body referencing the completed tasks. (`2025-11-03T05:55Z`)
 
 ## Support tasks
-- [ ] **Avoid session drift**
+- [x] **Avoid session drift** (`2025-11-03T09:11Z`)
   - [x] Capture in-flight reasoning inside `temp/NOTES.md` (or archive addendum) before stopping work. (`2025-11-03T05:55Z`)
   - [x] Commit incremental progress once a test suite passes to keep recovery points close to the active change. (`2025-12-22T19:30Z`)
+  - [x] Add an automated log hook to `temp/run_tests.py` so every invocation can append its command, timestamp, and outcome to a file in `temp/test-logs/`, reducing reliance on manual session transcripts. (`2025-11-03T09:11Z`)
 - [x] When running suites, note command invocations and outcomes (OK/DIFF counts) with ISO 8601 timestamps. (`2025-11-03T06:04Z` — logged in `temp/NOTES.md`)
-- [ ] **Documentation hygiene**
+- [x] **Documentation hygiene** (`2025-11-03T09:11Z`)
   - [x] Refresh `temp/PR_DRAFT.md` references to historical logs so they point at actual artifacts and dates. (`2025-11-03T00:08Z`)
   - [x] Review `temp/README.md` language about warning suppression after helper work to ensure it reflects the final harness behavior. (`2025-11-03T01:44Z`)
   - [x] Tag any additional markdown drift discovered during audits and file follow-up items here with timestamps. (`2025-12-22T19:30Z`)
+  - [x] Replace the placeholder ellipsis in the 2025-11-03T05:30Z register-notice entry within `temp/NOTES.md` with a complete summary (including page citations) so future contributors are not left guessing about the cleanup work. (`2025-11-03T09:11Z`)
+  - [x] Document the automated test logging workflow in `temp/README.md` and `temp/PR_DRAFT.md`, noting where the new log files will appear. (`2025-11-03T09:11Z`)
 
 ## Recently verified (informational)
 - [x] `2025-11-03T00:05Z` — Re-ran note, parenthetical, and TOA grouped-leaders suites; all expectations matched (`run_tests.py` outputs logged in session 56ff88, 0b1637, 5c3ba9).
