@@ -115,3 +115,28 @@
 ## Next Steps
 - Update `temp/PR_DRAFT.md` to reference real regression logs and incorporate new helper narratives once available, as captured in the documentation hygiene tasks.【F:temp/TODO.md†L37-L45】
 - Capture permanent log files for this regression pass before commencing helper integration work so historical comparisons remain straightforward.【F:temp/TODO.md†L15-L23】
+
+# Texas Greenbook CSL Audit — 2025-11-03T00:08Z
+
+## Scope & Materials Reviewed
+- Reviewed `temp/PR_DRAFT.md` to ensure every referenced regression artifact corresponds to an existing log captured in `temp/test-logs/`.【F:temp/PR_DRAFT.md†L7-L25】
+- Checked `temp/TODO.md` and `temp/NOTES.md` for alignment with the new regression runs and documentation hygiene tasks.【F:temp/TODO.md†L1-L45】【F:temp/NOTES.md†L1-L60】
+- Validated the freshly captured regression outputs under `temp/test-logs/` for completeness and readability (notes, parentheticals, short-form, TOA).【F:temp/test-logs/20251103T000753Z_notes.txt†L1-L20】【F:temp/test-logs/20251103T000759Z_parentheticals_bibliography.txt†L1-L25】【F:temp/test-logs/20251103T000801Z_short-form_smoke.txt†L1-L36】
+
+## QA Activities
+- Ran the main note regression suite and archived results to `temp/test-logs/20251103T000753Z_notes.txt`; all fixtures passed with no warnings.【F:temp/test-logs/20251103T000753Z_notes.txt†L1-L180】
+- Re-executed the parenthetical suites in both note and bibliography modes, capturing the logs at `temp/test-logs/20251103T000757Z_parentheticals_notes.txt` and `temp/test-logs/20251103T000759Z_parentheticals_bibliography.txt`; expectations matched in both runs.【F:temp/test-logs/20251103T000757Z_parentheticals_notes.txt†L1-L34】【F:temp/test-logs/20251103T000759Z_parentheticals_bibliography.txt†L1-L28】
+- Exercised the TOA grouped-leaders suite and saved the results to `temp/test-logs/20251103T000803Z_toa_grouped_leaders.txt`, confirming the restored 25-entry dataset remains synchronized with `expected_toa_grouped_leaders.txt`.【F:temp/test-logs/20251103T000803Z_toa_grouped_leaders.txt†L1-L120】
+- Ran the short-form smoke diagnostics, documenting the persistent diffs in `temp/test-logs/20251103T000801Z_short-form_smoke.txt` for follow-up.【F:temp/test-logs/20251103T000801Z_short-form_smoke.txt†L1-L36】
+
+## Findings & Root Causes
+1. **Short-form smoke regressions persist:** The diagnostic suite still emits `Id.` or `See also` for repeated statutes, regulations, and rules, diverging from `expected_short-form_smoke.txt`. The guardrail work described in the PR draft summary has not yet landed in the production styles, leaving the expectations outdated.【F:temp/test-logs/20251103T000801Z_short-form_smoke.txt†L7-L36】【F:temp/expected_short-form_smoke.txt†L1-L12】 A dedicated TODO now tracks the macro adjustments and fixture refresh required to resolve these diffs.【F:temp/TODO.md†L18-L28】
+2. **PR draft log references corrected:** `temp/PR_DRAFT.md` now cites existing regression logs for helper, TOA, and warning-filter work, eliminating the stale `20250314` placeholders noted in prior audits.【F:temp/PR_DRAFT.md†L7-L25】
+
+## Housekeeping & Documentation Updates
+- Updated `temp/PR_DRAFT.md` to enumerate the live regression artifacts captured under `temp/test-logs/`, ensuring reviewers can verify each cited run.【F:temp/PR_DRAFT.md†L7-L32】
+- Marked the documentation hygiene subtask in `temp/TODO.md` as complete and recorded the regression rerun context (commands, log filenames, outstanding diffs) in `temp/NOTES.md`.【F:temp/TODO.md†L33-L45】【F:temp/NOTES.md†L33-L60】
+- Archived the latest regression logs with ISO-formatted filenames for continuity ahead of the publication/status helper integration.【F:temp/test-logs/20251103T000753Z_notes.txt†L1-L180】【F:temp/test-logs/20251103T000803Z_toa_grouped_leaders.txt†L1-L120】
+
+## Next Steps
+- Resolve the outstanding short-form smoke diffs by revising the statute, regulation, and rule short-form macros, then refresh `expected_short-form_smoke.txt` and rerun the diagnostics to capture clean logs.【F:temp/TODO.md†L18-L28】
