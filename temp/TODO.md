@@ -3,6 +3,15 @@
 _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2025-12-21.md`. Keep this file focused on the current execution plan so sessions stay on track._
 
 ## Immediate priorities
+- [x] **Short-form restatement guardrails** (`2026-01-15T00:00Z` opened)
+  - [x] Replace the `Id.` fallback for statutory short forms with restated code titles and sections per Greenbook ch. 4 (pp. 24, 34).
+  - [x] Extend the administrative rule and regulation short-form macros to reuse the Chapter 13 authority/status text instead of emitting `Id.`.
+  - [x] Update `temp/tests_short-form_smoke.json` and regenerate `temp/expected_short-form_smoke.txt` to confirm the repeated-text outputs.
+  - [x] Capture the validation run in `temp/test-logs/` with a timestamped filename and cite it in `temp/NOTES.md`.
+- [x] **Short-form documentation sweep** (`2026-01-15T00:00Z` opened)
+  - [x] Summarize the new Chapter 4 guardrails in `temp/NOTES.md` with Greenbook page citations.
+  - [x] Refresh `temp/README.md` and `temp/PR_DRAFT.md` so the outstanding work and testing checklist reference the updated short-form behavior.
+  - [x] Record the short-form regression command and log path in `temp/test-logs/run-history.log` if the automation misses it.
 - [x] **Build shared publication/status helpers** (`2025-11-03T06:04Z` verification)
   - [x] Inventory `temp/prototypes/` (CSL, JSON, expected output) and note which macros map directly into production styles.
   - [x] Extract controlling rules from *Greenbook* chs. 10–13 (record page citations in `temp/NOTES.md`).

@@ -1371,38 +1371,53 @@
   <citation et-al-min="4" et-al-use-first="3" disambiguate-add-givenname="true" givenname-disambiguation-rule="primary-name">
     <layout delimiter="; " suffix=".">
       <choose>
-      <if position="ibid-with-locator">
-        <choose>
-          <if variable="references">
-            <text macro="note-body"/>
-          </if>
-          <else-if type="legislation regulation" match="any">
-            <text macro="note-body"/>
-          </else-if>
-          <else>
-            <group delimiter=" ">
-              <text macro="prefatory-signal"/>
+        <if position="ibid-with-locator">
+          <choose>
+            <if variable="references">
+              <text macro="note-body"/>
+            </if>
+            <else-if variable="author">
               <group delimiter=" ">
-                <text term="ibid" text-case="capitalize-first" font-style="italic"/>
-                <text macro="ibid-locator"/>
+                <text macro="prefatory-signal"/>
+                <group delimiter=" ">
+                  <text term="ibid" text-case="capitalize-first" font-style="italic"/>
+                  <text macro="ibid-locator"/>
+                </group>
               </group>
-            </group>
-          </else>
-        </choose>
-      </if>
+            </else-if>
+            <else-if variable="volume page" match="all">
+              <group delimiter=" ">
+                <text macro="prefatory-signal"/>
+                <group delimiter=" ">
+                  <text term="ibid" text-case="capitalize-first" font-style="italic"/>
+                  <text macro="ibid-locator"/>
+                </group>
+              </group>
+            </else-if>
+            <else>
+              <text macro="note-body"/>
+            </else>
+          </choose>
+        </if>
         <else-if position="ibid">
           <choose>
             <if variable="references">
               <text macro="note-body"/>
             </if>
-            <else-if type="legislation regulation" match="any">
-              <text macro="note-body"/>
-            </else-if>
-            <else>
+            <else-if variable="author">
               <group delimiter=" ">
                 <text macro="prefatory-signal"/>
                 <text term="ibid" text-case="capitalize-first" font-style="italic"/>
               </group>
+            </else-if>
+            <else-if variable="volume page" match="all">
+              <group delimiter=" ">
+                <text macro="prefatory-signal"/>
+                <text term="ibid" text-case="capitalize-first" font-style="italic"/>
+              </group>
+            </else-if>
+            <else>
+              <text macro="note-body"/>
             </else>
           </choose>
         </else-if>
