@@ -4,9 +4,9 @@ _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2
 
 ## Immediate priorities
 - [ ] **Build shared publication/status helpers**
-  - [ ] Inventory `temp/prototypes/` (CSL, JSON, expected output) and note which macros map directly into production styles.
-  - [ ] Extract controlling rules from *Greenbook* chs. 10–13 (record page citations in `temp/NOTES.md`).
-  - [ ] Design final helper macro signatures (inputs, outputs, parameter names) and document them in `temp/NOTES.md`.
+  - [x] Inventory `temp/prototypes/` (CSL, JSON, expected output) and note which macros map directly into production styles.
+  - [x] Extract controlling rules from *Greenbook* chs. 10–13 (record page citations in `temp/NOTES.md`).
+  - [x] Design final helper macro signatures (inputs, outputs, parameter names) and document them in `temp/NOTES.md`.
   - [ ] Implement helpers in `texas-greenbook-15th-edition.csl`, replacing duplicated status/publication logic.
   - [ ] Update note and parenthetical fixtures to cover helper-driven outputs; regenerate `expected*.txt` with `--write-expected`.
   - [ ] Port helpers into every `texas-greenbook-15th-toa*.csl` variant and verify cross-file parity.
