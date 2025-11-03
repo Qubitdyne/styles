@@ -7,8 +7,9 @@ This workspace tracks the in-progress Citation Style Language (CSL) implementati
 - Align every change with the Greenbook PDF stored at `temp/Greenbook_15thEdition.pdf` and record supporting page citations in `temp/NOTES.md` when new rules are implemented.
 
 ## Recent updates
+- **2025-12-22** — Appendix B federal coverage verified: restored the federal headings and exemplars in `tests_toa.json`, regenerated every TOA expectation with `--mode bibliography`, and captured the passing renders at `temp/test-logs/20251222T1728_toa.txt`, `temp/test-logs/20251222T1729_toa_leaders.txt`, `temp/test-logs/20251222T1730_toa_grouped.txt`, `temp/test-logs/20251222T1730_toa_grouped_leaders.txt`, and `temp/test-logs/20251222T1731_toa_by-reporter.txt`. Documentation and fixtures now reflect the mixed Texas/federal ordering on Greenbook Appendix B pp. 239–248.
 - **2025-11-03** — Register parenthetical cleanup: shared `tx-authority-status-parenthetical` logic now suppresses duplicate register cites in TOA layouts, matching the Texas Register guidance in Chapter 16 (Greenbook 15th ed. 83) and the Appendix B federal examples (pp. 247–248). Regression logs capturing the refreshed note, parenthetical, and TOA suites live at `temp/test-logs/20251103T012201Z_*.txt`.
-- **2025-11-03** — Full regression sweep ahead of TOA heading work: reran notes, parenthetical, short-form smoke, and every TOA bibliography variant; archived outputs under `temp/test-logs/20251103T041142Z_*.txt`. Short-form smoke diffs still highlight the Chapter 4 guardrail TODO for repeating statutory and regulatory text instead of emitting `Id.`/`See also`.
+- **2025-11-03** — Full regression sweep ahead of TOA heading work: reran notes, parenthetical, short-form smoke, and every TOA bibliography variant; archived outputs under `temp/test-logs/20251103T055217Z_*.txt` with no diffs. Short-form smoke diffs still highlight the Chapter 4 guardrail TODO for repeating statutory and regulatory text instead of emitting `Id.`/`See also`.
 
 ## Where things live
 | Path | Purpose |

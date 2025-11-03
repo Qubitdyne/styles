@@ -3,8 +3,8 @@
 Use this file to capture the minimum context required to resume work quickly. Detailed historical research logs are archived in `temp/archive/NOTES-2025-12-21.md`.
 
 ## Active research threads
-- **Publication/status helpers:** The prototype in `temp/prototypes/` already demonstrates how to collapse session law and agency parentheticals. The next implementation pass needs Greenbook Chapter 10–13 references confirming when to emit `Supp.`, `R.S.`, and similar status tags.
-- **TOA federal coverage:** Appendix B examples require the grouped TOA layout to interleave federal authorities with Texas entries. Document any sorting or heading decisions here once the fixtures are restored.
+- **Short-form guardrails:** Finish replacing `Id.`/`See also` fallbacks for statutes, regulations, and rules with repeat text so Chapter 4 guidance (Greenbook 15th ed. 24, 34) is satisfied before the upstream submission.
+- **Upstream packaging:** Keep `temp/PR_DRAFT.md` synchronized with regression log names and outstanding checklist items so the PR body can be assembled without re-reviewing the history.
 - **Session stability:** Record the command(s) you run at the end of each block of work (including any failing cases) so recovery is straightforward if a session terminates unexpectedly.
 
 ## Quick reference links
@@ -137,4 +137,10 @@ Use this file to capture the minimum context required to resume work quickly. De
   - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt --mode bibliography` → 25 grouped-heading entries `OK`, including federal sections (Appendix B alignment) (`50e0ac`).
   - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa.csl --expected temp/expected_toa.txt --mode bibliography` → 25 base layout entries `OK` (federal ordering retained) (`078f98`).
 - No citeproc warnings surfaced during the sweep; helper macros in the note style and TOA variants remain in sync, so the open backlog items for shared publication/status helpers and federal TOA coverage can be closed after this confirmation run.
+
+## 2025-12-22T19:30Z — Documentation hygiene and submission checklist pass
+- Updated `temp/README.md` recent-update bullets so the regression log references line up with the federal Appendix B sweep and the final 20251103 regression bundle.
+- Reworked the “Active research threads” section above to focus on the remaining Chapter 4 short-form guardrails and PR packaging tasks.
+- Ran `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt`; all 89 note fixtures returned `OK` with no warnings (see session `386ee1`).
+- Next session: finish marking the upstream submission checklist complete and continue the short-form restatement work before drafting the PR body.
 
