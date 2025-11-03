@@ -4,20 +4,41 @@ _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2
 
 ## Immediate priorities
 - [ ] **Build shared publication/status helpers**
-  - [ ] Review `temp/prototypes/` assets and decide which helper macros graduate into production.
-  - [ ] Add targeted fixtures plus regenerated expectations covering statutes, session laws, and agency materials.
-  - [ ] Mirror the finalized helpers into every `texas-greenbook-15th-toa*.csl` variant and rerun the TOA suite.
+  - [ ] Inventory `temp/prototypes/` (CSL, JSON, expected output) and note which macros map directly into production styles.
+  - [ ] Extract controlling rules from *Greenbook* chs. 10–13 (record page citations in `temp/NOTES.md`).
+  - [ ] Design final helper macro signatures (inputs, outputs, parameter names) and document them in `temp/NOTES.md`.
+  - [ ] Implement helpers in `texas-greenbook-15th-edition.csl`, replacing duplicated status/publication logic.
+  - [ ] Update note and parenthetical fixtures to cover helper-driven outputs; regenerate `expected*.txt` with `--write-expected`.
+  - [ ] Port helpers into every `texas-greenbook-15th-toa*.csl` variant and verify cross-file parity.
+  - [ ] Capture fresh regression logs (notes, parentheticals, TOA) under `temp/test-logs/` with timestamped filenames.
+  - [ ] Summarize helper roll-out decisions and citations in `temp/NOTES.md` and confirm documentation sync in `temp/README.md`.
 - [ ] **Add federal authority coverage to TOA fixtures and macros**
-  - [ ] Restore the missing federal records in `temp/tests_toa.json` and update the paired `expected_toa*.txt` files.
-  - [ ] Introduce jurisdiction-aware headings/sorting so Appendix B’s mixed-federal layout is satisfied.
+  - [ ] Catalog Appendix B federal examples (case, statute, regulation, agency) and map them to fixture records.
+  - [ ] Restore or add the missing federal entries in `temp/tests_toa.json`, capturing rationale and sources.
+  - [ ] Refresh `expected_toa*.txt` files via `run_tests.py --mode bibliography --write-expected` and archive logs.
+  - [ ] Enhance TOA CSL macros to emit jurisdiction-aware headings and ensure mixed Texas/federal ordering matches Appendix B.
+  - [ ] Re-run grouped, grouped-leaders, leaders, and by-reporter suites; diff results and log artifacts to `temp/test-logs/`.
+  - [ ] Update `temp/README.md` and `temp/NOTES.md` with the new TOA coverage and any sorting nuances.
 - [ ] **Finalize upstream submission checklist**
-  - [ ] Tighten `temp/PR_DRAFT.md` with the final narrative, cited rule coverage, and regression summary.
-  - [ ] Ensure `README.md`, `NOTES.md`, and the new helper work stay consistent, then run the full regression sweep prior to submission.
+  - [ ] Audit `temp/PR_DRAFT.md` against current work to ensure the summary references real fixtures/logs.
+  - [ ] Flesh out coverage notes with page cites into Chapters 2, 4, 10, 17 as applicable.
+  - [ ] Confirm documentation alignment across `README.md`, `NOTES.md`, helper write-ups, and TOA instructions.
+  - [ ] Execute the full regression sweep (notes, bibliography mode, parenthetical suites, short-form smoke, TOA variants) and log outputs.
+  - [ ] Populate the testing checklist in `temp/PR_DRAFT.md` with fresh timestamps and log paths before submission.
+  - [ ] Stage the final diff review and craft the upstream PR body referencing the completed tasks.
 
 ## Support tasks
 - [ ] **Avoid session drift**
   - [ ] Capture in-flight reasoning inside `temp/NOTES.md` (or archive addendum) before stopping work.
   - [ ] Commit incremental progress once a test suite passes to keep recovery points close to the active change.
+  - [ ] When running suites, note command invocations and outcomes (OK/DIFF counts) with ISO 8601 timestamps.
+- [ ] **Documentation hygiene**
+  - [ ] Refresh `temp/PR_DRAFT.md` references to historical logs so they point at actual artifacts and dates.
+  - [ ] Review `temp/README.md` language about warning suppression after helper work to ensure it reflects the final harness behavior.
+  - [ ] Tag any additional markdown drift discovered during audits and file follow-up items here with timestamps.
+
+## Recently verified (informational)
+- [x] `2025-11-03T00:05Z` — Re-ran note, parenthetical, and TOA grouped-leaders suites; all expectations matched (`run_tests.py` outputs logged in session 56ff88, 0b1637, 5c3ba9).
 
 ## Reference
 - Historical context, prior checklists, and completed work: `temp/archive/TODO-history-2025-12-21.md`.
