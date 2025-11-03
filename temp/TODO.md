@@ -3,6 +3,15 @@
 _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2025-12-21.md`. Keep this file focused on the current execution plan so sessions stay on track._
 
 ## Immediate priorities
+- [x] **Reconstruct register notice notes entry** (`2026-01-15T15:42Z` opened)
+  - [x] Restore the `2025-11-03T05:30Z` block in `temp/NOTES.md` so it fully documents the register notice cleanup without ellipses or truncated sentences.
+  - [x] Cite the controlling guidance from Greenbook ch. 16 (p. 83) and Appendix B (pp. 247–248) alongside the refreshed summary and referenced logs.
+- [x] **Refresh active research threads** (`2026-01-15T15:42Z` opened)
+  - [x] Update the "Active research threads" list in `temp/NOTES.md` to reflect the remaining follow-up items now that the short-form guardrails landed.
+  - [x] Cross-check that the new bullets align with the current regression coverage and any outstanding PR packaging work captured in `temp/PR_DRAFT.md`.
+- [x] **Re-run short-form smoke suite and document log** (`2026-01-15T15:42Z` opened)
+  - [x] Execute `python temp/run_tests.py --tests temp/tests_short-form_smoke.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_short-form_smoke.txt` and archive the output under `temp/test-logs/` with an ISO 8601 timestamp.
+  - [x] Record the new log in `temp/README.md`, `temp/NOTES.md`, and `temp/PR_DRAFT.md`, including the command, outcome, and how the run confirms the restated short-form behavior.
 - [x] **Short-form restatement guardrails** (`2026-01-15T00:00Z` opened)
   - [x] Replace the `Id.` fallback for statutory short forms with restated code titles and sections per Greenbook ch. 4 (pp. 24, 34).
   - [x] Extend the administrative rule and regulation short-form macros to reuse the Chapter 13 authority/status text instead of emitting `Id.`.

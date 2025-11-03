@@ -3,9 +3,9 @@
 Use this file to capture the minimum context required to resume work quickly. Detailed historical research logs are archived in `temp/archive/NOTES-2025-12-21.md`.
 
 ## Active research threads
-- **Short-form guardrails:** Finish replacing `Id.`/`See also` fallbacks for statutes, regulations, and rules with repeat text so Chapter 4 guidance (Greenbook 15th ed. 24, 34) is satisfied before the upstream submission.
-- **Upstream packaging:** Keep `temp/PR_DRAFT.md` synchronized with regression log names and outstanding checklist items so the PR body can be assembled without re-reviewing the history.
-- **Session stability:** Record the command(s) you run at the end of each block of work (including any failing cases) so recovery is straightforward if a session terminates unexpectedly.
+- **Short-form verification:** Rerun `temp/tests_short-form_smoke.json` whenever the restatement macros shift to confirm statutes, TAC rules, and federal regulations continue to restate their authority text instead of falling back to `Id.`/`See also` (Greenbook 15th ed. 24, 34, 76–78).
+- **Upstream packaging:** Keep `temp/PR_DRAFT.md` aligned with the latest regression log names and outstanding checklist items so the PR summary and testing sections remain citation-ready without re-reading historical transcripts.
+- **Session stability:** Continue logging every `run_tests.py` invocation (pass and fail) so `temp/test-logs/run-history.log` remains a reliable index when reconstructing prior QA sweeps.
 
 ## Quick reference links
 - `temp/TODO.md` — trimmed active backlog.
@@ -69,8 +69,8 @@ Use this file to capture the minimum context required to resume work quickly. De
   - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa*.csl --expected temp/expected_toa*.txt --mode bibliography --write-expected temp/expected_toa*.txt` (ran for base, leaders, grouped, grouped-leaders, and by-reporter variants).
 - New helper output now surfaces `(Supp. ####)` and agency authority/status clusters in notes and TOA entries per Greenbook chs. 10–13 guidance while keeping short-form cites unchanged.
 
--## 2025-11-03T05:30Z — Register notice cleanup and log capture
-- Updated `tx-authority-status-parenthetical` across the note style and all TOA variants to omit duplicate `Tex. Reg.`/`Fed. Reg.` entries when the base citation already prints the register volume and page. Prior to the fix, the contested-case example (`toa_register_39_tex_reg_573`) produced `39 Tex. Reg. 573, 574 ... (Tex. Reg.; to be codified ...)`, repeating the register cite that Greenbook Chapter 16 presents only once (Texas Register section header, Greenbook 15th ed. 83). Appendix B’s federal register sample (pp. 247–248) likewise prints the parenthetical text after a single `Fed. Reg.` cite, so the helper now mirrors that layout by stripping the redundant register string before appending the authority/status detail.
+## 2025-11-03T05:30Z — Register notice cleanup and log capture
+- Extended `tx-authority-status-parenthetical` across the note style and all TOA variants to omit duplicate `Tex. Reg.`/`Fed. Reg.` entries when the base citation already prints the register volume and page. The contested-case example (`toa_register_39_tex_reg_573`) previously printed “39 Tex. Reg. 573, 574” followed by a parenthetical that repeated “Tex. Reg.” before the “to be codified” notice, even though Greenbook Chapter 16 shows the register cite only once (Texas Register guidance, Greenbook 15th ed. 83). Appendix B’s federal register sample (pp. 247–248) likewise places the agency/status parenthetical after a single `Fed. Reg.` cite, so the helper now mirrors that layout by dropping the redundant register string before appending the authority/status detail.
 - Refreshed the TOA fixtures (`expected_toa*.txt`) so grouped, leaders, by-reporter, and base layouts reflect the streamlined parenthetical output.
 - Captured regression artifacts after the update:
   - `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt` → `temp/test-logs/20251103T012201Z_notes.txt`
@@ -148,6 +148,11 @@ Use this file to capture the minimum context required to resume work quickly. De
 - Re-ran the full note suite to confirm the guardrails and archived the passing output at `temp/test-logs/20251103T152401Z_notes_full-suite.txt`.
 - Command for reference: `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt`.
 - Appended the run summary to `temp/test-logs/run-history.log` so the new regression appears alongside earlier short-form smoke investigations.
+
+## 2025-11-03T15:57Z — Short-form smoke verification
+- Ran `python temp/run_tests.py --tests temp/tests_short-form_smoke.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_short-form_smoke.txt` and archived the passing output at `temp/test-logs/20251103T155725Z_short-form_smoke.txt`.
+- All 12 fixtures returned `OK`, confirming the statute, TAC, and CFR repeats continue to restate their titles and locator strings per Greenbook Chapter 4 (pp. 24, 34) and Chapter 13’s agency guidance (pp. 76–78).
+- Verified the command capture in `temp/test-logs/run-history.log`, which now lists the 2025-11-03T15:57:25Z PASS entry for future traceability.
 
 ## 2025-12-22T19:30Z — Documentation hygiene and submission checklist pass
 - Updated `temp/README.md` recent-update bullets so the regression log references line up with the federal Appendix B sweep and the final 20251103 regression bundle.
