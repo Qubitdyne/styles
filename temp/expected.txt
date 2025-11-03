@@ -27,10 +27,10 @@ Id. § 2001.003(7). // Greenbook 15th ed. 4
 Tex. Penal Code § 29.02. // Greenbook 15th ed. 46
 Tex. Rev. Civ. Stat. Ann. art. 5415e-4, § 2(a). // Greenbook 15th ed. 47
 Tex. Rev. Civ. Stat. Ann. art. 5415e-4, § 2(b). // Greenbook 15th ed. 47 (short-form Id. guard)
-Tex. Tax Code Ann. § 26.06(a). // Greenbook 15th ed. 44
+Tex. Tax Code Ann. § 26.06(a) (Supp. 2024). // Greenbook 15th ed. 44
 Tex. Tax Code Ann. § 26.06(b). // Greenbook 15th ed. 44
-Tex. Tax Code Ann.. // Greenbook 15th ed. 44
-Tex. Gov’t Code Ann. § 2001.021. // Greenbook 15th ed. 44
+Tex. Tax Code Ann. (Supp. 2024). // Greenbook 15th ed. 44
+Tex. Gov’t Code Ann. § 2001.021 (Supp. 2024). // Greenbook 15th ed. 44
 Id. § 2001.022. // Greenbook 15th ed. 44
 Tex. Gov’t Code Ann. § 2001.031. // Greenbook 15th ed. 44
 Tex. Gov’t Code Ann. § 2001.025. // Greenbook 15th ed. 44
@@ -38,19 +38,19 @@ See also Cal. Civ. Code § 1632(b). // Greenbook 15th ed. 45
 See also Id. § 1632(c). // Greenbook 15th ed. 45
 Tex. Const. art. V, § 6. // Greenbook 15th ed. 2
 Tex. Const. art. XVI, § 70 (expired Sept. 1, 2008). // Greenbook 15th ed. 4
-4 Tex. Admin. Code § 9.12 (2013) (Tex. Dep’t of Agric., Seed Sampling Procedures). // Greenbook 15th ed. 2
+4 Tex. Admin. Code § 9.12 (Tex. Dep’t of Agric., Seed Sampling Procedures, 2013). // Greenbook 15th ed. 2
 Id. § 9.13. // Greenbook 15th ed. 77
-39 Tex. Reg. 573, 574 (2014) (to be codified at 22 Tex. Admin. Code § 367.14) (Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings). // Greenbook 15th ed. 77
-16 Tex. Admin. Code § 25.101 (2022) (Tex. Comm’n on Env’t Quality, Emission Standards Division). // Greenbook 15th ed. 77
+39 Tex. Reg. 573, 574 (Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings, proposed Feb. 7, 2014, 2014; 39 Tex. Reg. 573; to be codified at 22 Tex. Admin. Code § 367.14). // Greenbook 15th ed. 77
+16 Tex. Admin. Code § 25.101 (Tex. Comm’n on Env’t Quality, Emission Standards Division, 2022). // Greenbook 15th ed. 77
 Id. § 25.102. // Greenbook 15th ed. 2
-16 Tex. Admin. Code (2022) (Tex. Comm’n on Env’t Quality). // Greenbook 15th ed. 4
-See also 40 C.F.R. § 1502.9(c) (2020) (Council on Environmental Quality). // Greenbook 15th ed. 78
+16 Tex. Admin. Code (Tex. Comm’n on Env’t Quality, 2022). // Greenbook 15th ed. 4
+See also 40 C.F.R. § 1502.9(c) (Council on Environmental Quality, 2020). // Greenbook 15th ed. 78
 See also Id. § 1502.9(d). // Greenbook 15th ed. 78
 Tex. R. Civ. P. 97(d). // Greenbook 15th ed. 63
 Id. R. 97(e). // Greenbook 15th ed. 63
 Tex. R. App. P. 2. // Greenbook 15th ed. 63
 Tex. R. Evid. 405(b). // Greenbook 15th ed. 2
-Tex. R. Jud. Admin. 5. // Greenbook 15th ed. 55
+Tex. R. Jud. Admin. 5 (reprinted in Tex. Gov’t Code Ann., tit. 2, subtit. F app.). // Greenbook 15th ed. 55
 Id. R. 5. // Greenbook 15th ed. 73
 Tex. R. Jud. Admin.. // Greenbook 15th ed. 75
 See also Fed. R. Civ. P. 26(a). // Greenbook 15th ed. 63
@@ -64,8 +64,8 @@ Austin, Tex., City Code ch. 12-1, § 12-4-11 (2022). // Greenbook 15th ed. 4
 Tex. Tax Code Ann. § 26.06(c). // Greenbook 15th ed. 4
 Tex. R. Jud. Admin. 7. // Greenbook 15th ed. 76
 16 Tex. Admin. Code § 25.101, 25.110. // Greenbook 15th ed. 76
-William V. Dorsaneo and Brandon R. Orr, 1 Texas Litigation Guide § 5.2 (5th ed.; Matthew Bender & Co., New York; 2024) (surveying evidentiary burdens). // Greenbook 15th ed. 76
-Robert W. Calvert, The Application for Writ of Error § 469 (1st ed.; West, St. Paul; 1985) (commentary on procedural requirements). // Greenbook 15th ed. 77
+William V. Dorsaneo and Brandon R. Orr, 1 Texas Litigation Guide § 5.2 (5th ed.; Matthew Bender & Co., New York 2024) (surveying evidentiary burdens). // Greenbook 15th ed. 76
+Robert W. Calvert, The Application for Writ of Error § 469 (1st ed.; West, St. Paul 1985) (commentary on procedural requirements). // Greenbook 15th ed. 77
 Alex W. Albright, “The Texas Discovery Privileges: A Fool’s Game?”, 70 Tex. L. Rev. 781 (1992). // Greenbook 15th ed. 77
 See also Marisa Chen, “Reconsidering Texas Water Rights”, 55 Tex. Envtl. L.J. 201, at 215 (forthcoming), available at https://example.com/chen-water-rights (Accessed Jan. 12, 2025). // Greenbook 15th ed. 34
 “Texas Courts Technology Standards Update”, Office of Court Administration, 2023, available at https://www.txcourts.gov/technology-standards-update (Accessed Feb. 10, 2025). // Greenbook 15th ed. 34

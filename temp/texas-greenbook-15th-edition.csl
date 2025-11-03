@@ -267,34 +267,138 @@
     </choose>
   </macro>
 
-  <macro name="edition-publisher-year">
+  <macro name="tx-publication-parenthetical">
     <choose>
-      <if variable="edition publisher publisher-place issued status medium" match="any">
+      <if variable="edition publisher publisher-place issued status medium note" match="any">
         <group prefix="(" suffix=")" delimiter="; ">
-          <group delimiter=" ">
-            <number variable="edition" form="ordinal"/>
-            <text term="edition" form="short"/>
-          </group>
-          <group delimiter=", ">
-            <text variable="publisher"/>
-            <text variable="publisher-place"/>
-          </group>
           <choose>
-            <if variable="issued">
-              <date variable="issued">
-                <date-part name="year"/>
-              </date>
+            <if variable="edition">
+              <group delimiter=" ">
+                <number variable="edition" form="ordinal"/>
+                <text term="edition" form="short"/>
+              </group>
             </if>
-            <else-if variable="status">
-              <text variable="status"/>
-            </else-if>
-            <else-if variable="medium">
-              <text variable="medium"/>
-            </else-if>
+          </choose>
+          <choose>
+            <if variable="publisher publisher-place note issued status medium" match="any">
+              <group delimiter=" ">
+                <choose>
+                  <if variable="publisher publisher-place" match="any">
+                    <group delimiter=", ">
+                      <text variable="publisher"/>
+                      <text variable="publisher-place"/>
+                    </group>
+                  </if>
+                </choose>
+                <choose>
+                  <if variable="note">
+                    <text variable="note"/>
+                  </if>
+                  <else-if variable="issued">
+                    <date variable="issued">
+                      <date-part name="year"/>
+                    </date>
+                  </else-if>
+                  <else-if variable="status">
+                    <text variable="status"/>
+                  </else-if>
+                  <else-if variable="medium">
+                    <text variable="medium"/>
+                  </else-if>
+                </choose>
+              </group>
+            </if>
           </choose>
         </group>
       </if>
     </choose>
+  </macro>
+
+  <macro name="tx-authority-status-parenthetical">
+    <choose>
+      <if variable="authority status issued volume container-title page note" match="any">
+        <group prefix="(" suffix=")" delimiter="; ">
+          <choose>
+            <if variable="authority status issued" match="any">
+              <group delimiter=", ">
+                <text variable="authority"/>
+                <choose>
+                  <if variable="status">
+                    <text variable="status"/>
+                  </if>
+                </choose>
+                <choose>
+                  <if variable="issued">
+                    <date variable="issued">
+                      <date-part name="year"/>
+                    </date>
+                  </if>
+                </choose>
+              </group>
+            </if>
+          </choose>
+          <choose>
+            <if variable="volume container-title page" match="all">
+              <group delimiter=" ">
+                <text variable="volume"/>
+                <text variable="container-title"/>
+                <text variable="page"/>
+              </group>
+            </if>
+          </choose>
+          <choose>
+            <if variable="note">
+              <text variable="note"/>
+            </if>
+          </choose>
+        </group>
+      </if>
+    </choose>
+  </macro>
+
+  <macro name="tx-session-law-citation">
+    <group delimiter=", ">
+      <text variable="title"/>
+      <text variable="collection-number"/>
+      <choose>
+        <if variable="number section" match="any">
+          <group delimiter=", ">
+            <choose>
+              <if variable="number">
+                <text variable="number" prefix="ch. "/>
+              </if>
+            </choose>
+            <choose>
+              <if variable="section">
+                <group delimiter=" ">
+                  <text term="section" form="symbol"/>
+                  <text variable="section"/>
+                </group>
+              </if>
+            </choose>
+          </group>
+        </if>
+      </choose>
+      <choose>
+        <if variable="volume container-title page" match="any">
+          <group delimiter=" ">
+            <text variable="volume"/>
+            <text variable="container-title"/>
+            <text variable="page"/>
+          </group>
+        </if>
+      </choose>
+      <text variable="locator"/>
+    </group>
+    <choose>
+      <if variable="references">
+        <text variable="references" prefix=", "/>
+      </if>
+    </choose>
+  </macro>
+
+  <macro name="edition-publisher-year">
+    <text macro="tx-publication-parenthetical"/>
   </macro>
 
   <macro name="subsequent-history">
@@ -542,7 +646,10 @@
   </macro>
 
   <macro name="tex-statute-first">
-    <text macro="tex-code-section"/>
+    <group delimiter=" ">
+      <text macro="tex-code-section"/>
+      <text macro="tx-publication-parenthetical"/>
+    </group>
   </macro>
 
   <!-- Greenbook ch. 10 (pp. 42–47) short-form: retain the code abbreviation and
@@ -576,7 +683,10 @@
   </macro>
 
   <macro name="tex-rule-first">
-    <text macro="tex-code-section"/>
+    <group delimiter=" ">
+      <text macro="tex-code-section"/>
+      <text macro="tx-publication-parenthetical"/>
+    </group>
   </macro>
 
   <!-- Greenbook ch. 13 (pp. 61–65) repeat-cite rules reuse the same code string
@@ -649,26 +759,20 @@
   </macro>
 
   <macro name="tex-admin-code-first">
-    <choose>
-      <if variable="section">
-        <text macro="tex-admin-core"/>
-      </if>
-      <else>
-        <group delimiter=", ">
+    <group delimiter=" ">
+      <choose>
+        <if variable="section">
           <text macro="tex-admin-core"/>
-          <text variable="locator"/>
-        </group>
-      </else>
-    </choose>
-    <date variable="issued" prefix=" (" suffix=")">
-      <date-part name="year"/>
-    </date>
-    <choose>
-      <if variable="note">
-        <text variable="note" prefix=" (" suffix=")"/>
-      </if>
-    </choose>
-    <text variable="authority" prefix=" (" suffix=")"/>
+        </if>
+        <else>
+          <group delimiter=", ">
+            <text macro="tex-admin-core"/>
+            <text variable="locator"/>
+          </group>
+        </else>
+      </choose>
+      <text macro="tx-authority-status-parenthetical"/>
+    </group>
   </macro>
 
   <!-- Texas administrative code short-form handling follows the matrix row "Texas administrative code & registers"
@@ -723,25 +827,6 @@
         <text variable="references"/>
       </group>
     </group>
-  </macro>
-
-  <macro name="session-law">
-    <group delimiter=", ">
-      <text variable="title"/>
-      <text variable="collection-number"/>
-      <text variable="number" prefix="ch. "/>
-      <group delimiter=" ">
-        <text term="section" form="symbol"/>
-        <text variable="section"/>
-      </group>
-      <group delimiter=" ">
-        <text variable="volume"/>
-        <text variable="container-title"/>
-        <text variable="page"/>
-      </group>
-      <text variable="locator"/>
-    </group>
-    <text variable="references" prefix=", "/>
   </macro>
 
   <macro name="ag-opinion">
@@ -1213,7 +1298,7 @@
         <else-if type="legislation">
           <choose>
             <if variable="collection-number">
-              <text macro="session-law"/>
+              <text macro="tx-session-law-citation"/>
             </if>
             <else-if variable="genre chapter-number" match="all">
               <text macro="tex-constitution"/>
@@ -1359,7 +1444,7 @@
         <else-if type="legislation">
           <choose>
             <if variable="collection-number">
-              <text macro="session-law"/>
+              <text macro="tx-session-law-citation"/>
             </if>
             <else-if variable="genre" match="any">
               <text macro="tex-constitution"/>
