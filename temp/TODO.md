@@ -14,9 +14,9 @@ _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2
   - [x] Capture fresh regression logs (notes, parentheticals, TOA) under `temp/test-logs/` with timestamped filenames. (`2025-11-03T05:30Z` → `20251103T012201Z_*`)
   - [x] Summarize helper roll-out decisions and citations in `temp/NOTES.md` and confirm documentation sync in `temp/README.md`. (`2025-11-03T05:30Z`)
 - [ ] **Add federal authority coverage to TOA fixtures and macros**
-  - [ ] Catalog Appendix B federal examples (case, statute, regulation, agency) and map them to fixture records.
-  - [ ] Restore or add the missing federal entries in `temp/tests_toa.json`, capturing rationale and sources.
-  - [ ] Refresh `expected_toa*.txt` files via `run_tests.py --mode bibliography --write-expected` and archive logs.
+  - [x] Catalog Appendix B federal examples (case, statute, regulation, agency) and map them to fixture records. (`2025-12-22T16:45Z`)
+  - [x] Restore or add the missing federal entries in `temp/tests_toa.json`, capturing rationale and sources. (`2025-12-22T17:05Z`)
+  - [x] Refresh `expected_toa*.txt` files via `run_tests.py --mode bibliography --write-expected` and archive logs. (`2025-12-22T17:25Z`)
   - [ ] Enhance TOA CSL macros to emit jurisdiction-aware headings and ensure mixed Texas/federal ordering matches Appendix B.
   - [ ] Re-run grouped, grouped-leaders, leaders, and by-reporter suites; diff results and log artifacts to `temp/test-logs/`.
   - [ ] Update `temp/README.md` and `temp/NOTES.md` with the new TOA coverage and any sorting nuances.

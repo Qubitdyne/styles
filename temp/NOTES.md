@@ -68,3 +68,24 @@ Use this file to capture the minimum context required to resume work quickly. De
   - `python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_notes.txt` → `temp/test-logs/20251103T012201Z_parentheticals_notes.txt`
   - `python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_bibliography.txt --mode bibliography` → `temp/test-logs/20251103T012201Z_parentheticals_bibliography.txt`
   - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped.csl --expected temp/expected_toa_grouped.txt --mode bibliography` → `temp/test-logs/20251103T012201Z_toa_grouped.txt`
+
+## 2025-12-22T16:45Z — Appendix B federal coverage inventory
+- Re-read Appendix B’s Table of Authorities exemplars to confirm the federal headings and representative citations that must accompany the Texas groupings (Greenbook 15th ed. Appendix B, printed pp. 239–248).
+- Cataloged the eight federal headings that must follow the Texas cases in every TOA layout and the representative expectations they introduce:
+  1. **United States Supreme Court Cases** — consolidated caption example with multiple parties (p. 239).
+  2. **Federal Courts of Appeals Cases** — reporter cite with circuit authority and pinpoint (p. 240).
+  3. **Federal District Courts and Specialized Tribunals** — docketed slip opinion pairing a Westlaw cite with a pinpoint (p. 240).
+  4. **United States Constitution** — article-and-clause citation with no court/date parenthetical (p. 244).
+  5. **United States Code** — title, section, and supplement parenthetical (pp. 245–246).
+  6. **Federal Rules** — Federal Rules of Civil Procedure cite that retains subdivision locators (p. 246).
+  7. **Code of Federal Regulations** — SEC rule entry with issuing agency parenthetical (pp. 247–248).
+  8. **Federal Register** — codification notice capturing both the adopting agency and the “to be codified” note (pp. 247–248).
+- Verified that each heading now maps to an explicit fixture in `temp/tests_toa.json`, ensuring the TOA variants can emit the correct labels once the grouped-heading macros are wired up: `toa_case_us_supreme` → “United States Supreme Court Cases”, `toa_case_federal_appellate` → “Federal Courts of Appeals Cases”, `toa_case_federal_district` → “Federal District Courts and Specialized Tribunals”, `toa_constitution_us` → “United States Constitution”, `toa_statute_us_code` → “United States Code”, `toa_rule_federal` → “Federal Rules”, `toa_regulation_cfr` → “Code of Federal Regulations”, and `toa_federal_register_80_fr_56577` → “Federal Register”.
+- Follow-up: once the grouped-heading macros emit distinct federal labels, ensure the ordering logic keeps these eight sections contiguous immediately after the Texas authorities block.
+- Rebuilt every TOA expectation (`expected_toa*.txt`) and captured passing regression logs for each variant after reordering the fixtures:
+  - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa.csl --expected temp/expected_toa.txt --mode bibliography --write-expected temp/expected_toa.txt`
+  - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-leaders.csl --expected temp/expected_toa_leaders.txt --mode bibliography --write-expected temp/expected_toa_leaders.txt`
+  - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped.csl --expected temp/expected_toa_grouped.txt --mode bibliography --write-expected temp/expected_toa_grouped.txt`
+  - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt --mode bibliography --write-expected temp/expected_toa_grouped_leaders.txt`
+  - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-by-reporter.csl --expected temp/expected_toa_by-reporter.txt --mode bibliography --write-expected temp/expected_toa_by-reporter.txt`
+- Confirmed the refreshed outputs match expectations and archived the verification runs: `temp/test-logs/20251222T1728_toa.txt`, `temp/test-logs/20251222T1729_toa_leaders.txt`, `temp/test-logs/20251222T1730_toa_grouped.txt`, `temp/test-logs/20251222T1730_toa_grouped_leaders.txt`, `temp/test-logs/20251222T1731_toa_by-reporter.txt`.
