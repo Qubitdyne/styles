@@ -316,11 +316,24 @@
           </ns0:choose>
           <ns0:choose>
             <ns0:if variable="volume container-title page" match="all">
-              <ns0:group delimiter=" ">
-                <ns0:text variable="volume" />
-                <ns0:text variable="container-title" />
-                <ns0:text variable="page" />
-              </ns0:group>
+              <ns0:choose>
+                <ns0:if type="regulation" match="none">
+                  <ns0:group delimiter=" ">
+                    <ns0:text variable="volume" />
+                    <ns0:text variable="container-title" />
+                    <ns0:text variable="page" />
+                  </ns0:group>
+                </ns0:if>
+                <ns0:else-if type="regulation" match="any">
+                  <ns0:if variable="section">
+                    <ns0:group delimiter=" ">
+                      <ns0:text variable="volume" />
+                      <ns0:text variable="container-title" />
+                      <ns0:text variable="page" />
+                    </ns0:group>
+                  </ns0:if>
+                </ns0:else-if>
+              </ns0:choose>
             </ns0:if>
           </ns0:choose>
           <ns0:choose>

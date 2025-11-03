@@ -59,3 +59,12 @@ Use this file to capture the minimum context required to resume work quickly. De
   - `python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_bibliography.txt --mode bibliography --write-expected temp/expected_parentheticals_bibliography.txt`
   - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa*.csl --expected temp/expected_toa*.txt --mode bibliography --write-expected temp/expected_toa*.txt` (ran for base, leaders, grouped, grouped-leaders, and by-reporter variants).
 - New helper output now surfaces `(Supp. ####)` and agency authority/status clusters in notes and TOA entries per Greenbook chs. 10–13 guidance while keeping short-form cites unchanged.
+
+## 2025-11-03T05:30Z — Register notice cleanup and log capture
+- Updated `tx-authority-status-parenthetical` across the note style and all TOA variants to omit duplicate `Tex. Reg.`/`Fed. Reg.` entries when the base citation already prints the register volume and page. This keeps Texas Register contested case notices (Greenbook 15th ed. 83) and Appendix B federal register examples (Table of Authorities samples, Greenbook 15th ed. 247–248) to a single register cite per entry.
+- Refreshed the TOA fixtures (`expected_toa*.txt`) so grouped, leaders, by-reporter, and base layouts reflect the streamlined parenthetical output.
+- Captured regression artifacts after the update:
+  - `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt` → `temp/test-logs/20251103T012201Z_notes.txt`
+  - `python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_notes.txt` → `temp/test-logs/20251103T012201Z_parentheticals_notes.txt`
+  - `python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_bibliography.txt --mode bibliography` → `temp/test-logs/20251103T012201Z_parentheticals_bibliography.txt`
+  - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped.csl --expected temp/expected_toa_grouped.txt --mode bibliography` → `temp/test-logs/20251103T012201Z_toa_grouped.txt`
