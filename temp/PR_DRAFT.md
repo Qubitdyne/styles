@@ -7,6 +7,7 @@ Keep this draft synchronized with the active TODO so we can file the upstream pu
 - Suppressed duplicate register citations when a TOA entry already prints the underlying Tex. Reg./Fed. Reg. cite, then refreshed each TOA expectation file to keep the grouped layouts consistent with Appendix B.
 - Restored Appendix B’s federal authority coverage in `tests_toa.json`, regenerated all TOA expectations with `--mode bibliography`, and captured fresh confirmation logs (`20251103T014332Z_toa_grouped.txt`, `20251103T014338Z_toa_grouped_leaders.txt`, `20251103T014343Z_toa_leaders.txt`, `20251103T014346Z_toa_by-reporter.txt`).
 - Recorded the helper roll-out and TOA fixture decisions in `NOTES.md`/`README.md` so the documentation now matches the consolidated macros and new regression artifacts.
+- Documented Chapter 2, 4, 10, and 17 coverage with explicit Greenbook page cites in `NOTES.md` (`2025-11-03T04:12Z` entry) to support the upstream narrative once headings and short-form guardrails land.
 
 ## Testing
 - python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt
@@ -20,14 +21,15 @@ Keep this draft synchronized with the active TODO so we can file the upstream pu
 - python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-by-reporter.csl --expected temp/expected_toa_by-reporter.txt --mode bibliography
 
 - Latest confirmation logs:
-  - `temp/test-logs/20251103T000753Z_notes.txt`
-  - `temp/test-logs/20251103T000757Z_parentheticals_notes.txt`
-  - `temp/test-logs/20251103T000759Z_parentheticals_bibliography.txt`
-  - `temp/test-logs/20251103T000801Z_short-form_smoke.txt`
-  - `temp/test-logs/20251103T014332Z_toa_grouped.txt`
-  - `temp/test-logs/20251103T014338Z_toa_grouped_leaders.txt`
-  - `temp/test-logs/20251103T014343Z_toa_leaders.txt`
-  - `temp/test-logs/20251103T014346Z_toa_by-reporter.txt`
+- `temp/test-logs/20251103T041142Z_notes.txt`
+- `temp/test-logs/20251103T041142Z_parentheticals_notes.txt`
+- `temp/test-logs/20251103T041142Z_parentheticals_bibliography.txt`
+- `temp/test-logs/20251103T041142Z_short-form_smoke.txt` (captures the outstanding statute/rule/CFR `Id.` diffs called out in the TODO)
+- `temp/test-logs/20251103T041142Z_toa.txt`
+- `temp/test-logs/20251103T041142Z_toa_leaders.txt`
+- `temp/test-logs/20251103T041142Z_toa_grouped.txt`
+- `temp/test-logs/20251103T041142Z_toa_grouped_leaders.txt`
+- `temp/test-logs/20251103T041142Z_toa_by-reporter.txt`
 
 ## Pending before submission
 - Enhance the TOA macros to emit jurisdiction-aware headings that mirror Appendix B and keep Texas/federal ordering intact.
