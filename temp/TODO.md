@@ -22,9 +22,9 @@ _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2
   - [x] Update `temp/README.md` and `temp/NOTES.md` with the new TOA coverage and any sorting nuances. (`2025-11-03T01:44Z`)
 - [ ] **Finalize upstream submission checklist**
   - [x] Audit `temp/PR_DRAFT.md` against current work to ensure the summary references real fixtures/logs. (`2025-11-03T01:44Z`)
-  - [ ] Flesh out coverage notes with page cites into Chapters 2, 4, 10, 17 as applicable.
-  - [ ] Confirm documentation alignment across `README.md`, `NOTES.md`, helper write-ups, and TOA instructions.
-  - [ ] Execute the full regression sweep (notes, bibliography mode, parenthetical suites, short-form smoke, TOA variants) and log outputs.
+  - [x] Flesh out coverage notes with page cites into Chapters 2, 4, 10, 17 as applicable. (`2025-11-03T04:12Z`)
+  - [x] Confirm documentation alignment across `README.md`, `NOTES.md`, helper write-ups, and TOA instructions. (`2025-11-03T04:15Z`)
+  - [x] Execute the full regression sweep (notes, bibliography mode, parenthetical suites, short-form smoke, TOA variants) and log outputs. (`2025-11-03T04:20Z`)
   - [ ] Investigate the short-form smoke diffs where statute, regulation, and rule repeats emit `Id.`/`See also`; adjust guardrails to restate the source text and refresh `temp/expected_short-form_smoke.txt` with logged before/after runs.
   - [ ] Populate the testing checklist in `temp/PR_DRAFT.md` with fresh timestamps and log paths before submission.
   - [ ] Stage the final diff review and craft the upstream PR body referencing the completed tasks.

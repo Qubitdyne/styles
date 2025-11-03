@@ -100,3 +100,18 @@ Use this file to capture the minimum context required to resume work quickly. De
   - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-by-reporter.csl --expected temp/expected_toa_by-reporter.txt --mode bibliography --write-expected temp/expected_toa_by-reporter.txt`
 - Confirmed the refreshed outputs match expectations and archived the verification runs: `temp/test-logs/20251222T1728_toa.txt`, `temp/test-logs/20251222T1729_toa_leaders.txt`, `temp/test-logs/20251222T1730_toa_grouped.txt`, `temp/test-logs/20251222T1730_toa_grouped_leaders.txt`, `temp/test-logs/20251222T1731_toa_by-reporter.txt`.
 
+## 2025-11-03T04:12Z — Regression sweep and chapter coverage audit
+- Re-ran the full regression stack after the TOA fixture expansion to confirm nothing drifted before implementing headings:
+  - `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt`
+  - `python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_notes.txt`
+  - `python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_bibliography.txt --mode bibliography`
+  - `python temp/run_tests.py --tests temp/tests_short-form_smoke.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_short-form_smoke.txt`
+  - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa*.csl --expected temp/expected_toa*.txt --mode bibliography`
+- Logged the renders under `temp/test-logs/20251103T041142Z_*.txt`; notes, parentheticals (note & bibliography), and every TOA variant matched expectations, while the short-form smoke suite still flags the planned `Id.`/`See also` guardrail fixes for statutes, TAC rules, and CFR entries.
+- Chapter coverage snapshot (cite pages reference the Greenbook 15th ed. PDF in `temp/Greenbook_15thEdition.pdf`):
+  - **Chapter 2 — Cases (pp. 2–5, 17, 24–36, 51, 94–100).** `legal-case`, `court-and-date`, and `cross-reference-cue` outputs in `tests.json` rows 1–24, 78–85 ensure the first-form case rules, prior/subsequent history, memorandum opinions, and `See`/`See also` cues track the examples on pp. 2–5 and the cross-reference discussion on p. 100.
+  - **Chapter 4 — Short-form citations (pp. 4, 24, 34).** The `tex-short-form-base` logic plus the short-form smoke fixture exercise the `Id.` v. restatement guidance for statutes, regulations, and secondary sources; the remaining diffs align with the TODO item to restate statutory text instead of emitting `Id.` when Chapter 4 (pp. 24, 34) calls for a full repeat.
+  - **Chapter 10 — Statutes (pp. 45–52).** `tx-publication-parenthetical` and `tex-statute-first` handle supplements, session-law parentheticals, and Gammel cites as demonstrated by fixture rows 66–70 in `tests.json`, matching the Chapter 10 instructions on pp. 45–52.
+  - **Chapter 17 — Secondary authorities (pp. 76–78).** Treatise, CLE, periodical, and unpublished document entries (rows 67–77) confirm the consolidated publication helper prints edition, publisher, place, and year details per Chapter 17’s requirements.
+- Next steps: add TOA group headings using the stored `grouping` metadata and revisit the short-form guardrails before freezing expectations.
+
