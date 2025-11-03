@@ -36,6 +36,15 @@ Use this file to capture the minimum context required to resume work quickly. De
 - The short-form smoke suite surfaced diffs where statutes, regulations, and rules collapse to `Id.`/`See also`; logged a new TODO to restore full-repeat citations before submission.
 - Updated `temp/PR_DRAFT.md` to cite the real log filenames and avoid dangling `20250314` placeholders.
 
+## 2025-11-03T01:44Z — TOA spot check and documentation sync
+- Re-ran the four TOA bibliography variants to confirm expectations still match after the helper consolidation; commands logged below with fresh artifacts under `temp/test-logs/`:
+  - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped.csl --expected temp/expected_toa_grouped.txt --mode bibliography` → `temp/test-logs/20251103T014332Z_toa_grouped.txt`
+  - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt --mode bibliography` → `temp/test-logs/20251103T014338Z_toa_grouped_leaders.txt`
+  - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-leaders.csl --expected temp/expected_toa_leaders.txt --mode bibliography` → `temp/test-logs/20251103T014343Z_toa_leaders.txt`
+  - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-by-reporter.csl --expected temp/expected_toa_by-reporter.txt --mode bibliography` → `temp/test-logs/20251103T014346Z_toa_by-reporter.txt`
+- Updated `temp/PR_DRAFT.md` so the summary highlights the helper rollout, register cite suppression, and Appendix B fixture expansion while pointing at the new log set.
+- Refreshed the warning-suppression blurb in `temp/README.md` to document the citeproc metadata keys (`comment`, `label`, `reviewed_title`, `grouping`, `related`) we silence by default and the `PYTHONWARNINGS=default` escape hatch.
+
 ## 2025-11-03T02:30Z — Publication helper groundwork
 - **Prototype inventory.** The sandbox in `temp/prototypes/` still aligns with the production macros we need to consolidate:
   - `publication-helper-prototype.csl` + JSON/expected fixtures cover the three publication/status flows. `publication-parenthetical` mirrors the `edition-publisher-year` parenthetical scaffolding that appears throughout statutes, books, and agency materials; `session-law-metadata` restates the `session-law` macro used in notes and TOA variants; and `administrative-status` reproduces the authority/status grouping that `tex-admin-code-first` and the TOA regulation stack currently duplicate.
@@ -69,6 +78,7 @@ Use this file to capture the minimum context required to resume work quickly. De
   - `python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_bibliography.txt --mode bibliography` → `temp/test-logs/20251103T012201Z_parentheticals_bibliography.txt`
   - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped.csl --expected temp/expected_toa_grouped.txt --mode bibliography` → `temp/test-logs/20251103T012201Z_toa_grouped.txt`
 
+
 ## 2025-12-22T16:45Z — Appendix B federal coverage inventory
 - Re-read Appendix B’s Table of Authorities exemplars to confirm the federal headings and representative citations that must accompany the Texas groupings (Greenbook 15th ed. Appendix B, printed pp. 239–248).
 - Cataloged the eight federal headings that must follow the Texas cases in every TOA layout and the representative expectations they introduce:
@@ -89,3 +99,4 @@ Use this file to capture the minimum context required to resume work quickly. De
   - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt --mode bibliography --write-expected temp/expected_toa_grouped_leaders.txt`
   - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-by-reporter.csl --expected temp/expected_toa_by-reporter.txt --mode bibliography --write-expected temp/expected_toa_by-reporter.txt`
 - Confirmed the refreshed outputs match expectations and archived the verification runs: `temp/test-logs/20251222T1728_toa.txt`, `temp/test-logs/20251222T1729_toa_leaders.txt`, `temp/test-logs/20251222T1730_toa_grouped.txt`, `temp/test-logs/20251222T1730_toa_grouped_leaders.txt`, `temp/test-logs/20251222T1731_toa_by-reporter.txt`.
+

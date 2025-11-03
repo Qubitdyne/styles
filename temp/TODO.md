@@ -18,10 +18,10 @@ _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2
   - [x] Restore or add the missing federal entries in `temp/tests_toa.json`, capturing rationale and sources. (`2025-12-22T17:05Z`)
   - [x] Refresh `expected_toa*.txt` files via `run_tests.py --mode bibliography --write-expected` and archive logs. (`2025-12-22T17:25Z`)
   - [ ] Enhance TOA CSL macros to emit jurisdiction-aware headings and ensure mixed Texas/federal ordering matches Appendix B.
-  - [ ] Re-run grouped, grouped-leaders, leaders, and by-reporter suites; diff results and log artifacts to `temp/test-logs/`.
-  - [ ] Update `temp/README.md` and `temp/NOTES.md` with the new TOA coverage and any sorting nuances.
+  - [x] Re-run grouped, grouped-leaders, leaders, and by-reporter suites; diff results and log artifacts to `temp/test-logs/`. (`2025-11-03T01:44Z` → `20251103T01433*`)
+  - [x] Update `temp/README.md` and `temp/NOTES.md` with the new TOA coverage and any sorting nuances. (`2025-11-03T01:44Z`)
 - [ ] **Finalize upstream submission checklist**
-  - [ ] Audit `temp/PR_DRAFT.md` against current work to ensure the summary references real fixtures/logs.
+  - [x] Audit `temp/PR_DRAFT.md` against current work to ensure the summary references real fixtures/logs. (`2025-11-03T01:44Z`)
   - [ ] Flesh out coverage notes with page cites into Chapters 2, 4, 10, 17 as applicable.
   - [ ] Confirm documentation alignment across `README.md`, `NOTES.md`, helper write-ups, and TOA instructions.
   - [ ] Execute the full regression sweep (notes, bibliography mode, parenthetical suites, short-form smoke, TOA variants) and log outputs.
@@ -36,7 +36,7 @@ _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2
   - [ ] When running suites, note command invocations and outcomes (OK/DIFF counts) with ISO 8601 timestamps.
 - [ ] **Documentation hygiene**
   - [x] Refresh `temp/PR_DRAFT.md` references to historical logs so they point at actual artifacts and dates. (`2025-11-03T00:08Z`)
-  - [ ] Review `temp/README.md` language about warning suppression after helper work to ensure it reflects the final harness behavior.
+  - [x] Review `temp/README.md` language about warning suppression after helper work to ensure it reflects the final harness behavior. (`2025-11-03T01:44Z`)
   - [ ] Tag any additional markdown drift discovered during audits and file follow-up items here with timestamps.
 
 ## Recently verified (informational)
