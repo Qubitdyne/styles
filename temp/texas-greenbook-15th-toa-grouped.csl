@@ -26,41 +26,64 @@
   <!-- Rank macro to drive group ordering in the bibliography sort -->
   <macro name="toa-type-rank">
     <choose>
-      <if type="legal_case">
-        <text value="01"/>
+      <if variable="keyword">
+        <text variable="keyword"/>
       </if>
-      <else-if type="legislation">
-        <choose>
-          <if variable="chapter-number">
-            <text value="02"/>
-          </if>
-          <else-if variable="title">
-            <text value="06"/>
-          </else-if>
-          <else>
-            <text value="03"/>
-          </else>
-        </choose>
-      </else-if>
-      <else-if type="regulation">
-        <choose>
-          <if variable="volume">
-            <text value="04"/>
-          </if>
-          <else-if variable="authority chapter-number" match="all">
-            <text value="08"/>
-          </else-if>
-          <else>
-            <text value="05"/>
-          </else>
-        </choose>
-      </else-if>
-      <else-if type="report">
-        <text value="07"/>
-      </else-if>
       <else>
-        <text value="09"/>
+        <choose>
+          <if type="legal_case">
+            <text value="01"/>
+          </if>
+          <else-if type="legislation">
+            <choose>
+              <if variable="chapter-number">
+                <text value="02"/>
+              </if>
+              <else-if variable="title">
+                <text value="06"/>
+              </else-if>
+              <else>
+                <text value="03"/>
+              </else>
+            </choose>
+          </else-if>
+          <else-if type="regulation">
+            <choose>
+              <if variable="volume">
+                <text value="04"/>
+              </if>
+              <else-if variable="authority chapter-number" match="all">
+                <text value="08"/>
+              </else-if>
+              <else>
+                <text value="05"/>
+              </else>
+            </choose>
+          </else-if>
+          <else-if type="report">
+            <text value="07"/>
+          </else-if>
+          <else>
+            <text value="09"/>
+          </else>
+        </choose>
       </else>
+    </choose>
+  </macro>
+
+  <macro name="toa-section-heading">
+    <choose>
+      <if variable="call-number">
+        <text variable="call-number"/>
+      </if>
+    </choose>
+  </macro>
+
+  <macro name="toa-subheading-heading">
+    <choose>
+      <if variable="reviewed-title">
+        <text variable="reviewed-title"/>
+      </if>
     </choose>
   </macro>
 
@@ -774,28 +797,34 @@
       <key variable="page"/>
       <key variable="title"/>
     </sort>
-    <layout suffix=".">
-      <choose>
-        <if type="legal_case"><text macro="legal-case"/></if>
-        <else-if type="regulation">
+    <layout>
+      <group>
+        <text macro="toa-section-heading" suffix="\n"/>
+        <text macro="toa-subheading-heading" prefix="  " suffix="\n"/>
+        <group prefix="    " suffix=".\n">
           <choose>
-            <if variable="volume"><text macro="tex-admin-code"/></if>
-            <else-if variable="authority chapter-number" match="all"><text macro="municipal-code"/></else-if>
-            <else><text macro="tex-rule"/></else>
+            <if type="legal_case"><text macro="legal-case"/></if>
+            <else-if type="regulation">
+              <choose>
+                <if variable="volume"><text macro="tex-admin-code"/></if>
+                <else-if variable="authority chapter-number" match="all"><text macro="municipal-code"/></else-if>
+                <else><text macro="tex-rule"/></else>
+              </choose>
+            </else-if>
+            <else-if type="legislation">
+              <choose>
+                <if variable="title"><text macro="tx-session-law-citation"/></if>
+                <else-if variable="chapter-number"><text macro="constitution-core"/></else-if>
+                <else-if variable="genre" match="any"><text macro="tex-rule"/></else-if>
+                <else><text macro="tex-statute"/></else>
+              </choose>
+            </else-if>
+            <else-if type="report"><text macro="ag-opinion"/></else-if>
+            <else-if type="book"><text macro="book-entry"/></else-if>
+            <else><text variable="title"/></else>
           </choose>
-        </else-if>
-        <else-if type="legislation">
-          <choose>
-            <if variable="title"><text macro="tx-session-law-citation"/></if>
-            <else-if variable="chapter-number"><text macro="constitution-core"/></else-if>
-            <else-if variable="genre" match="any"><text macro="tex-rule"/></else-if>
-            <else><text macro="tex-statute"/></else>
-          </choose>
-        </else-if>
-        <else-if type="report"><text macro="ag-opinion"/></else-if>
-        <else-if type="book"><text macro="book-entry"/></else-if>
-        <else><text variable="title"/></else>
-      </choose>
+        </group>
+      </group>
     </layout>
   </bibliography>
 </style>

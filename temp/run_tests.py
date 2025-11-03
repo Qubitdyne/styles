@@ -108,7 +108,7 @@ def _should_auto_see_also(metadata: Mapping[str, Any]) -> bool:
         return False
 
     item_type = metadata.get("type")
-    if item_type not in {"legal_case", "legislation", "regulation"}:
+    if item_type != "legal_case":
         return False
 
     # Respect explicit cue metadata already provided in the item record.

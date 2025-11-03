@@ -44,7 +44,14 @@
   <macro name="prefatory-signal">
     <choose>
       <if variable="annote">
-        <text variable="annote" font-style="italic"/>
+        <choose>
+          <if position="first">
+            <text variable="annote" font-style="italic"/>
+          </if>
+          <else-if variable="references">
+            <text variable="annote" font-style="italic"/>
+          </else-if>
+        </choose>
       </if>
     </choose>
   </macro>
@@ -1369,65 +1376,27 @@
           <if variable="references">
             <text macro="note-body"/>
           </if>
-            <else-if type="legislation" match="any">
-              <choose>
-                <if variable="genre" value="constitution">
-                  <group delimiter=" ">
-                    <text macro="prefatory-signal"/>
-                    <group delimiter=" ">
-                      <text term="ibid" text-case="capitalize-first" font-style="italic"/>
-                      <text macro="ibid-locator"/>
-                    </group>
-                  </group>
-                </if>
-                <else-if variable="collection-title chapter-number" match="any">
-                  <text macro="note-body"/>
-                </else-if>
-                <else>
-                  <group delimiter=" ">
-                    <text macro="prefatory-signal"/>
-                    <group delimiter=" ">
-                      <text term="ibid" text-case="capitalize-first" font-style="italic"/>
-                      <text macro="ibid-locator"/>
-                    </group>
-                  </group>
-                </else>
-              </choose>
-            </else-if>
-            <else>
+          <else-if type="legislation regulation" match="any">
+            <text macro="note-body"/>
+          </else-if>
+          <else>
+            <group delimiter=" ">
+              <text macro="prefatory-signal"/>
               <group delimiter=" ">
-                <text macro="prefatory-signal"/>
-                <group delimiter=" ">
-                  <text term="ibid" text-case="capitalize-first" font-style="italic"/>
-                  <text macro="ibid-locator"/>
-                </group>
+                <text term="ibid" text-case="capitalize-first" font-style="italic"/>
+                <text macro="ibid-locator"/>
               </group>
-            </else>
-          </choose>
-        </if>
+            </group>
+          </else>
+        </choose>
+      </if>
         <else-if position="ibid">
           <choose>
             <if variable="references">
               <text macro="note-body"/>
             </if>
-            <else-if type="legislation" match="any">
-              <choose>
-                <if variable="genre" value="constitution">
-                  <group delimiter=" ">
-                    <text macro="prefatory-signal"/>
-                    <text term="ibid" text-case="capitalize-first" font-style="italic"/>
-                  </group>
-                </if>
-                <else-if variable="collection-title chapter-number" match="any">
-                  <text macro="note-body"/>
-                </else-if>
-                <else>
-                  <group delimiter=" ">
-                    <text macro="prefatory-signal"/>
-                    <text term="ibid" text-case="capitalize-first" font-style="italic"/>
-                  </group>
-                </else>
-              </choose>
+            <else-if type="legislation regulation" match="any">
+              <text macro="note-body"/>
             </else-if>
             <else>
               <group delimiter=" ">

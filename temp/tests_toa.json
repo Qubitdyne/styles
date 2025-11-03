@@ -16,7 +16,10 @@
       ]
     },
     "locator": "646",
-    "grouping": "Supreme Court of Texas Cases"
+    "grouping": "Supreme Court of Texas Cases",
+    "keyword": "01-01",
+    "call-number": "Cases",
+    "reviewed-title": "Supreme Court of Texas Cases"
   },
   {
     "id": "toa_case_crim",
@@ -35,7 +38,9 @@
       ]
     },
     "locator": "631",
-    "grouping": "Court of Criminal Appeals Cases"
+    "grouping": "Court of Criminal Appeals Cases",
+    "keyword": "01-02",
+    "reviewed-title": "Court of Criminal Appeals Cases"
   },
   {
     "id": "toa_case_app_mem",
@@ -43,7 +48,7 @@
     "title": "Richardson v. Kays",
     "number": "02-03-241-CV",
     "collection-number": "2003 WL 22457054",
-    "authority": "Tex. App.—Fort Worth",
+    "authority": "Tex. App.\u2014Fort Worth",
     "jurisdiction": "us:tx",
     "issued": {
       "date-parts": [
@@ -58,7 +63,9 @@
     "genre": "per curiam",
     "medium": "mem. op.",
     "locator": "1",
-    "grouping": "Courts of Appeals Cases"
+    "grouping": "Courts of Appeals Cases",
+    "keyword": "01-03",
+    "reviewed-title": "Courts of Appeals Cases"
   },
   {
     "id": "toa_case_trial",
@@ -77,7 +84,76 @@
       ]
     },
     "locator": "42",
-    "grouping": "Trial Courts and Original Proceedings"
+    "grouping": "Trial Courts and Original Proceedings",
+    "keyword": "01-04",
+    "reviewed-title": "Trial Courts and Original Proceedings"
+  },
+  {
+    "id": "toa_case_us_supreme",
+    "type": "legal_case",
+    "title": "Brown v. Board of Education",
+    "container-title": "U.S.",
+    "volume": "347",
+    "page": "483",
+    "authority": "U.S.",
+    "jurisdiction": "us",
+    "issued": {
+      "date-parts": [
+        [
+          1954
+        ]
+      ]
+    },
+    "locator": "495",
+    "comment": "Appendix B Table of Authorities \u2013 United States Supreme Court heading (Greenbook pp. 239\u2013240).",
+    "grouping": "United States Supreme Court Cases",
+    "keyword": "01-05",
+    "reviewed-title": "United States Supreme Court Cases"
+  },
+  {
+    "id": "toa_case_federal_appellate",
+    "type": "legal_case",
+    "title": "Texaco Inc. v. Louisiana Land & Exploration Co.",
+    "container-title": "F.3d",
+    "volume": "995",
+    "page": "43",
+    "authority": "5th Cir.",
+    "jurisdiction": "us",
+    "issued": {
+      "date-parts": [
+        [
+          1993
+        ]
+      ]
+    },
+    "locator": "48",
+    "comment": "Appendix B Table of Authorities \u2013 Federal courts of appeals heading (Greenbook p. 240).",
+    "grouping": "Federal Courts of Appeals Cases",
+    "keyword": "01-06",
+    "reviewed-title": "Federal Courts of Appeals Cases"
+  },
+  {
+    "id": "toa_case_federal_district",
+    "type": "legal_case",
+    "title": "Texas v. United States",
+    "number": "1:18-cv-00068",
+    "collection-number": "2019 WL 1553639",
+    "authority": "S.D. Tex.",
+    "jurisdiction": "us",
+    "issued": {
+      "date-parts": [
+        [
+          2019,
+          4,
+          19
+        ]
+      ]
+    },
+    "locator": "14",
+    "comment": "Appendix B Table of Authorities \u2013 Federal district courts and specialized tribunals heading (Greenbook p. 240).",
+    "grouping": "Federal District Courts and Specialized Tribunals",
+    "keyword": "01-07",
+    "reviewed-title": "Federal District Courts and Specialized Tribunals"
   },
   {
     "id": "toa_constitution",
@@ -87,7 +163,10 @@
     "chapter-number": "III",
     "section": "5(a)",
     "jurisdiction": "us:tx",
-    "grouping": "Texas Constitution"
+    "grouping": "Texas Constitution",
+    "keyword": "02-01",
+    "call-number": "Statutes and Constitutional Provisions",
+    "reviewed-title": "Texas Constitution"
   },
   {
     "id": "toa_statute_tax_code_2606a",
@@ -95,18 +174,45 @@
     "container-title": "Tex. Tax Code Ann.",
     "section": "26.06(a)",
     "jurisdiction": "us:tx",
-    "comment": "Greenbook ch. 10 pp. 44–45 – tax rate election notice requirement.",
-    "grouping": "Texas Statutes"
+    "comment": "Greenbook ch. 10 pp. 44\u201345 \u2013 tax rate election notice requirement.",
+    "grouping": "Texas Statutes",
+    "keyword": "02-02",
+    "reviewed-title": "Texas Statutes"
   },
   {
     "id": "toa_statute_govt_code_3110211",
     "type": "legislation",
-    "container-title": "Tex. Gov’t Code Ann.",
+    "container-title": "Tex. Gov\u2019t Code Ann.",
     "section": "311.021(1)",
     "note": "West 2023",
     "jurisdiction": "us:tx",
-    "comment": "Greenbook ch. 10 p. 48 – construction statute interpretive presumption.",
-    "grouping": "Texas Statutes"
+    "comment": "Greenbook ch. 10 p. 48 \u2013 construction statute interpretive presumption.",
+    "grouping": "Texas Statutes",
+    "keyword": "02-02"
+  },
+  {
+    "id": "toa_constitution_us",
+    "type": "legislation",
+    "container-title": "U.S. Const.",
+    "chapter-number": "VI",
+    "section": "cl. 2",
+    "jurisdiction": "us",
+    "comment": "Appendix B Table of Authorities \u2013 United States Constitution heading (Greenbook p. 244).",
+    "grouping": "United States Constitution",
+    "keyword": "02-03",
+    "reviewed-title": "United States Constitution"
+  },
+  {
+    "id": "toa_statute_us_code",
+    "type": "legislation",
+    "container-title": "28 U.S.C.",
+    "section": "1332(a)(1)",
+    "note": "Supp. 2024",
+    "jurisdiction": "us",
+    "comment": "Appendix B Table of Authorities \u2013 United States Code heading (Greenbook pp. 245\u2013246).",
+    "grouping": "United States Code",
+    "keyword": "02-04",
+    "reviewed-title": "United States Code"
   },
   {
     "id": "toa_admin_code_9_12",
@@ -121,10 +227,13 @@
         ]
       ]
     },
-    "authority": "Tex. Dep’t of Agric., Seed Sampling Procedures",
+    "authority": "Tex. Dep\u2019t of Agric., Seed Sampling Procedures",
     "jurisdiction": "us:tx",
-    "comment": "Greenbook ch. 16 p. 78 – agricultural seed sampling procedures rule.",
-    "grouping": "Texas Administrative Code"
+    "comment": "Greenbook ch. 16 p. 78 \u2013 agricultural seed sampling procedures rule.",
+    "grouping": "Texas Administrative Code",
+    "keyword": "03-01",
+    "call-number": "Rules and Regulations",
+    "reviewed-title": "Texas Administrative Code"
   },
   {
     "id": "toa_admin_code_25_101",
@@ -140,10 +249,11 @@
       ]
     },
     "note": "emergency adoption",
-    "authority": "Tex. Comm’n on Env’t Quality, Electric Reliability Council Division",
+    "authority": "Tex. Comm\u2019n on Env\u2019t Quality, Electric Reliability Council Division",
     "jurisdiction": "us:tx",
-    "comment": "Greenbook ch. 16 p. 81 – ERCOT emergency reliability rule.",
-    "grouping": "Texas Administrative Code"
+    "comment": "Greenbook ch. 16 p. 81 \u2013 ERCOT emergency reliability rule.",
+    "grouping": "Texas Administrative Code",
+    "keyword": "03-01"
   },
   {
     "id": "toa_admin_code_3_5",
@@ -152,10 +262,11 @@
     "container-title": "Tex. Admin. Code",
     "section": "3.5",
     "note": "adopted 1993",
-    "authority": "Tex. Ethics Comm’n",
+    "authority": "Tex. Ethics Comm\u2019n",
     "jurisdiction": "us:tx",
-    "comment": "Greenbook ch. 16 p. 82 – ethics commission disclosure rule.",
-    "grouping": "Texas Administrative Code"
+    "comment": "Greenbook ch. 16 p. 82 \u2013 ethics commission disclosure rule.",
+    "grouping": "Texas Administrative Code",
+    "keyword": "03-01"
   },
   {
     "id": "toa_register_39_tex_reg_573",
@@ -170,11 +281,13 @@
         ]
       ]
     },
-    "note": "to be codified at 22 Tex. Admin. Code § 367.14",
-    "authority": "Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings",
+    "note": "to be codified at 22 Tex. Admin. Code \u00a7 367.14",
+    "authority": "Tex. State Bd. Plumbing Exam\u2019rs, Contested Case; State Office of Admin. Hearings",
     "jurisdiction": "us:tx",
-    "comment": "Greenbook ch. 16 p. 83 – Texas Register contested case notice heading.",
-    "grouping": "Texas Register"
+    "comment": "Greenbook ch. 16 p. 83 \u2013 Texas Register contested case notice heading.",
+    "grouping": "Texas Register",
+    "keyword": "03-02",
+    "reviewed-title": "Texas Register"
   },
   {
     "id": "toa_rule_trcp_97d",
@@ -183,8 +296,10 @@
     "section": "97(d)",
     "genre": "court rule",
     "jurisdiction": "us:tx",
-    "comment": "Greenbook ch. 13 p. 64 – counterclaim pleading rule.",
-    "grouping": "Texas Rules"
+    "comment": "Greenbook ch. 13 p. 64 \u2013 counterclaim pleading rule.",
+    "grouping": "Texas Rules",
+    "keyword": "03-03",
+    "reviewed-title": "Texas Rules"
   },
   {
     "id": "toa_rule_trcp_21",
@@ -193,8 +308,64 @@
     "section": "21",
     "genre": "court rule",
     "jurisdiction": "us:tx",
-    "comment": "Greenbook ch. 13 p. 62 – service and filing rule short cite.",
-    "grouping": "Texas Rules"
+    "comment": "Greenbook ch. 13 p. 62 \u2013 service and filing rule short cite.",
+    "grouping": "Texas Rules",
+    "keyword": "03-03"
+  },
+  {
+    "id": "toa_rule_federal",
+    "type": "legislation",
+    "container-title": "Fed. R. Civ. P.",
+    "section": "4(k)(2)",
+    "genre": "court rule",
+    "jurisdiction": "us",
+    "comment": "Appendix B Table of Authorities \u2013 Federal Rules heading (Greenbook p. 246).",
+    "grouping": "Federal Rules",
+    "keyword": "03-04",
+    "reviewed-title": "Federal Rules"
+  },
+  {
+    "id": "toa_regulation_cfr",
+    "type": "regulation",
+    "volume": "17",
+    "container-title": "C.F.R.",
+    "section": "240.10b-5",
+    "issued": {
+      "date-parts": [
+        [
+          2023
+        ]
+      ]
+    },
+    "authority": "U.S. Sec. & Exch. Comm\u2019n",
+    "jurisdiction": "us",
+    "comment": "Appendix B Table of Authorities \u2013 Code of Federal Regulations heading (Greenbook pp. 247\u2013248).",
+    "grouping": "Code of Federal Regulations",
+    "keyword": "03-05",
+    "reviewed-title": "Code of Federal Regulations"
+  },
+  {
+    "id": "toa_federal_register_80_fr_56577",
+    "type": "regulation",
+    "volume": "80",
+    "container-title": "Fed. Reg.",
+    "page": "56577, 56624",
+    "issued": {
+      "date-parts": [
+        [
+          2015,
+          9,
+          29
+        ]
+      ]
+    },
+    "note": "to be codified at 12 C.F.R. pt. 1026",
+    "authority": "Consumer Financial Protection Bureau",
+    "jurisdiction": "us",
+    "comment": "Appendix B Table of Authorities \u2013 Federal Register heading (Greenbook pp. 247\u2013248).",
+    "grouping": "Federal Register",
+    "keyword": "03-06",
+    "reviewed-title": "Federal Register"
   },
   {
     "id": "toa_session_law",
@@ -207,12 +378,15 @@
     "volume": "2005",
     "page": "621",
     "jurisdiction": "us:tx",
-    "grouping": "Session Laws"
+    "grouping": "Session Laws",
+    "keyword": "04-01",
+    "call-number": "Session Laws",
+    "reviewed-title": "Session Laws"
   },
   {
     "id": "toa_ag_opinion",
     "type": "report",
-    "authority": "Tex. Att’y Gen. Op.",
+    "authority": "Tex. Att\u2019y Gen. Op.",
     "number": "GA-0002",
     "issued": {
       "date-parts": [
@@ -222,7 +396,10 @@
       ]
     },
     "jurisdiction": "us:tx",
-    "grouping": "Attorney General Opinions"
+    "grouping": "Attorney General Opinions",
+    "keyword": "05-01",
+    "call-number": "Other Authorities",
+    "reviewed-title": "Attorney General Opinions"
   },
   {
     "id": "toa_municipal",
@@ -239,7 +416,9 @@
       ]
     },
     "jurisdiction": "us:tx",
-    "grouping": "Municipal Ordinances"
+    "grouping": "Municipal Ordinances",
+    "keyword": "05-02",
+    "reviewed-title": "Municipal Ordinances"
   },
   {
     "id": "toa_secondary",
@@ -263,136 +442,8 @@
     "label": "section",
     "locator": "5.2",
     "abstract": "secondary authority entry",
-    "grouping": "Secondary Authorities"
-  },
-  {
-    "id": "toa_case_us_supreme",
-    "type": "legal_case",
-    "title": "Brown v. Board of Education",
-    "container-title": "U.S.",
-    "volume": "347",
-    "page": "483",
-    "authority": "U.S.",
-    "jurisdiction": "us",
-    "issued": {
-      "date-parts": [
-        [
-          1954
-        ]
-      ]
-    },
-    "locator": "495",
-    "comment": "Appendix B Table of Authorities – United States Supreme Court heading (Greenbook pp. 239–240).",
-    "grouping": "United States Supreme Court Cases"
-  },
-  {
-    "id": "toa_case_federal_appellate",
-    "type": "legal_case",
-    "title": "Texaco Inc. v. Louisiana Land & Exploration Co.",
-    "container-title": "F.3d",
-    "volume": "995",
-    "page": "43",
-    "authority": "5th Cir.",
-    "jurisdiction": "us",
-    "issued": {
-      "date-parts": [
-        [
-          1993
-        ]
-      ]
-    },
-    "locator": "48",
-    "comment": "Appendix B Table of Authorities – Federal courts of appeals heading (Greenbook p. 240).",
-    "grouping": "Federal Courts of Appeals Cases"
-  },
-  {
-    "id": "toa_case_federal_district",
-    "type": "legal_case",
-    "title": "Texas v. United States",
-    "number": "1:18-cv-00068",
-    "collection-number": "2019 WL 1553639",
-    "authority": "S.D. Tex.",
-    "jurisdiction": "us",
-    "issued": {
-      "date-parts": [
-        [
-          2019,
-          4,
-          19
-        ]
-      ]
-    },
-    "locator": "14",
-    "comment": "Appendix B Table of Authorities – Federal district courts and specialized tribunals heading (Greenbook p. 240).",
-    "grouping": "Federal District Courts and Specialized Tribunals"
-  },
-  {
-    "id": "toa_constitution_us",
-    "type": "legislation",
-    "container-title": "U.S. Const.",
-    "chapter-number": "VI",
-    "section": "cl. 2",
-    "jurisdiction": "us",
-    "comment": "Appendix B Table of Authorities – United States Constitution heading (Greenbook p. 244).",
-    "grouping": "United States Constitution"
-  },
-  {
-    "id": "toa_statute_us_code",
-    "type": "legislation",
-    "container-title": "28 U.S.C.",
-    "section": "1332(a)(1)",
-    "note": "Supp. 2024",
-    "jurisdiction": "us",
-    "comment": "Appendix B Table of Authorities – United States Code heading (Greenbook pp. 245–246).",
-    "grouping": "United States Code"
-  },
-  {
-    "id": "toa_rule_federal",
-    "type": "legislation",
-    "container-title": "Fed. R. Civ. P.",
-    "section": "4(k)(2)",
-    "genre": "court rule",
-    "jurisdiction": "us",
-    "comment": "Appendix B Table of Authorities – Federal Rules heading (Greenbook p. 246).",
-    "grouping": "Federal Rules"
-  },
-  {
-    "id": "toa_regulation_cfr",
-    "type": "regulation",
-    "volume": "17",
-    "container-title": "C.F.R.",
-    "section": "240.10b-5",
-    "issued": {
-      "date-parts": [
-        [
-          2023
-        ]
-      ]
-    },
-    "authority": "U.S. Sec. & Exch. Comm’n",
-    "jurisdiction": "us",
-    "comment": "Appendix B Table of Authorities – Code of Federal Regulations heading (Greenbook pp. 247–248).",
-    "grouping": "Code of Federal Regulations"
-  },
-  {
-    "id": "toa_federal_register_80_fr_56577",
-    "type": "regulation",
-    "volume": "80",
-    "container-title": "Fed. Reg.",
-    "page": "56577, 56624",
-    "issued": {
-      "date-parts": [
-        [
-          2015,
-          9,
-          29
-        ]
-      ]
-    },
-    "note": "to be codified at 12 C.F.R. pt. 1026",
-    "authority": "Consumer Financial Protection Bureau",
-    "jurisdiction": "us",
-    "comment": "Appendix B Table of Authorities – Federal Register heading (Greenbook pp. 247–248).",
-    "grouping": "Federal Register"
+    "grouping": "Secondary Authorities",
+    "keyword": "05-03",
+    "reviewed-title": "Secondary Authorities"
   }
 ]

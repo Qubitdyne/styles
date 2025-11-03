@@ -1,0 +1,100 @@
+01: OK
+  expected: Cases\n  Supreme Court of Texas Cases\n    HEB Ministries, Inc. v. Texas Higher Educ. Coordinating Bd., 235 S.W.3d 627, 646 (Tex. 2007) ........................................&#9;.\n
+  actual:   Cases\n  Supreme Court of Texas Cases\n    HEB Ministries, Inc. v. Texas Higher Educ. Coordinating Bd., 235 S.W.3d 627, 646 (Tex. 2007) ........................................&#9;.\n
+
+02: OK
+  expected:   Court of Criminal Appeals Cases\n    Cantu v. State, 939 S.W.2d 627, 631 (Tex. Crim. App. 1997) ........................................&#9;.\n
+  actual:     Court of Criminal Appeals Cases\n    Cantu v. State, 939 S.W.2d 627, 631 (Tex. Crim. App. 1997) ........................................&#9;.\n
+
+03: OK
+  expected:   Courts of Appeals Cases\n    Richardson v. Kays, No. 02-03-241-CV, 2003 WL 22457054, at *1 (Tex. App.—Fort Worth Oct. 30, 2003, no pet.) (per curiam) (mem. op.) ........................................&#9;.\n
+  actual:     Courts of Appeals Cases\n    Richardson v. Kays, No. 02-03-241-CV, 2003 WL 22457054, at *1 (Tex. App.—Fort Worth Oct. 30, 2003, no pet.) (per curiam) (mem. op.) ........................................&#9;.\n
+
+04: OK
+  expected:   Trial Courts and Original Proceedings\n    State v. Auguillard, No. 139002101010 (338th Dist. Ct., Harris County, Tex. Oct. 21, 2013) ........................................&#9;.\n
+  actual:     Trial Courts and Original Proceedings\n    State v. Auguillard, No. 139002101010 (338th Dist. Ct., Harris County, Tex. Oct. 21, 2013) ........................................&#9;.\n
+
+05: OK
+  expected:   United States Supreme Court Cases\n    Brown v. Board of Education, 347 U.S. 483, 495 (U.S. 1954) ........................................&#9;.\n
+  actual:     United States Supreme Court Cases\n    Brown v. Board of Education, 347 U.S. 483, 495 (U.S. 1954) ........................................&#9;.\n
+
+06: OK
+  expected:   Federal Courts of Appeals Cases\n    Texaco Inc. v. Louisiana Land & Exploration Co., 995 F.3d 43, 48 (5th Cir. 1993) ........................................&#9;.\n
+  actual:     Federal Courts of Appeals Cases\n    Texaco Inc. v. Louisiana Land & Exploration Co., 995 F.3d 43, 48 (5th Cir. 1993) ........................................&#9;.\n
+
+07: OK
+  expected:   Federal District Courts and Specialized Tribunals\n    Texas v. United States, No. 1:18-cv-00068, 2019 WL 1553639, at *14 (S.D. Tex. Apr. 19, 2019) ........................................&#9;.\n
+  actual:     Federal District Courts and Specialized Tribunals\n    Texas v. United States, No. 1:18-cv-00068, 2019 WL 1553639, at *14 (S.D. Tex. Apr. 19, 2019) ........................................&#9;.\n
+
+08: OK
+  expected: Statutes and Constitutional Provisions\n  Texas Constitution\n    Tex. Const. art. III, § 5(a) ........................................&#9;.\n
+  actual:   Statutes and Constitutional Provisions\n  Texas Constitution\n    Tex. Const. art. III, § 5(a) ........................................&#9;.\n
+
+09: OK
+  expected:   Texas Statutes\n    Tex. Tax Code Ann. § 26.06(a) ........................................&#9;.\n
+  actual:     Texas Statutes\n    Tex. Tax Code Ann. § 26.06(a) ........................................&#9;.\n
+
+10: OK
+  expected:     Tex. Gov’t Code Ann. § 311.021(1) (West 2023) ........................................&#9;.\n
+  actual:       Tex. Gov’t Code Ann. § 311.021(1) (West 2023) ........................................&#9;.\n
+
+11: OK
+  expected:   United States Constitution\n    U.S. Const. art. VI, § cl. 2 ........................................&#9;.\n
+  actual:     United States Constitution\n    U.S. Const. art. VI, § cl. 2 ........................................&#9;.\n
+
+12: OK
+  expected:   United States Code\n    28 U.S.C. § 1332(a)(1) (Supp. 2024) ........................................&#9;.\n
+  actual:     United States Code\n    28 U.S.C. § 1332(a)(1) (Supp. 2024) ........................................&#9;.\n
+
+13: OK
+  expected: Rules and Regulations\n  Texas Administrative Code\n    4 Tex. Admin. Code § 9.12 (Tex. Dep’t of Agric., Seed Sampling Procedures, 2013) ........................................&#9;.\n
+  actual:   Rules and Regulations\n  Texas Administrative Code\n    4 Tex. Admin. Code § 9.12 (Tex. Dep’t of Agric., Seed Sampling Procedures, 2013) ........................................&#9;.\n
+
+14: OK
+  expected:     16 Tex. Admin. Code § 25.101 (Tex. Comm’n on Env’t Quality, Electric Reliability Council Division, 2022; emergency adoption) ........................................&#9;.\n
+  actual:       16 Tex. Admin. Code § 25.101 (Tex. Comm’n on Env’t Quality, Electric Reliability Council Division, 2022; emergency adoption) ........................................&#9;.\n
+
+15: OK
+  expected:     1 Tex. Admin. Code § 3.5 (Tex. Ethics Comm’n; adopted 1993) ........................................&#9;.\n
+  actual:       1 Tex. Admin. Code § 3.5 (Tex. Ethics Comm’n; adopted 1993) ........................................&#9;.\n
+
+16: OK
+  expected:   Texas Register\n    39 Tex. Reg. 573, 574 (Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings, 2014; to be codified at 22 Tex. Admin. Code § 367.14) ........................................&#9;.\n
+  actual:     Texas Register\n    39 Tex. Reg. 573, 574 (Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings, 2014; to be codified at 22 Tex. Admin. Code § 367.14) ........................................&#9;.\n
+
+17: OK
+  expected:   Texas Rules\n    Tex. R. Civ. P. 97(d) ........................................&#9;.\n
+  actual:     Texas Rules\n    Tex. R. Civ. P. 97(d) ........................................&#9;.\n
+
+18: OK
+  expected:     Tex. R. Civ. P. 21 ........................................&#9;.\n
+  actual:       Tex. R. Civ. P. 21 ........................................&#9;.\n
+
+19: OK
+  expected:   Federal Rules\n    Fed. R. Civ. P. 4(k)(2) ........................................&#9;.\n
+  actual:     Federal Rules\n    Fed. R. Civ. P. 4(k)(2) ........................................&#9;.\n
+
+20: OK
+  expected:   Code of Federal Regulations\n    17 C.F.R. § 240.10b-5 (U.S. Sec. & Exch. Comm’n, 2023) ........................................&#9;.\n
+  actual:     Code of Federal Regulations\n    17 C.F.R. § 240.10b-5 (U.S. Sec. & Exch. Comm’n, 2023) ........................................&#9;.\n
+
+21: OK
+  expected:   Federal Register\n    80 Fed. Reg. 56577, 56624 (Consumer Financial Protection Bureau, 2015; to be codified at 12 C.F.R. pt. 1026) ........................................&#9;.\n
+  actual:     Federal Register\n    80 Fed. Reg. 56577, 56624 (Consumer Financial Protection Bureau, 2015; to be codified at 12 C.F.R. pt. 1026) ........................................&#9;.\n
+
+22: OK
+  expected: Session Laws\n  Session Laws\n    Act of May 30, 2005, 79th Leg., R.S., ch. 268, § 1.06, 2005 Tex. Gen. Laws 621 ........................................&#9;.\n
+  actual:   Session Laws\n  Session Laws\n    Act of May 30, 2005, 79th Leg., R.S., ch. 268, § 1.06, 2005 Tex. Gen. Laws 621 ........................................&#9;.\n
+
+23: OK
+  expected: Other Authorities\n  Attorney General Opinions\n    Tex. Att’y Gen. Op. No. GA-0002 (2002) ........................................&#9;.\n
+  actual:   Other Authorities\n  Attorney General Opinions\n    Tex. Att’y Gen. Op. No. GA-0002 (2002) ........................................&#9;.\n
+
+24: OK
+  expected:   Municipal Ordinances\n    Hous., Tex., Code of Ordinances ch. 20, art. IV, § 20-216 (1968) ........................................&#9;.\n
+  actual:     Municipal Ordinances\n    Hous., Tex., Code of Ordinances ch. 20, art. IV, § 20-216 (1968) ........................................&#9;.\n
+
+25: OK
+  expected:   Secondary Authorities\n    William V. Dorsaneo, 1 Texas Litigation Guide, § 5.2, 2024 ........................................&#9;.\n
+  actual:     Secondary Authorities\n    William V. Dorsaneo, 1 Texas Litigation Guide, § 5.2, 2024 ........................................&#9;.\n
+
