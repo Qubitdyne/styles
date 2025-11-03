@@ -19,65 +19,23 @@
     "grouping": "Supreme Court of Texas Cases"
   },
   {
-    "id": "toa_case_us_supreme",
+    "id": "toa_case_crim",
     "type": "legal_case",
-    "title": "Brown v. Board of Education",
-    "container-title": "U.S.",
-    "volume": "347",
-    "page": "483",
-    "authority": "U.S.",
-    "jurisdiction": "us",
+    "title": "Cantu v. State",
+    "container-title": "S.W.2d",
+    "volume": "939",
+    "page": "627",
+    "authority": "Tex. Crim. App.",
+    "jurisdiction": "us:tx",
     "issued": {
       "date-parts": [
         [
-          1954
+          1997
         ]
       ]
     },
-    "locator": "495",
-    "comment": "Appendix B Table of Authorities – U.S. Supreme Court heading (Greenbook pp. 239–240).",
-    "grouping": "United States Supreme Court Cases"
-  },
-  {
-    "id": "toa_case_federal_appellate",
-    "type": "legal_case",
-    "title": "Texaco Inc. v. Louisiana Land & Exploration Co.",
-    "container-title": "F.3d",
-    "volume": "995",
-    "page": "43",
-    "authority": "5th Cir.",
-    "jurisdiction": "us",
-    "issued": {
-      "date-parts": [
-        [
-          1993
-        ]
-      ]
-    },
-    "locator": "48",
-    "comment": "Appendix B Table of Authorities – Federal courts of appeals heading (Greenbook pp. 239–240).",
-    "grouping": "Federal Courts of Appeals Cases"
-  },
-  {
-    "id": "toa_case_federal_district",
-    "type": "legal_case",
-    "title": "Texas v. United States",
-    "number": "1:18-cv-00068",
-    "collection-number": "2019 WL 1553639",
-    "authority": "S.D. Tex.",
-    "jurisdiction": "us",
-    "issued": {
-      "date-parts": [
-        [
-          2019,
-          4,
-          19
-        ]
-      ]
-    },
-    "locator": "14",
-    "comment": "Appendix B Table of Authorities – Federal district court grouping (Greenbook pp. 239–240).",
-    "grouping": "Federal District Courts and Specialized Tribunals"
+    "locator": "631",
+    "grouping": "Court of Criminal Appeals Cases"
   },
   {
     "id": "toa_case_app_mem",
@@ -101,25 +59,6 @@
     "medium": "mem. op.",
     "locator": "1",
     "grouping": "Courts of Appeals Cases"
-  },
-  {
-    "id": "toa_case_crim",
-    "type": "legal_case",
-    "title": "Cantu v. State",
-    "container-title": "S.W.2d",
-    "volume": "939",
-    "page": "627",
-    "authority": "Tex. Crim. App.",
-    "jurisdiction": "us:tx",
-    "issued": {
-      "date-parts": [
-        [
-          1997
-        ]
-      ]
-    },
-    "locator": "631",
-    "grouping": "Court of Criminal Appeals Cases"
   },
   {
     "id": "toa_case_trial",
@@ -151,16 +90,6 @@
     "grouping": "Texas Constitution"
   },
   {
-    "id": "toa_constitution_us",
-    "type": "legislation",
-    "container-title": "U.S. Const.",
-    "chapter-number": "VI",
-    "section": "cl. 2",
-    "jurisdiction": "us",
-    "comment": "Appendix B Table of Authorities – United States Constitution heading (Greenbook pp. 244–245).",
-    "grouping": "United States Constitution"
-  },
-  {
     "id": "toa_statute_tax_code_2606a",
     "type": "legislation",
     "container-title": "Tex. Tax Code Ann.",
@@ -178,46 +107,6 @@
     "jurisdiction": "us:tx",
     "comment": "Greenbook ch. 10 p. 48 – construction statute interpretive presumption.",
     "grouping": "Texas Statutes"
-  },
-  {
-    "id": "toa_statute_us_code",
-    "type": "legislation",
-    "container-title": "28 U.S.C.",
-    "section": "1332(a)(1)",
-    "note": "Supp. 2024",
-    "jurisdiction": "us",
-    "comment": "Appendix B Table of Authorities – United States Code heading (Greenbook pp. 245–246).",
-    "grouping": "United States Code"
-  },
-  {
-    "id": "toa_rule_trcp_97d",
-    "type": "legislation",
-    "container-title": "Tex. R. Civ. P.",
-    "section": "97(d)",
-    "genre": "court rule",
-    "jurisdiction": "us:tx",
-    "comment": "Greenbook ch. 13 p. 64 – counterclaim pleading rule.",
-    "grouping": "Texas Rules"
-  },
-  {
-    "id": "toa_rule_trcp_21",
-    "type": "legislation",
-    "container-title": "Tex. R. Civ. P.",
-    "section": "21",
-    "genre": "court rule",
-    "jurisdiction": "us:tx",
-    "comment": "Greenbook ch. 13 p. 62 – service and filing rule short cite.",
-    "grouping": "Texas Rules"
-  },
-  {
-    "id": "toa_rule_federal",
-    "type": "legislation",
-    "container-title": "Fed. R. Civ. P.",
-    "section": "4(k)(2)",
-    "genre": "court rule",
-    "jurisdiction": "us",
-    "comment": "Appendix B Table of Authorities – Federal Rules heading (Greenbook pp. 246–247).",
-    "grouping": "Federal Rules"
   },
   {
     "id": "toa_admin_code_9_12",
@@ -288,43 +177,24 @@
     "grouping": "Texas Register"
   },
   {
-    "id": "toa_regulation_cfr",
-    "type": "regulation",
-    "volume": "17",
-    "container-title": "C.F.R.",
-    "section": "240.10b-5",
-    "issued": {
-      "date-parts": [
-        [
-          2023
-        ]
-      ]
-    },
-    "authority": "U.S. Sec. & Exch. Comm’n",
-    "jurisdiction": "us",
-    "comment": "Appendix B Table of Authorities – Code of Federal Regulations heading (Greenbook pp. 247–248).",
-    "grouping": "Code of Federal Regulations"
+    "id": "toa_rule_trcp_97d",
+    "type": "legislation",
+    "container-title": "Tex. R. Civ. P.",
+    "section": "97(d)",
+    "genre": "court rule",
+    "jurisdiction": "us:tx",
+    "comment": "Greenbook ch. 13 p. 64 – counterclaim pleading rule.",
+    "grouping": "Texas Rules"
   },
   {
-    "id": "toa_federal_register_80_fr_56577",
-    "type": "regulation",
-    "volume": "80",
-    "container-title": "Fed. Reg.",
-    "page": "56577, 56624",
-    "issued": {
-      "date-parts": [
-        [
-          2015,
-          9,
-          29
-        ]
-      ]
-    },
-    "note": "to be codified at 12 C.F.R. pt. 1026",
-    "authority": "Consumer Financial Protection Bureau",
-    "jurisdiction": "us",
-    "comment": "Appendix B Table of Authorities – Federal Register heading (Greenbook pp. 247–248).",
-    "grouping": "Federal Register"
+    "id": "toa_rule_trcp_21",
+    "type": "legislation",
+    "container-title": "Tex. R. Civ. P.",
+    "section": "21",
+    "genre": "court rule",
+    "jurisdiction": "us:tx",
+    "comment": "Greenbook ch. 13 p. 62 – service and filing rule short cite.",
+    "grouping": "Texas Rules"
   },
   {
     "id": "toa_session_law",
@@ -394,5 +264,135 @@
     "locator": "5.2",
     "abstract": "secondary authority entry",
     "grouping": "Secondary Authorities"
+  },
+  {
+    "id": "toa_case_us_supreme",
+    "type": "legal_case",
+    "title": "Brown v. Board of Education",
+    "container-title": "U.S.",
+    "volume": "347",
+    "page": "483",
+    "authority": "U.S.",
+    "jurisdiction": "us",
+    "issued": {
+      "date-parts": [
+        [
+          1954
+        ]
+      ]
+    },
+    "locator": "495",
+    "comment": "Appendix B Table of Authorities – United States Supreme Court heading (Greenbook pp. 239–240).",
+    "grouping": "United States Supreme Court Cases"
+  },
+  {
+    "id": "toa_case_federal_appellate",
+    "type": "legal_case",
+    "title": "Texaco Inc. v. Louisiana Land & Exploration Co.",
+    "container-title": "F.3d",
+    "volume": "995",
+    "page": "43",
+    "authority": "5th Cir.",
+    "jurisdiction": "us",
+    "issued": {
+      "date-parts": [
+        [
+          1993
+        ]
+      ]
+    },
+    "locator": "48",
+    "comment": "Appendix B Table of Authorities – Federal courts of appeals heading (Greenbook p. 240).",
+    "grouping": "Federal Courts of Appeals Cases"
+  },
+  {
+    "id": "toa_case_federal_district",
+    "type": "legal_case",
+    "title": "Texas v. United States",
+    "number": "1:18-cv-00068",
+    "collection-number": "2019 WL 1553639",
+    "authority": "S.D. Tex.",
+    "jurisdiction": "us",
+    "issued": {
+      "date-parts": [
+        [
+          2019,
+          4,
+          19
+        ]
+      ]
+    },
+    "locator": "14",
+    "comment": "Appendix B Table of Authorities – Federal district courts and specialized tribunals heading (Greenbook p. 240).",
+    "grouping": "Federal District Courts and Specialized Tribunals"
+  },
+  {
+    "id": "toa_constitution_us",
+    "type": "legislation",
+    "container-title": "U.S. Const.",
+    "chapter-number": "VI",
+    "section": "cl. 2",
+    "jurisdiction": "us",
+    "comment": "Appendix B Table of Authorities – United States Constitution heading (Greenbook p. 244).",
+    "grouping": "United States Constitution"
+  },
+  {
+    "id": "toa_statute_us_code",
+    "type": "legislation",
+    "container-title": "28 U.S.C.",
+    "section": "1332(a)(1)",
+    "note": "Supp. 2024",
+    "jurisdiction": "us",
+    "comment": "Appendix B Table of Authorities – United States Code heading (Greenbook pp. 245–246).",
+    "grouping": "United States Code"
+  },
+  {
+    "id": "toa_rule_federal",
+    "type": "legislation",
+    "container-title": "Fed. R. Civ. P.",
+    "section": "4(k)(2)",
+    "genre": "court rule",
+    "jurisdiction": "us",
+    "comment": "Appendix B Table of Authorities – Federal Rules heading (Greenbook p. 246).",
+    "grouping": "Federal Rules"
+  },
+  {
+    "id": "toa_regulation_cfr",
+    "type": "regulation",
+    "volume": "17",
+    "container-title": "C.F.R.",
+    "section": "240.10b-5",
+    "issued": {
+      "date-parts": [
+        [
+          2023
+        ]
+      ]
+    },
+    "authority": "U.S. Sec. & Exch. Comm’n",
+    "jurisdiction": "us",
+    "comment": "Appendix B Table of Authorities – Code of Federal Regulations heading (Greenbook pp. 247–248).",
+    "grouping": "Code of Federal Regulations"
+  },
+  {
+    "id": "toa_federal_register_80_fr_56577",
+    "type": "regulation",
+    "volume": "80",
+    "container-title": "Fed. Reg.",
+    "page": "56577, 56624",
+    "issued": {
+      "date-parts": [
+        [
+          2015,
+          9,
+          29
+        ]
+      ]
+    },
+    "note": "to be codified at 12 C.F.R. pt. 1026",
+    "authority": "Consumer Financial Protection Bureau",
+    "jurisdiction": "us",
+    "comment": "Appendix B Table of Authorities – Federal Register heading (Greenbook pp. 247–248).",
+    "grouping": "Federal Register"
   }
 ]
