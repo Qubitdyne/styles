@@ -1,9 +1,12 @@
 import argparse
 import importlib.util
 import json
+import shlex
 import sys
 import warnings
 from copy import deepcopy
+from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any, Mapping
 
 
@@ -76,6 +79,54 @@ parser.add_argument(
     ),
 )
 args = parser.parse_args()
+
+
+def _format_timestamp() -> str:
+    """Return an ISO 8601 UTC timestamp without fractional seconds."""
+
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def _append_run_history(
+    *,
+    ok_count: int,
+    diff_count: int,
+    expected_total: int,
+    rendered_total: int,
+    mode: str,
+    args: argparse.Namespace,
+) -> None:
+    """Append a one-line summary of the run to temp/test-logs/run-history.log."""
+
+    log_dir = Path("temp/test-logs")
+    log_dir.mkdir(parents=True, exist_ok=True)
+    log_path = log_dir / "run-history.log"
+
+    timestamp = _format_timestamp()
+    status = "PASS" if diff_count == 0 and expected_total == rendered_total else "FAIL"
+    summary = f"{ok_count} OK, {diff_count} DIFF"
+    if expected_total != rendered_total:
+        summary += f"; expected {expected_total}, rendered {rendered_total}"
+
+    details: list[str] = [
+        f"mode={mode}",
+        f"style={args.style}",
+        f"tests={args.tests}",
+        f"expected={args.expected}",
+    ]
+    if args.write_expected:
+        details.append(f"write_expected={args.write_expected}")
+
+    command = shlex.join([sys.executable, *sys.argv])
+
+    write_header = not log_path.exists() or log_path.stat().st_size == 0
+
+    with log_path.open("a", encoding="utf-8") as handle:
+        if write_header:
+            handle.write("# timestamp | status | summary | details | command\n")
+        handle.write(
+            f"{timestamp} | {status} | {summary} | {'; '.join(details)} | {command}\n"
+        )
 
 
 def _infer_mode(style_path: str, requested_mode: str | None) -> str:
@@ -214,14 +265,30 @@ for line in raw_expected_lines:
         expected_lines.append(line)
         expected_comments.append("")
 
+ok_count = 0
+diff_count = 0
+
 for index, (expected, actual) in enumerate(zip(expected_lines, rendered), start=1):
     status = "OK" if expected == actual else "DIFF"
+    if status == "OK":
+        ok_count += 1
+    else:
+        diff_count += 1
     comment = expected_comments[index - 1]
     comment_suffix = f" // {comment}" if comment else ""
     print(f"{index:02d}: {status}\n  expected: {expected}{comment_suffix}\n  actual:   {actual}\n")
 
 if len(expected_lines) != len(rendered):
     print(f"Warning: expected {len(expected_lines)} lines but rendered {len(rendered)} citations.")
+
+_append_run_history(
+    ok_count=ok_count,
+    diff_count=diff_count,
+    expected_total=len(expected_lines),
+    rendered_total=len(rendered),
+    mode=mode,
+    args=args,
+)
 
 if args.write_expected:
     max_len = max(len(rendered), len(expected_comments))

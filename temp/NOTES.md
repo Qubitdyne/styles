@@ -69,8 +69,8 @@ Use this file to capture the minimum context required to resume work quickly. De
   - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa*.csl --expected temp/expected_toa*.txt --mode bibliography --write-expected temp/expected_toa*.txt` (ran for base, leaders, grouped, grouped-leaders, and by-reporter variants).
 - New helper output now surfaces `(Supp. ####)` and agency authority/status clusters in notes and TOA entries per Greenbook chs. 10–13 guidance while keeping short-form cites unchanged.
 
-## 2025-11-03T05:30Z — Register notice cleanup and log capture
-- Updated `tx-authority-status-parenthetical` across the note style and all TOA variants to omit duplicate `Tex. Reg.`/`Fed. Reg.` entries when the base citation already prints the register volume and page. This keeps Texas Register contested case notices (Greenbook 15th ed. 83) and Appendix B federal register examples (Table of Authorities samples, Greenbook 15th ed. 247–248) to a single register cite per entry.
+-## 2025-11-03T05:30Z — Register notice cleanup and log capture
+- Updated `tx-authority-status-parenthetical` across the note style and all TOA variants to omit duplicate `Tex. Reg.`/`Fed. Reg.` entries when the base citation already prints the register volume and page. Prior to the fix, the contested-case example (`toa_register_39_tex_reg_573`) produced `39 Tex. Reg. 573, 574 ... (Tex. Reg.; to be codified ...)`, repeating the register cite that Greenbook Chapter 16 presents only once (Texas Register section header, Greenbook 15th ed. 83). Appendix B’s federal register sample (pp. 247–248) likewise prints the parenthetical text after a single `Fed. Reg.` cite, so the helper now mirrors that layout by stripping the redundant register string before appending the authority/status detail.
 - Refreshed the TOA fixtures (`expected_toa*.txt`) so grouped, leaders, by-reporter, and base layouts reflect the streamlined parenthetical output.
 - Captured regression artifacts after the update:
   - `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt` → `temp/test-logs/20251103T012201Z_notes.txt`
@@ -137,6 +137,11 @@ Use this file to capture the minimum context required to resume work quickly. De
   - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt --mode bibliography` → 25 grouped-heading entries `OK`, including federal sections (Appendix B alignment) (`50e0ac`).
   - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa.csl --expected temp/expected_toa.txt --mode bibliography` → 25 base layout entries `OK` (federal ordering retained) (`078f98`).
 - No citeproc warnings surfaced during the sweep; helper macros in the note style and TOA variants remain in sync, so the open backlog items for shared publication/status helpers and federal TOA coverage can be closed after this confirmation run.
+
+## 2025-11-03T09:11Z — Automated run-history logging
+- Extended `temp/run_tests.py` to append a summary line to `temp/test-logs/run-history.log` after each invocation. The log captures the UTC timestamp, PASS/FAIL status (based on DIFF counts and length parity), OK/DIFF tallies, resolved command arguments, and primary file paths (`style`, `tests`, `expected`, optional `write_expected`).
+- Seeded the ledger with the short-form smoke run executed while testing the hook: `2025-11-03T09:11:44Z | PASS | 12 OK, 0 DIFF | mode=notes; style=temp/texas-greenbook-15th-edition.csl; tests=temp/tests_short-form_smoke.json; expected=temp/expected_short-form_smoke.txt | /root/.pyenv/versions/3.12.10/bin/python temp/run_tests.py --tests temp/tests_short-form_smoke.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_short-form_smoke.txt`.
+- Updated `README.md` and `PR_DRAFT.md` to point maintainers to the new log stream so they can prove coverage without hunting through individual suite outputs. Logged the completion of the associated TODO subtasks (support-task automation and documentation hygiene) with timestamps in `temp/TODO.md`.
 
 ## 2025-12-22T19:30Z — Documentation hygiene and submission checklist pass
 - Updated `temp/README.md` recent-update bullets so the regression log references line up with the federal Appendix B sweep and the final 20251103 regression bundle.

@@ -35,6 +35,8 @@ python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenboo
 python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_notes.txt
 ```
 
+Every invocation now appends a one-line summary to `temp/test-logs/run-history.log` with the UTC timestamp, PASS/FAIL status, OK/DIFF counts, and the exact command that was executed. Use this file as the authoritative session trail when reconciling documentation or preparing the upstream PR; the per-suite log files under `temp/test-logs/` remain available for deeper diffs when expectations intentionally change.
+
 Use `--mode bibliography` when you need to force bibliography output or `--write-expected` to refresh expectations after intentional updates. The runner filters citeproc’s harmless "unsupported argument" warnings for the metadata keys we intentionally keep (`comment`, `label`, `reviewed_title`, `grouping`, `related`) so log files stay readable; export `PYTHONWARNINGS=default` if you need to audit the raw warning stream.
 
 ## Archives and reference material
