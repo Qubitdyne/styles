@@ -7,6 +7,7 @@ Keep this draft synchronized with the active TODO so we can file the upstream pu
 - Suppressed duplicate register citations when a TOA entry already prints the underlying Tex. Reg./Fed. Reg. cite, then refreshed each TOA expectation file to keep the grouped layouts consistent with Appendix B.
 - Restored Appendix B’s federal authority coverage in `tests_toa.json`, regenerated all TOA expectations with `--mode bibliography`, and captured fresh confirmation logs (`20251103T055217Z_toa.txt`, `20251103T055217Z_toa_leaders.txt`, `20251103T055217Z_toa_grouped.txt`, `20251103T055217Z_toa_grouped_leaders.txt`, `20251103T055217Z_toa_by-reporter.txt`).
 - Updated the short-form layout so repeated Texas statutes (Greenbook 15th ed. 24, 34), administrative rules (Greenbook 15th ed. 76–78), and Texas/Federal procedural rules (Greenbook 15th ed. 61–65) restate the full authority text instead of emitting `Id.`. Regression logs: `temp/test-logs/20251103T152401Z_notes_full-suite.txt`, `temp/test-logs/20251103T155725Z_short-form_smoke.txt`.
+- Extended the short-form restatement guardrails to Texas attorney general opinions (Greenbook 15th ed. 77) and municipal ordinances (Greenbook 15th ed. 62), ensuring repeat cites drop the year parenthetical while cross-references append any `references` strings. Regression logs: `temp/test-logs/20251104T033421Z_short-form_smoke.txt`, `temp/test-logs/20251104T033428Z_notes.txt`.
 - Recorded the helper roll-out and TOA fixture decisions in `NOTES.md`/`README.md` so the documentation now matches the consolidated macros and new regression artifacts.
 - Documented Chapter 2, 4, 10, and 17 coverage with explicit Greenbook page cites in `NOTES.md` (`2025-11-03T04:12Z` entry) to support the upstream narrative once headings and short-form guardrails land.
 
@@ -34,6 +35,8 @@ Keep this draft synchronized with the active TODO so we can file the upstream pu
 - `temp/test-logs/20251103T055217Z_toa_grouped.txt`
 - `temp/test-logs/20251103T055217Z_toa_grouped_leaders.txt`
 - `temp/test-logs/20251103T055217Z_toa_by-reporter.txt`
+- `temp/test-logs/20251104T033421Z_short-form_smoke.txt`
+- `temp/test-logs/20251104T033428Z_notes.txt`
 
 ## Pending before submission
 - Run a final `git diff --stat`/visual review of the CSL changes once documentation touch-ups settle so the upstream summary captures every updated macro and fixture.

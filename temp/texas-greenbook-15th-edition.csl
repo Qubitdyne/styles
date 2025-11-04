@@ -849,24 +849,106 @@
     </group>
   </macro>
 
-  <macro name="ag-opinion">
+  <macro name="ag-opinion-label">
     <group delimiter=" ">
       <text variable="authority"/>
-      <text variable="number" prefix="No. "/>
+      <choose>
+        <if variable="number">
+          <group delimiter=" ">
+            <text value="No."/>
+            <text variable="number"/>
+          </group>
+        </if>
+      </choose>
     </group>
-    <date variable="issued" prefix=" (" suffix=")">
-      <date-part name="year"/>
-    </date>
   </macro>
 
-  <macro name="municipal-code">
+  <macro name="ag-opinion">
+    <choose>
+      <if position="first">
+        <text macro="ag-opinion-first"/>
+      </if>
+      <else-if variable="references">
+        <text macro="ag-opinion-cross-reference"/>
+      </else-if>
+      <else>
+        <text macro="ag-opinion-short"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="ag-opinion-first">
+    <group delimiter=" ">
+      <text macro="ag-opinion-label"/>
+      <date variable="issued" prefix="(" suffix=")">
+        <date-part name="year"/>
+      </date>
+    </group>
+  </macro>
+
+  <macro name="ag-opinion-short">
+    <text macro="ag-opinion-label"/>
+  </macro>
+
+  <macro name="ag-opinion-cross-reference">
+    <group delimiter=" ">
+      <text macro="cross-reference-cue"/>
+      <group delimiter=", ">
+        <text macro="ag-opinion-short"/>
+        <text variable="references"/>
+      </group>
+    </group>
+  </macro>
+
+  <macro name="municipal-code-first-label">
     <group delimiter=", ">
       <text variable="authority"/>
       <text macro="tex-code-section"/>
     </group>
-    <date variable="issued" prefix=" (" suffix=")">
-      <date-part name="year"/>
-    </date>
+  </macro>
+
+  <macro name="municipal-code-short-label">
+    <group delimiter=", ">
+      <text variable="authority"/>
+      <text macro="tex-code-section-short"/>
+    </group>
+  </macro>
+
+  <macro name="municipal-code">
+    <choose>
+      <if position="first">
+        <text macro="municipal-code-first"/>
+      </if>
+      <else-if variable="references">
+        <text macro="municipal-code-cross-reference"/>
+      </else-if>
+      <else>
+        <text macro="municipal-code-short"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="municipal-code-first">
+    <group delimiter=" ">
+      <text macro="municipal-code-first-label"/>
+      <date variable="issued" prefix="(" suffix=")">
+        <date-part name="year"/>
+      </date>
+    </group>
+  </macro>
+
+  <macro name="municipal-code-short">
+    <text macro="municipal-code-short-label"/>
+  </macro>
+
+  <macro name="municipal-code-cross-reference">
+    <group delimiter=" ">
+      <text macro="cross-reference-cue"/>
+      <group delimiter=", ">
+        <text macro="municipal-code-short-label"/>
+        <text variable="references"/>
+      </group>
+    </group>
   </macro>
 
   <macro name="book-like">

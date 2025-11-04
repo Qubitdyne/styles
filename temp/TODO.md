@@ -3,6 +3,15 @@
 _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2025-12-21.md`. Keep this file focused on the current execution plan so sessions stay on track._
 
 ## Immediate priorities
+- [x] **AG opinion short-form restatement** (`2026-01-16T00:00Z` opened)
+  - [x] Add position-aware `ag-opinion` macros so subsequent cites restate the opinion number without repeating the year while preserving Greenbook ch. 17 (p. 77) first-form output.
+  - [x] Update documentation (`temp/README.md`, `temp/NOTES.md`, `temp/PR_DRAFT.md`) to reflect the new short-form behavior and cite the supporting Greenbook guidance.
+- [x] **Municipal code short-form restatement** (`2026-01-16T00:00Z` opened)
+  - [x] Teach the `municipal-code` macro to drop the year parenthetical on repeat citations per Greenbook ch. 13 (p. 62) and add a cross-reference variant that appends any `references` strings.
+  - [x] Synchronize the documentation updates with the AG opinion task so both categories appear in the short-form narrative refresh.
+- [x] **Expand short-form smoke coverage** (`2026-01-16T00:00Z` opened)
+  - [x] Extend `temp/tests_short-form_smoke.json` and `temp/expected_short-form_smoke.txt` with AG opinion and municipal code fixtures that exercise the new restatement guardrails.
+  - [x] Capture fresh regression logs for the updated smoke suite and record them in the active notes/README/testing ledger.
 - [x] **Reconstruct register notice notes entry** (`2026-01-15T15:42Z` opened)
   - [x] Restore the `2025-11-03T05:30Z` block in `temp/NOTES.md` so it fully documents the register notice cleanup without ellipses or truncated sentences.
   - [x] Cite the controlling guidance from Greenbook ch. 16 (p. 83) and Appendix B (pp. 247–248) alongside the refreshed summary and referenced logs.
