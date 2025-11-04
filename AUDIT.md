@@ -140,3 +140,25 @@
 
 ## Next Steps
 - Resolve the outstanding short-form smoke diffs by revising the statute, regulation, and rule short-form macros, then refresh `expected_short-form_smoke.txt` and rerun the diagnostics to capture clean logs.【F:temp/TODO.md†L18-L28】
+
+# Texas Greenbook CSL Audit — 2025-11-04
+
+## Scope & Materials Reviewed
+- Reviewed the trimmed README, TODO, and NOTES to confirm the active backlog, documentation promises, and research threads remain aligned after the latest short-form guardrails landed.【F:temp/README.md†L1-L44】【F:temp/TODO.md†L1-L18】【F:temp/NOTES.md†L20-L26】
+- Verified `temp/tests_parentheticals.json` still defines the Jenkins slip-opinion records that surfaced in the diff, ensuring the data source matches the expectation mismatch.【F:temp/tests_parentheticals.json†L1-L56】
+- Checked `temp/test-logs/run-history.log` to confirm the automated logging hook recorded the parenthetical failure with full command context for traceability.【7413dd†L43-L47】
+
+## QA Activities
+- Ran the primary note regression suite against `texas-greenbook-15th-edition.csl`; all 94 fixtures matched expectations.【eb5083†L1-L210】
+- Executed the parenthetical diagnostics; identified a single diff where the Jenkins repeat citation now restates the full case name instead of emitting “Id. at 2.”.【9f9b79†L1-L33】
+- Validated the grouped-leader TOA harness in bibliography mode to confirm Texas and federal headings remain synchronized with expectations.【f5cbe3†L1-L75】
+
+## Findings & Root Causes
+1. **Parenthetical expectation drift:** The Jenkins slip-opinion repeat cite in `expected_parentheticals_notes.txt` still anticipates “Id. at 2.” even though the short-form guardrails now restate the full caption and history string, producing a stable diff in the diagnostics. The fixture file must be regenerated to reflect the intentional restatement behavior.【9f9b79†L18-L27】【F:temp/expected_parentheticals_notes.txt†L3-L4】
+
+## Housekeeping & Documentation Updates
+- Logged the regression sweep and diff analysis in `temp/NOTES.md`, including citations to the failing suite, TOA confirmation, and run-history check.【F:temp/NOTES.md†L20-L26】
+- Added a new actionable TODO entry (“Parenthetical restatement expectations”) with subtasks covering fixture refresh, documentation updates, and log archival so the regression drift is tracked for follow-up work.【F:temp/TODO.md†L5-L18】
+
+## Next Steps
+- Refresh the parenthetical expectations (note and bibliography variants) using `--write-expected` once the restated output is confirmed against Greenbook Chapter 4 guidance, then archive the before/after logs per the new TODO checklist.【F:temp/TODO.md†L5-L18】
