@@ -25,6 +25,14 @@ Use this file to capture the minimum context required to resume work quickly. De
   - `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt`
   - `python temp/run_tests.py --tests temp/tests_short-form_smoke.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_short-form_smoke.txt`
 
+## 2026-01-17T18:35Z — Texas Constitution short-form routing
+- Broke the legacy single-form `tex-constitution` macro into `tex-constitution-first`, `tex-constitution-short`, and `tex-constitution-cross-reference`, with a shared `tex-constitution-core` string that respects locator overrides while always restating the full article/section text per Greenbook ch. 9 guidance (repeat cites fall back to full form whenever `Id.` is unavailable).【F:temp/texas-greenbook-15th-edition.csl†L772-L835】【F:temp/Greenbook_15thEdition.pdf†L57-L75】
+- Added repeat and cross-reference fixtures to `temp/tests.json` (`constitution_art_sec` with a locator override and `constitution_amended` with an inline `references` string) plus a new smoke pair in `temp/tests_short-form_smoke.json` so the short-form suite covers current provisions (Greenbook 15th ed. 39).【F:temp/tests.json†L474-L494】【F:temp/tests_short-form_smoke.json†L33-L42】
+- Regenerated expectations (`temp/expected.txt`, `temp/expected_short-form_smoke.txt`) and archived passing runs at `temp/test-logs/20251104T183550Z_notes_constitution.txt` and `temp/test-logs/20251104T183557Z_short-form_constitution.txt`; the commands below are logged in `temp/test-logs/run-history.log`.
+  - `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt`
+  - `python temp/run_tests.py --tests temp/tests_short-form_smoke.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_short-form_smoke.txt`
+- TOA variants already rely on the shared `constitution-core` helper, so no additional changes were required beyond verifying the grouped layouts (`texas-greenbook-15th-toa*.csl`) still render the existing constitution entries without regressions.【F:temp/texas-greenbook-15th-toa.csl†L577-L620】
+
 ## 2025-11-03T00:05Z — QA sweep and documentation spot-check
 - Ran regression commands:
   - `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt`

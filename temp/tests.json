@@ -479,13 +479,22 @@
     "section": "6"
   },
   {
+    "_cite": "constitution_art_sec",
+    "label": "section",
+    "locator": "7"
+  },
+  {
     "id": "constitution_amended",
     "type": "legislation",
     "genre": "constitution",
     "container-title": "Tex. Const.",
     "chapter-number": "XVI",
     "section": "70",
-    "status": "expired Sept. 1, 2008"
+    "status": "expired Sept. 1, 2008",
+    "references": "Tex. Const. art. XVI, § 71"
+  },
+  {
+    "_cite": "constitution_amended"
   },
   {
     "id": "tac_rule",

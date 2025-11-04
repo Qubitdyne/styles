@@ -3,6 +3,18 @@
 _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2025-12-21.md`. Keep this file focused on the current execution plan so sessions stay on track._
 
 ## Immediate priorities
+- [x] **Texas Constitution short-form routing** (`2026-01-17T10:00Z` opened)
+  - [x] Replace the single-form `tex-constitution` macro with first/short/cross-reference variants so repeat cites can reuse CSL `position` and `references` like statutes do.
+  - [x] Ensure the shared constitution string honors Greenbook ch. 9 guidance by reusing the full article/section cite on repeats while still appending status parentheticals for repealed or expired provisions (Greenbook 15th ed. 39).
+  - [x] Update any bibliography callsites that previously referenced the one-off macro so they pull in the first-form variant.
+- [x] **Add constitution regression coverage** (`2026-01-17T10:00Z` opened)
+  - [x] Extend `tests.json` and `tests_short-form_smoke.json` with repeat and cross-reference scenarios for current and expired constitutional provisions.
+  - [x] Regenerate `expected*.txt` outputs (notes and short-form smoke) after wiring the new macros, then archive the passing logs.
+  - [x] Capture fixture notes in `temp/NOTES.md`, including Greenbook ch. 9 citations, so future sessions know which examples prove the behavior.
+- [x] **Document constitution short-form behavior** (`2026-01-17T10:00Z` opened)
+  - [x] Summarize the new macro structure and regression additions in `temp/README.md`, `temp/NOTES.md`, and `temp/PR_DRAFT.md` with references to Greenbook ch. 9 (p. 39).
+  - [x] Log the validation commands in `temp/test-logs/run-history.log` and link to the archived outputs from the documentation updates.
+  - [x] Review TOA styles to confirm constitution entries remain in sync; note any follow-ups if additional grouped heading work surfaces.
 - [x] **Session law short-form macros** (`2026-01-16T12:00Z` opened)
   - [x] Split `tx-session-law-citation` into first/short/cross-reference variants that honor CSL `position` and `references`.
   - [x] Ensure the short form omits codification/Gammel parentheticals while retaining chapter/section text per Greenbook ch. 11 (pp. 53–56).
