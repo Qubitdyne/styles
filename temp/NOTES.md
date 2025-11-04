@@ -17,6 +17,12 @@ Use this file to capture the minimum context required to resume work quickly. De
 2. Note any commands to rerun along with expected outcomes.
 3. If additional detail is required but would bloat this file, drop a dated note into `temp/archive/` and link to it from here.
 
+## 2026-01-18T02:10Z — Release metadata audit and regression sweep
+- Refreshed the `<updated>` timestamps on the primary note style, every TOA variant, and the Greenbook locale and corrected the
+  TOA `rel="self"` links so each file now points at its matching style ID ahead of the upstream submission review.【F:temp/texas-greenbook-15th-edition.csl†L5-L18】【F:temp/texas-greenbook-15th-toa-by-reporter.csl†L5-L16】【F:temp/locales/locales-en-US-x-texas-greenbook.xml†L1-L12】
+- Re-ran the full regression matrix (notes, parentheticals in note and bibliography mode, short-form smoke, and every TOA layout)
+  and confirmed clean PASS entries in `temp/test-logs/run-history.log` for each command.【F:temp/test-logs/run-history.log†L53-L61】
+
 ## 2025-11-04T19:01Z — Regression spot-check and parenthetical diff
 - Executed the main note suite, parenthetical diagnostics, and grouped-leader TOA run to confirm the constitution/session law guardrails held after the latest merges:
   - `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt` → 94 `OK` results, no warnings.【eb5083†L1-L210】

@@ -4,12 +4,12 @@
     <ns0:title>Texas Greenbook (15th ed.) — Table of Authorities (Grouped + Leaders)</ns0:title>
     <ns0:title-short>Texas Greenbook 15th TOA (Grouped Leaders)</ns0:title-short>
     <ns0:id>http://www.zotero.org/styles/texas-greenbook-15th-toa-grouped-leaders</ns0:id>
-    <ns0:link href="http://www.zotero.org/styles/texas-greenbook-15th-toa-grouped" rel="self" />
+    <ns0:link href="http://www.zotero.org/styles/texas-greenbook-15th-toa-grouped-leaders" rel="self" />
     <ns0:link href="http://www.zotero.org/styles/texas-greenbook-15th-master" rel="template" />
     <ns0:link href="https://www.txcourts.gov/rules-forms/rules-standards/" rel="documentation" />
     <ns0:author><ns0:name>GPT-5 Pro</ns0:name></ns0:author>
     <ns0:category citation-format="note" /><ns0:category field="law" />
-    <ns0:updated>2025-11-01T01:19:57Z</ns0:updated>
+    <ns0:updated>2026-01-18T00:00:00Z</ns0:updated>
     <ns0:summary>TOA bibliography grouped by category: Cases → Statutes/Constitution → Regulations → Session Laws → AG Opinions → Secondary → Others.</ns0:summary>
   </ns0:info>
 
