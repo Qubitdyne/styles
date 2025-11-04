@@ -123,5 +123,22 @@
     "_cite": "municipal_short_smoke",
     "label": "section",
     "locator": "20-217"
+  },
+  {
+    "id": "session_law_short_smoke",
+    "type": "legislation",
+    "title": "Act approved Mar. 8, 1871",
+    "collection-number": "12th Leg., R.S.",
+    "number": "16",
+    "section": "2",
+    "container-title": "Tex. Gen. Laws",
+    "volume": "1871",
+    "page": "11",
+    "locator": "11",
+    "references": "reprinted in 6 H.P.N. Gammel, The Laws of Texas 1822–1897, at 913, 913 (Austin, Gammel Book Co. 1898)"
+  },
+  {
+    "_cite": "session_law_short_smoke",
+    "locator": "12"
   }
 ]

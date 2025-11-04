@@ -17,6 +17,14 @@ Use this file to capture the minimum context required to resume work quickly. De
 2. Note any commands to rerun along with expected outcomes.
 3. If additional detail is required but would bloat this file, drop a dated note into `temp/archive/` and link to it from here.
 
+## 2026-01-16T12:05Z — Session law short-form and cross-reference coverage
+- Split the legacy `tx-session-law-citation` into `tx-session-law-base`, `tx-session-law-first`, `tx-session-law-short`, and `tx-session-law-cross-reference`, with a new `tx-session-law` dispatcher that favors cross-reference handling whenever `annote`/`note` is present. The bib/ibid guard now routes session laws away from `Id.` so repeats restate the act string. (Greenbook 15th ed. 53–56.)
+- Extended `tests.json` with a repeated cite for `session_law` (`locator`: 1346) and a dedicated `session_law_cross` record that exercises the new cross-reference branch by appending `Act of May 27, 2005 …` via `references`. Added `session_law_short_smoke` to `tests_short-form_smoke.json` so the smoke suite confirms the first/short behavior without the Gammel parenthetical on repeat.
+- Regenerated expectations (`temp/expected.txt`, `temp/expected_short-form_smoke.txt`) and captured green runs at `temp/test-logs/20251104T180708Z_notes.txt` and `temp/test-logs/20251104T180721Z_short-form_smoke.txt`.
+- Commands for quick replay:
+  - `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt`
+  - `python temp/run_tests.py --tests temp/tests_short-form_smoke.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_short-form_smoke.txt`
+
 ## 2025-11-03T00:05Z — QA sweep and documentation spot-check
 - Ran regression commands:
   - `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt`

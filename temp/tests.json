@@ -650,6 +650,10 @@
     "page": "1345"
   },
   {
+    "_cite": "session_law",
+    "locator": "1346"
+  },
+  {
     "id": "session_law_gammel",
     "type": "legislation",
     "title": "Act approved Mar. 8, 1871",
@@ -661,6 +665,22 @@
     "page": "11",
     "locator": "11",
     "references": "reprinted in 6 H.P.N. Gammel, The Laws of Texas 1822–1897, at 913, 913 (Austin, Gammel Book Co. 1898)"
+  },
+  {
+    "_cite": "session_law_gammel"
+  },
+  {
+    "id": "session_law_cross",
+    "type": "legislation",
+    "title": "Act approved Mar. 8, 1871",
+    "collection-number": "12th Leg., R.S.",
+    "number": "16",
+    "section": "2",
+    "container-title": "Tex. Gen. Laws",
+    "volume": "1871",
+    "page": "11",
+    "annote": "See also",
+    "references": "Act of May 27, 2005, 79th Leg., R.S., ch. 484, § 4, 2005 Tex. Gen. Laws 1346"
   },
   {
     "id": "ag_opinion",

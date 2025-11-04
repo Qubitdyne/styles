@@ -3,6 +3,7 @@
 Keep this draft synchronized with the active TODO so we can file the upstream pull request without rediscovering the testing story.
 
 ## Summary (ready once helpers land)
+- Added session law first/short/cross-reference macros so repeated acts restate the full cite while cross references append codification text per Greenbook ch. 11 (pp. 53–56), backed by new note and smoke fixtures.
 - Consolidated the publication/status helpers (`tx-publication-parenthetical`, `tx-session-law-citation`, `tx-authority-status-parenthetical`) across the main note style and every TOA variant, eliminating duplicated Chapter 10–13 logic while preserving annotated and supplement parentheticals.
 - Suppressed duplicate register citations when a TOA entry already prints the underlying Tex. Reg./Fed. Reg. cite, then refreshed each TOA expectation file to keep the grouped layouts consistent with Appendix B.
 - Restored Appendix B’s federal authority coverage in `tests_toa.json`, regenerated all TOA expectations with `--mode bibliography`, and captured fresh confirmation logs (`20251103T055217Z_toa.txt`, `20251103T055217Z_toa_leaders.txt`, `20251103T055217Z_toa_grouped.txt`, `20251103T055217Z_toa_grouped_leaders.txt`, `20251103T055217Z_toa_by-reporter.txt`).
@@ -37,6 +38,8 @@ Keep this draft synchronized with the active TODO so we can file the upstream pu
 - `temp/test-logs/20251103T055217Z_toa_by-reporter.txt`
 - `temp/test-logs/20251104T033421Z_short-form_smoke.txt`
 - `temp/test-logs/20251104T033428Z_notes.txt`
+- `temp/test-logs/20251104T180708Z_notes.txt`
+- `temp/test-logs/20251104T180721Z_short-form_smoke.txt`
 
 ## Pending before submission
 - Run a final `git diff --stat`/visual review of the CSL changes once documentation touch-ups settle so the upstream summary captures every updated macro and fixture.

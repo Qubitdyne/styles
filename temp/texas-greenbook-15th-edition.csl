@@ -376,7 +376,21 @@
     </choose>
   </macro>
 
-  <macro name="tx-session-law-citation">
+  <macro name="tx-session-law">
+    <choose>
+      <if variable="note annote" match="any">
+        <text macro="tx-session-law-cross-reference"/>
+      </if>
+      <else-if position="first">
+        <text macro="tx-session-law-first"/>
+      </else-if>
+      <else>
+        <text macro="tx-session-law-short"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="tx-session-law-base">
     <group delimiter=", ">
       <text variable="title"/>
       <text variable="collection-number"/>
@@ -408,13 +422,43 @@
           </group>
         </if>
       </choose>
-      <text variable="locator"/>
+      <choose>
+        <if variable="locator">
+          <text variable="locator"/>
+        </if>
+      </choose>
     </group>
-    <choose>
-      <if variable="references">
-        <text variable="references" prefix=", "/>
-      </if>
-    </choose>
+  </macro>
+
+  <macro name="tx-session-law-first">
+    <group delimiter=", ">
+      <text macro="tx-session-law-base"/>
+      <choose>
+        <if variable="references">
+          <text variable="references"/>
+        </if>
+      </choose>
+    </group>
+  </macro>
+
+  <!-- Greenbook ch. 11 (pp. 53–56) short-form: retain the act/session string
+       without repeating codification or Gammel parentheticals. -->
+  <macro name="tx-session-law-short">
+    <text macro="tx-session-law-base"/>
+  </macro>
+
+  <macro name="tx-session-law-cross-reference">
+    <group delimiter=" ">
+      <text macro="cross-reference-cue"/>
+      <group delimiter=", ">
+        <text macro="tx-session-law-base"/>
+        <choose>
+          <if variable="references">
+            <text variable="references"/>
+          </if>
+        </choose>
+      </group>
+    </group>
   </macro>
 
   <macro name="edition-publisher-year">
@@ -1400,7 +1444,7 @@
         <else-if type="legislation">
           <choose>
             <if variable="collection-number">
-              <text macro="tx-session-law-citation"/>
+              <text macro="tx-session-law"/>
             </if>
             <else-if variable="genre chapter-number" match="all">
               <text macro="tex-constitution"/>
@@ -1467,6 +1511,9 @@
                 </group>
               </group>
             </else-if>
+            <else-if variable="collection-number">
+              <text macro="note-body"/>
+            </else-if>
             <else-if variable="volume page" match="all">
               <group delimiter=" ">
                 <text macro="prefatory-signal"/>
@@ -1491,6 +1538,9 @@
                 <text macro="prefatory-signal"/>
                 <text term="ibid" text-case="capitalize-first" font-style="italic"/>
               </group>
+            </else-if>
+            <else-if variable="collection-number">
+              <text macro="note-body"/>
             </else-if>
             <else-if variable="volume page" match="all">
               <group delimiter=" ">
@@ -1523,7 +1573,7 @@
         <else-if type="legislation">
           <choose>
             <if variable="collection-number">
-              <text macro="tx-session-law-citation"/>
+              <text macro="tx-session-law-first"/>
             </if>
             <else-if variable="genre" match="any">
               <text macro="tex-constitution"/>
