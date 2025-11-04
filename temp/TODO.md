@@ -12,10 +12,10 @@ _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2
   - [x] Archive the pre-refresh and post-refresh bibliography outputs under timestamped filenames in `temp/test-logs/` to confirm no stray parenthetical regressions accompanied the Jenkins update.
 
 ## Release engineering
-- [ ] **Upstream submission packaging** (`2026-01-18T02:10Z` opened)
-  - [ ] Run a final `git diff --stat`/visual audit of the style and documentation diffs immediately before filing the upstream PR.
-  - [ ] Copy the refreshed Summary/Testing sections from `temp/PR_DRAFT.md` into the upstream submission template, citing the metadata audit and regression sweep logs.
-  - [ ] Confirm that each CSL/locale metadata block (title, ID, documentation link, `<updated>` timestamp) matches the `citation-style-language/styles` contribution checklist before requesting review.
+- [x] **Upstream submission packaging** (`2026-01-18T02:10Z` opened)
+  - [x] Run a final `git diff --stat`/visual audit of the style and documentation diffs immediately before filing the upstream PR.
+  - [x] Copy the refreshed Summary/Testing sections from `temp/PR_DRAFT.md` into the upstream submission template, citing the metadata audit and regression sweep logs.
+  - [x] Confirm that each CSL/locale metadata block (title, ID, documentation link, `<updated>` timestamp) matches the `citation-style-language/styles` contribution checklist before requesting review.
 
 ## Immediate priorities
 - [x] **Texas Constitution short-form routing** (`2026-01-17T10:00Z` opened)

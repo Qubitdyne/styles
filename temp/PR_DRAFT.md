@@ -52,5 +52,5 @@ Keep this draft synchronized with the active TODO so we can file the upstream pu
 - Archived expectation snapshots for the Jenkins refresh: `temp/test-logs/20251104T190629Z_expected_parentheticals_notes_pre-refresh.txt`, `temp/test-logs/20251104T190640Z_expected_parentheticals_notes_post-refresh.txt`, `temp/test-logs/20251104T190657Z_expected_parentheticals_bibliography_pre-refresh.txt`, `temp/test-logs/20251104T190658Z_expected_parentheticals_bibliography_post-refresh.txt`.
 
 ## Pending before submission
-- Run a final `git diff --stat`/visual review of the CSL changes once documentation touch-ups settle so the upstream summary captures every updated macro and fixture.
-- When opening the upstream pull request, port the Summary/Testing sections above (with the archived log links) into the PR body and note the TODO archive location for reference.
+- Re-run `git diff --stat` and a quick visual spot-check if additional CSL or fixture edits land after 2026-01-18 so the upstream summary still matches the final diff (see `temp/NOTES.md` entry `2026-01-18T05:40Z`).
+- Use `temp/upstream_pr_template.md` as the ready-to-paste PR body; keep it synchronized with `temp/PR_DRAFT.md` if new regression logs or summary items are added before filing.
