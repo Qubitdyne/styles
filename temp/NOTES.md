@@ -3,7 +3,7 @@
 Use this file to capture the minimum context required to resume work quickly. Detailed historical research logs are archived in `temp/archive/NOTES-2025-12-21.md`.
 
 ## Active research threads
-- **Short-form verification:** Rerun `temp/tests_short-form_smoke.json` whenever the restatement macros shift to confirm statutes, TAC rules, and federal regulations continue to restate their authority text instead of falling back to `Id.`/`See also` (Greenbook 15th ed. 24, 34, 76–78).
+- **Short-form verification:** Rerun `temp/tests_short-form_smoke.json` whenever the restatement macros shift to confirm statutes, TAC rules, federal regulations, attorney general opinions, and municipal ordinances continue to restate their authority text instead of falling back to `Id.`/`See also` (Greenbook 15th ed. 24, 34, 62, 76–78).
 - **Upstream packaging:** Keep `temp/PR_DRAFT.md` aligned with the latest regression log names and outstanding checklist items so the PR summary and testing sections remain citation-ready without re-reading historical transcripts.
 - **Session stability:** Continue logging every `run_tests.py` invocation (pass and fail) so `temp/test-logs/run-history.log` remains a reliable index when reconstructing prior QA sweeps.
 
@@ -153,6 +153,12 @@ Use this file to capture the minimum context required to resume work quickly. De
 - Ran `python temp/run_tests.py --tests temp/tests_short-form_smoke.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_short-form_smoke.txt` and archived the passing output at `temp/test-logs/20251103T155725Z_short-form_smoke.txt`.
 - All 12 fixtures returned `OK`, confirming the statute, TAC, and CFR repeats continue to restate their titles and locator strings per Greenbook Chapter 4 (pp. 24, 34) and Chapter 13’s agency guidance (pp. 76–78).
 - Verified the command capture in `temp/test-logs/run-history.log`, which now lists the 2025-11-03T15:57:25Z PASS entry for future traceability.
+
+## 2025-11-04T03:34Z — AG opinion and municipal short-form restatement
+- Extended `ag-opinion` into position-aware first/short/cross-reference macros so repeat cites restate only the opinion number while the first cite keeps the year parenthetical mandated by Greenbook Chapter 17 (p. 77).
+- Applied the same pattern to `municipal-code`, using Greenbook Chapter 13’s municipal ordinance guidance (p. 62) to drop the year parenthetical on repeat cites while allowing cross-references to append any stored `references` strings.
+- Expanded `tests_short-form_smoke.json`/`expected_short-form_smoke.txt` with attorney general opinion and municipal ordinance fixtures so the smoke suite now covers the new guardrails.
+- Ran the updated smoke suite (`python temp/run_tests.py --tests temp/tests_short-form_smoke.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_short-form_smoke.txt`) and the full notes regression (`python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt`); archived the passing outputs at `temp/test-logs/20251104T033421Z_short-form_smoke.txt` and `temp/test-logs/20251104T033428Z_notes.txt`.
 
 ## 2025-12-22T19:30Z — Documentation hygiene and submission checklist pass
 - Updated `temp/README.md` recent-update bullets so the regression log references line up with the federal Appendix B sweep and the final 20251103 regression bundle.

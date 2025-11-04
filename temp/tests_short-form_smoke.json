@@ -87,5 +87,41 @@
     "_cite": "federal_admin_short_smoke",
     "label": "section",
     "locator": "1502.9(d)"
+  },
+  {
+    "id": "ag_opinion_short_smoke",
+    "type": "report",
+    "authority": "Tex. Att’y Gen. Op.",
+    "number": "GA-0002",
+    "issued": {
+      "date-parts": [
+        [
+          2002
+        ]
+      ]
+    }
+  },
+  {
+    "_cite": "ag_opinion_short_smoke"
+  },
+  {
+    "id": "municipal_short_smoke",
+    "type": "regulation",
+    "authority": "Hous., Tex.",
+    "container-title": "Code of Ordinances",
+    "chapter-number": "ch. 20, art. IV,",
+    "section": "20-216",
+    "issued": {
+      "date-parts": [
+        [
+          1968
+        ]
+      ]
+    }
+  },
+  {
+    "_cite": "municipal_short_smoke",
+    "label": "section",
+    "locator": "20-217"
   }
 ]
