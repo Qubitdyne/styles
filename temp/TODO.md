@@ -7,8 +7,9 @@ _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2
   - [x] Compare the current `tests_parentheticals.json` Jenkins fixture output with `temp/expected_parentheticals_notes.txt` to confirm the restated cite (`Jenkins, No. 03-13-0632-CR …`) is intentional after the short-form guardrails landed.【9f9b79†L18-L27】【F:temp/tests_parentheticals.json†L1-L40】
   - [x] Refresh `temp/expected_parentheticals_notes.txt` (and any related bibliography expectations) via `--write-expected` once the desired behavior is validated so the diff against “Id. at 2.” disappears.【5fd15f†L8-L17】
   - [x] Capture the regression log with the updated expectations (`parentheticals` note/bibliography) and append the command summary to `temp/test-logs/run-history.log` for traceability.【9f9b79†L1-L33】【7413dd†L43-L47】
-  - [ ] Update `temp/NOTES.md`, `temp/README.md`, and `temp/PR_DRAFT.md` to reference the refreshed parenthetical expectations and cite the relevant Greenbook Chapter 4/Chapter 9 guidance supporting the restatement rule.
-  - [ ] Archive the pre-refresh and post-refresh outputs under timestamped filenames in `temp/test-logs/` to document the fixture change for reviewers.
+  - [x] Update `temp/NOTES.md`, `temp/README.md`, and `temp/PR_DRAFT.md` to reference the refreshed parenthetical expectations and cite the relevant Greenbook Chapter 4/Chapter 9 guidance supporting the restatement rule.
+  - [x] Archive the pre-refresh and post-refresh note outputs under timestamped filenames in `temp/test-logs/` so reviewers can diff the Jenkins restatement against the prior `Id.` form.
+  - [x] Archive the pre-refresh and post-refresh bibliography outputs under timestamped filenames in `temp/test-logs/` to confirm no stray parenthetical regressions accompanied the Jenkins update.
 
 ## Immediate priorities
 - [x] **Texas Constitution short-form routing** (`2026-01-17T10:00Z` opened)
