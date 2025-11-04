@@ -3,6 +3,18 @@
 _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2025-12-21.md`. Keep this file focused on the current execution plan so sessions stay on track._
 
 ## Immediate priorities
+- [x] **Session law short-form macros** (`2026-01-16T12:00Z` opened)
+  - [x] Split `tx-session-law-citation` into first/short/cross-reference variants that honor CSL `position` and `references`.
+  - [x] Ensure the short form omits codification/Gammel parentheticals while retaining chapter/section text per Greenbook ch. 11 (pp. 53–56).
+  - [x] Route `note-body` and any TOA callsites through the new macros without regressing existing outputs.
+- [x] **Session law regression coverage** (`2026-01-16T12:00Z` opened)
+  - [x] Add repeat- and cross-reference fixtures for session laws to `temp/tests.json` and `temp/tests_short-form_smoke.json`.
+  - [x] Regenerate `temp/expected*.txt` files (notes, short-form smoke, TOA if touched) and archive the confirmation logs.
+  - [x] Note the new fixture IDs and Greenbook citations in `temp/NOTES.md`.
+- [x] **Document session law short-form behavior** (`2026-01-16T12:00Z` opened)
+  - [x] Summarize the new session law macros and test coverage in `temp/README.md` and `temp/NOTES.md` with Greenbook ch. 11 page cites.
+  - [x] Update `temp/PR_DRAFT.md` so the upstream summary/testing checklist mentions the session law short-form changes.
+  - [x] Record the regression commands and log filenames tied to this update in the documentation.
 - [x] **AG opinion short-form restatement** (`2026-01-16T00:00Z` opened)
   - [x] Add position-aware `ag-opinion` macros so subsequent cites restate the opinion number without repeating the year while preserving Greenbook ch. 17 (p. 77) first-form output.
   - [x] Update documentation (`temp/README.md`, `temp/NOTES.md`, `temp/PR_DRAFT.md`) to reflect the new short-form behavior and cite the supporting Greenbook guidance.
