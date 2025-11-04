@@ -17,6 +17,14 @@ Use this file to capture the minimum context required to resume work quickly. De
 2. Note any commands to rerun along with expected outcomes.
 3. If additional detail is required but would bloat this file, drop a dated note into `temp/archive/` and link to it from here.
 
+## 2025-11-04T19:01Z — Regression spot-check and parenthetical diff
+- Executed the main note suite, parenthetical diagnostics, and grouped-leader TOA run to confirm the constitution/session law guardrails held after the latest merges:
+  - `python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt` → 94 `OK` results, no warnings.【eb5083†L1-L210】
+  - `python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_notes.txt` → Jenkins parenthetical record now restates the full citation instead of emitting “Id. at 2.”, producing the lone diff.【9f9b79†L1-L33】
+  - `python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt --mode bibliography` → 25 `OK` entries; Texas and federal headings remain aligned.【f5cbe3†L1-L75】
+- Verified the automated `run-history.log` captured the failing parenthetical invocation with the expected FAIL status and command arguments, confirming the logging hook is still working.【7413dd†L43-L47】
+- Logged a new TODO (“Parenthetical restatement expectations”) to refresh the affected fixture, documentation, and archived logs once we confirm the restated cite matches the Chapter 4 short-form guidance.【F:temp/TODO.md†L7-L18】
+
 ## 2026-01-16T12:05Z — Session law short-form and cross-reference coverage
 - Split the legacy `tx-session-law-citation` into `tx-session-law-base`, `tx-session-law-first`, `tx-session-law-short`, and `tx-session-law-cross-reference`, with a new `tx-session-law` dispatcher that favors cross-reference handling whenever `annote`/`note` is present. The bib/ibid guard now routes session laws away from `Id.` so repeats restate the act string. (Greenbook 15th ed. 53–56.)
 - Extended `tests.json` with a repeated cite for `session_law` (`locator`: 1346) and a dedicated `session_law_cross` record that exercises the new cross-reference branch by appending `Act of May 27, 2005 …` via `references`. Added `session_law_short_smoke` to `tests_short-form_smoke.json` so the smoke suite confirms the first/short behavior without the Gammel parenthetical on repeat.

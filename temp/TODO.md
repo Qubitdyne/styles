@@ -2,6 +2,14 @@
 
 _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2025-12-21.md`. Keep this file focused on the current execution plan so sessions stay on track._
 
+## Newly identified follow-ups
+- [ ] **Parenthetical restatement expectations** (`2025-11-04T19:01Z` opened)
+  - [ ] Compare the current `tests_parentheticals.json` Jenkins fixture output with `temp/expected_parentheticals_notes.txt` to confirm the restated cite (`Jenkins, No. 03-13-0632-CR …`) is intentional after the short-form guardrails landed.【9f9b79†L18-L27】【F:temp/tests_parentheticals.json†L1-L40】
+  - [ ] Refresh `temp/expected_parentheticals_notes.txt` (and any related bibliography expectations) via `--write-expected` once the desired behavior is validated so the diff against “Id. at 2.” disappears.【5fd15f†L8-L17】
+  - [ ] Capture the regression log with the updated expectations (`parentheticals` note/bibliography) and append the command summary to `temp/test-logs/run-history.log` for traceability.【9f9b79†L1-L33】【7413dd†L43-L47】
+  - [ ] Update `temp/NOTES.md`, `temp/README.md`, and `temp/PR_DRAFT.md` to reference the refreshed parenthetical expectations and cite the relevant Greenbook Chapter 4/Chapter 9 guidance supporting the restatement rule.
+  - [ ] Archive the pre-refresh and post-refresh outputs under timestamped filenames in `temp/test-logs/` to document the fixture change for reviewers.
+
 ## Immediate priorities
 - [x] **Texas Constitution short-form routing** (`2026-01-17T10:00Z` opened)
   - [x] Replace the single-form `tex-constitution` macro with first/short/cross-reference variants so repeat cites can reuse CSL `position` and `references` like statutes do.
