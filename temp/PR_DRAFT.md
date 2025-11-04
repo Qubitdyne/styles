@@ -10,6 +10,7 @@ Keep this draft synchronized with the active TODO so we can file the upstream pu
 - Updated the short-form layout so repeated Texas statutes (Greenbook 15th ed. 24, 34), administrative rules (Greenbook 15th ed. 76–78), and Texas/Federal procedural rules (Greenbook 15th ed. 61–65) restate the full authority text instead of emitting `Id.`. Regression logs: `temp/test-logs/20251103T152401Z_notes_full-suite.txt`, `temp/test-logs/20251103T155725Z_short-form_smoke.txt`.
 - Extended the short-form restatement guardrails to Texas attorney general opinions (Greenbook 15th ed. 77) and municipal ordinances (Greenbook 15th ed. 62), ensuring repeat cites drop the year parenthetical while cross-references append any `references` strings. Regression logs: `temp/test-logs/20251104T033421Z_short-form_smoke.txt`, `temp/test-logs/20251104T033428Z_notes.txt`.
 - Added position-aware Texas Constitution macros so subsequent cites restate the full article/section text and cross-references append companion provisions per Greenbook ch. 9 (p. 39). Regression logs: `temp/test-logs/20251104T183550Z_notes_constitution.txt`, `temp/test-logs/20251104T183557Z_short-form_constitution.txt`.
+- Refreshed the Jenkins parenthetical fixture so the short form restates the case instead of emitting `Id. at 2.` consistent with Greenbook ch. 4 (p. 34) and ch. 9 (p. 39), and archived the before/after expectation snapshots plus regeneration logs for reviewer diffing (`temp/test-logs/20251104T190629Z_expected_parentheticals_notes_pre-refresh.txt`, `temp/test-logs/20251104T190640Z_expected_parentheticals_notes_post-refresh.txt`, `temp/test-logs/20251104T190629Z_parentheticals_notes_refresh.txt`, `temp/test-logs/20251104T190640Z_parentheticals_notes_post-refresh.txt`, `temp/test-logs/20251104T190657Z_expected_parentheticals_bibliography_pre-refresh.txt`, `temp/test-logs/20251104T190658Z_expected_parentheticals_bibliography_post-refresh.txt`, `temp/test-logs/20251104T190657Z_parentheticals_bibliography_post-refresh.txt`).
 - Recorded the helper roll-out and TOA fixture decisions in `NOTES.md`/`README.md` so the documentation now matches the consolidated macros and new regression artifacts.
 - Documented Chapter 2, 4, 10, and 17 coverage with explicit Greenbook page cites in `NOTES.md` (`2025-11-03T04:12Z` entry) to support the upstream narrative once headings and short-form guardrails land.
 
@@ -31,6 +32,9 @@ Keep this draft synchronized with the active TODO so we can file the upstream pu
 - `temp/test-logs/20251103T055217Z_notes.txt`
 - `temp/test-logs/20251103T055217Z_parentheticals_notes.txt`
 - `temp/test-logs/20251103T055217Z_parentheticals_bibliography.txt`
+- `temp/test-logs/20251104T190629Z_parentheticals_notes_refresh.txt`
+- `temp/test-logs/20251104T190640Z_parentheticals_notes_post-refresh.txt`
+- `temp/test-logs/20251104T190657Z_parentheticals_bibliography_post-refresh.txt`
 - `temp/test-logs/20251103T055217Z_short-form_smoke.txt`
 - `temp/test-logs/20251103T055217Z_toa.txt`
 - `temp/test-logs/20251103T055217Z_toa_leaders.txt`
@@ -43,6 +47,7 @@ Keep this draft synchronized with the active TODO so we can file the upstream pu
 - `temp/test-logs/20251104T180721Z_short-form_smoke.txt`
 - `temp/test-logs/20251104T183550Z_notes_constitution.txt`
 - `temp/test-logs/20251104T183557Z_short-form_constitution.txt`
+- Archived expectation snapshots for the Jenkins refresh: `temp/test-logs/20251104T190629Z_expected_parentheticals_notes_pre-refresh.txt`, `temp/test-logs/20251104T190640Z_expected_parentheticals_notes_post-refresh.txt`, `temp/test-logs/20251104T190657Z_expected_parentheticals_bibliography_pre-refresh.txt`, `temp/test-logs/20251104T190658Z_expected_parentheticals_bibliography_post-refresh.txt`.
 
 ## Pending before submission
 - Run a final `git diff --stat`/visual review of the CSL changes once documentation touch-ups settle so the upstream summary captures every updated macro and fixture.
