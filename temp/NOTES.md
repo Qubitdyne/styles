@@ -17,6 +17,11 @@ Use this file to capture the minimum context required to resume work quickly. De
 2. Note any commands to rerun along with expected outcomes.
 3. If additional detail is required but would bloat this file, drop a dated note into `temp/archive/` and link to it from here.
 
+## 2026-01-18T05:40Z — Upstream packaging pre-flight
+- Captured a fresh `git diff --stat`/status snapshot to confirm only documentation files remain in flux ahead of the upstream PR packaging work; no unstaged CSL or test fixture edits surfaced in the audit.【4b33be†L1-L2】【22caf5†L1-L4】
+- Produced `temp/upstream_pr_template.md`, a pre-filled copy of the CSL pull request template that embeds the curated Summary/Testing narrative and cites the metadata audit plus regression log bundle for easy copy/paste when we open the upstream review.【F:temp/upstream_pr_template.md†L1-L109】
+- Reviewed the metadata blocks for the note style, every TOA variant, and the locale to verify titles, IDs, `rel="self"` links, documentation URLs, `<author>` credits, and `<updated>` timestamps still align with the contribution checklist.【F:temp/texas-greenbook-15th-edition.csl†L1-L17】【F:temp/texas-greenbook-15th-toa-grouped-leaders.csl†L1-L14】【F:temp/locales/locales-en-US-x-texas-greenbook.xml†L1-L9】
+
 ## 2026-01-18T02:10Z — Release metadata audit and regression sweep
 - Refreshed the `<updated>` timestamps on the primary note style, every TOA variant, and the Greenbook locale and corrected the
   TOA `rel="self"` links so each file now points at its matching style ID ahead of the upstream submission review.【F:temp/texas-greenbook-15th-edition.csl†L5-L18】【F:temp/texas-greenbook-15th-toa-by-reporter.csl†L5-L16】【F:temp/locales/locales-en-US-x-texas-greenbook.xml†L1-L12】
