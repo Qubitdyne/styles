@@ -770,6 +770,20 @@
   </macro>
 
   <macro name="tex-constitution">
+    <choose>
+      <if position="first">
+        <text macro="tex-constitution-first"/>
+      </if>
+      <else-if variable="references">
+        <text macro="tex-constitution-cross-reference"/>
+      </else-if>
+      <else>
+        <text macro="tex-constitution-short"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="tex-constitution-core">
     <group delimiter=", ">
       <group delimiter=" ">
         <text variable="container-title"/>
@@ -778,12 +792,50 @@
           <text variable="chapter-number"/>
         </group>
       </group>
-      <group delimiter=" ">
-        <text term="section" form="symbol"/>
-        <text variable="section"/>
+      <choose>
+        <if variable="section locator" match="any">
+          <group delimiter=" ">
+            <text term="section" form="symbol"/>
+            <choose>
+              <if variable="locator">
+                <text variable="locator"/>
+              </if>
+              <else>
+                <text variable="section"/>
+              </else>
+            </choose>
+          </group>
+        </if>
+      </choose>
+    </group>
+  </macro>
+
+  <macro name="tex-constitution-first">
+    <group delimiter="">
+      <text macro="tex-constitution-core"/>
+      <text variable="status" prefix=" (" suffix=")"/>
+    </group>
+  </macro>
+
+  <!-- Greenbook ch. 9 (p. 39) directs repeat cites to restate the full article and section
+       text whenever “Id.” is inappropriate. The short-form macro therefore mirrors the
+       first-form output while still respecting locator overrides. -->
+  <macro name="tex-constitution-short">
+    <text macro="tex-constitution-first"/>
+  </macro>
+
+  <macro name="tex-constitution-cross-reference">
+    <group delimiter=" ">
+      <text macro="cross-reference-cue"/>
+      <group delimiter=", ">
+        <text macro="tex-constitution-first"/>
+        <choose>
+          <if variable="references">
+            <text variable="references"/>
+          </if>
+        </choose>
       </group>
     </group>
-    <text variable="status" prefix=" (" suffix=")"/>
   </macro>
 
   <macro name="tex-admin-core">
@@ -1576,7 +1628,7 @@
               <text macro="tx-session-law-first"/>
             </if>
             <else-if variable="genre" match="any">
-              <text macro="tex-constitution"/>
+              <text macro="tex-constitution-first"/>
             </else-if>
             <else>
               <text macro="tex-statute"/>

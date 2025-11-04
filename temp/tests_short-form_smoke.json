@@ -44,6 +44,19 @@
     "locator": "82.065"
   },
   {
+    "id": "constitution_short_smoke",
+    "type": "legislation",
+    "genre": "constitution",
+    "container-title": "Tex. Const.",
+    "chapter-number": "III",
+    "section": "5(a)"
+  },
+  {
+    "_cite": "constitution_short_smoke",
+    "label": "section",
+    "locator": "7"
+  },
+  {
     "id": "rule_short_smoke",
     "type": "legislation",
     "container-title": "Tex. R. Civ. P.",
