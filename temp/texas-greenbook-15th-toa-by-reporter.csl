@@ -4,13 +4,13 @@
     <ns0:title>Texas Greenbook (15th ed.) — Table of Authorities (By Reporter)</ns0:title>
     <ns0:title-short>Texas Greenbook 15th TOA (Reporter)</ns0:title-short>
     <ns0:id>http://www.zotero.org/styles/texas-greenbook-15th-toa-by-reporter</ns0:id>
-    <ns0:link href="http://www.zotero.org/styles/texas-greenbook-15th-toa" rel="self" />
+    <ns0:link href="http://www.zotero.org/styles/texas-greenbook-15th-toa-by-reporter" rel="self" />
     <ns0:link href="http://www.zotero.org/styles/texas-greenbook-15th-master" rel="template" />
     <ns0:link href="https://www.txcourts.gov/rules-forms/rules-standards/" rel="documentation" />
     <ns0:author><ns0:name>GPT-5 Pro</ns0:name></ns0:author>
     <ns0:category citation-format="note" />
     <ns0:category field="law" />
-    <ns0:updated>2025-11-01T00:53:48Z</ns0:updated>
+    <ns0:updated>2026-01-18T00:00:00Z</ns0:updated>
     <ns0:summary>TOA-style bibliography for Texas practice: prints full case and authority cites, sorts by authority, and minimizes styling for easy copy into a Table of Authorities.</ns0:summary>
   </ns0:info>
 
