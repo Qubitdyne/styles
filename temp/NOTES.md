@@ -190,6 +190,11 @@ Use this file to capture the minimum context required to resume work quickly. De
 - All 12 fixtures returned `OK`, confirming the statute, TAC, and CFR repeats continue to restate their titles and locator strings per Greenbook Chapter 4 (pp. 24, 34) and Chapter 13’s agency guidance (pp. 76–78).
 - Verified the command capture in `temp/test-logs/run-history.log`, which now lists the 2025-11-03T15:57:25Z PASS entry for future traceability.
 
+## 2025-11-05T01:58Z — Run-history ledger refresh
+- Re-ran the note, parenthetical (note and bibliography), short-form smoke, and every TOA suite so the run-history ledger records a fresh 2025-11-05 PASS bundle ahead of upstream packaging.【c77cbe†L31-L75】
+- Archived the rendered output under `temp/test-logs/20251105T0157*.txt` for reviewers who need the verbatim strings without replaying the suites.【011517†L1-L12】
+- The rerun reconfirmed the Chapter 4 and Chapter 9 restatement macros plus the TOA authority dispatcher remain aligned with the documented Greenbook guidance in the active styles.【F:temp/texas-greenbook-15th-edition.csl†L705-L825】【F:temp/texas-greenbook-15th-toa.csl†L767-L819】
+
 ## 2025-11-04T03:34Z — AG opinion and municipal short-form restatement
 - Extended `ag-opinion` into position-aware first/short/cross-reference macros so repeat cites restate only the opinion number while the first cite keeps the year parenthetical mandated by Greenbook Chapter 17 (p. 77).
 - Applied the same pattern to `municipal-code`, using Greenbook Chapter 13’s municipal ordinance guidance (p. 62) to drop the year parenthetical on repeat cites while allowing cross-references to append any stored `references` strings.

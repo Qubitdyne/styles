@@ -20,11 +20,11 @@ _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2
   - [x] Re-run notes, parenthetical, short-form smoke, and every TOA variant; append the results to `temp/test-logs/run-history.log` and refresh expectations as needed.
 
 ## Newly identified follow-ups
-- [ ] **Refresh run-history ledger with the 2025-11-04 QA sweeps** (`2025-11-04T00:10Z` opened)
-  - [ ] Re-run notes, parentheticals (note & bibliography), short-form smoke, and all TOA variants with `python temp/run_tests.py …` commands so the automation appends fresh entries.
-  - [ ] Verify `temp/test-logs/run-history.log` now records the new timestamps and PASS summaries; if it does not, debug `_append_run_history` in `temp/run_tests.py` for path or permission issues.
-  - [ ] Update `temp/README.md` “Recent updates” and the testing ledger in `temp/PR_DRAFT.md` to cite the newly captured log lines.
-  - [ ] Archive the raw command outputs under `temp/test-logs/20251104*/` filenames to accompany the ledger refresh.
+- [x] **Refresh run-history ledger with the 2025-11-04 QA sweeps** (`2025-11-04T00:10Z` opened)
+  - [x] Re-run notes, parentheticals (note & bibliography), short-form smoke, and all TOA variants with `python temp/run_tests.py …` commands so the automation appends fresh entries.
+  - [x] Verify `temp/test-logs/run-history.log` now records the new timestamps and PASS summaries; if it does not, debug `_append_run_history` in `temp/run_tests.py` for path or permission issues.
+  - [x] Update `temp/README.md` “Recent updates” and the testing ledger in `temp/PR_DRAFT.md` to cite the newly captured log lines.
+  - [x] Archive the raw command outputs under `temp/test-logs/20251105T0157*.txt` filenames to accompany the ledger refresh.
 - [x] **Parenthetical restatement expectations** (`2025-11-04T19:01Z` opened)
   - [x] Compare the current `tests_parentheticals.json` Jenkins fixture output with `temp/expected_parentheticals_notes.txt` to confirm the restated cite (`Jenkins, No. 03-13-0632-CR …`) is intentional after the short-form guardrails landed.【9f9b79†L18-L27】【F:temp/tests_parentheticals.json†L1-L40】
   - [x] Refresh `temp/expected_parentheticals_notes.txt` (and any related bibliography expectations) via `--write-expected` once the desired behavior is validated so the diff against “Id. at 2.” disappears.【5fd15f†L8-L17】

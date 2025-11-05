@@ -1,0 +1,100 @@
+01: OK
+  expected: HEB Ministries, Inc. v. Texas Higher Educ. Coordinating Bd., 235 S.W.3d 627, 646 (Tex. 2007).627 // Greenbook 15th ed. 2
+  actual:   HEB Ministries, Inc. v. Texas Higher Educ. Coordinating Bd., 235 S.W.3d 627, 646 (Tex. 2007).627
+
+02: OK
+  expected: Cantu v. State, 939 S.W.2d 627, 631 (Tex. Crim. App. 1997).627 // Greenbook 15th ed. 4
+  actual:   Cantu v. State, 939 S.W.2d 627, 631 (Tex. Crim. App. 1997).627
+
+03: OK
+  expected: Richardson v. Kays, No. 02-03-241-CV, 2003 WL 22457054, at *1 (Tex. App.—Fort Worth Oct. 30, 2003, no pet.) (per curiam) (mem. op.). // Greenbook 15th ed. 4
+  actual:   Richardson v. Kays, No. 02-03-241-CV, 2003 WL 22457054, at *1 (Tex. App.—Fort Worth Oct. 30, 2003, no pet.) (per curiam) (mem. op.).
+
+04: OK
+  expected: State v. Auguillard, No. 139002101010 (338th Dist. Ct., Harris County, Tex. Oct. 21, 2013). // Greenbook 15th ed. 2
+  actual:   State v. Auguillard, No. 139002101010 (338th Dist. Ct., Harris County, Tex. Oct. 21, 2013).
+
+05: OK
+  expected: Brown v. Board of Education, 347 U.S. 483, 495 (U.S. 1954).483 // Greenbook 15th ed. 2
+  actual:   Brown v. Board of Education, 347 U.S. 483, 495 (U.S. 1954).483
+
+06: OK
+  expected: Texaco Inc. v. Louisiana Land & Exploration Co., 995 F.3d 43, 48 (5th Cir. 1993).43 // Greenbook 15th ed. 2
+  actual:   Texaco Inc. v. Louisiana Land & Exploration Co., 995 F.3d 43, 48 (5th Cir. 1993).43
+
+07: OK
+  expected: Texas v. United States, No. 1:18-cv-00068, 2019 WL 1553639, at *14 (S.D. Tex. Apr. 19, 2019). // Greenbook 15th ed. 17
+  actual:   Texas v. United States, No. 1:18-cv-00068, 2019 WL 1553639, at *14 (S.D. Tex. Apr. 19, 2019).
+
+08: OK
+  expected: Tex. Const. art. III, § 5(a). // Greenbook 15th ed. 34
+  actual:   Tex. Const. art. III, § 5(a).
+
+09: OK
+  expected: Tex. Tax Code Ann. § 26.06(a). // Greenbook 15th ed. 34
+  actual:   Tex. Tax Code Ann. § 26.06(a).
+
+10: OK
+  expected: Tex. Gov’t Code Ann. § 311.021(1) (West 2023). // Greenbook 15th ed. 31, 36
+  actual:   Tex. Gov’t Code Ann. § 311.021(1) (West 2023).
+
+11: OK
+  expected: U.S. Const. art. VI, § cl. 2. // Greenbook 15th ed. 17
+  actual:   U.S. Const. art. VI, § cl. 2.
+
+12: OK
+  expected: 28 U.S.C. § 1332(a)(1) (Supp. 2024). // Greenbook 15th ed. 36
+  actual:   28 U.S.C. § 1332(a)(1) (Supp. 2024).
+
+13: OK
+  expected: 4 Tex. Admin. Code § 9.12 (Tex. Dep’t of Agric., Seed Sampling Procedures, 2013). // Greenbook 15th ed. 36
+  actual:   4 Tex. Admin. Code § 9.12 (Tex. Dep’t of Agric., Seed Sampling Procedures, 2013).
+
+14: OK
+  expected: 16 Tex. Admin. Code § 25.101 (Tex. Comm’n on Env’t Quality, Electric Reliability Council Division, 2022; emergency adoption). // Greenbook 15th ed. 32
+  actual:   16 Tex. Admin. Code § 25.101 (Tex. Comm’n on Env’t Quality, Electric Reliability Council Division, 2022; emergency adoption).
+
+15: OK
+  expected: 1 Tex. Admin. Code § 3.5 (Tex. Ethics Comm’n; adopted 1993). // Greenbook 15th ed. 25
+  actual:   1 Tex. Admin. Code § 3.5 (Tex. Ethics Comm’n; adopted 1993).
+
+16: OK
+  expected: 39 Tex. Reg. 573, 574 (Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings, 2014; to be codified at 22 Tex. Admin. Code § 367.14).573, 574 // Greenbook 15th ed. 51
+  actual:   39 Tex. Reg. 573, 574 (Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings, 2014; to be codified at 22 Tex. Admin. Code § 367.14).573, 574
+
+17: OK
+  expected: Tex. R. Civ. P. 97(d). // Greenbook 15th ed. 51
+  actual:   Tex. R. Civ. P. 97(d).
+
+18: OK
+  expected: Tex. R. Civ. P. 21. // Greenbook 15th ed. 51
+  actual:   Tex. R. Civ. P. 21.
+
+19: OK
+  expected: Fed. R. Civ. P. 4(k)(2). // Greenbook 15th ed. 51
+  actual:   Fed. R. Civ. P. 4(k)(2).
+
+20: OK
+  expected: 17 C.F.R. § 240.10b-5 (U.S. Sec. & Exch. Comm’n, 2023). // Greenbook 15th ed. 34
+  actual:   17 C.F.R. § 240.10b-5 (U.S. Sec. & Exch. Comm’n, 2023).
+
+21: OK
+  expected: 80 Fed. Reg. 56577, 56624 (Consumer Financial Protection Bureau, 2015; to be codified at 12 C.F.R. pt. 1026).56577, 56624 // Greenbook 15th ed. 24
+  actual:   80 Fed. Reg. 56577, 56624 (Consumer Financial Protection Bureau, 2015; to be codified at 12 C.F.R. pt. 1026).56577, 56624
+
+22: OK
+  expected: Act of May 30, 2005, 79th Leg., R.S., ch. 268, § 1.06, 2005 Tex. Gen. Laws 621.621 // Greenbook 15th ed. 100
+  actual:   Act of May 30, 2005, 79th Leg., R.S., ch. 268, § 1.06, 2005 Tex. Gen. Laws 621.621
+
+23: OK
+  expected: Tex. Att’y Gen. Op. No. GA-0002 (2002). // Greenbook 15th ed. 4
+  actual:   Tex. Att’y Gen. Op. No. GA-0002 (2002).
+
+24: OK
+  expected: Hous., Tex., Code of Ordinances ch. 20, art. IV, § 20-216 (1968). // Greenbook 15th ed. 4
+  actual:   Hous., Tex., Code of Ordinances ch. 20, art. IV, § 20-216 (1968).
+
+25: OK
+  expected: William V. Dorsaneo, 1 Texas Litigation Guide, § 5.2, 2024. // Greenbook 15th ed. 2
+  actual:   William V. Dorsaneo, 1 Texas Litigation Guide, § 5.2, 2024.
+

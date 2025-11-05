@@ -1,0 +1,80 @@
+01: OK
+  expected: Tex. Tax Code Ann. § 26.06(a) (Supp. 2024). // Greenbook 15th ed. 44
+  actual:   Tex. Tax Code Ann. § 26.06(a) (Supp. 2024).
+
+02: OK
+  expected: Tex. Tax Code Ann. § 26.06(b). // Greenbook 15th ed. 44
+  actual:   Tex. Tax Code Ann. § 26.06(b).
+
+03: OK
+  expected: 16 Tex. Admin. Code § 25.101 (Tex. Comm’n on Env’t Quality, Emission Standards Division, 2022). // Greenbook 15th ed. 77
+  actual:   16 Tex. Admin. Code § 25.101 (Tex. Comm’n on Env’t Quality, Emission Standards Division, 2022).
+
+04: OK
+  expected: 16 Tex. Admin. Code § 25.101, 25.102. // Greenbook 15th ed. 77
+  actual:   16 Tex. Admin. Code § 25.101, 25.102.
+
+05: OK
+  expected: Tex. Gov’t Code Ann. § 82.064 (Cf.). // Greenbook 15th ed. 44
+  actual:   Tex. Gov’t Code Ann. § 82.064 (Cf.).
+
+06: OK
+  expected: Tex. Gov’t Code Ann. § 82.065. // Greenbook 15th ed. 44
+  actual:   Tex. Gov’t Code Ann. § 82.065.
+
+07: OK
+  expected: Tex. Const. art. III, § 5(a). // Greenbook 15th ed. 39
+  actual:   Tex. Const. art. III, § 5(a).
+
+08: OK
+  expected: Tex. Const. art. III, § 7. // Greenbook 15th ed. 39
+  actual:   Tex. Const. art. III, § 7.
+
+09: OK
+  expected: Tex. R. Civ. P. 94. // Greenbook 15th ed. 63
+  actual:   Tex. R. Civ. P. 94.
+
+10: OK
+  expected: Tex. R. Civ. P. 95. // Greenbook 15th ed. 63
+  actual:   Tex. R. Civ. P. 95.
+
+11: OK
+  expected: Cal. Civ. Code § 1632(b). // Greenbook 15th ed. 45
+  actual:   Cal. Civ. Code § 1632(b).
+
+12: OK
+  expected: Cal. Civ. Code § 1632(c). // Greenbook 15th ed. 45
+  actual:   Cal. Civ. Code § 1632(c).
+
+13: OK
+  expected: 40 C.F.R. § 1502.9(c) (Council on Environmental Quality, 2020). // Greenbook 15th ed. 78
+  actual:   40 C.F.R. § 1502.9(c) (Council on Environmental Quality, 2020).
+
+14: OK
+  expected: 40 C.F.R. § 1502.9(c), 1502.9(d). // Greenbook 15th ed. 78
+  actual:   40 C.F.R. § 1502.9(c), 1502.9(d).
+
+15: OK
+  expected: Tex. Att’y Gen. Op. No. GA-0002 (2002). // Greenbook 15th ed. 77
+  actual:   Tex. Att’y Gen. Op. No. GA-0002 (2002).
+
+16: OK
+  expected: Tex. Att’y Gen. Op. No. GA-0002. // Greenbook 15th ed. 77
+  actual:   Tex. Att’y Gen. Op. No. GA-0002.
+
+17: OK
+  expected: Hous., Tex., Code of Ordinances ch. 20, art. IV, § 20-216 (1968). // Greenbook 15th ed. 62
+  actual:   Hous., Tex., Code of Ordinances ch. 20, art. IV, § 20-216 (1968).
+
+18: OK
+  expected: Hous., Tex., Code of Ordinances ch. 20, art. IV, § 20–217. // Greenbook 15th ed. 62
+  actual:   Hous., Tex., Code of Ordinances ch. 20, art. IV, § 20–217.
+
+19: OK
+  expected: Act approved Mar. 8, 1871, 12th Leg., R.S., ch. 16, § 2, 1871 Tex. Gen. Laws 11, 11, reprinted in 6 H.P.N. Gammel, The Laws of Texas 1822–1897, at 913, 913 (Austin, Gammel Book Co. 1898). // Greenbook 15th ed. 55
+  actual:   Act approved Mar. 8, 1871, 12th Leg., R.S., ch. 16, § 2, 1871 Tex. Gen. Laws 11, 11, reprinted in 6 H.P.N. Gammel, The Laws of Texas 1822–1897, at 913, 913 (Austin, Gammel Book Co. 1898).
+
+20: OK
+  expected: Act approved Mar. 8, 1871, 12th Leg., R.S., ch. 16, § 2, 1871 Tex. Gen. Laws 11, 12. // Greenbook 15th ed. 55
+  actual:   Act approved Mar. 8, 1871, 12th Leg., R.S., ch. 16, § 2, 1871 Tex. Gen. Laws 11, 12.
+
