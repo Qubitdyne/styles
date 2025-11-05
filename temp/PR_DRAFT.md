@@ -4,7 +4,9 @@ Keep this draft synchronized with the active TODO so we can file the upstream pu
 
 ## Summary (ready once helpers land)
 - Added session law first/short/cross-reference macros so repeated acts restate the full cite while cross references append codification text per Greenbook ch. 11 (pp. 53–56), backed by new note and smoke fixtures.
-- Completed the release metadata audit by updating `<updated>` timestamps on the note style, locale, and every TOA variant and fixing each TOA file’s `rel="self"` link to match its ID ahead of the upstream submission.【F:temp/texas-greenbook-15th-edition.csl†L5-L18】【F:temp/texas-greenbook-15th-toa-leaders.csl†L5-L14】【F:temp/locales/locales-en-US-x-texas-greenbook.xml†L1-L12】
+- Normalized metadata across the note style and TOA variants: `version="1.0"`, refreshed `<updated>` timestamps, unified CC BY-SA 3.0 rights blocks, pointed documentation links at the Texas Style Manual landing page, and inlined the locale overrides so the package complies with upstream distribution rules.【F:temp/texas-greenbook-15th-edition.csl†L2-L212】【F:temp/texas-greenbook-15th-toa.csl†L2-L18】【F:temp/texas-greenbook-15th-toa-grouped-leaders.csl†L2-L17】
+- Reworked every TOA bibliography to use CSL’s `left-margin`/`right-inline` alignment, added `page-first` driven TOA pagination, and updated fixtures/expectations to reflect the new layout and page-number field; downstream authors now populate `page-first` with the brief’s TOA pagination per the documented guidance.【F:temp/texas-greenbook-15th-toa.csl†L768-L807】【F:temp/texas-greenbook-15th-toa-leaders.csl†L736-L773】【F:temp/tests_toa.json†L1-L200】【F:temp/README.md†L67-L73】
+- Simplified cross-reference cue handling so the default note style now falls back to “See” while honoring `annote` overrides and capitalizing free-form `note` text, keeping CSL 1.0 schema compliance without sacrificing manual signal control.【F:temp/texas-greenbook-15th-edition.csl†L570-L595】【F:temp/README.md†L103-L108】
 - Consolidated the publication/status helpers (`tx-publication-parenthetical`, `tx-session-law-citation`, `tx-authority-status-parenthetical`) across the main note style and every TOA variant, eliminating duplicated Chapter 10–13 logic while preserving annotated and supplement parentheticals.
 - Suppressed duplicate register citations when a TOA entry already prints the underlying Tex. Reg./Fed. Reg. cite, then refreshed each TOA expectation file to keep the grouped layouts consistent with Appendix B.
 - Restored Appendix B’s federal authority coverage in `tests_toa.json`, regenerated all TOA expectations with `--mode bibliography`, and captured fresh confirmation logs (`20251103T055217Z_toa.txt`, `20251103T055217Z_toa_leaders.txt`, `20251103T055217Z_toa_grouped.txt`, `20251103T055217Z_toa_grouped_leaders.txt`, `20251103T055217Z_toa_by-reporter.txt`).
@@ -25,8 +27,11 @@ Keep this draft synchronized with the active TODO so we can file the upstream pu
 - python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped.csl --expected temp/expected_toa_grouped.txt --mode bibliography
 - python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt --mode bibliography
 - python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-by-reporter.csl --expected temp/expected_toa_by-reporter.txt --mode bibliography
+- jing -c /tmp/csl-schema/schemas/styles/csl.rnc temp/*.csl
 
 - Automation note: each invocation writes a summary line (timestamp, PASS/FAIL, OK/DIFF counts, command) to `temp/test-logs/run-history.log`. Reference this ledger when drafting the final PR narrative or when you need to confirm which suites have already been exercised in a session.
+
+Documented the `page-first` TOA pagination requirement in the README to keep data entry aligned with the refreshed fixtures and summary narrative.【F:temp/README.md†L67-L73】
 
 - Latest confirmation logs:
 - PASS entries recorded at 2025-11-04T19:26Z in `temp/test-logs/run-history.log` confirm the latest notes, parenthetical, short-form, and TOA sweeps after the metadata audit.【F:temp/test-logs/run-history.log†L53-L61】

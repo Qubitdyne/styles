@@ -1,17 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<ns0:style xmlns:ns0="http://purl.org/net/xbiblio/csl" version="1.0.2" class="note" default-locale="en-US">
+<ns0:style xmlns:ns0="http://purl.org/net/xbiblio/csl" version="1.0" class="note" default-locale="en-US">
   <ns0:info>
     <ns0:title>Texas Greenbook (15th ed.) — Table of Authorities (By Reporter)</ns0:title>
     <ns0:title-short>Texas Greenbook 15th TOA (Reporter)</ns0:title-short>
     <ns0:id>http://www.zotero.org/styles/texas-greenbook-15th-toa-by-reporter</ns0:id>
     <ns0:link href="http://www.zotero.org/styles/texas-greenbook-15th-toa-by-reporter" rel="self" />
-    <ns0:link href="http://www.zotero.org/styles/texas-greenbook-15th-master" rel="template" />
-    <ns0:link href="https://www.txcourts.gov/rules-forms/rules-standards/" rel="documentation" />
-    <ns0:author><ns0:name>GPT-5 Pro</ns0:name></ns0:author>
+    <ns0:link href="https://www.txcourts.gov/rules-forms/texas-style-manual/" rel="documentation" />
+    <ns0:author>
+      <ns0:name>Qubitdyne, Inc.</ns0:name>
+    </ns0:author>
     <ns0:category citation-format="note" />
     <ns0:category field="law" />
-    <ns0:updated>2026-01-18T00:00:00Z</ns0:updated>
+    <ns0:updated>2025-11-04T21:33:24+00:00</ns0:updated>
     <ns0:summary>TOA-style bibliography for Texas practice: prints full case and authority cites, sorts by authority, and minimizes styling for easy copy into a Table of Authorities.</ns0:summary>
+    <ns0:rights license="http://creativecommons.org/licenses/by-sa/3.0/">This style is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</ns0:rights>
   </ns0:info>
 
   <ns0:locale xml:lang="en-US">
@@ -52,22 +54,32 @@
     </ns0:choose>
   </ns0:macro>
 
-  <ns0:macro name="tex-labeled-locator">
-    <ns0:choose>
-      <ns0:if locator="section paragraph" match="any">
-        <ns0:group delimiter=" "><ns0:label variable="locator" form="symbol" /><ns0:text variable="locator" /></ns0:group>
-      </ns0:if>
-      <ns0:else-if locator="rule regulation" match="any">
-        <ns0:group delimiter=" "><ns0:label variable="locator" form="short" /><ns0:text variable="locator" /></ns0:group>
-      </ns0:else-if>
-      <ns0:else-if locator="article chapter part title volume" match="any">
-        <ns0:group delimiter=" "><ns0:label variable="locator" form="short" /><ns0:text variable="locator" /></ns0:group>
-      </ns0:else-if>
-      <ns0:else>
-        <ns0:text variable="locator" />
-      </ns0:else>
-    </ns0:choose>
-  </ns0:macro>
+    <ns0:macro name="tex-labeled-locator">
+      <ns0:choose>
+        <ns0:if locator="section paragraph" match="any">
+          <ns0:group delimiter=" "><ns0:label variable="locator" form="symbol" /><ns0:text variable="locator" /></ns0:group>
+        </ns0:if>
+        <ns0:else-if locator="rule" match="any">
+          <ns0:group delimiter=" "><ns0:label variable="locator" form="short" /><ns0:text variable="locator" /></ns0:group>
+        </ns0:else-if>
+        <ns0:else-if type="regulation" match="any">
+          <ns0:choose>
+            <ns0:if variable="section">
+              <ns0:group delimiter=" "><ns0:text term="section" form="symbol" /><ns0:text variable="section" /></ns0:group>
+            </ns0:if>
+            <ns0:else>
+              <ns0:text variable="locator" />
+            </ns0:else>
+          </ns0:choose>
+        </ns0:else-if>
+        <ns0:else-if locator="article-locator chapter part title-locator volume" match="any">
+          <ns0:group delimiter=" "><ns0:label variable="locator" form="short" /><ns0:text variable="locator" /></ns0:group>
+        </ns0:else-if>
+        <ns0:else>
+          <ns0:text variable="locator" />
+        </ns0:else>
+      </ns0:choose>
+    </ns0:macro>
 
   <ns0:macro name="cross-reference-cue">
     <ns0:choose>
@@ -339,24 +351,26 @@
           </ns0:choose>
           <ns0:choose>
             <ns0:if variable="volume container-title page" match="all">
-              <ns0:choose>
-                <ns0:if type="regulation" match="none">
-                  <ns0:group delimiter=" ">
-                    <ns0:text variable="volume" />
-                    <ns0:text variable="container-title" />
-                    <ns0:text variable="page" />
-                  </ns0:group>
-                </ns0:if>
-                <ns0:else-if type="regulation" match="any">
-                  <ns0:if variable="section">
+                <ns0:choose>
+                  <ns0:if type="regulation" match="none">
                     <ns0:group delimiter=" ">
                       <ns0:text variable="volume" />
                       <ns0:text variable="container-title" />
                       <ns0:text variable="page" />
                     </ns0:group>
                   </ns0:if>
-                </ns0:else-if>
-              </ns0:choose>
+                  <ns0:else-if type="regulation" match="any">
+                    <ns0:choose>
+                      <ns0:if variable="section">
+                        <ns0:group delimiter=" ">
+                          <ns0:text variable="volume" />
+                          <ns0:text variable="container-title" />
+                          <ns0:text variable="page" />
+                        </ns0:group>
+                      </ns0:if>
+                    </ns0:choose>
+                  </ns0:else-if>
+                </ns0:choose>
             </ns0:if>
           </ns0:choose>
           <ns0:choose>
@@ -480,19 +494,16 @@
     </ns0:choose>
   </ns0:macro>
 
-  <ns0:macro name="tex-statute-first">
-    <ns0:group delimiter=" ">
-      <ns0:text macro="tex-code-section" />
-      <ns0:choose>
-        <ns0:if variable="genre">
-          <ns0:text />
-        </ns0:if>
-        <ns0:else>
-          <ns0:text macro="tx-publication-parenthetical" />
-        </ns0:else>
-      </ns0:choose>
-    </ns0:group>
-  </ns0:macro>
+    <ns0:macro name="tex-statute-first">
+      <ns0:group delimiter=" ">
+        <ns0:text macro="tex-code-section" />
+        <ns0:choose>
+          <ns0:if variable="genre" match="none">
+            <ns0:text macro="tx-publication-parenthetical" />
+          </ns0:if>
+        </ns0:choose>
+      </ns0:group>
+    </ns0:macro>
 
   <ns0:macro name="tex-statute-short">
     <ns0:text macro="tex-short-form-base" />
@@ -635,18 +646,15 @@
       <ns0:else>
         <ns0:group delimiter=" ">
           <ns0:text macro="tex-code-section-short" />
-          <ns0:choose>
-            <ns0:if variable="note">
-              <ns0:choose>
-                <ns0:if variable="genre">
-                  <ns0:text />
-                </ns0:if>
-                <ns0:else>
-                  <ns0:text variable="note" prefix="(" suffix=")" />
-                </ns0:else>
-              </ns0:choose>
-            </ns0:if>
-          </ns0:choose>
+            <ns0:choose>
+              <ns0:if variable="note">
+                <ns0:choose>
+                  <ns0:if variable="genre" match="none">
+                    <ns0:text variable="note" prefix="(" suffix=")" />
+                  </ns0:if>
+                </ns0:choose>
+              </ns0:if>
+            </ns0:choose>
         </ns0:group>
       </ns0:else>
     </ns0:choose>
@@ -660,18 +668,15 @@
       <ns0:else>
         <ns0:group delimiter=" ">
           <ns0:text macro="tex-code-section-short" />
-          <ns0:choose>
-            <ns0:if variable="note">
-              <ns0:choose>
-                <ns0:if variable="genre">
-                  <ns0:text />
-                </ns0:if>
-                <ns0:else>
-                  <ns0:text variable="note" prefix="(" suffix=")" />
-                </ns0:else>
-              </ns0:choose>
-            </ns0:if>
-          </ns0:choose>
+            <ns0:choose>
+              <ns0:if variable="note">
+                <ns0:choose>
+                  <ns0:if variable="genre" match="none">
+                    <ns0:text variable="note" prefix="(" suffix=")" />
+                  </ns0:if>
+                </ns0:choose>
+              </ns0:if>
+            </ns0:choose>
         </ns0:group>
       </ns0:else>
     </ns0:choose>
@@ -701,6 +706,34 @@
     <ns0:group delimiter=" "><ns0:text variable="authority" /><ns0:text variable="number" prefix="No. " /></ns0:group>
     <ns0:date variable="issued" prefix=" (" suffix=")"><ns0:date-part name="year" /></ns0:date>
   </ns0:macro>
+  <ns0:macro name="toa-entry-text">
+    <ns0:choose>
+      <ns0:if type="legal_case"><ns0:text macro="legal-case" /></ns0:if>
+      <ns0:else-if type="regulation">
+        <ns0:choose>
+          <ns0:if variable="volume"><ns0:text macro="tex-admin-code" /></ns0:if>
+          <ns0:else-if variable="authority chapter-number" match="all"><ns0:text macro="municipal-code" /></ns0:else-if>
+          <ns0:else><ns0:text macro="tex-rule" /></ns0:else>
+        </ns0:choose>
+      </ns0:else-if>
+      <ns0:else-if type="legislation">
+        <ns0:choose>
+          <ns0:if variable="title"><ns0:text macro="tx-session-law-citation" /></ns0:if>
+          <ns0:else-if variable="chapter-number"><ns0:text macro="constitution-core" /></ns0:else-if>
+          <ns0:else-if variable="genre" match="any"><ns0:text macro="tex-rule" /></ns0:else-if>
+          <ns0:else><ns0:text macro="tex-statute" /></ns0:else>
+        </ns0:choose>
+      </ns0:else-if>
+      <ns0:else-if type="report"><ns0:text macro="ag-opinion" /></ns0:else-if>
+      <ns0:else-if type="book"><ns0:text macro="book-entry" /></ns0:else-if>
+      <ns0:else><ns0:text variable="title" /></ns0:else>
+    </ns0:choose>
+  </ns0:macro>
+  <ns0:macro name="toa-page-list">
+    <ns0:choose>
+      <ns0:if variable="page-first"><ns0:text variable="page-first" /></ns0:if>
+    </ns0:choose>
+  </ns0:macro>
   <ns0:macro name="book-entry">
     <ns0:group delimiter=", ">
       <ns0:names variable="author">
@@ -720,52 +753,28 @@
 
   <ns0:citation et-al-min="4" et-al-use-first="3">
     <ns0:layout suffix=".">
-      <ns0:choose>
-        <ns0:if type="legal_case"><ns0:text macro="legal-case" /></ns0:if>
-        <ns0:else-if type="regulation">
-          <ns0:choose>
-            <ns0:if variable="volume"><ns0:text macro="tex-admin-code" /></ns0:if>
-            <ns0:else-if variable="authority chapter-number" match="all"><ns0:text macro="municipal-code" /></ns0:else-if>
-            <ns0:else><ns0:text macro="tex-rule" /></ns0:else>
-          </ns0:choose>
-        </ns0:else-if>
-        <ns0:else-if type="legislation">
-          <ns0:choose>
-            <ns0:if variable="title"><ns0:text macro="tx-session-law-citation" /></ns0:if>
-            <ns0:else-if variable="chapter-number"><ns0:text macro="constitution-core" /></ns0:else-if>
-            <ns0:else-if variable="genre" match="any"><ns0:text macro="tex-rule" /></ns0:else-if>
-            <ns0:else><ns0:text macro="tex-statute" /></ns0:else>
-          </ns0:choose>
-        </ns0:else-if>
-        <ns0:else-if type="report"><ns0:text macro="ag-opinion" /></ns0:else-if>
-        <ns0:else><ns0:text variable="title" /></ns0:else>
-      </ns0:choose>
+      <ns0:text macro="toa-entry-text" />
     </ns0:layout>
   </ns0:citation>
 
   
   <ns0:bibliography hanging-indent="false" second-field-align="flush">
-    <ns0:layout suffix=".">
-      <ns0:choose>
-        <ns0:if type="legal_case"><ns0:text macro="legal-case" /></ns0:if>
-        <ns0:else-if type="regulation">
-          <ns0:choose>
-            <ns0:if variable="volume"><ns0:text macro="tex-admin-code" /></ns0:if>
-            <ns0:else-if variable="authority chapter-number" match="all"><ns0:text macro="municipal-code" /></ns0:else-if>
-            <ns0:else><ns0:text macro="tex-rule" /></ns0:else>
-          </ns0:choose>
-        </ns0:else-if>
-        <ns0:else-if type="legislation">
-          <ns0:choose>
-            <ns0:if variable="title"><ns0:text macro="tx-session-law-citation" /></ns0:if>
-            <ns0:else-if variable="chapter-number"><ns0:text macro="constitution-core" /></ns0:else-if>
-            <ns0:else-if variable="genre" match="any"><ns0:text macro="tex-rule" /></ns0:else-if>
-            <ns0:else><ns0:text macro="tex-statute" /></ns0:else>
-          </ns0:choose>
-        </ns0:else-if>
-        <ns0:else-if type="report"><ns0:text macro="ag-opinion" /></ns0:else-if>
-        <ns0:else><ns0:text variable="title" /></ns0:else>
-      </ns0:choose>
+    <ns0:sort>
+      <ns0:key variable="container-title" />
+      <ns0:key variable="volume" />
+      <ns0:key variable="page" />
+      <ns0:key variable="authority" />
+      <ns0:key variable="title" />
+    </ns0:sort>
+    <ns0:layout>
+      <ns0:group delimiter="">
+        <ns0:group display="left-margin" suffix=".">
+          <ns0:text macro="toa-entry-text" />
+        </ns0:group>
+        <ns0:group display="right-inline">
+          <ns0:text macro="toa-page-list" />
+        </ns0:group>
+      </ns0:group>
     </ns0:layout>
-  <ns0:sort><ns0:key variable="container-title" /><ns0:key variable="volume" /><ns0:key variable="page" /><ns0:key variable="authority" /><ns0:key variable="title" /></ns0:sort></ns0:bibliography>
+  </ns0:bibliography>
 </ns0:style>

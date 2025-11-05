@@ -1,25 +1,25 @@
-Cases\n  Supreme Court of Texas Cases\n    HEB Ministries, Inc. v. Texas Higher Educ. Coordinating Bd., 235 S.W.3d 627, 646 (Tex. 2007) ........................................&#9;.\n
-  Court of Criminal Appeals Cases\n    Cantu v. State, 939 S.W.2d 627, 631 (Tex. Crim. App. 1997) ........................................&#9;.\n
-  Courts of Appeals Cases\n    Richardson v. Kays, No. 02-03-241-CV, 2003 WL 22457054, at *1 (Tex. App.—Fort Worth Oct. 30, 2003, no pet.) (per curiam) (mem. op.) ........................................&#9;.\n
-  Trial Courts and Original Proceedings\n    State v. Auguillard, No. 139002101010 (338th Dist. Ct., Harris County, Tex. Oct. 21, 2013) ........................................&#9;.\n
-  United States Supreme Court Cases\n    Brown v. Board of Education, 347 U.S. 483, 495 (U.S. 1954) ........................................&#9;.\n
-  Federal Courts of Appeals Cases\n    Texaco Inc. v. Louisiana Land & Exploration Co., 995 F.3d 43, 48 (5th Cir. 1993) ........................................&#9;.\n
-  Federal District Courts and Specialized Tribunals\n    Texas v. United States, No. 1:18-cv-00068, 2019 WL 1553639, at *14 (S.D. Tex. Apr. 19, 2019) ........................................&#9;.\n
-Statutes and Constitutional Provisions\n  Texas Constitution\n    Tex. Const. art. III, § 5(a) ........................................&#9;.\n
-  Texas Statutes\n    Tex. Tax Code Ann. § 26.06(a) ........................................&#9;.\n
-    Tex. Gov’t Code Ann. § 311.021(1) (West 2023) ........................................&#9;.\n
-  United States Constitution\n    U.S. Const. art. VI, § cl. 2 ........................................&#9;.\n
-  United States Code\n    28 U.S.C. § 1332(a)(1) (Supp. 2024) ........................................&#9;.\n
-Rules and Regulations\n  Texas Administrative Code\n    4 Tex. Admin. Code § 9.12 (Tex. Dep’t of Agric., Seed Sampling Procedures, 2013) ........................................&#9;.\n
-    16 Tex. Admin. Code § 25.101 (Tex. Comm’n on Env’t Quality, Electric Reliability Council Division, 2022; emergency adoption) ........................................&#9;.\n
-    1 Tex. Admin. Code § 3.5 (Tex. Ethics Comm’n; adopted 1993) ........................................&#9;.\n
-  Texas Register\n    39 Tex. Reg. 573, 574 (Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings, 2014; to be codified at 22 Tex. Admin. Code § 367.14) ........................................&#9;.\n
-  Texas Rules\n    Tex. R. Civ. P. 97(d) ........................................&#9;.\n
-    Tex. R. Civ. P. 21 ........................................&#9;.\n
-  Federal Rules\n    Fed. R. Civ. P. 4(k)(2) ........................................&#9;.\n
-  Code of Federal Regulations\n    17 C.F.R. § 240.10b-5 (U.S. Sec. & Exch. Comm’n, 2023) ........................................&#9;.\n
-  Federal Register\n    80 Fed. Reg. 56577, 56624 (Consumer Financial Protection Bureau, 2015; to be codified at 12 C.F.R. pt. 1026) ........................................&#9;.\n
-Session Laws\n  Session Laws\n    Act of May 30, 2005, 79th Leg., R.S., ch. 268, § 1.06, 2005 Tex. Gen. Laws 621 ........................................&#9;.\n
-Other Authorities\n  Attorney General Opinions\n    Tex. Att’y Gen. Op. No. GA-0002 (2002) ........................................&#9;.\n
-  Municipal Ordinances\n    Hous., Tex., Code of Ordinances ch. 20, art. IV, § 20-216 (1968) ........................................&#9;.\n
-  Secondary Authorities\n    William V. Dorsaneo, 1 Texas Litigation Guide, § 5.2, 2024 ........................................&#9;.\n
+Cases\n  Supreme Court of Texas Cases\n    HEB Ministries, Inc. v. Texas Higher Educ. Coordinating Bd., 235 S.W.3d 627, 646 (Tex. 2007).627\n // Greenbook 15th ed. 2
+  Court of Criminal Appeals Cases\n    Cantu v. State, 939 S.W.2d 627, 631 (Tex. Crim. App. 1997).627\n // Greenbook 15th ed. 4
+  Courts of Appeals Cases\n    Richardson v. Kays, No. 02-03-241-CV, 2003 WL 22457054, at *1 (Tex. App.—Fort Worth Oct. 30, 2003, no pet.) (per curiam) (mem. op.).\n // Greenbook 15th ed. 4
+  Trial Courts and Original Proceedings\n    State v. Auguillard, No. 139002101010 (338th Dist. Ct., Harris County, Tex. Oct. 21, 2013).\n // Greenbook 15th ed. 2
+  United States Supreme Court Cases\n    Brown v. Board of Education, 347 U.S. 483, 495 (U.S. 1954).483\n // Greenbook 15th ed. 2
+  Federal Courts of Appeals Cases\n    Texaco Inc. v. Louisiana Land & Exploration Co., 995 F.3d 43, 48 (5th Cir. 1993).43\n // Greenbook 15th ed. 2
+  Federal District Courts and Specialized Tribunals\n    Texas v. United States, No. 1:18-cv-00068, 2019 WL 1553639, at *14 (S.D. Tex. Apr. 19, 2019).\n // Greenbook 15th ed. 17
+Statutes and Constitutional Provisions\n  Texas Constitution\n    Tex. Const. art. III, § 5(a).\n // Greenbook 15th ed. 34
+  Texas Statutes\n    Tex. Tax Code Ann. § 26.06(a).\n // Greenbook 15th ed. 34
+    Tex. Gov’t Code Ann. § 311.021(1) (West 2023).\n // Greenbook 15th ed. 31, 36
+  United States Constitution\n    U.S. Const. art. VI, § cl. 2.\n // Greenbook 15th ed. 17
+  United States Code\n    28 U.S.C. § 1332(a)(1) (Supp. 2024).\n // Greenbook 15th ed. 36
+Rules and Regulations\n  Texas Administrative Code\n    4 Tex. Admin. Code § 9.12 (Tex. Dep’t of Agric., Seed Sampling Procedures, 2013).\n // Greenbook 15th ed. 36
+    16 Tex. Admin. Code § 25.101 (Tex. Comm’n on Env’t Quality, Electric Reliability Council Division, 2022; emergency adoption).\n // Greenbook 15th ed. 32
+    1 Tex. Admin. Code § 3.5 (Tex. Ethics Comm’n; adopted 1993).\n // Greenbook 15th ed. 25
+  Texas Register\n    39 Tex. Reg. 573, 574 (Tex. State Bd. Plumbing Exam’rs, Contested Case; State Office of Admin. Hearings, 2014; to be codified at 22 Tex. Admin. Code § 367.14).573, 574\n // Greenbook 15th ed. 51
+  Texas Rules\n    Tex. R. Civ. P. 97(d).\n // Greenbook 15th ed. 51
+    Tex. R. Civ. P. 21.\n // Greenbook 15th ed. 51
+  Federal Rules\n    Fed. R. Civ. P. 4(k)(2).\n // Greenbook 15th ed. 51
+  Code of Federal Regulations\n    17 C.F.R. § 240.10b-5 (U.S. Sec. & Exch. Comm’n, 2023).\n // Greenbook 15th ed. 34
+  Federal Register\n    80 Fed. Reg. 56577, 56624 (Consumer Financial Protection Bureau, 2015; to be codified at 12 C.F.R. pt. 1026).56577, 56624\n // Greenbook 15th ed. 24
+Session Laws\n  Session Laws\n    Act of May 30, 2005, 79th Leg., R.S., ch. 268, § 1.06, 2005 Tex. Gen. Laws 621.621\n // Greenbook 15th ed. 100
+Other Authorities\n  Attorney General Opinions\n    Tex. Att’y Gen. Op. No. GA-0002 (2002).\n // Greenbook 15th ed. 4
+  Municipal Ordinances\n    Hous., Tex., Code of Ordinances ch. 20, art. IV, § 20-216 (1968).\n // Greenbook 15th ed. 4
+  Secondary Authorities\n    William V. Dorsaneo, 1 Texas Litigation Guide, § 5.2, 2024.\n // Greenbook 15th ed. 2
