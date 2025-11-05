@@ -34,7 +34,16 @@ Keep this draft synchronized with the active TODO so we can file the upstream pu
 Documented the `page-first` TOA pagination requirement in the README to keep data entry aligned with the refreshed fixtures and summary narrative.【F:temp/README.md†L67-L73】
 
 - Latest confirmation logs:
-- PASS entries recorded at 2025-11-04T19:26Z in `temp/test-logs/run-history.log` confirm the latest notes, parenthetical, short-form, and TOA sweeps after the metadata audit.【F:temp/test-logs/run-history.log†L53-L61】
+- PASS entries recorded at 2025-11-05T01:57Z in `temp/test-logs/run-history.log` confirm the refreshed notes, parenthetical, short-form, and TOA sweeps captured for the run-history ledger update.【c77cbe†L31-L75】
+- `temp/test-logs/20251105T015713Z_notes.txt`
+- `temp/test-logs/20251105T015724Z_parentheticals_notes.txt`
+- `temp/test-logs/20251105T015729Z_parentheticals_bibliography.txt`
+- `temp/test-logs/20251105T015732Z_short-form_smoke.txt`
+- `temp/test-logs/20251105T015740Z_toa.txt`
+- `temp/test-logs/20251105T015744Z_toa_leaders.txt`
+- `temp/test-logs/20251105T015747Z_toa_grouped.txt`
+- `temp/test-logs/20251105T015751Z_toa_grouped_leaders.txt`
+- `temp/test-logs/20251105T015754Z_toa_by-reporter.txt`【011517†L1-L12】
 - `temp/test-logs/20251103T152401Z_notes_full-suite.txt`
 - `temp/test-logs/20251103T055217Z_notes.txt`
 - `temp/test-logs/20251103T055217Z_parentheticals_notes.txt`
