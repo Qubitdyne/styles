@@ -7,7 +7,7 @@ This workspace tracks the in-progress Citation Style Language (CSL) implementati
 - Align every change with the Greenbook PDF stored at `temp/Greenbook_15thEdition.pdf` and record supporting page citations in `temp/NOTES.md` when new rules are implemented.
 
 ## Recent updates
-- **2026-01-18** — Completed the release metadata audit by refreshing `<updated>` timestamps on the main note style, locale, and every TOA variant, and corrected each TOA file’s `rel="self"` link so the IDs match the published filenames ahead of the upstream submission.【F:temp/texas-greenbook-15th-edition.csl†L5-L18】【F:temp/texas-greenbook-15th-toa-grouped-leaders.csl†L5-L16】【F:temp/locales/locales-en-US-x-texas-greenbook.xml†L1-L12】
+- **2026-01-18** — Completed the release metadata audit by refreshing `<updated>` timestamps on the main note style and every TOA variant, corrected each TOA file’s `rel="self"` link so the IDs match the published filenames ahead of the upstream submission, and inlined the custom locale terms directly into the styles to match upstream packaging.【F:temp/texas-greenbook-15th-edition.csl†L5-L18】【F:temp/texas-greenbook-15th-toa-grouped-leaders.csl†L5-L16】【F:temp/texas-greenbook-15th-edition.csl†L28-L212】
 - **2026-01-17** — Added position-aware Texas Constitution macros (`tex-constitution-first`, `tex-constitution-short`, `tex-constitution-cross-reference`) so repeats restate the full article and section text instead of collapsing to `Id.` while cross references append additional provisions. Expanded the regression fixtures and smoke suite to cover locator overrides and cross-reference strings, then captured passing runs at `temp/test-logs/20251104T183550Z_notes_constitution.txt` and `temp/test-logs/20251104T183557Z_short-form_constitution.txt` (Greenbook 15th ed. 39).【F:temp/texas-greenbook-15th-edition.csl†L772-L835】【F:temp/tests.json†L474-L494】【F:temp/tests_short-form_smoke.json†L33-L42】
 - **2026-01-16** — Introduced dedicated session law first/short/cross-reference macros so repeat cites restate the act string while cross references append codification text per Greenbook ch. 11 (pp. 53–56). Expanded the note and smoke fixtures with repeat and cross-reference coverage, then confirmed clean renders at `temp/test-logs/20251104T180708Z_notes.txt` and `temp/test-logs/20251104T180721Z_short-form_smoke.txt`.
 - **2025-12-22** — Appendix B federal coverage verified: restored the federal headings and exemplars in `tests_toa.json`, regenerated every TOA expectation with `--mode bibliography`, and captured the passing renders at `temp/test-logs/20251222T1728_toa.txt`, `temp/test-logs/20251222T1729_toa_leaders.txt`, `temp/test-logs/20251222T1730_toa_grouped.txt`, `temp/test-logs/20251222T1730_toa_grouped_leaders.txt`, and `temp/test-logs/20251222T1731_toa_by-reporter.txt`. Documentation and fixtures now reflect the mixed Texas/federal ordering on Greenbook Appendix B pp. 239–248.
@@ -32,6 +32,18 @@ This workspace tracks the in-progress Citation Style Language (CSL) implementati
 2. Record new decisions, open questions, and page citations in the trimmed `temp/NOTES.md`. Spillover detail can go into a dated file under `temp/archive/`.
 3. Update `temp/PR_DRAFT.md` whenever a change meaningfully affects the upstream submission story.
 
+## Input mapping cheat-sheet
+| Scenario | CSL fields | Greenbook reference |
+| --- | --- | --- |
+| Prefatory signals | `annote` to override; otherwise the style prints “See” by default and capitalizes `note` when present | Chapter 4, pp. 24–39【F:temp/texas-greenbook-15th-edition.csl†L42-L65】【F:temp/Greenbook_15thEdition.pdf†L120-L175】 |
+| Explanatory parenthetical | `abstract` (stored verbatim inside parentheses) | Chapter 4, pp. 36–38【F:temp/texas-greenbook-15th-edition.csl†L170-L190】【F:temp/Greenbook_15thEdition.pdf†L150-L175】 |
+| Procedural history / writ status | `status` for structured history, `note` for free-form supplements | Chapter 9, pp. 39–41【F:temp/texas-greenbook-15th-edition.csl†L141-L167】【F:temp/Greenbook_15thEdition.pdf†L176-L210】 |
+| Docket numbers & slip opinions | `number` and `collection-number` (Westlaw/Lexis strings) | Chapter 4, pp. 30–33【F:temp/texas-greenbook-15th-edition.csl†L90-L118】【F:temp/Greenbook_15thEdition.pdf†L140-L165】 |
+| Petition/writ history | Append to `status`; suppress duplicates through `references` | Chapter 4, pp. 34–35【F:temp/texas-greenbook-15th-edition.csl†L141-L163】【F:temp/Greenbook_15thEdition.pdf†L166-L175】 |
+| Authority weight parenthetical | `references` for subsequent history or cross-references | Chapter 4, Appendix B, pp. 24–39, 239–248【F:temp/texas-greenbook-15th-edition.csl†L141-L210】【F:temp/Greenbook_15thEdition.pdf†L120-L175】【F:temp/Greenbook_15thEdition.pdf†L612-L676】 |
+
+Signals, explanatory notes, and petition history travel with the note-style layouts as well as the Table of Authorities variants so the JSON fixtures stay faithful to *Texas Greenbook* examples.
+
 ## Running the regression suites
 Run tests from the repository root unless noted otherwise.
 
@@ -39,6 +51,8 @@ Run tests from the repository root unless noted otherwise.
 python temp/run_tests.py --tests temp/tests.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected.txt
 python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-grouped-leaders.csl --expected temp/expected_toa_grouped_leaders.txt
 python temp/run_tests.py --tests temp/tests_parentheticals.json --style temp/texas-greenbook-15th-edition.csl --expected temp/expected_parentheticals_notes.txt
+python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa.csl --expected temp/expected_toa.txt --mode bibliography
+python temp/run_tests.py --tests temp/tests_toa.json --style temp/texas-greenbook-15th-toa-by-reporter.csl --expected temp/expected_toa_by-reporter.txt --mode bibliography
 ```
 
 Every invocation now appends a one-line summary to `temp/test-logs/run-history.log` with the UTC timestamp, PASS/FAIL status, OK/DIFF counts, and the exact command that was executed. Use this file as the authoritative session trail when reconciling documentation or preparing the upstream PR; the per-suite log files under `temp/test-logs/` remain available for deeper diffs when expectations intentionally change.
@@ -49,3 +63,11 @@ Use `--mode bibliography` when you need to force bibliography output or `--write
 - A complete PDF of the Greenbook is at `temp/Greenbook_15thEdition.pdf`; supplemental manuals live alongside it.
 - The original, verbose README, TODO, and NOTES are stored in `temp/archive/` (see filenames with the `2025-12-21` suffix). Consult them for deep dives, but avoid bringing their entire contents back into the active files unless the information is still current.
 - Additional research matrices (`authority-note-matrix.md`, terminology inventories, regression logs) remain in place; prune or archive them if they become stale.
+
+## Table of Authorities usage notes
+- **Headings.** Populate `call-number` with the major TOA heading (e.g., “Cases”) and `reviewed-title` with any subsection label. The grouped styles read those fields to emit the multi-level headings used in Appendix B (pp. 239–248).【F:temp/texas-greenbook-15th-toa-grouped.csl†L330-L352】【F:temp/Greenbook_15thEdition.pdf†L612-L676】
+- **Document page references.** Store the document’s page numbers in `page-first` as a comma-separated list. All TOA variants now route that field to a `right-inline` block, giving word processors a consistent tab stop for dotted leaders (Greenbook Appendix B).【F:temp/texas-greenbook-15th-toa.csl†L782-L803】【F:temp/tests_toa.json†L1-L200】【F:temp/Greenbook_15thEdition.pdf†L612-L676】
+- **Reporter sorting.** The by-reporter variant sorts by reporter abbreviation, volume, and first page before falling back to court/authority so mixed Texas and federal reporters match the Appendix B ordering.【F:temp/texas-greenbook-15th-toa-by-reporter.csl†L730-L760】
+- **Leaders and alignment.** Leader styles now rely on CSL’s `left-margin`/`right-inline` layout instead of literal tab characters, which keeps alignment intact across processors while still allowing office software to supply dotted leaders per Section 4.4 guidance.【F:temp/texas-greenbook-15th-toa-leaders.csl†L744-L773】【F:temp/Greenbook_15thEdition.pdf†L140-L165】
+
+When preparing TOA fixtures, keep reporter pinpoint cites (`locator`) inside the core citation macros and dedicate `page-first` to the brief’s TOA pagination. This separation mirrors the Greenbook’s examples and avoids intermixing reporter pages with document references.

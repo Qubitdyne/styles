@@ -2,6 +2,19 @@
 
 _Completed tasks and the legacy backlog now live in `temp/archive/TODO-history-2025-12-21.md`. Keep this file focused on the current execution plan so sessions stay on track._
 
+## Ready-to-ship checks (pre‑PR, actionable)
+- [ ] **Open the upstream PR against `citation-style-language/styles`.**
+  - [ ] Fill in `temp/upstream_pr_template.md` with the latest Summary/Testing snippets and attach fresh TOA renders.
+- [x] **CSL schema & metadata validation.**
+  - [x] Run the CSL schema validator across every `.csl` file in `temp/` and capture the command/output in `temp/test-logs/run-history.log`.
+- [x] **Locale packaging decision.**
+  - [x] Inline the Greenbook-specific terms in each style and drop `temp/locales/locales-en-US-x-texas-greenbook.xml` to match upstream packaging expectations.
+- [x] **Documentation sweep.**
+  - [x] Add the input mapping and TOA usage guidance to `temp/README.md` (with Greenbook page cites).
+  - [x] Update `temp/PR_DRAFT.md` to summarize the TOA alignment changes and note the new `page-first` requirement.
+- [x] **Final regression sweep.**
+  - [x] Re-run notes, parenthetical, short-form smoke, and every TOA variant; append the results to `temp/test-logs/run-history.log` and refresh expectations as needed.
+
 ## Newly identified follow-ups
 - [x] **Parenthetical restatement expectations** (`2025-11-04T19:01Z` opened)
   - [x] Compare the current `tests_parentheticals.json` Jenkins fixture output with `temp/expected_parentheticals_notes.txt` to confirm the restated cite (`Jenkins, No. 03-13-0632-CR …`) is intentional after the short-form guardrails landed.【9f9b79†L18-L27】【F:temp/tests_parentheticals.json†L1-L40】

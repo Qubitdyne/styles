@@ -19,7 +19,8 @@
     "grouping": "Supreme Court of Texas Cases",
     "keyword": "01-01",
     "call-number": "Cases",
-    "reviewed-title": "Supreme Court of Texas Cases"
+    "reviewed-title": "Supreme Court of Texas Cases",
+    "page-first": "12, 18"
   },
   {
     "id": "toa_case_crim",
@@ -40,7 +41,8 @@
     "locator": "631",
     "grouping": "Court of Criminal Appeals Cases",
     "keyword": "01-02",
-    "reviewed-title": "Court of Criminal Appeals Cases"
+    "reviewed-title": "Court of Criminal Appeals Cases",
+    "page-first": "22"
   },
   {
     "id": "toa_case_app_mem",
@@ -65,7 +67,8 @@
     "locator": "1",
     "grouping": "Courts of Appeals Cases",
     "keyword": "01-03",
-    "reviewed-title": "Courts of Appeals Cases"
+    "reviewed-title": "Courts of Appeals Cases",
+    "page-first": "27"
   },
   {
     "id": "toa_case_trial",
@@ -86,7 +89,8 @@
     "locator": "42",
     "grouping": "Trial Courts and Original Proceedings",
     "keyword": "01-04",
-    "reviewed-title": "Trial Courts and Original Proceedings"
+    "reviewed-title": "Trial Courts and Original Proceedings",
+    "page-first": "31"
   },
   {
     "id": "toa_case_us_supreme",
@@ -108,7 +112,8 @@
     "comment": "Appendix B Table of Authorities \u2013 United States Supreme Court heading (Greenbook pp. 239\u2013240).",
     "grouping": "United States Supreme Court Cases",
     "keyword": "01-05",
-    "reviewed-title": "United States Supreme Court Cases"
+    "reviewed-title": "United States Supreme Court Cases",
+    "page-first": "34"
   },
   {
     "id": "toa_case_federal_appellate",
@@ -130,7 +135,8 @@
     "comment": "Appendix B Table of Authorities \u2013 Federal courts of appeals heading (Greenbook p. 240).",
     "grouping": "Federal Courts of Appeals Cases",
     "keyword": "01-06",
-    "reviewed-title": "Federal Courts of Appeals Cases"
+    "reviewed-title": "Federal Courts of Appeals Cases",
+    "page-first": "37"
   },
   {
     "id": "toa_case_federal_district",
@@ -153,7 +159,8 @@
     "comment": "Appendix B Table of Authorities \u2013 Federal district courts and specialized tribunals heading (Greenbook p. 240).",
     "grouping": "Federal District Courts and Specialized Tribunals",
     "keyword": "01-07",
-    "reviewed-title": "Federal District Courts and Specialized Tribunals"
+    "reviewed-title": "Federal District Courts and Specialized Tribunals",
+    "page-first": "41"
   },
   {
     "id": "toa_constitution",
@@ -166,7 +173,8 @@
     "grouping": "Texas Constitution",
     "keyword": "02-01",
     "call-number": "Statutes and Constitutional Provisions",
-    "reviewed-title": "Texas Constitution"
+    "reviewed-title": "Texas Constitution",
+    "page-first": "45"
   },
   {
     "id": "toa_statute_tax_code_2606a",
@@ -177,7 +185,8 @@
     "comment": "Greenbook ch. 10 pp. 44\u201345 \u2013 tax rate election notice requirement.",
     "grouping": "Texas Statutes",
     "keyword": "02-02",
-    "reviewed-title": "Texas Statutes"
+    "reviewed-title": "Texas Statutes",
+    "page-first": "47"
   },
   {
     "id": "toa_statute_govt_code_3110211",
@@ -188,7 +197,8 @@
     "jurisdiction": "us:tx",
     "comment": "Greenbook ch. 10 p. 48 \u2013 construction statute interpretive presumption.",
     "grouping": "Texas Statutes",
-    "keyword": "02-02"
+    "keyword": "02-02",
+    "page-first": "49"
   },
   {
     "id": "toa_constitution_us",
@@ -200,7 +210,8 @@
     "comment": "Appendix B Table of Authorities \u2013 United States Constitution heading (Greenbook p. 244).",
     "grouping": "United States Constitution",
     "keyword": "02-03",
-    "reviewed-title": "United States Constitution"
+    "reviewed-title": "United States Constitution",
+    "page-first": "51"
   },
   {
     "id": "toa_statute_us_code",
@@ -212,7 +223,8 @@
     "comment": "Appendix B Table of Authorities \u2013 United States Code heading (Greenbook pp. 245\u2013246).",
     "grouping": "United States Code",
     "keyword": "02-04",
-    "reviewed-title": "United States Code"
+    "reviewed-title": "United States Code",
+    "page-first": "55"
   },
   {
     "id": "toa_admin_code_9_12",
@@ -233,7 +245,8 @@
     "grouping": "Texas Administrative Code",
     "keyword": "03-01",
     "call-number": "Rules and Regulations",
-    "reviewed-title": "Texas Administrative Code"
+    "reviewed-title": "Texas Administrative Code",
+    "page-first": "60"
   },
   {
     "id": "toa_admin_code_25_101",
@@ -253,7 +266,8 @@
     "jurisdiction": "us:tx",
     "comment": "Greenbook ch. 16 p. 81 \u2013 ERCOT emergency reliability rule.",
     "grouping": "Texas Administrative Code",
-    "keyword": "03-01"
+    "keyword": "03-01",
+    "page-first": "62"
   },
   {
     "id": "toa_admin_code_3_5",
@@ -266,7 +280,8 @@
     "jurisdiction": "us:tx",
     "comment": "Greenbook ch. 16 p. 82 \u2013 ethics commission disclosure rule.",
     "grouping": "Texas Administrative Code",
-    "keyword": "03-01"
+    "keyword": "03-01",
+    "page-first": "64"
   },
   {
     "id": "toa_register_39_tex_reg_573",
@@ -287,7 +302,8 @@
     "comment": "Greenbook ch. 16 p. 83 \u2013 Texas Register contested case notice heading.",
     "grouping": "Texas Register",
     "keyword": "03-02",
-    "reviewed-title": "Texas Register"
+    "reviewed-title": "Texas Register",
+    "page-first": "66, 68"
   },
   {
     "id": "toa_rule_trcp_97d",
@@ -299,7 +315,8 @@
     "comment": "Greenbook ch. 13 p. 64 \u2013 counterclaim pleading rule.",
     "grouping": "Texas Rules",
     "keyword": "03-03",
-    "reviewed-title": "Texas Rules"
+    "reviewed-title": "Texas Rules",
+    "page-first": "70"
   },
   {
     "id": "toa_rule_trcp_21",
@@ -310,7 +327,8 @@
     "jurisdiction": "us:tx",
     "comment": "Greenbook ch. 13 p. 62 \u2013 service and filing rule short cite.",
     "grouping": "Texas Rules",
-    "keyword": "03-03"
+    "keyword": "03-03",
+    "page-first": "71"
   },
   {
     "id": "toa_rule_federal",
@@ -322,7 +340,8 @@
     "comment": "Appendix B Table of Authorities \u2013 Federal Rules heading (Greenbook p. 246).",
     "grouping": "Federal Rules",
     "keyword": "03-04",
-    "reviewed-title": "Federal Rules"
+    "reviewed-title": "Federal Rules",
+    "page-first": "72"
   },
   {
     "id": "toa_regulation_cfr",
@@ -342,7 +361,8 @@
     "comment": "Appendix B Table of Authorities \u2013 Code of Federal Regulations heading (Greenbook pp. 247\u2013248).",
     "grouping": "Code of Federal Regulations",
     "keyword": "03-05",
-    "reviewed-title": "Code of Federal Regulations"
+    "reviewed-title": "Code of Federal Regulations",
+    "page-first": "75"
   },
   {
     "id": "toa_federal_register_80_fr_56577",
@@ -365,7 +385,8 @@
     "comment": "Appendix B Table of Authorities \u2013 Federal Register heading (Greenbook pp. 247\u2013248).",
     "grouping": "Federal Register",
     "keyword": "03-06",
-    "reviewed-title": "Federal Register"
+    "reviewed-title": "Federal Register",
+    "page-first": "78"
   },
   {
     "id": "toa_session_law",
@@ -381,7 +402,8 @@
     "grouping": "Session Laws",
     "keyword": "04-01",
     "call-number": "Session Laws",
-    "reviewed-title": "Session Laws"
+    "reviewed-title": "Session Laws",
+    "page-first": "80"
   },
   {
     "id": "toa_ag_opinion",
@@ -399,7 +421,8 @@
     "grouping": "Attorney General Opinions",
     "keyword": "05-01",
     "call-number": "Other Authorities",
-    "reviewed-title": "Attorney General Opinions"
+    "reviewed-title": "Attorney General Opinions",
+    "page-first": "82"
   },
   {
     "id": "toa_municipal",
@@ -418,7 +441,8 @@
     "jurisdiction": "us:tx",
     "grouping": "Municipal Ordinances",
     "keyword": "05-02",
-    "reviewed-title": "Municipal Ordinances"
+    "reviewed-title": "Municipal Ordinances",
+    "page-first": "85"
   },
   {
     "id": "toa_secondary",
@@ -444,6 +468,7 @@
     "abstract": "secondary authority entry",
     "grouping": "Secondary Authorities",
     "keyword": "05-03",
-    "reviewed-title": "Secondary Authorities"
+    "reviewed-title": "Secondary Authorities",
+    "page-first": "90"
   }
 ]

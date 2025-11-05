@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0.2" class="note" default-locale="en-US">
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="note" default-locale="en-US">
   <info>
     <title>Texas Greenbook (15th ed.)</title>
     <title-short>Tex. Greenbook</title-short>
     <id>http://www.zotero.org/styles/texas-greenbook-15th-edition</id>
     <link rel="self" href="http://www.zotero.org/styles/texas-greenbook-15th-edition"/>
     <link rel="template" href="http://www.zotero.org/styles/bluebook-law-review"/>
-    <link rel="documentation" href="https://www.txcourts.gov/rules-forms/rules-standards/"/>
+    <link rel="documentation" href="https://www.txcourts.gov/rules-forms/texas-style-manual/"/>
     <author>
       <name>Qubitdyne, Inc.</name>
     </author>
     <category citation-format="note"/>
     <category field="law"/>
-    <updated>2026-01-18T00:00:00+00:00</updated>
+    <updated>2025-11-04T21:33:24+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This style is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
 
@@ -94,31 +94,44 @@
     </choose>
   </macro>
 
-  <macro name="tex-labeled-locator">
-    <choose>
-      <if locator="section paragraph" match="any">
-        <group delimiter=" ">
-          <label variable="locator" form="symbol"/>
+    <macro name="tex-labeled-locator">
+      <choose>
+        <if locator="section paragraph" match="any">
+          <group delimiter=" ">
+            <label variable="locator" form="symbol"/>
+            <text variable="locator"/>
+          </group>
+        </if>
+        <else-if locator="rule" match="any">
+          <group delimiter=" ">
+            <label variable="locator" form="short"/>
+            <text variable="locator"/>
+          </group>
+        </else-if>
+        <else-if type="regulation" match="any">
+          <choose>
+            <if variable="section">
+              <group delimiter=" ">
+                <text term="section" form="symbol"/>
+                <text variable="section"/>
+              </group>
+            </if>
+            <else>
+              <text variable="locator"/>
+            </else>
+          </choose>
+        </else-if>
+        <else-if locator="article-locator chapter part title-locator volume" match="any">
+          <group delimiter=" ">
+            <label variable="locator" form="short"/>
+            <text variable="locator"/>
+          </group>
+        </else-if>
+        <else>
           <text variable="locator"/>
-        </group>
-      </if>
-      <else-if locator="rule regulation" match="any">
-        <group delimiter=" ">
-          <label variable="locator" form="short"/>
-          <text variable="locator"/>
-        </group>
-      </else-if>
-      <else-if locator="article chapter part title volume" match="any">
-        <group delimiter=" ">
-          <label variable="locator" form="short"/>
-          <text variable="locator"/>
-        </group>
-      </else-if>
-      <else>
-        <text variable="locator"/>
-      </else>
-    </choose>
-  </macro>
+        </else>
+      </choose>
+    </macro>
 
   <macro name="ibid-locator">
     <choose>
@@ -346,24 +359,26 @@
           </choose>
           <choose>
             <if variable="volume container-title page" match="all">
-              <choose>
-                <if type="regulation" match="none">
-                  <group delimiter=" ">
-                    <text variable="volume"/>
-                    <text variable="container-title"/>
-                    <text variable="page"/>
-                  </group>
-                </if>
-                <else-if type="regulation" match="any">
-                  <if variable="section">
+                <choose>
+                  <if type="regulation" match="none">
                     <group delimiter=" ">
                       <text variable="volume"/>
                       <text variable="container-title"/>
                       <text variable="page"/>
                     </group>
                   </if>
-                </else-if>
-              </choose>
+                  <else-if type="regulation" match="any">
+                    <choose>
+                      <if variable="section">
+                        <group delimiter=" ">
+                          <text variable="volume"/>
+                          <text variable="container-title"/>
+                          <text variable="page"/>
+                        </group>
+                      </if>
+                    </choose>
+                  </else-if>
+                </choose>
             </if>
           </choose>
           <choose>
@@ -552,48 +567,19 @@
     <text macro="subsequent-history"/>
   </macro>
 
-  <macro name="cross-reference-cue">
-    <choose>
-      <if variable="annote">
-        <text value=""/>
-      </if>
-      <else-if variable="note">
-        <text variable="note" text-case="capitalize-first"/>
-      </else-if>
-      <else-if type="legal_case">
-        <choose>
-          <if variable="jurisdiction" value="us:tx" match="any">
-            <text value="See"/>
-          </if>
-          <else-if variable="jurisdiction">
-            <text value="See also"/>
-          </else-if>
-          <else>
-            <text value="See"/>
-          </else>
-        </choose>
-      </else-if>
-      <else-if type="legislation regulation" match="any">
-        <choose>
-          <if variable="jurisdiction" value="us:tx" match="any">
-            <text value="See"/>
-          </if>
-          <else-if variable="jurisdiction">
-            <text value="See also"/>
-          </else-if>
-          <else-if variable="collection-title" value="non-texas" match="any">
-            <text value="See also"/>
-          </else-if>
-          <else>
-            <text value="See"/>
-          </else>
-        </choose>
-      </else-if>
-      <else>
-        <text value="See"/>
-      </else>
-    </choose>
-  </macro>
+    <macro name="cross-reference-cue">
+      <choose>
+        <if variable="annote">
+          <text value=""/>
+        </if>
+        <else-if variable="note">
+          <text variable="note" text-case="capitalize-first"/>
+        </else-if>
+        <else>
+          <text value="See"/>
+        </else>
+      </choose>
+    </macro>
 
   <macro name="tex-code-section">
     <group delimiter=" ">
@@ -1501,7 +1487,7 @@
             <else-if variable="genre chapter-number" match="all">
               <text macro="tex-constitution"/>
             </else-if>
-            <else-if variable="genre" value="court rule">
+            <else-if variable="genre" match="any">
               <text macro="tex-rule"/>
             </else-if>
             <else>
