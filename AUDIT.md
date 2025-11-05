@@ -162,3 +162,26 @@
 
 ## Next Steps
 - Refresh the parenthetical expectations (note and bibliography variants) using `--write-expected` once the restated output is confirmed against Greenbook Chapter 4 guidance, then archive the before/after logs per the new TODO checklist.【F:temp/TODO.md†L5-L18】
+
+# Texas Greenbook CSL Audit — 2025-11-04T00:10Z
+
+## Scope & Materials Reviewed
+- Walked `temp/README.md`, `temp/TODO.md`, and `temp/NOTES.md` to confirm the active backlog, documentation promises, and research threads still mirror the current project status before running QA.【F:temp/README.md†L1-L120】【F:temp/TODO.md†L1-L80】【F:temp/NOTES.md†L1-L40】
+- Inspected `temp/test-logs/run-history.log` to verify the automated ledger reflects recent regression activity and to gauge whether additional housekeeping is required.【F:temp/test-logs/run-history.log†L87-L96】
+
+## QA Activities
+- Ran the primary note regression suite with `texas-greenbook-15th-edition.csl`; all 94 fixtures matched expectations.【4dc508†L1-L210】
+- Executed the parenthetical suites in note and bibliography modes to confirm Jenkins restatement behavior and bibliography alignment remain stable.【98309f†L1-L56】【d51acc†L1-L36】
+- Exercised the short-form smoke diagnostics to reconfirm restated statutes, rules, constitution, session laws, AG opinions, and municipal ordinances all pass.【736415†L1-L60】
+- Validated every Table of Authorities variant (grouped-leaders note-mode render plus all bibliography-mode layouts) against the regenerated Appendix B expectations.【3fb4c7†L1-L120】【2af96c†L1-L120】【046c5c†L1-L120】【7cb6a6†L1-L120】【5d4b9c†L1-L120】
+
+## Findings & Root Causes
+1. **Run-history ledger stale:** The automated `temp/test-logs/run-history.log` trail stops at 2025-11-05, so the most recent QA sweeps lack timestamped entries despite the README promising up-to-date logs. The gap stems from not capturing fresh runs after the 2025 regression push; future sessions must refresh the ledger before filing the upstream PR.【F:temp/test-logs/run-history.log†L87-L96】【F:temp/README.md†L97-L120】
+2. **PR checklist lacked actionable breakdown:** The remaining open PR task only referenced filling the submission template, leaving no guidance on archiving diffs, attaching regression evidence, or reconciling metadata. This ambiguity risked skipping required packaging steps; the TODO now enumerates the missing subtasks.【F:temp/TODO.md†L6-L11】
+
+## Housekeeping & Documentation Updates
+- Expanded the PR readiness checklist in `temp/TODO.md` with granular subtasks covering diff snapshots, log attachments, ledger verification, and metadata checks, ensuring the lone open item is executable.【F:temp/TODO.md†L6-L11】
+- Logged a new follow-up in `temp/TODO.md` to refresh `run-history.log` with the latest regression runs and archive the supporting artifacts so the ledger matches current QA results.【F:temp/TODO.md†L23-L27】
+
+## Next Steps
+- Complete the run-history refresh tasks (rerun the regression suites, confirm the ledger entries, and archive outputs) before drafting the upstream PR submission.【F:temp/TODO.md†L23-L27】
